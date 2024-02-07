@@ -13,7 +13,7 @@ const Banner = ({imageUrl}) =>
     return (
         <>
         {
-            !imageURL ?
+            imageURL ?
             <div 
             className = {styles.bannerContainer}
             style = {{ backgroundImage: `url(${imageURL})`, objectFit: "contain", objectPosition: "right" }}

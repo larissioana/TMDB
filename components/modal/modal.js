@@ -2,6 +2,7 @@ import ReactModal from "react-modal";
 import styles from './modal.module.css';
 import ReactPlayer from "react-player";
 import CloseIcon from '@mui/icons-material/Close';
+import Loading from "../loading/loading";
 
 const Modal = ({isOpen, onClose, videoTrailer }) =>
 {
@@ -25,12 +26,17 @@ const Modal = ({isOpen, onClose, videoTrailer }) =>
                 const { key, id, name } = video;
                 return <div key = {id} className = {styles.videoContainer}>
                     <CloseIcon className = {styles.closeIcon} onClick = {onClose}/>
-                    <ReactPlayer
-                    controls
-                    className = {styles.reactPlayer}
-                    url = {`https://www.youtube.com/watch?v=${key}`}
-                   />
-                    <h3 className = {styles.name}>{name}</h3>
+                    { key && name ?
+                    <>
+                        <ReactPlayer
+                        controls
+                        className = {styles.reactPlayer}
+                        url = {`https://www.youtube.com/watch?v=${key}`}
+                    />
+                        <h3 className = {styles.name}>{name}</h3>
+                    </>
+                    : <Loading/>
+                    }
                 </div>
             })[0]
         }

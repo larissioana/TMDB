@@ -65,18 +65,18 @@ const SignUp = () =>
         <Head>
             <title>SignUp</title>
         </Head>
-        <div className={styles.container}>
-            <form className={styles.main} onSubmit={handleOnSubmit}>
-                <div className={styles.mainWrapper}>
-                  <h1 className={styles.title}>Sign Up</h1>
-                  <p className={styles.text}>Already subscribed to Movies?</p>
-                  <p className={styles.text2} onClick={() => router.push('/auth/login')}>Sign In</p>
-                    <div className={styles.signIn}>
-                        <FormInput required onChange={handleOnChange} name='name' value={name} type='text' className={styles.input} placeholder="Name - Surname"/>
-                        <FormInput required onChange={handleOnChange} name='email' value={email} type='email' className={styles.input} placeholder="Email"/>
-                        <FormInput required  onChange={handleOnChange} name='password' value={password} type='password' className={styles.input}  placeholder='Password'/>
-                        <p className={styles.userMsg}>{userMsg}</p>
-                        <button className={styles.loginBtn}> Sign up</button>
+        <div className = {styles.container}>
+            <form className = {styles.main} onSubmit = {handleOnSubmit}>
+                <div className = {styles.mainWrapper}>
+                  <h1 className ={ styles.title}>Sign Up</h1>
+                  <p className = {styles.text}>Already subscribed to Movies?</p>
+                  <p className = {styles.text2} onClick = {() => router.push('/auth/login')}>Sign In</p>
+                    <div className = {styles.signIn}>
+                        <FormInput required onChange = {handleOnChange} name = 'name' value = {name} type = 'text' className = {styles.input} placeholder = "Name - Surname"/>
+                        <FormInput required onChange = {handleOnChange} name = 'email' value = {email} type =' email' className = {styles.input} placeholder = "Email"/>
+                        <FormInput required  onChange = {handleOnChange} name = 'password' value = {password} type = 'password' className = {styles.input}  placeholder = 'Password'/>
+                        <p className = {styles.userMsg}>{userMsg}</p>
+                        <button className = {styles.loginBtn}> Sign up</button>
                     </div>
                 </div>
             </form>

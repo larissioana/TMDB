@@ -62,17 +62,17 @@ const Login = () =>
           <Head>
               <title>SignIn</title>
           </Head>
-          <div className={styles.container}>
-            <form  onSubmit={handleOnSubmit} className={styles.main}>
-              <div className={styles.mainWrapper}>
-                <h1 className={styles.title}>Sign In</h1>
-                <p className={styles.text}>Don't have an account?</p>
-                <p className={styles.text2} onClick={() => router.push('/auth/signUp')}>Register </p>
-                <div className={styles.signIn}>
-                  <FormInput required type='email' onChange={handleOnChange} className={styles.input} placeholder="Email" name='email' value={email}/>
-                  <FormInput required type='password' onChange={handleOnChange} className={styles.input} placeholder="Password" name='password' value={password}/>
-                  <p className={styles.userMsg}>{userMsg}</p>
-                  <button className={styles.loginBtn}>Sign in</button>
+          <div className = {styles.container}>
+            <form onSubmit = {handleOnSubmit} className={styles.main}>
+              <div className = {styles.mainWrapper}>
+                <h1 className = {styles.title}>Sign In</h1>
+                <p className = {styles.text}>Don't have an account?</p>
+                <p className = {styles.text2} onClick = {() => router.push('/auth/signUp')}>Register </p>
+                <div className = {styles.signIn}>
+                  <FormInput required type = 'email' onChange = {handleOnChange} className = {styles.input} placeholder = "Email" name = 'email' value = { email}/>
+                  <FormInput required type = 'password' onChange = {handleOnChange} className ={ styles.input} placeholder = "Password" name = 'password' value = {password}/>
+                  <p className = {styles.userMsg}>{userMsg}</p>
+                  <button className = {styles.loginBtn}>Sign in</button>
                 </div>
               </div>
             </form>
