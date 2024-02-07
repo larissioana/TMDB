@@ -18,7 +18,7 @@ const Login = () =>
   const [userMsg, setUserMsg] = useState('');
   const [formFields, setFormFields] = useState(initialFormFields);
   const {email, password} = formFields;
-  const {setCurrentUser} = useContext(UserContext);
+  const {setCurrentUser, currentUser} = useContext(UserContext);
 
   const handleOnSubmit = async (event) =>
   {

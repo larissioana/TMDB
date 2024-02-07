@@ -14,9 +14,10 @@ const FeedMovies = ({isButtonActive, handleButtonChange}) =>
             gap: "1rem",
             alignItems: "center",
             width: "100%",
+            marginTop: "1rem"
         }}
         >
-            <h2 style ={{color: "white"}}>What's new</h2>
+            <h2 style ={{color: "white", fontSize: "clamp(1.1rem, 2vw, 2rem)"}}>What's new</h2>
             <div
                 className = {styles.moviesCategoriesContainer}
             >

@@ -64,14 +64,14 @@ a:hover
 
 ::-webkit-scrollbar
 {
-    width: 5px;
+    height: 8px;
+    width: 8px;
 }
   
 ::-webkit-scrollbar-thumb
 {
-    background-color: hwb(0 22% 76%);
-    border-radius: 5px;
-    height: 20px;
+    background-color: rgb(61, 12, 48);
+    border-radius: 30px;
 }
   
 ::-webkit-scrollbar-track
@@ -227,5 +227,11 @@ li
     .search-bar
     {
       width: 160px;
+    }
+
+    .feedContainer
+    {
+      display: flex;
+      flex-direction: column;
     }
 }

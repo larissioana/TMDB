@@ -34,23 +34,25 @@ const Feed = () =>
 
     return (
         <div>
-            <div style = 
-                {{
-                    display: "flex",
-                    alignItems: "center",
-                }}
-            >
-                <Sidebar/>
-                <div style =
-                {{
-                    width: "100%"
-                }}>
-                    {
-                        upcomingMovies.map((movie, index) => {
-                            const {backdrop_path} = movie;
-                            return index === 4 ? <Banner key={index} imageUrl={backdrop_path} /> : null;
-                        })
-                    }
+            <div className = "feedContainer">
+                <div style = 
+                    {{
+                        display: "flex",
+                        alignItems: "center",
+                    }}
+                >
+                    <Sidebar/>
+                    <div style =
+                    {{
+                        width: "100%"
+                    }}>
+                        {
+                            upcomingMovies.map((movie, index) => {
+                                const {backdrop_path} = movie;
+                                return index === 1 ? <Banner key={index} imageUrl={backdrop_path} /> : null;
+                            })
+                        }
+                    </div>
                 </div>
             </div>
             <div style = {{

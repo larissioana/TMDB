@@ -41,6 +41,7 @@ const Sidebar = () =>
             padding: "1rem",
             width: "10rem",
         }}
+        className = "sidebar"
         >
             <button 
                 className = "navBtn"
