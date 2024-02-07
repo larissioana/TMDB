@@ -116,7 +116,7 @@ const Sidebar = () =>
                 className = "navBtn"
                 onClick = {() => handleGenres(10402)}
             >
-                <MusicNoteIcon/>
+                <MusicNoteIcon className = "icon"/>
                 Music
             </button>
             <button 
@@ -130,7 +130,7 @@ const Sidebar = () =>
                 className = "navBtn"
                 onClick = {() =>handleGenres(35)}
             >
-                <TheaterComedyIcon/>
+                <TheaterComedyIcon className = "icon"/>
                 Theater
             </button>
         </div>
