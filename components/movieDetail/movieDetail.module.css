@@ -1,0 +1,198 @@
+
+.movieContent
+{
+  min-height: 80vh;
+  object-position: top;
+  border-radius: 1rem;
+}
+
+.movieDetailContainer
+{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+}
+
+.flexContainer
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background: rgba(21, 20, 20, 0.7);
+  padding: 7rem 2rem;
+  border-radius: 1rem;
+  border: 1px solid var(--shadow20);
+  min-height: 80vh;
+}
+
+.col1, .col2
+{
+  flex: 1;
+}
+
+.col2
+{
+  padding-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title
+{
+  font-size: clamp(1rem, 2vw, 2rem);
+  margin-bottom: .4rem;
+}
+
+.releaseDate
+{
+  color: rgb(106, 132, 186);
+  filter: hue-rotate(90deg);
+  font-size: clamp(.9rem, 2vw, 1.1rem);
+  margin-bottom: .5rem;
+  font-weight: bolder;
+}
+
+.language
+{
+  text-transform: uppercase;
+}
+
+.genresList
+{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1rem;
+    margin-top: .5rem;
+    color: rgb(236, 117, 175);
+}
+
+.description
+{
+  width: 400px;
+  font-size: clamp(.8rem, 2vw, 1rem);
+  margin-top: .6rem;
+}
+
+.posterPath
+{
+ width: 20rem;
+ height: 25rem;
+ object-fit: cover;
+ animation: anim 1s ease-in;
+}
+
+@keyframes anim
+{
+  from 
+  {
+    opacity: 0;
+  }
+  to
+  {
+    opacity: 1;
+  }
+}
+
+.vote
+{
+  margin-top: 1rem;
+  width: 2.8rem;
+  height: 2.8rem;
+  border: 2.5px inset rgb(106, 132, 186) ;
+  display: grid;
+  place-content: center;
+  border-radius: 50%;
+  filter: hue-rotate(90deg);
+}
+
+.text
+{
+  font-size: 1rem;
+}
+
+.tagline
+{
+  font-size: clamp(.9rem, 2vw, 1rem);
+  margin-bottom: 1rem;
+  max-width: 400px;
+}
+
+.btn
+{
+  padding: 1rem 2rem;
+  font-size: .9rem;
+  font-weight: bolder;
+  background-color: var(--red10);
+  border :none;
+  border-radius: 10px 10px 10px 10px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.viewTrailer
+{
+  margin-top: 0rem;
+  font-size: 1.2rem;
+  background: none;
+  border: none;
+  font-weight: bolder;
+  color:rgb(251, 249, 250);
+  padding-left: 1rem;
+}
+
+.playIcon
+{
+  color: rgb(246, 246, 246);
+  font-size: 1.7rem;
+  cursor: pointer;
+}
+
+.recommendationsContainer
+{
+  padding: 0rem 2rem; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 600px)
+{
+    .movieDetailContainer
+    {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: start;
+      gap: 0;
+    }
+}
+
+@media (max-width: 480px)
+{
+  .posterPath
+  {
+    margin-top: 1rem;
+    width: 18rem;
+  }
+
+  .flexContainer
+  {
+    padding: 2rem;
+    display: grid;
+    place-items: center;
+  }
+
+  .col2
+  {
+    padding-left: 0rem;
+  }
+
+  .description
+  {
+    width: 100%;
+  }
+}

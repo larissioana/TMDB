@@ -1,0 +1,43 @@
+.modalContainer
+{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.videoContainer
+{
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    box-shadow: 5px 0px 7px rgb(48, 47, 47);
+    border-radius: 1rem;
+}
+
+.name
+{
+    width: 80%;
+    margin-top: .7rem;
+    text-align: center;
+}
+
+.closeIcon
+{
+    position: absolute;
+    font-size: 3rem;
+    top: -4rem;
+    right: -3rem;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+.closeIcon:hover
+{
+    opacity: .6;
+}

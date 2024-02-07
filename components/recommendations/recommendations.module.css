@@ -1,0 +1,32 @@
+
+.img
+{
+    object-fit: cover;
+    width: 20rem;
+    height:20rem;
+    border-radius: .3rem;
+    object-position: center;
+    box-shadow: 2px 2px 10px 2px rgb(55, 53, 53);
+}
+
+.recommendationsTitle
+{
+    margin-top: 2rem;
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    margin-bottom: 2rem;
+    filter: hue-rotate(90deg);
+    text-align: center;
+}
+
+@media screen and (max-width: 600px)
+{
+    .recommendationsTitle
+    {
+        margin-top: 2rem;
+    }
+
+    .container{
+        padding: 0;
+    }
+
+}

@@ -1,0 +1,10 @@
+.bannerContainer
+{
+    height: 80vh;
+    width: 100%;
+    background-size: cover;
+    background-position: top;
+    display: grid;
+    justify-content: center;
+    align-items: flex-start;
+}
