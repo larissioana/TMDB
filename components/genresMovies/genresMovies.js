@@ -19,8 +19,12 @@ const initialState =
 
 const GenresMovies = () => 
 {
-    const [filteredMovies, setFilteredMovies] = useState(initialState);
-    
+    const [filteredMovies, setFilteredMovies] = useState(() => 
+    {
+      const storedState = localStorage.getItem('filteredMovies');
+      return storedState ? JSON.parse(storedState) : initialState;
+    });
+  
     const { activeGenre } = useMovieContext();
 
     const fetchMovies = async (page, activeGenre) => {
@@ -39,18 +43,17 @@ const GenresMovies = () =>
         }
     };
 
+    useEffect(() =>
+    {
+      setFilteredMovies(initialState);
+      fetchMovies(1, activeGenre);
+    }, [activeGenre]);
+    
     useEffect(() => 
     {
-        setFilteredMovies(initialState);
-        fetchMovies(1, activeGenre)
-    },[])
+       localStorage.setItem('filteredMovies', JSON.stringify(filteredMovies));
+    },[filteredMovies]);
 
-    useEffect(() => {
-        // Fetch movies when active genre changes
-        fetchMovies(1, activeGenre);
-      }, [activeGenre]);
-
-    
     const nextPage = filteredMovies.page + 1;
     const previousPage = filteredMovies.page - 1;
 
