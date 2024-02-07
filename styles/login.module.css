@@ -4,10 +4,20 @@
     width: 100vw;
     place-items: center;
     min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.img
+{
     background-color: var(--black);
     background-image: linear-gradient(rgb(0 0 0 /40%), rgb(0 0 0 /60%)),
     url("../assets/animations.png");
-    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .main

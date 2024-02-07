@@ -66,6 +66,7 @@ const SignUp = () =>
             <title>SignUp</title>
         </Head>
         <div className = {styles.container}>
+            <div className = {styles.img}></div>
             <form className = {styles.main} onSubmit = {handleOnSubmit}>
                 <div className = {styles.mainWrapper}>
                   <h1 className ={ styles.title}>Sign Up</h1>

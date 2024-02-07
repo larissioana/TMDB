@@ -20,7 +20,7 @@ const initialState =
 const GenresMovies = () => 
 {
     const [filteredMovies, setFilteredMovies] = useState(initialState);
-
+    
     const { activeGenre } = useMovieContext();
 
     const fetchMovies = async (page, activeGenre) => {

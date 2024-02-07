@@ -37,7 +37,7 @@
     width: 10rem;
     height: 15rem;
     object-position: top;
-    box-shadow: 5px 2px 2px rgb(42, 39, 39);
+    box-shadow: 2px 0px 2px rgb(17, 17, 17);
     transition: all .7s ease-in-out;
     animation: personAnimation 1s ease-in-out;
 }

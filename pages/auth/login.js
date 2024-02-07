@@ -5,6 +5,8 @@ import {useState, useContext} from "react";
 import { UserContext } from "@/context/userContext";
 import { signinUser } from "@/utils/firebase";
 import FormInput from "@/components/formInput/formInput";
+import Image from "next/image";
+import backgroundimage from '../../assets/animations.png';
 
 const initialFormFields =
 {
@@ -63,6 +65,7 @@ const Login = () =>
               <title>SignIn</title>
           </Head>
           <div className = {styles.container}>
+            <div className = {styles.img}></div>
             <form onSubmit = {handleOnSubmit} className={styles.main}>
               <div className = {styles.mainWrapper}>
                 <h1 className = {styles.title}>Sign In</h1>
