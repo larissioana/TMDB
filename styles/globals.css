@@ -118,6 +118,9 @@ li
     font-size: 18px;
     background: none;
     color: var(-white20);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .search-bar:focus
@@ -128,6 +131,9 @@ li
 .search-bar::placeholder
 {
   color: rgb(244, 244, 244);
+  font-size: clamp(.9rem, 2vw, 1rem);
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .card-media:hover
