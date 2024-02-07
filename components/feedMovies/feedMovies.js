@@ -16,7 +16,7 @@ const FeedMovies = ({isButtonActive, handleButtonChange}) =>
             width: "100%",
         }}
         >
-            <h2>What's new</h2>
+            <h2 style ={{color: "white"}}>What's new</h2>
             <div
                 className = {styles.moviesCategoriesContainer}
             >
@@ -35,7 +35,7 @@ const FeedMovies = ({isButtonActive, handleButtonChange}) =>
                     className = {styles.moviesCategoriesBtn}
                     style =
                     {{
-                        color: isButtonActive === "Top Rated" ? "#BE6E9A" : ""
+                        color: isButtonActive === "Top Rated" ? "#BE6E9A" : "white"
                     }}
                 >
                     Top Rated
@@ -45,7 +45,7 @@ const FeedMovies = ({isButtonActive, handleButtonChange}) =>
                     className = {styles.moviesCategoriesBtn}
                     style =
                     {{
-                        color: isButtonActive === "Upcoming" ? "#BE6E9A" : ""
+                        color: isButtonActive === "Upcoming" ? "#BE6E9A" : "white"
                     }}
                 >
                     Upcoming

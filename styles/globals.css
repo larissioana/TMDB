@@ -154,6 +154,7 @@ li
   align-items: center;
   justify-content: flex-start;
   gap: .5rem;
+  color: var(--white20);
 }
 
 .navBtn:hover

@@ -46,7 +46,8 @@ const NavigationBar = () =>
                     display: "flex",
                     alignItems: "center",
                     gap: "1rem",
-                    fontSize: "clamp(.9rem, 2vw, 1.2rem)"
+                    fontSize: "clamp(.9rem, 2vw, 1.2rem)",
+                    color: "white"
                 }}
             >
                 Home
@@ -58,7 +59,8 @@ const NavigationBar = () =>
                     display: "flex",
                     alignItems: "center",
                     fontSize: "clamp(.9rem, 2vw, 1.2rem)",
-                    marginLeft: "1rem"
+                    marginLeft: "1rem",
+                    color: "white"
                 }} 
                     href='/auth/login'>
                         Sign in
@@ -69,7 +71,8 @@ const NavigationBar = () =>
                     display: "flex",
                     alignItems: "center",
                     fontSize: "clamp(.9rem, 2vw, 1.2rem)",
-                    marginLeft: "1rem"
+                    marginLeft: "1rem",
+                    color: "white"
                 }}
                     href='/auth/login'
                     onClick = {handleSignOut}>

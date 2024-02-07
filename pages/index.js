@@ -11,10 +11,9 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Netflix</title>
-        <meta name="description" content="Netflix clone app" />
+        <title>TMDB</title>
+        <meta name="description" content="TMDB" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/netflix.png" />
       </Head>
       <NavigationBar/>
       <Feed/>
