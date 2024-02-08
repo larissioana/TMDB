@@ -55,7 +55,7 @@ const ActorDetails = ({ actorDetails, person }) =>
                                 width = '300' 
                                 height = '300' 
                                 alt = {name}
-                                loading = "lazy"
+                                loading = "eager"
                             />
                            
                         </div>
@@ -103,7 +103,7 @@ const ActorDetails = ({ actorDetails, person }) =>
                                 width = "200"
                                 height = "200"
                                 alt = "actor"
-                                loading = "lazy"
+                                loading = "eager"
                                 />
                             </div>
                             );
@@ -124,7 +124,7 @@ const ActorDetails = ({ actorDetails, person }) =>
                         width = "600"
                         height = "600"
                         alt = "actor"
-                        loading = "lazy"
+                        loading = "eager"
                         />
                     </Modal>
                 </div>

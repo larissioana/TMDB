@@ -3,8 +3,9 @@ import { CardContent, Typography } from '@mui/material';
 import Link from 'next/link';
 import { IMAGE_URL_SMALL, IMAGE_URL } from '@/utils/fetchFromAPI';
 import { motion, AnimatePresence } from 'framer-motion';
+import Loading from '../loading/loading';
 
-const MovieCard = ({movies = []}) =>
+const MovieCard = ({movies = [], isLoading}) =>
 {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -18,14 +19,11 @@ const MovieCard = ({movies = []}) =>
     poster_path, 
     original_title, 
     release_date,
-    backdrop_path,
     id
   } = movies;
 
   const imageUrl = `${IMAGE_URL_SMALL}` + poster_path;
-  const imageUrlBackdrop = `${IMAGE_URL}` + backdrop_path;
-
-  const shouldRenderCard = imageUrl !== null || imageUrlBackdrop !== null;
+  const shouldRenderCard = imageUrl !== null;
   const inputDate = release_date;
   const formattedDate = new Date(inputDate).toLocaleDateString("en-US",
     {
@@ -34,13 +32,13 @@ const MovieCard = ({movies = []}) =>
     year: "numeric" 
     });
 
-  return shouldRenderCard ? (
+  return shouldRenderCard  && !isLoading ? (
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0.7, y: 0 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
+          exit={{ opacity: 0.8, y: -200 }}
           key={id}
           transition={{ staggerChildren: 1, delayChildren: 1 }}
         >
@@ -93,7 +91,7 @@ const MovieCard = ({movies = []}) =>
         </motion.div>
       )}
     </AnimatePresence>
-  ) : null; 
+  ) : <Loading/>; 
 };
 
 export default MovieCard;

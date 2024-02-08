@@ -22,12 +22,12 @@
 @keyframes personAnimation
 {
     0%{
-        opacity: 0;
+        opacity: 0.8;
     }
 
     100%
     {
-        opacity: 1
+        opacity: 1;
     }
 }
 
@@ -112,8 +112,8 @@
 {
     background: none;
     cursor: pointer;
-    border-bottom: 2px solid rgb(169, 7, 238);
-    border-right: 2px solid rgb(169, 7, 238);
+    border-bottom: 2px solid rgb(145, 67, 122);
+    border-right: 2px solid rgb(153, 23, 110);
     border-top: 0;
     border-left: 0;
     color: var(--white10);
@@ -165,6 +165,7 @@
 {
     filter: grayscale(100%);
 }
+
 @media (max-width: 1160px)
 {
 .container

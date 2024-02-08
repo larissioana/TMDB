@@ -96,7 +96,7 @@ const MovieDetail = ({
                                 height = '400' 
                                 alt = {title} 
                                 className = {styles.posterPath}
-                                loading = "lazy"
+                                loading = "eager"
                             />
                             :
                             <Image 

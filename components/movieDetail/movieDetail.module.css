@@ -4,6 +4,7 @@
   min-height: 80vh;
   object-position: top;
   border-radius: 1rem;
+  animation: anim .6s ease-in;
 }
 
 .movieDetailContainer
@@ -82,7 +83,7 @@
  width: 20rem;
  height: 25rem;
  object-fit: cover;
- animation: anim 1s ease-in;
+ animation: anim .6s ease-in;
 }
 
 @keyframes anim

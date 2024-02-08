@@ -21,11 +21,14 @@ const initialState =
 const GenresMovies = () => 
 {
     const [filteredMovies, setFilteredMovies] = useState(initialState);
-  
+    const [isLoading, setIsLoading] = useState(false);
+
     const { activeGenre } = useMovieContext();
 
     const fetchMovies = async (page, activeGenre) => {
-        try {
+        try 
+          {
+            setIsLoading(true);
             const movies = await fetchAPIFilteredMovies(page, activeGenre);
             setFilteredMovies((prev) =>
             {
@@ -35,9 +38,12 @@ const GenresMovies = () =>
                 }
                 
             });
-        } catch (error) {
+            setIsLoading(false);
+          } catch (error)
+          {
             console.error('Error fetching data:', error);
-        }
+            setIsLoading(false);
+          }
     };
 
     useEffect(() =>
@@ -56,6 +62,7 @@ const GenresMovies = () =>
       {
         try 
           {
+            setIsLoading(true);
             const movies = await fetchAPIFilteredMovies(newPage, activeGenre);
             setFilteredMovies(
             {
@@ -63,12 +70,13 @@ const GenresMovies = () =>
               results: movies.results,
               total_pages: movies.total_pages,
               total_results: movies.total_results
-            }
-            )
-              window.scrollTo(0, 0)
+            })
+              setIsLoading(false);
+              window.scrollTo(0, 0);
             } catch (error)
               {
-                console.log('Api error', error)
+                console.log('Api error', error);
+                setIsLoading(false);
               }
           }
       }
@@ -76,7 +84,6 @@ const GenresMovies = () =>
   return (
     <div>
         <NavigationBar/>
-       
         <div className = {styles.wrapper} 
             >
                 <Sidebar/>
@@ -87,13 +94,13 @@ const GenresMovies = () =>
                 }}
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -70 }}
+                exit = {{ opacity: 0, y: -200 }}
                 
                 >
                     {
                         filteredMovies.results.map((movie, index) => {
                             const {backdrop_path} = movie;
-                            return index === 4 ? <Banner key={index} imageUrl={backdrop_path} /> : null;
+                            return index === 4 ? <Banner key={index} isLoading = {isLoading} imageUrl={backdrop_path} /> : null;
                         })
                     }
                 </motion.div>

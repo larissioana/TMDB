@@ -17,12 +17,15 @@ const initialState =
 const Search = () =>
 {
   const [searchedMovies, setSearchedMovies] = useState(initialState);
+  const [isLoading, setIsLoading] = useState(false);
+
   const router = useRouter();
   const { query } = router.query;
 
   const getMovies = async (page, query) =>
   {
     try {
+      setIsLoading(true);
       const searchMovie = await fetchAPISearch(query, page);
   
       setSearchedMovies((prev) => {
@@ -31,9 +34,11 @@ const Search = () =>
           results: page > 1 ? [...prev.results, ...searchMovie.results] : [...searchMovie.results],
         };
       });
+      setIsLoading(false);
     } catch (error)
     {
       console.error('Api error', error);
+      setIsLoading(false);
     }
   };
 
@@ -98,7 +103,7 @@ const Search = () =>
       >
         {searchedMovies.results.map((movie) => (
           <div key ={ movie.id}>
-            <MovieCard movies = {movie} query = {query} />
+            <MovieCard movies = {movie} query = {query} isLoading = {isLoading} />
           </div>
         ))}
       </div>

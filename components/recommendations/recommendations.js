@@ -13,7 +13,7 @@ const Recommendations = ({recommendations}) =>
     <div>
         {!results &&
         <>
-        <h3 className = {styles.recommendationsTitle}>Recommendations</h3>
+        <h3 className = {styles.recommendationsTitle}>You might also like</h3>
         <div style = {{
           display: "flex",
           flexWrap: "wrap",

@@ -39,14 +39,14 @@ body
   overflow-x: hidden;
   font-family: "Roboto Slab",serif;
   background-color: var(--black);
-  color: #ebebeb;
+  color: var(--white20);
 }
 
 a
 {
   text-decoration: none;
   font-size: 1.3rem;
-  color: white;
+  color: var(--white20);
 }
 
 a:hover
@@ -123,20 +123,20 @@ li
 
 .search-bar
 {
-    border: none;
-    outline: none;
-    width: 350px;
-    font-size: 18px;
-    background: none;
-    color: var(-white20);
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+  border: none;
+  outline: none;
+  width: 350px;
+  font-size: 18px;
+  background: none;
+  color: var(-white20);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .search-bar:focus
 {
-    outline: none;
+  outline: none;
 }
 
 .search-bar::placeholder

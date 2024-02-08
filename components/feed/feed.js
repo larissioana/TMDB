@@ -12,23 +12,48 @@ const Feed = () =>
     const [category, setCategory] = useState('Popular');
     const [topRatedMovies, setTopRatedMovies] = useState([]);
     const [upcomingMovies, setUpcomingMovies] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => 
     {
-        fetchAPI("popular", 17)
-        .then((data) => setMovies(data.results))
+        setIsLoading(true);
+        fetchAPI("popular", 3)
+        .then((data) => {
+            setMovies(data.results);
+            setIsLoading(false);
+        })
+        .catch((error) => {
+            console.error('Error fetching data:', error);
+            setIsLoading(false); 
+        });
     },[category]);
 
     useEffect(() => 
     {
+        setIsLoading(true);
         fetchAPI("top_rated", 2)
-        .then((data) => setTopRatedMovies(data.results))
+        .then((data) => {
+            setTopRatedMovies(data.results);
+            setIsLoading(false);
+        })
+        .catch((error) => {
+            console.error('Error fetching data:', error);
+            setIsLoading(false);
+        })
     },[category]);
 
     useEffect(() => 
     {
+        setIsLoading(true);
         fetchAPI("upcoming", 2)
-        .then((data) => setUpcomingMovies(data.results))
+        .then((data) => {
+            setUpcomingMovies(data.results);
+            setIsLoading(false);
+        })
+        .catch((error) => {
+            console.error('Error fetching data:', error);
+            setIsLoading(false);
+        })
     },[category]);
 
     return (
@@ -44,7 +69,7 @@ const Feed = () =>
                         {
                             upcomingMovies.map((movie, index) => {
                                 const {backdrop_path} = movie;
-                                return index === 1 ? <Banner key={index} imageUrl={backdrop_path} /> : null;
+                                return index === 1 ? <Banner key={index} imageUrl={backdrop_path} isLoading = {isLoading} /> : null;
                             })
                         }
                     </div>
@@ -60,6 +85,7 @@ const Feed = () =>
                 popular = {movies}
                 topRated = {topRatedMovies} 
                 upcoming = {upcomingMovies}
+                isLoading = {isLoading}
             />
         </div>
     )

@@ -39,6 +39,7 @@ const Movies = ({movies}) =>
                         width = '200'
                         height = '200'
                         alt = {title}
+                        loading = "eager"
                       />
                     </Link>
                   </motion.div>

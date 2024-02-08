@@ -100,9 +100,13 @@ const Cast = ({
         )}
         </div>
         <p className = {styles.status}><b className = {styles.text}>Status: </b> {status}</p>
-        <p className = {styles.budget}><b className = {styles.text}>Budget: </b>{formattedBudget}</p>
-        <p className = {styles.revenue}><b className = {styles.text}>Revenue: </b>{formattedRevenue}</p>
-    </div>
+        { budget !== 0.00 &&
+          <p className = {styles.budget}><b className = {styles.text}>Budget: </b>{formattedBudget}</p>
+        }
+        { revenue !== 0.00 &&
+          <p className = {styles.revenue}><b className = {styles.text}>Revenue: </b>{formattedRevenue}</p>
+        }
+      </div>
   )
 };
 

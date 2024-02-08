@@ -5,8 +5,8 @@
     width: 20rem;
     height:20rem;
     border-radius: .3rem;
-    object-position: center;
-    box-shadow: 2px 2px 10px 2px rgb(55, 53, 53);
+    object-position: top;
+    box-shadow: 2px 2px 7px 0px rgb(18, 18, 18);
 }
 
 .recommendationsTitle
