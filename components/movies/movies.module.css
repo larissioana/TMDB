@@ -4,6 +4,7 @@
     display: flex;
     gap: .2rem;
     margin-top: 2rem;
+    margin-bottom: -1.7rem;
 }
 
 .img
@@ -18,7 +19,8 @@
     cursor: pointer;
 }
 
-@keyframes imageAnimation {
+@keyframes imageAnimation
+{
     0% {
       opacity: 0;
     }
@@ -28,9 +30,8 @@
     100% {
       opacity: 1;
     }
-  }
+}
   
-
 .title
 {
     font-size: clamp(.9rem, 2vw, 1rem);

@@ -1,11 +1,10 @@
 import {useState, useEffect } from 'react';
 import Sidebar from '../sidebar/sidebar';
-import { Stack, Box } from '@mui/material';
 import { useMovieContext } from '@/context/moviesContext';
-import { fetchAPI, IMAGE_URL, IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
+import { fetchAPI } from '@/utils/fetchFromAPI';
 import Banner from '../banner/banner';
-import Movies from '../movies/movies';
 import MoviesCategories from '../moviesCategories/moviesCategories.js';
+import styles from './feed.module.css';
 
 const Feed = () =>
 {
@@ -35,11 +34,7 @@ const Feed = () =>
     return (
         <div>
             <div className = "feedContainer">
-                <div style = 
-                    {{
-                        display: "flex",
-                        alignItems: "center",
-                    }}
+                <div className = {styles.wrapper}
                 >
                     <Sidebar/>
                     <div style =

@@ -96,6 +96,12 @@
     cursor: pointer;
     width: 100%;
     border: none;
+    transition: all .5s ease-in;
+}
+
+.loginBtn:hover
+{
+    background: rgb(113, 2, 98);
 }
 
 .userMsg

@@ -27,7 +27,7 @@ const Searchbar = ({placeholder}) =>
         borderBottom: "1px solid var(--white10)",
         borderRadius: 0,
         background: "transparent",
-        mr: { sm :4 },
+        mr: { sm : 4 },
         marginTop: "1.5rem"
       }}
     >

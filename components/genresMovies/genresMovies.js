@@ -9,6 +9,7 @@ import MovieCard from '../movieCard/movieCard';
 import Banner from '../banner/banner';
 import styles from './genresMovies.module.css';
 
+
 const initialState =
 {
     page: 0,
@@ -19,11 +20,7 @@ const initialState =
 
 const GenresMovies = () => 
 {
-    const [filteredMovies, setFilteredMovies] = useState(() => 
-    {
-      const storedState = localStorage.getItem('filteredMovies');
-      return storedState ? JSON.parse(storedState) : initialState;
-    });
+    const [filteredMovies, setFilteredMovies] = useState(initialState);
   
     const { activeGenre } = useMovieContext();
 
@@ -48,47 +45,39 @@ const GenresMovies = () =>
       setFilteredMovies(initialState);
       fetchMovies(1, activeGenre);
     }, [activeGenre]);
-    
-    useEffect(() => 
-    {
-       localStorage.setItem('filteredMovies', JSON.stringify(filteredMovies));
-    },[filteredMovies]);
-
+      
+      
     const nextPage = filteredMovies.page + 1;
     const previousPage = filteredMovies.page - 1;
 
-    const handlePageChange = async (newPage) => {
-        if (newPage <= 300)
-        {
-            try 
+    const handlePageChange = async (newPage) =>
+    {
+      if (newPage <= 300)
+      {
+        try 
+          {
+            const movies = await fetchAPIFilteredMovies(newPage, activeGenre);
+            setFilteredMovies(
             {
-                const movies = await fetchAPIFilteredMovies(newPage, activeGenre);
-                setFilteredMovies(
-                    {
-                        page: newPage,
-                        results: movies.results,
-                        total_pages: movies.total_pages,
-                        total_results: movies.total_results
-                    }
-                )
-                window.scrollTo(0, 0)
-
-            } catch (error)
-            {
-                console.log('Api error', error)
+              page: newPage,
+              results: movies.results,
+              total_pages: movies.total_pages,
+              total_results: movies.total_results
             }
-        }
-    }
-
+            )
+              window.scrollTo(0, 0)
+            } catch (error)
+              {
+                console.log('Api error', error)
+              }
+          }
+      }
+      console.log(typeof window === "undefined")
   return (
     <div>
         <NavigationBar/>
        
-        <div style = 
-                {{
-                    display: "flex",
-                    alignItems: "center",
-                }}
+        <div className = {styles.wrapper} 
             >
                 <Sidebar/>
                 <AnimatePresence>
@@ -110,7 +99,7 @@ const GenresMovies = () =>
                 </motion.div>
                 </AnimatePresence>
             </div>
-            <div className = {styles.wrapper}>
+            <div className = {styles.moviesContainer}>
                 {filteredMovies.results.map((result) => 
                 {
                    

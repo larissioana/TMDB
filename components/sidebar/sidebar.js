@@ -31,18 +31,7 @@ const Sidebar = () =>
   return (
     <Stack
     >  
-        <div style = 
-        {{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "flex-start",
-            alignItems: "flex-start",
-            gap: "1.8rem",
-            padding: "1rem",
-            width: "10rem",
-        }}
-        className = "sidebar"
-        >
+        <div className = "sidebar">
             <button 
                 className = "navBtn"
                 onClick = {() => handleGenres(28)} 

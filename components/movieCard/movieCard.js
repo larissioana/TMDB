@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { IMAGE_URL_SMALL, IMAGE_URL } from '@/utils/fetchFromAPI';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const MovieCard = ({movies = []}, query) =>
+const MovieCard = ({movies = []}) =>
 {
   const [isVisible, setIsVisible] = useState(false);
 

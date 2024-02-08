@@ -16,45 +16,42 @@ const Movies = ({movies}) =>
         const scale = id === 0 ? { scaleY: 1.1 } : { scale: 1.1 };
      
         return <motion.div 
-                key = {id} 
-                className = {styles.movies}
-                initial = " hidden"
-                animate = "visible"
-                variants =
-                {{
-                  visible: { opacity: 1, y: 0  },
-                  hidden: { opacity: 0, y: 200, },
-                }}
+                  key = {id} 
+                  className = {styles.movies}
+                  initial = " hidden"
+                  animate = "visible"
+                  variants =
+                  {{
+                    visible: { opacity: 1, y: 0  },
+                    hidden: { opacity: 0, y: 200, },
+                  }}
                 >
                 {
-                    poster_path ?
-                    <motion.div whileHover = {...scale}  initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0}}
-                    exit={{ opacity: 0, y: -20 }}
-                
-                    
-                    >
-                        <Link href = {`/movie/${id}`}>
-                            <Image
-                            className = {styles.img}
-                            src = {`${IMAGE_URL_SMALL}${poster_path}`}
-                            width = '200'
-                            height = '200'
-                            alt = {title}
-                            />
-                        </Link>
-                    </motion.div>
-              
-                        :
-                    <motion.div>    
-                        <Image
+                  poster_path ?
+                  <motion.div whileHover = {...scale}  initial = {{ opacity: 0, y: 20 }}
+                  animate ={ { opacity: 1, y: 0}}
+                  exit = {{ opacity: 0, y: -20 }}
+                  >
+                    <Link href = {`/movie/${id}`}>
+                      <Image
                         className = {styles.img}
-                        src = {NoImage}
+                        src = {`${IMAGE_URL_SMALL}${poster_path}`}
                         width = '200'
                         height = '200'
                         alt = {title}
-                        />
-                    </motion.div>
+                      />
+                    </Link>
+                  </motion.div>
+                  :
+                  <motion.div>    
+                    <Image
+                      className = {styles.img}
+                      src = {NoImage}
+                      width = '200'
+                      height = '200'
+                      alt = {title}
+                    />
+                  </motion.div>
                 }
             <h2 className = {styles.title}>{title}</h2>
         </motion.div>

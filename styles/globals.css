@@ -110,11 +110,22 @@ li
     transition: opacity .5s ease-in-out;
 }
 
+.sidebar
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1.8rem;
+  padding: 1rem;
+  width: 10rem;
+}
+
 .search-bar
 {
     border: none;
     outline: none;
-    width: 450px;
+    width: 350px;
     font-size: 18px;
     background: none;
     color: var(-white20);
@@ -233,5 +244,15 @@ li
     {
       display: flex;
       flex-direction: column;
+    }
+
+    .sidebar
+    {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      overflow: scroll;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      width: 100vw;
     }
 }

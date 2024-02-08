@@ -36,13 +36,13 @@ const MoviesCategories = ({ popular, topRated, upcoming }) =>
     return (
         <div 
             style = 
-                {{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    marginBottom: "1rem"
-                }}
+            {{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                marginBottom: "1rem"
+            }}
         >
             <FeedMovies isButtonActive = {isButtonActive} handleButtonChange = {handleButtonChange}/>
             <div className = {styles.movies}
