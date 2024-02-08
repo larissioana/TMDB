@@ -5,6 +5,7 @@
   object-position: top;
   border-radius: 1rem;
   animation: anim .6s ease-in;
+  margin-top: 5rem;
 }
 
 .movieDetailContainer

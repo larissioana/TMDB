@@ -22,7 +22,7 @@ export const MovieProvider = ({children}) =>
         movies,
         setMovies,
         activeGenre,
-        setActiveGenre  
+        setActiveGenre,
     };
 
     return (

@@ -30,12 +30,16 @@ const NavigationBar = () =>
             px = { 4 }
             sx =
             {{
-                position: "sticky",
-                backgroundColor: "var(--black)",
+                position: "fixed",
+                backgroundColor: "rgba(0, 0, 0, 0.7)",
                 top: 0,
                 justifyContent: "center",
-                minHeight: "9vh",
-                padding: "1rem"
+                minHeight: "5rem",
+                padding: "1rem",
+                left: 0,
+                width: "100%",
+                zIndex: 10,
+                backdropFilter: "blur(10px)"
             }}
         >
             <Link 

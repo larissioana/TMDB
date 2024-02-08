@@ -50,8 +50,7 @@ const GenresMovies = () =>
       setFilteredMovies(initialState);
       fetchMovies(1, activeGenre);
     }, [activeGenre]);
-      
-      
+
     const nextPage = filteredMovies.page + 1;
     const previousPage = filteredMovies.page - 1;
 
@@ -79,7 +78,7 @@ const GenresMovies = () =>
               }
           }
       }
-      console.log(typeof window === "undefined")
+
   return (
     <div>
         <NavigationBar/>
