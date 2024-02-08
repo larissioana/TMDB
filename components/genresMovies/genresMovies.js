@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { fetchAPIFilteredMovies, IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
+import { fetchAPIFilteredMovies } from '@/utils/fetchFromAPI';
 import { useMovieContext } from '@/context/moviesContext';
 import NavigationBar from '../navigationBar/navigationBar';
 import Sidebar from '../sidebar/sidebar';
@@ -8,7 +8,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 import MovieCard from '../movieCard/movieCard';
 import Banner from '../banner/banner';
 import styles from './genresMovies.module.css';
-
 
 const initialState =
 {

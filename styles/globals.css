@@ -228,6 +228,19 @@ li
   }
 }
 
+@media screen and (max-width: 850px)
+{
+  .sidebar
+    {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      overflow: scroll;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      width: 100vw;
+    }
+}
+
 @media screen and (max-width: 600px)
 {
     .react-player 
@@ -244,15 +257,5 @@ li
     {
       display: flex;
       flex-direction: column;
-    }
-
-    .sidebar
-    {
-      flex-direction: row;
-      flex-wrap: nowrap;
-      overflow: scroll;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      width: 100vw;
     }
 }
