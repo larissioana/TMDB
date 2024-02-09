@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { fetchAPIFilteredMovies } from '@/utils/fetchFromAPI';
 import { useMovieContext } from '@/context/moviesContext';
 import NavigationBar from '../navigationBar/navigationBar';
@@ -14,12 +14,34 @@ const initialState =
     page: 0,
     results: [],
     total_pages: 0,
-    total_results: 0
+    total_results: 0,
 };
 
-const GenresMovies = () => 
+export async function getServerSideProps(context) {
+  const { query } = context;
+  const { page = 1, genre = 'defaultGenre' } = query;
+
+  // Replace the fetchData function with your actual server-side data fetching logic
+  const serverFilteredMoviesData = await fetchAPIFilteredMovies(page, genre);
+
+  const serverFilteredMovies = {
+    page: serverFilteredMoviesData.page,
+    results: serverFilteredMoviesData.results,
+    total_pages: serverFilteredMoviesData.total_pages,
+    total_results: serverFilteredMoviesData.total_results,
+  };
+
+  return {
+    props: {
+      serverFilteredMovies,
+    },
+  };
+}
+const GenresMovies = ({serverFilteredMovies}) => 
 {
+  console.log({serverFilteredMovies})
     const [filteredMovies, setFilteredMovies] = useState(initialState);
+
     const [isLoading, setIsLoading] = useState(false);
 
     const { activeGenre } = useMovieContext();
@@ -50,6 +72,9 @@ const GenresMovies = () =>
       setFilteredMovies(initialState);
       fetchMovies(1, activeGenre);
     }, [activeGenre]);
+
+   
+  
 
     const nextPage = filteredMovies.page + 1;
     const previousPage = filteredMovies.page - 1;

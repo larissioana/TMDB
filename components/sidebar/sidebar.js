@@ -19,13 +19,16 @@ import { useRouter } from 'next/router';
 const Sidebar = () =>
 {
    
-    const { setActiveGenre } = useMovieContext();
+    const { setActiveGenre, activeGenre } = useMovieContext();
     const router = useRouter();
 
     const handleGenres = (genre) => 
     {   
         setActiveGenre(genre);
-        router.push(`/genres`)
+        router.push({
+            pathname: '/genres',
+            query: { activeGenre: genre },
+        });
     };
 
   return (

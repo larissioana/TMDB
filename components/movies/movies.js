@@ -14,7 +14,7 @@ const Movies = ({movies}) =>
       {
         const { poster_path, title, id } = movie;
         const scale = id === 0 ? { scaleY: 1.1 } : { scale: 1.1 };
-     
+        
         return <motion.div 
                   key = {id} 
                   className = {styles.movies}
