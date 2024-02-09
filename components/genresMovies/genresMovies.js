@@ -123,7 +123,7 @@ const GenresMovies = ({serverFilteredMovies}) =>
                     {
                         filteredMovies.results.map((movie, index) => {
                             const {backdrop_path} = movie;
-                            return index === 4 ? <Banner key={index} isLoading = {isLoading} imageUrl={backdrop_path} /> : null;
+                            return index === 1 ? <Banner key={index} isLoading = {isLoading} imageUrl={backdrop_path} /> : null;
                         })
                     }
                 </motion.div>
