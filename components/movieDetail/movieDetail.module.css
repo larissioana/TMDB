@@ -19,7 +19,7 @@
 {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
   background: rgba(21, 20, 20, 0.7);
   padding: 7rem 2rem;
@@ -44,13 +44,13 @@
 
 .title
 {
-  font-size: clamp(1rem, 2vw, 2rem);
-  margin-bottom: .4rem;
+  font-size: clamp(1.4rem, 2vw, 2rem);
+  margin-bottom: .8rem;
 }
 
 .releaseDate
 {
-  color: rgb(106, 132, 186);
+  color: rgb(169, 193, 112);
   filter: hue-rotate(90deg);
   font-size: clamp(.9rem, 2vw, 1.1rem);
   margin-bottom: .5rem;
@@ -68,14 +68,14 @@
     justify-content: flex-start;
     align-items: center;
     gap: 1rem;
-    margin-top: .5rem;
+    margin-top: .8rem;
     color: rgb(236, 117, 175);
 }
 
 .description
 {
   width: 400px;
-  font-size: clamp(.8rem, 2vw, 1rem);
+  font-size: clamp(.9rem, 2vw, 1rem);
   margin-top: .6rem;
 }
 
@@ -109,6 +109,7 @@
   place-content: center;
   border-radius: 50%;
   filter: hue-rotate(90deg);
+  margin-bottom: 1rem;
 }
 
 .text
@@ -118,7 +119,7 @@
 
 .tagline
 {
-  font-size: clamp(.9rem, 2vw, 1rem);
+  font-size: clamp(1rem, 2vw, 1.1rem);
   margin-bottom: 1rem;
   max-width: 400px;
 }
@@ -155,7 +156,7 @@
 
 .recommendationsContainer
 {
-  padding: 0rem 2rem; 
+  padding: 2rem 2rem; 
   display: flex;
   justify-content: center;
   align-items: center;

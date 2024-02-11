@@ -36,6 +36,43 @@ const Cast = ({
 
   return (
     <div className = {styles.castContainer}>
+       <p className = {styles.status}><b className = {styles.text}>Status: </b> {status}</p>
+        { budget !== 0.00 &&
+          <p className = {styles.budget}><b className = {styles.text}>Budget: </b>{formattedBudget}</p>
+        }
+        { revenue !== 0.00 &&
+          <p className = {styles.revenue}><b className = {styles.text}>Revenue: </b>{formattedRevenue}</p>
+        }
+         <div className = {styles.socialsContainer}>
+        { 
+        imdbId && (
+        <Link href = {imdbLink} legacyBehavior>
+          <a target = "_blank" rel = "noopener noreferrer">
+            <Image 
+                width = '50'
+                height = '50'
+                alt = 'imdb'
+                src = {imdb}
+                className = {styles.imdbIcon}
+            />
+          </a>
+        </Link>
+        )}
+         { 
+        facebookId && (
+        <Link href = {facebookLink} legacyBehavior>
+          <a target = "_blank" rel = "noopener noreferrer">
+          <Image 
+               width = '40'
+               height = '40'
+               alt = 'imdb'
+               src = {facebook}
+               className = {styles.facebookIcon}
+            />
+          </a>
+        </Link>
+        )}
+        </div>
         <h3 className = {styles.title}>Top cast</h3>
         <div className = {styles.cast}>
         {credits.cast.map((item) =>
@@ -69,43 +106,6 @@ const Cast = ({
             </div>
         }).slice(0,3)}
         </div>
-        <div className = {styles.socialsContainer}>
-        { 
-        imdbId && (
-        <Link href = {imdbLink} legacyBehavior>
-          <a target = "_blank" rel = "noopener noreferrer">
-            <Image 
-                width = '50'
-                height = '50'
-                alt = 'imdb'
-                src = {imdb}
-                className = {styles.imdbIcon}
-            />
-          </a>
-        </Link>
-        )}
-         { 
-        facebookId && (
-        <Link href = {facebookLink} legacyBehavior>
-          <a target = "_blank" rel = "noopener noreferrer">
-          <Image 
-               width = '40'
-               height = '40'
-               alt = 'imdb'
-               src = {facebook}
-               className = {styles.facebookIcon}
-            />
-          </a>
-        </Link>
-        )}
-        </div>
-        <p className = {styles.status}><b className = {styles.text}>Status: </b> {status}</p>
-        { budget !== 0.00 &&
-          <p className = {styles.budget}><b className = {styles.text}>Budget: </b>{formattedBudget}</p>
-        }
-        { revenue !== 0.00 &&
-          <p className = {styles.revenue}><b className = {styles.text}>Revenue: </b>{formattedRevenue}</p>
-        }
       </div>
   )
 };

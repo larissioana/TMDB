@@ -244,11 +244,6 @@ li
 
 @media screen and (max-width: 600px)
 {
-    .react-player 
-    {
-      height: 45vh !important;
-    }
-
     .search-bar
     {
       width: 160px;

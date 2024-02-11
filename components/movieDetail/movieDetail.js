@@ -70,7 +70,10 @@ const MovieDetail = ({
                 <div className = {styles.flexContainer}>
                     <div className = {styles.col1}>
                         <h2 className ={styles.title}>{title}</h2>
-                        <p className = {styles.tagline}>{tagline}</p>
+                        <h3 className = {styles.tagline}>{tagline}</h3>
+                        <p className = {styles.vote}>
+                            <span className = {styles.text}>{vote}</span>
+                        </p>
                         <span className = {styles.releaseDate}>{release_date}
                         <span className = {styles.language}>  ({original_language}). </span>
                             {formattedTime}
@@ -83,9 +86,14 @@ const MovieDetail = ({
                             </ul>
                         </div>
                         <p className = {styles.description}>Overview: {overview}</p>
-                        <p className = {styles.vote}>
-                            <span className = {styles.text}>{vote}</span>
-                        </p>
+                        <Cast
+                        credits = {credits} 
+                        externalIds = {externalIds} 
+                        status = {status} 
+                        revenue = {revenue}  
+                        budget = {budget} 
+                        genreNames = {genreNames}
+                        />
                     </div>
                     <div className={styles.col2}>
                         {
@@ -128,14 +136,7 @@ const MovieDetail = ({
                 </div>
             </div>
             <div className = {styles.movieDetailContainer}>
-                <Cast
-                    credits = {credits} 
-                    externalIds = {externalIds} 
-                    status = {status} 
-                    revenue = {revenue}  
-                    budget = {budget} 
-                    genreNames = {genreNames}
-                />
+                
                 <div className = {styles.recommendationsContainer}>
                     <Recommendations recommendations = {recommendations}/>
                 </div>

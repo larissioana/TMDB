@@ -17,31 +17,9 @@ const initialState =
     total_results: 0,
 };
 
-export async function getServerSideProps(context) {
-  const { query } = context;
-  const { page = 1, genre = 'defaultGenre' } = query;
-
-  // Replace the fetchData function with your actual server-side data fetching logic
-  const serverFilteredMoviesData = await fetchAPIFilteredMovies(page, genre);
-
-  const serverFilteredMovies = {
-    page: serverFilteredMoviesData.page,
-    results: serverFilteredMoviesData.results,
-    total_pages: serverFilteredMoviesData.total_pages,
-    total_results: serverFilteredMoviesData.total_results,
-  };
-
-  return {
-    props: {
-      serverFilteredMovies,
-    },
-  };
-}
-const GenresMovies = ({serverFilteredMovies}) => 
+const GenresMovies = () => 
 {
-  console.log({serverFilteredMovies})
     const [filteredMovies, setFilteredMovies] = useState(initialState);
-
     const [isLoading, setIsLoading] = useState(false);
 
     const { activeGenre } = useMovieContext();
@@ -66,19 +44,17 @@ const GenresMovies = ({serverFilteredMovies}) =>
             setIsLoading(false);
           }
     };
-
+  
     useEffect(() =>
     {
-      setFilteredMovies(initialState);
-      fetchMovies(1, activeGenre);
+       fetchMovies(1, activeGenre);
     }, [activeGenre]);
-
-   
   
-
     const nextPage = filteredMovies.page + 1;
     const previousPage = filteredMovies.page - 1;
-
+    
+   
+ 
     const handlePageChange = async (newPage) =>
     {
       if (newPage <= 300)
