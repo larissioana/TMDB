@@ -5,6 +5,7 @@ import { fetchAPI } from '@/utils/fetchFromAPI';
 import Banner from '../banner/banner';
 import MoviesCategories from '../moviesCategories/moviesCategories.js';
 import styles from './feed.module.css';
+import TvSeries from '../tvSeries/tvSeries';
 
 const Feed = () =>
 {
@@ -87,6 +88,7 @@ const Feed = () =>
                 upcoming = {upcomingMovies}
                 isLoading = {isLoading}
             />
+            <TvSeries/>
         </div>
     )
 };
