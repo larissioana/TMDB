@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Head from 'next/head';
 import Image from 'next/image';
 import { IMAGE_URL, IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
@@ -19,6 +19,26 @@ const MovieDetail = ({
 }) =>
 {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [movieData, setMovieData] = useState(null);
+
+    useEffect(() => {
+        const fetchMovieDetails = async () => {
+            try {
+                const response = await fetch('/.netlify/functions/movieDetails?movieId=123');
+                if (response.ok) {
+                    const data = await response.json();
+                    setMovieData(data);
+                } else {
+                    throw new Error('Failed to fetch movie details');
+                }
+            } catch (error) {
+                console.error('Error fetching movie details:', error);
+            }
+        };
+
+        fetchMovieDetails();
+    }, []);
+
     const 
     {
         overview, 
@@ -34,7 +54,7 @@ const MovieDetail = ({
         revenue,
         budget,
         genres
-    } = movie;
+    } = movieData || movie;
  
     const closeModal = () =>
     {
