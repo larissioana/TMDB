@@ -19,26 +19,7 @@ const MovieDetail = ({
 }) =>
 {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [movieData, setMovieData] = useState(null);
-
-    useEffect(() => {
-        const fetchMovieDetails = async () => {
-            try {
-                const response = await fetch('/.netlify/functions/movieDetails?movieId=123');
-                if (response.ok) {
-                    const data = await response.json();
-                    setMovieData(data);
-                } else {
-                    throw new Error('Failed to fetch movie details');
-                }
-            } catch (error) {
-                console.error('Error fetching movie details:', error);
-            }
-        };
-
-        fetchMovieDetails();
-    }, []);
-
+  
     const 
     {
         overview, 
@@ -54,7 +35,7 @@ const MovieDetail = ({
         revenue,
         budget,
         genres
-    } = movieData || movie;
+    } =  movie;
  
     const closeModal = () =>
     {
