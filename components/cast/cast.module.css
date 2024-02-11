@@ -51,6 +51,14 @@
     transition: all .7s ease-in-out;
 }
 
+.img:active
+{
+    opacity: .8;
+    cursor: pointer;
+    filter: grayscale(100%);
+    transition: all .7s ease-in-out;
+}
+
 .name
 {
     font-size: clamp(.6rem, 2vw, .9rem);

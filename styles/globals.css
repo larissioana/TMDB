@@ -153,6 +153,12 @@ li
   border: none;
 }
 
+.card-media:active
+{
+  filter: hue-rotate(100deg);
+  border: none;
+}
+
 .pagination
 {
   display: flex;

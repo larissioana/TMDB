@@ -21,3 +21,12 @@
     cursor: pointer;
     border-radius: .2rem;
 }
+
+.card:active
+{
+    opacity: 1;
+    transform: scale(1.2);
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: .2rem;
+}
