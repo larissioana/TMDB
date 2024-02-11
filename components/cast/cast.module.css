@@ -59,7 +59,7 @@
 
 .socialsContainer
 {
-    margin-top: 1.5rem;
+    margin-top: 1rem;
     display: flex;
     gap: 1rem;
     align-items: center;
@@ -69,8 +69,8 @@
 {
     object-fit: cover;
     cursor: pointer;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2.7rem;
+    height: 2.7rem;
 }
 
 .text{

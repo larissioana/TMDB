@@ -52,6 +52,7 @@ const Recommendations = ({recommendations}) =>
                   width = '200'
                   height = '200'
                   alt = {title}
+                  loading = "eager"
                 />
                 </div>
             }
@@ -82,7 +83,7 @@ const Recommendations = ({recommendations}) =>
           </Typography>
       </CardContent>
         </div>
-      }).slice( 0, 10)}
+      }).slice(0, 19)}
       </div>
     </>
     }

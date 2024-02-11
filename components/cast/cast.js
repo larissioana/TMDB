@@ -58,7 +58,7 @@ const Cast = ({
           </a>
         </Link>
         )}
-         { 
+        { 
         facebookId && (
         <Link href = {facebookLink} legacyBehavior>
           <a target = "_blank" rel = "noopener noreferrer">
