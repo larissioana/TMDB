@@ -72,4 +72,10 @@ export const fetchAPIPerson = async (id) =>
 {
   const {data} = await axios.get(`https://api.themoviedb.org/3/person/${id}/images`, options);
   return data;
-}
+};
+
+export const fetchAPITvSeries = async (page) =>
+{
+  const {data} = await axios.get(`https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=${page}`, options);
+  return data;
+};

@@ -1,0 +1,41 @@
+.tvSeriesContainer
+{
+    margin: 2rem 0rem;
+}
+
+.title
+{
+    font-size: clamp(1.1rem, 2vw, 2rem);
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+}
+
+.tvSeriesContainer
+{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: .7rem;
+    overflow-y: auto;
+    padding: 1.5rem .5rem;
+    margin-top: 0rem;
+}
+
+.imgContainer
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.img
+{
+    width: 12rem; 
+    height: 25rem;
+    object-fit: cover;
+    object-position: top;
+    border-radius: .2rem;
+    cursor: pointer;
+}

@@ -3,7 +3,7 @@ import { IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
 import Image from 'next/image';
 import styles from './movies.module.css';
 import NoImage from '../../assets/no-image.jpg';
-import { motion, stagger } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 const Movies = ({movies}) =>
@@ -14,7 +14,7 @@ const Movies = ({movies}) =>
       {
         const { poster_path, title, id } = movie;
         const scale = id === 0 ? { scaleY: 1.1 } : { scale: 1.1 };
-        
+
         return <motion.div 
                   key = {id} 
                   className = {styles.movies}
