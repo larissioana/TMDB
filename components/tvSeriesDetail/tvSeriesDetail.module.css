@@ -239,6 +239,7 @@ flex-wrap: wrap;
     font-size: 2rem;
     cursor: pointer;
     transition: all .5s ease-in;
+    color: white;
 }
 
 .iconBtn
