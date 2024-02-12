@@ -79,3 +79,27 @@ export const fetchAPITvSeries = async (page) =>
   const {data} = await axios.get(`https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=${page}`, options);
   return data;
 };
+
+export const fetchAPITvSeriesDetail = async (id) =>
+{
+  const {data} = await axios.get(`https://api.themoviedb.org/3/tv/${id}?language=en-US`, options);
+  return data;
+};
+
+export const fetchAPITvSeriesCredits = async (id) =>
+{
+  const {data} = await axios.get(`https://api.themoviedb.org/3/tv/${id}/credits?language=en-US`, options);
+  return data;
+};
+
+export const fetchAPITvSeriesVideo = async (id) =>
+{
+  const {data} = await axios.get(`https://api.themoviedb.org/3/tv/${id}/videos?language=en-US`, options);
+  return data;
+}
+
+export const fetchAPITvSeriesImages = async (id) =>
+{
+  const {data} = await axios.get(`https://api.themoviedb.org/3/tv/${id}/images`, options);
+  return data;
+};

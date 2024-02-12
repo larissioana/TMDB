@@ -4,28 +4,44 @@ import { fetchAPITvSeries, IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
 import NoImage from '../../assets/no-image.jpg';
 import Image from 'next/image';
 import TvSeriesCard from '../tvSeriesCard/tvSeriesCard';
+import Loading from '../loading/loading';
+
+const initialState = 
+{
+    page: 0,
+    results: [],
+    total_pages: 0,
+    total_results: 0
+};
 
 const TvSeries = () =>
 {
   const [isLoading, setIsLoading] = useState(false);
-  const [tvSeries, setTvSeries] = useState([]);
+  const [tvSeries, setTvSeries] = useState(initialState);
   const [hoveredId, setHoveredId] = useState(null);
 
-  useEffect(() => 
+  const fetchTvSeries = async (page) =>
+  {
+    try
+    {
+        setIsLoading(true);
+        fetchAPITvSeries(page)
+        .then((data) => 
+        {
+            setTvSeries(data);
+            setIsLoading(false);
+        })
+    } catch(error)
+    {
+        console.error("Error fetching data:", error)
+    }
+  };
+  
+  useEffect(() =>
   {
     setIsLoading(true);
-    fetchAPITvSeries(1)
-    .then((data) => {
-        setTvSeries(data.results);
-        setIsLoading(false);
-    })
-    .catch ((error) =>
-    {
-        console.error('Error fetching data:', error);
-        setIsLoading(false);
-    })
-  },[]);
-
+    fetchTvSeries(1);
+  }, []);
 
   const handleMouseEnter = (id) =>
   {
@@ -44,10 +60,11 @@ const TvSeries = () =>
         <h2 className = {styles.title}>Popular Tv series</h2>
         <div className = {styles.tvSeriesContainer}>
         <div className = {styles.tvSeriesContainer}>
+       
             { !isLoading &&
             <>
             {
-                tvSeries.map((result) => 
+                tvSeries.results?.map((result) => 
             {
                 const { id, poster_path, name, backdrop_path } = result;
                 return <div key = {id}>
@@ -78,13 +95,16 @@ const TvSeries = () =>
                                 />     
                         }
                         
-                           { hoveredId === id && <TvSeriesCard image = {backdrop_path}/> }
+                           { hoveredId === id && <TvSeriesCard image = {backdrop_path} id = {id}/> }
                         </div>
+                     
                     </div>
+                    {isLoading && <Loading />}
                 </div>
             })}
             </>
             }
+           
         </div>
         </div>
     </>

@@ -53,8 +53,6 @@ const GenresMovies = () =>
     const nextPage = filteredMovies.page + 1;
     const previousPage = filteredMovies.page - 1;
     
-   
- 
     const handlePageChange = async (newPage) =>
     {
       if (newPage <= 300)

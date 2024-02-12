@@ -82,8 +82,8 @@
 }
 
 .text{
-    color:rgb(236, 117, 175);
     margin-top: 1rem;
+    font-size: clamp(1rem, 2vw, 1.1rem);
 }
 
 @media screen and (max-width: 500px)

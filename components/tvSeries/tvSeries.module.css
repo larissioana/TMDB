@@ -14,10 +14,11 @@
 .tvSeriesContainer
 {
     display: flex;
+    flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: flex-start;
     gap: .7rem;
-    overflow-y: auto;
+    overflow-y: auto; 
     padding: 1.5rem .5rem;
     margin-top: 0rem;
 }
