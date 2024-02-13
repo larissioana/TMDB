@@ -27,18 +27,18 @@ const Seasons = ({season}) =>
                 poster_path ?
                 <Image
                     src = {`${IMAGE_URL_SMALL}${poster_path}`}
-                    width = "200"
+                    width = "240"
                     alt = {name}
-                    height = "200"
+                    height = "240"
                     loading = "eager"
                     className = {styles.img}
                 />
                 :
                 <Image
                 src = {NoImage}
-                width = "200"
+                width = "240"
                 alt = {name}
-                height = "200"
+                height = "240"
                 loading = "eager"
                 className = {styles.img}
                 />

@@ -49,8 +49,8 @@ const Cast = ({
         <Link href = {imdbLink} legacyBehavior>
           <a target = "_blank" rel = "noopener noreferrer">
             <Image 
-                width = '50'
-                height = '50'
+                width = '44'
+                height = '44'
                 alt = 'imdb'
                 src = {imdb}
                 className = {styles.imdbIcon}
@@ -87,8 +87,8 @@ const Cast = ({
                     <Link href = {`/actor/${id}`}>
                     <Image
                         className = {styles.img}
-                        width = '200'
-                        height = '200'
+                        width = '112'
+                        height = '112'
                         alt = {name}
                         src = {`${IMAGE_URL_SMALL}${profile_path}`}
                     />

@@ -70,8 +70,8 @@ const TvSeries = () =>
                             poster_path ?
                                 <Image 
                                 src = {`${IMAGE_URL_SMALL}${poster_path}`}
-                                width = "200"
-                                height = "200"
+                                width = "192"
+                                height = "400"
                                 alt = {name}
                                 className = {styles.img}
                                 loading = "eager"
@@ -79,8 +79,8 @@ const TvSeries = () =>
                             :
                                 <Image 
                                 src = {NoImage}
-                                width = "200"
-                                height = "200"
+                                width = "192"
+                                height = "400"
                                 alt = {name}
                                 className = {styles.img}
                                 loading = "eager"

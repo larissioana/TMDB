@@ -11,8 +11,8 @@ const Backdrops = ({backdrops}) =>
     <div className = {styles.backdrops}>
       <Image
         src = {`${IMAGE_URL}/${file_path}`}
-        width = "500"
-        height = "300"
+        width = "640"
+        height = "320"
         alt = 'backdrops'
         loading = "eager"
         className = {styles.img}

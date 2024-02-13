@@ -52,8 +52,8 @@ const ActorDetails = ({ actorDetails, person }) =>
                             <Image 
                                 className = {styles.profilePath}
                                 src = {IMAGE_URL_SMALL + profile_path}
-                                width = '300' 
-                                height = '300' 
+                                width = '240' 
+                                height = '320' 
                                 alt = {name}
                                 loading = "eager"
                             />
@@ -110,8 +110,8 @@ const ActorDetails = ({ actorDetails, person }) =>
                                 <Image
                                 className = {styles.personImg}
                                 src = {`${IMAGE_URL}${file_path}`}
-                                width = "200"
-                                height = "200"
+                                width = "160"
+                                height = "240"
                                 alt = "actor"
                                 loading = "eager"
                                 />

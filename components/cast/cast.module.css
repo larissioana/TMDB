@@ -37,8 +37,6 @@
 .img
 {
     object-fit: cover;
-    height: 7rem;
-    width: 7rem;
     object-position: center;
     clip-path: circle();
 }
@@ -77,8 +75,6 @@
 {
     object-fit: cover;
     cursor: pointer;
-    width: 2.7rem;
-    height: 2.7rem;
 }
 
 .text{

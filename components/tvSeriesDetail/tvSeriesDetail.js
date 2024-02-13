@@ -75,8 +75,8 @@ const TvSeriesDetail = ({tvSeries, credits, videos, images}) =>
                     <div className = {styles.left}>
                         <Image
                             src = {`${IMAGE_URL_SMALL}${poster_path}`}
-                            width = "300"
-                            height = "300"
+                            width = "304"
+                            height = "448"
                             alt = {name}
                             loading = "eager"
                             className = {styles.img}
@@ -86,8 +86,8 @@ const TvSeriesDetail = ({tvSeries, credits, videos, images}) =>
                     <div className = {styles.left}>
                         <Image
                             src = {NoImage}
-                            width = "300"
-                            height = "300"
+                            width = "304"
+                            height = "448"
                             alt = {name}
                             loading = "eager"
                             className = {styles.img}
@@ -152,7 +152,7 @@ const TvSeriesDetail = ({tvSeries, credits, videos, images}) =>
                         <Image
                             src = {`${IMAGE_URL_SMALL}${profile_path}`}
                             width = "200"
-                            height = "200"
+                            height = "272"
                             alt = {name}
                             loading = "eager"
                             className = {styles.castImg}

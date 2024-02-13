@@ -1,6 +1,5 @@
 .img
 {
-    width: 40rem;
     object-fit: cover;
     object-position: top;
     animation: anim .6s ease-in;

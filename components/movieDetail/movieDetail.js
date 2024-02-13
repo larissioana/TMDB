@@ -104,8 +104,8 @@ const MovieDetail = ({
                            poster_path ? 
                             <Image 
                                 src = {IMAGE_URL_SMALL + poster_path} 
-                                width = '300' 
-                                height = '500' 
+                                width = '400' 
+                                height = '560' 
                                 alt = {title} 
                                 className = {styles.posterPath}
                                 loading = "eager"

@@ -79,8 +79,6 @@
 
 .posterPath
 {
- width: 25rem;
- height: 35rem;
  object-fit: cover;
  object-position: top;
  animation: anim .6s ease-in;

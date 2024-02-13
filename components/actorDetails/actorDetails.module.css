@@ -45,8 +45,6 @@
 .personImg
 {
     object-fit: cover;
-    width: 10rem;
-    height: 15rem;
     object-position: top;
     box-shadow: 2px 0px 2px rgb(17, 17, 17);
     transition: all .7s ease-in-out;
@@ -71,8 +69,6 @@
 
 .profilePath
 {
-    width: 15rem;
-    height: 20rem;
     object-fit: cover;
     object-position: top;
     border-radius: .2rem;

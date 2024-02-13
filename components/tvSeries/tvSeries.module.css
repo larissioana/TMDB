@@ -33,8 +33,6 @@
 
 .img
 {
-    width: 12rem; 
-    height: 25rem;
     object-fit: cover;
     object-position: top;
     border-radius: .2rem;

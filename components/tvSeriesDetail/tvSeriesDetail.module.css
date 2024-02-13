@@ -33,8 +33,6 @@
 
 .img
 {
-    width: 19rem;
-    height: 28rem;
     object-fit: cover;
     border-radius: .5rem;
 }
@@ -158,9 +156,7 @@ flex-wrap: wrap;
 
 .castImg
 {
-    width: 13rem;
     object-fit: cover;
-    height: 17rem;
     border-top: 1px solid transparent;
     border-radius: .2rem;
     object-position: top;

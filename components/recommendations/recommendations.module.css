@@ -2,8 +2,6 @@
 .img
 {
     object-fit: cover;
-    width: 18rem;
-    height: 23rem;
     border-radius: .3rem;
     object-position: top;
     box-shadow: 2px 2px 7px 0px rgb(18, 18, 18);
