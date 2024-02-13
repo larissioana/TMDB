@@ -20,7 +20,7 @@ const Searchbar = ({placeholder}) =>
 
   useEffect(() =>
   {
-    if (placeholder !== "Search for a movie, tv show...") {
+    if (placeholder !== "Search for a movie, tv shows...") {
       setSearchTerm(placeholder); 
       inputRef.current.focus(); 
     }

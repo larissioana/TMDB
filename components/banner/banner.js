@@ -16,7 +16,7 @@ const Banner = ({imageUrl, isLoading}) =>
             className = {styles.bannerContainer}
             style = {{ backgroundImage: `url(${imageURL})`, objectFit: "contain", objectPosition: "right" }}
         >
-                <Searchbar placeholder = "Search for a movie, tv show..."/>
+                <Searchbar placeholder = "Search for a movie, tv shows..."/>
             </div>
             : <Loading/>
         }

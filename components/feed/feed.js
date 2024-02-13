@@ -17,7 +17,7 @@ const Feed = () =>
     useEffect(() => 
     {
         setIsLoading(true);
-        fetchAPI("popular", 3)
+        fetchAPI("popular", 1)
         .then((data) => {
             setMovies(data.results);
             setIsLoading(false);
@@ -31,7 +31,7 @@ const Feed = () =>
     useEffect(() => 
     {
         setIsLoading(true);
-        fetchAPI("top_rated", 2)
+        fetchAPI("top_rated", 1)
         .then((data) => {
             setTopRatedMovies(data.results);
             setIsLoading(false);
@@ -45,7 +45,7 @@ const Feed = () =>
     useEffect(() => 
     {
         setIsLoading(true);
-        fetchAPI("upcoming", 2)
+        fetchAPI("upcoming", 1)
         .then((data) => {
             setUpcomingMovies(data.results);
             setIsLoading(false);
@@ -69,7 +69,7 @@ const Feed = () =>
                         {
                             upcomingMovies.map((movie, index) => {
                                 const {backdrop_path} = movie;
-                                return index === 3 ? <Banner key={index} imageUrl={backdrop_path} isLoading = {isLoading} /> : null;
+                                return index === 1 ? <Banner key={index} imageUrl={backdrop_path} isLoading = {isLoading} /> : null;
                             })
                         }
                     </div>
