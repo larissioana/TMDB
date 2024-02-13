@@ -63,7 +63,7 @@ const MovieDetail = ({
             className={styles.movieContent}
             style =
             {{
-                backgroundImage: `url('${IMAGE_URL}${backdrop_path}')`,
+                backgroundImage: backdrop_path ? `url('${IMAGE_URL}${backdrop_path}')` : null,
                 backgroundPosition: 'top',
                 backgroundSize:'cover'
             }}
@@ -105,7 +105,7 @@ const MovieDetail = ({
                             <Image 
                                 src = {IMAGE_URL_SMALL + poster_path} 
                                 width = '300' 
-                                height = '400' 
+                                height = '500' 
                                 alt = {title} 
                                 className = {styles.posterPath}
                                 loading = "eager"
@@ -119,23 +119,29 @@ const MovieDetail = ({
                                 className = {styles.cardImg}
                             />
                         }
-                        <div style = 
-                            {{
-                                display: "flex",
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                gap: ".5rem",
-                                marginTop: "1rem"
-                            }}
-                        >
-                          <button className = {styles.viewTrailer}>Play trailer</button>
-                          <PlayCircleIcon className = {styles.playIcon} onClick = {openModal}/>
-                        </div>
-                           <Modal 
-                                isOpen = {isModalOpen}
-                                onClose = {closeModal} 
-                                videoTrailer = {videoTrailer}
-                            />
+                        {
+                            videoTrailer.results.length > 0 &&
+                            <>
+                                <div style = 
+                                {{
+                                    display: "flex",
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    gap: ".5rem",
+                                    marginTop: "1rem"
+                                }}
+                                >
+                                    <button className = {styles.viewTrailer}>Play trailer</button>
+                                    <PlayCircleIcon className = {styles.playIcon} onClick = {openModal}/>
+                                </div>
+                                <Modal 
+                                    isOpen = {isModalOpen}
+                                    onClose = {closeModal} 
+                                    videoTrailer = {videoTrailer}
+                                />
+                            </>
+                        }
+                       
                     </div>
                 </div>
             </div>

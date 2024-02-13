@@ -4,7 +4,7 @@ import ReactPlayer from "react-player";
 import CloseIcon from '@mui/icons-material/Close';
 import Loading from "../loading/loading";
 
-const Modal = ({isOpen, onClose, videoTrailer }) =>
+const Modal = ({ isOpen, onClose, videoTrailer }) =>
 {
     return (
         <div>

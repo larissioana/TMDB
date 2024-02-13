@@ -5,7 +5,6 @@ import { fetchAPI } from '@/utils/fetchFromAPI';
 import Banner from '../banner/banner';
 import MoviesCategories from '../moviesCategories/moviesCategories.js';
 import styles from './feed.module.css';
-import TvSeries from '../tvSeries/tvSeries';
 
 const Feed = () =>
 {
@@ -62,7 +61,7 @@ const Feed = () =>
             <div className = "feedContainer">
                 <div className = {styles.wrapper}
                 >
-                    <Sidebar/>
+                    <Sidebar isMovies = {true}/>
                     <div style =
                     {{
                         width: "100%"
@@ -88,7 +87,6 @@ const Feed = () =>
                 upcoming = {upcomingMovies}
                 isLoading = {isLoading}
             />
-            <TvSeries/>
         </div>
     )
 };

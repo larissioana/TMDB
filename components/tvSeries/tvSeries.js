@@ -5,30 +5,24 @@ import NoImage from '../../assets/no-image.jpg';
 import Image from 'next/image';
 import TvSeriesCard from '../tvSeriesCard/tvSeriesCard';
 import Loading from '../loading/loading';
-
-const initialState = 
-{
-    page: 0,
-    results: [],
-    total_pages: 0,
-    total_results: 0
-};
+import { useTvShowsContext } from '@/context/tvSeriesContext';
 
 const TvSeries = () =>
 {
   const [isLoading, setIsLoading] = useState(false);
-  const [tvSeries, setTvSeries] = useState(initialState);
   const [hoveredId, setHoveredId] = useState(null);
+
+  const {topRatedTvShows, setTopRatedTvShows} = useTvShowsContext();
 
   const fetchTvSeries = async (page) =>
   {
     try
     {
         setIsLoading(true);
-        fetchAPITvSeries(page)
+        fetchAPITvSeries("top_rated", page)
         .then((data) => 
         {
-            setTvSeries(data);
+            setTopRatedTvShows(data);
             setIsLoading(false);
         })
     } catch(error)
@@ -41,7 +35,7 @@ const TvSeries = () =>
   {
     setIsLoading(true);
     fetchTvSeries(1);
-  }, []);
+  }, []); 
 
   const handleMouseEnter = (id) =>
   {
@@ -53,8 +47,6 @@ const TvSeries = () =>
     setHoveredId(null);
   };
 
-  console.log({tvSeries})
-
   return (
     <>
         <h2 className = {styles.title}>Popular Tv series</h2>
@@ -64,7 +56,7 @@ const TvSeries = () =>
             { !isLoading &&
             <>
             {
-                tvSeries.results?.map((result) => 
+                topRatedTvShows.results?.map((result) => 
             {
                 const { id, poster_path, name, backdrop_path } = result;
                 return <div key = {id}>
@@ -94,8 +86,7 @@ const TvSeries = () =>
                                 loading = "eager"
                                 />     
                         }
-                        
-                           { hoveredId === id && <TvSeriesCard image = {backdrop_path} id = {id}/> }
+                           { hoveredId === id && <TvSeriesCard image = {backdrop_path} id = {id} name = {name}/> }
                         </div>
                      
                     </div>
@@ -104,7 +95,6 @@ const TvSeries = () =>
             })}
             </>
             }
-           
         </div>
         </div>
     </>

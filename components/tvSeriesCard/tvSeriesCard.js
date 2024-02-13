@@ -1,9 +1,8 @@
-import React from 'react'
 import styles from './tvSeriesCard.module.css';
 import { IMAGE_URL } from '@/utils/fetchFromAPI';
 import { useRouter } from 'next/router';
 
-const TvSeriesCard = ({ image, id }) =>
+const TvSeriesCard = ({ image, id, name }) =>
 {
   const router = useRouter();
 
@@ -25,10 +24,8 @@ const TvSeriesCard = ({ image, id }) =>
               opacity: "1"
               }}
           >
-            </div>
-     
+          </div>
          </div>
- 
   )
 };
 

@@ -20,7 +20,7 @@ export async function getServerSideProps(context)
     }
 }
 
-const TvSeries = (
+const Series = (
     {
         tvSeriesDetails,
         tvSeriesCredits, 
@@ -38,4 +38,4 @@ const TvSeries = (
   )
 };
 
-export default TvSeries;
+export default Series;

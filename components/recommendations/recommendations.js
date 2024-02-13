@@ -1,8 +1,8 @@
 import React from 'react'
 import Image from 'next/image';
-import { IMAGE_URL} from '@/utils/fetchFromAPI';
+import { IMAGE_URL } from '@/utils/fetchFromAPI';
 import styles from './recommendations.module.css';
-import { Typography, CardContent} from '@mui/material';
+import { Typography, CardContent } from '@mui/material';
 import Link from 'next/link';
 
 const Recommendations = ({recommendations}) =>
@@ -58,9 +58,13 @@ const Recommendations = ({recommendations}) =>
             }
         </div>
       </Link>
+      {
+        poster_path !== null &&
+      
       <CardContent
         sx={{
           backgroundColor: "#000000",
+          overflow: "hidden"
         }}
       >
           <Typography
@@ -69,7 +73,8 @@ const Recommendations = ({recommendations}) =>
             color = "#fff"
             sx = 
             {{
-                width: "13rem",
+                width: "15rem",
+                marginTop: "2.4rem",
             }}
           >
             {title}
@@ -82,6 +87,7 @@ const Recommendations = ({recommendations}) =>
             {formattedDate}
           </Typography>
       </CardContent>
+      }
         </div>
       }).slice(0, 19)}
       </div>

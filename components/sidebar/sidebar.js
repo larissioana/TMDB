@@ -11,26 +11,25 @@ import HorrorIcon from '../../assets/horror.png';
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
 import RomanceIcon from '../../assets/romance.png';
 import FantasyIcon from '../../assets/fantasy.png';
-import HourGlassIcon from '../../assets/hourglass.png';
+import HourGlassIcon from '../../assets/hoursglass.png';
 import MisteryIcon from '../../assets/mistery.png';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 
-const Sidebar = () =>
+const Sidebar = ({isMovies}) =>
 {
-   
-    const { setActiveGenre, activeGenre } = useMovieContext();
+    const { setActiveGenre } = useMovieContext();
     const router = useRouter();
 
-    const handleGenres = (genre) => 
-    {   
+    const handleGenres = (genre) => {   
         setActiveGenre(genre);
+        const path = isMovies ? '/genres' : '/tvShows';
+        const category = isMovies ? 'movies' : 'tvShows';
         router.push({
             pathname: '/genres',
             query: { activeGenre: genre },
         });
     };
-
   return (
     <Stack
     >  

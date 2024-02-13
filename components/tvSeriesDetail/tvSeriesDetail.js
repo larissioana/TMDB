@@ -8,6 +8,10 @@ import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRound
 import NavigationBar from '../navigationBar/navigationBar';
 import Modal from '../modal/modal';
 import Backdrops from '../backdrops/backdrops';
+import Seasons from '../seasons/seasons';
+import Link from 'next/link';
+import Head from 'next/head';
+import NoImage from '../../assets/no-image.jpg';
 
 const TvSeriesDetail = ({tvSeries, credits, videos, images}) =>
 {
@@ -16,19 +20,13 @@ const TvSeriesDetail = ({tvSeries, credits, videos, images}) =>
 
   const {
     backdrop_path,
-    first_air_date,
-    languages,
     name,
-    number_of_episodes,
-    number_of_seasons,
-    origin_country,
     overview,
     poster_path,
-    status,
+    seasons,
     vote_average,
     tagline,
     genres
-
   } = tvSeries;
 
   const genresName = genres.map((genre) => genre.name);
@@ -57,6 +55,9 @@ const TvSeriesDetail = ({tvSeries, credits, videos, images}) =>
 
   return (
     <>
+    <Head>
+      <title>{name}</title>
+    </Head>
     <NavigationBar/>
       <div className = {styles.wrapper}>
         <div 
@@ -68,6 +69,9 @@ const TvSeriesDetail = ({tvSeries, credits, videos, images}) =>
                 borderRadius: "1rem"
             }}
         >       <div className = {styles.flexContainer}>
+                  {
+                    poster_path ?
+                  
                     <div className = {styles.left}>
                         <Image
                             src = {`${IMAGE_URL_SMALL}${poster_path}`}
@@ -78,6 +82,18 @@ const TvSeriesDetail = ({tvSeries, credits, videos, images}) =>
                             className = {styles.img}
                         />
                     </div>
+                    :
+                    <div className = {styles.left}>
+                        <Image
+                            src = {NoImage}
+                            width = "300"
+                            height = "300"
+                            alt = {name}
+                            loading = "eager"
+                            className = {styles.img}
+                        />
+                    </div>
+                  }
                     <div className = {styles.right}>
                         <h2 className = {styles.title}>{name}</h2>
                         <div className = {styles.genres}>
@@ -95,19 +111,23 @@ const TvSeriesDetail = ({tvSeries, credits, videos, images}) =>
                                 <p className = {styles.voteText}>{votePercentage}%</p>  
                             </div>
                             <p className = {styles.text}>User score</p>
-                            <div className = {styles.trailer}>
-                                <PlayArrow className = {styles.playIcon} onClick = {handleModalOpen}/>
-                                <p className = {styles.text}>Play trailer</p>
-                            </div>
-                            <Modal 
-                                isOpen = {isModalOpen}
-                                onClose = {handleModalClose}
-                                videoTrailer = {videos}
-                            />
+                            {
+                              videos.results.length > 0 &&
+                              <>
+                                <div className = {styles.trailer}>
+                                  <PlayArrow className = {styles.playIcon} onClick = {handleModalOpen}/>
+                                  <p className = {styles.text}>Play trailer</p>
+                                </div>
+                                <Modal 
+                                  isOpen = {isModalOpen}
+                                  onClose = {handleModalClose}
+                                  videoTrailer = {videos}
+                                />
+                              </>
+                            }
                         </div>
                         <p className = {styles.tagline}>{tagline}</p>
                         <div className = {styles.overview}>
-                            Overview: 
                             <h3 className = {styles.overviewText}>{overview}</h3>
                         </div>
                     </div>
@@ -115,6 +135,9 @@ const TvSeriesDetail = ({tvSeries, credits, videos, images}) =>
         </div>
       </div>
       <div className = {styles.castContainer}>
+        {
+          credits.cast.length > 0 &&
+        <>
         <h2 className = {styles.castTitle}>Series Top Cast</h2>
         <div className = {styles.castFlexContainer}>
         {
@@ -125,6 +148,7 @@ const TvSeriesDetail = ({tvSeries, credits, videos, images}) =>
                     {
                     profile_path &&
                     <>
+                    <Link href = {`/actor/${id}`}>
                         <Image
                             src = {`${IMAGE_URL_SMALL}${profile_path}`}
                             width = "200"
@@ -133,6 +157,7 @@ const TvSeriesDetail = ({tvSeries, credits, videos, images}) =>
                             loading = "eager"
                             className = {styles.castImg}
                         />
+                      </Link>  
                         <h3 className = {styles.castName}>{name}</h3>
                         <h4 className = {styles.character}>{character}</h4>
                     </>
@@ -140,24 +165,49 @@ const TvSeriesDetail = ({tvSeries, credits, videos, images}) =>
                 </div>
             })
         }
-        </div>
+          </div>
+        </>
+        }
+        
       </div>
       <div className = {styles.images}>
-      <h2 className={styles.backdropsTitle}>Backdrops ({images.backdrops.length})</h2>
-        <div className = {styles.backdrops}>
-        {images.backdrops.map((backdrop, index) => (
-          index === currentBackdropIndex &&
-          <Backdrops key = {index} backdrops = {backdrop}/>
-        ))}
-        </div>
-        <div className = {styles.arrowContainer}>
-        <button onClick = {prevBackdrop} className = {styles.iconBtn}>
-            <ArrowBackIosNewRoundedIcon className = {styles.prevIcon}/>
-        </button>
-        <button onClick = {nextBackdrop} className = {styles.iconBtn}>
-            <ArrowForwardIosRoundedIcon className = {styles.nextIcon}/>
-        </button>
+        {
+          images.backdrops.length !== 0 &&(
+        <>
+          <h2 className={styles.backdropsTitle}>Backdrops ({images.backdrops.length})</h2>
+          <div className = {styles.backdrops}>
+            { images.backdrops.map((backdrop, index) => (
+              index === currentBackdropIndex &&
+              <Backdrops key = {index} backdrops = {backdrop}/>
+            ))}
+          </div>
+          <div className = {styles.arrowContainer}>
+            <button onClick = {prevBackdrop} className = {styles.iconBtn}>
+                <ArrowBackIosNewRoundedIcon className = {styles.prevIcon}/>
+            </button>
+            <button onClick = {nextBackdrop} className = {styles.iconBtn}>
+                <ArrowForwardIosRoundedIcon className = {styles.nextIcon}/>
+            </button>
+          </div>
+        </>
+        )}
       </div>
+      <div className = {styles.seasons}>
+        { seasons.poster_path !== null &&
+          <h2 className = {styles.seasonTitle}> 
+            See { seasons.length === 1 ? "season" : "seasons"}
+          </h2>
+        }
+              {
+                  seasons.map((season) =>
+                  {
+                      return <>
+                          <div className = {styles.seasonsContainer}>
+                              <Seasons season = {season} key = {season.id}/>
+                          </div>
+                      </>
+                  })
+              }
       </div>
     </>
   )

@@ -5,8 +5,6 @@ import {useState, useContext} from "react";
 import { UserContext } from "@/context/userContext";
 import { signinUser } from "@/utils/firebase";
 import FormInput from "@/components/formInput/formInput";
-import Image from "next/image";
-import backgroundimage from '../../assets/animations.png';
 
 const initialFormFields =
 {
@@ -20,7 +18,7 @@ const Login = () =>
   const [userMsg, setUserMsg] = useState('');
   const [formFields, setFormFields] = useState(initialFormFields);
   const {email, password} = formFields;
-  const {setCurrentUser, currentUser} = useContext(UserContext);
+  const {setCurrentUser} = useContext(UserContext);
 
   const handleOnSubmit = async (event) =>
   {

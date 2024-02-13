@@ -3,7 +3,7 @@ import NavigationBar from '@/components/navigationBar/navigationBar';
 import { fetchAPISearch } from '@/utils/fetchFromAPI';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
-import { Stack, Typography, Button } from '@mui/material';
+import { Typography, Button } from '@mui/material';
 import Searchbar from '@/components/searchbar/searchbar';
 
 const initialState =
@@ -24,25 +24,42 @@ const Search = () =>
 
   const getMovies = async (page, query) =>
   {
-    try {
+    try
+    {
       setIsLoading(true);
-      const searchMovie = await fetchAPISearch(query, page);
+      const [movieContent, tvContent] = await Promise.all([
+        fetchAPISearch('movie', query, page),
+        fetchAPISearch('tv', query, page)
+      ]);
   
-      setSearchedMovies((prev) => {
-        return {
-          ...searchMovie,
-          results: page > 1 ? [...prev.results, ...searchMovie.results] : [...searchMovie.results],
-        };
-      });
+      const combinedResults =
+      [
+        ...movieContent.results.map((movie) => ({ ...movie, contentType: 'movie' })),
+        ...tvContent.results.map((tvShow) => ({ ...tvShow, contentType: 'tv' })),
+      ];
+  
+      const combinedContent =
+      {
+        page: movieContent.page,
+        total_pages: Math.max(movieContent.total_pages, tvContent.total_pages),
+        total_results: movieContent.total_results + tvContent.total_results,
+        results: combinedResults,
+      };
+  
+      setSearchedMovies((prev) => ({
+        ...combinedContent,
+        results: page > 1 ? [...prev.results, ...combinedContent.results] : [...combinedContent.results],
+      }));
       setIsLoading(false);
     } catch (error)
     {
-      console.error('Api error', error);
+      console.error('API error', error);
       setIsLoading(false);
     }
   };
 
-  useEffect(() => {
+  useEffect(() =>
+  {
     if (query)
     {
       setSearchedMovies(initialState);
@@ -50,28 +67,39 @@ const Search = () =>
     }
   }, [query]);
 
-  const nextPage = searchedMovies + 1;
-  const previousPage = searchedMovies - 1;
+  const nextPage = searchedMovies.page + 1;
+  const previousPage = searchedMovies.page - 1;
 
   const handlePageChange = async (newPage) =>
   {
-    if (newPage <= searchedMovies.total_pages)
+    try
     {
-      try
-      {
-        const newMovies = await fetchAPISearch(query, newPage);
-  
-        setSearchedMovies({
-          page: newPage,
-          results: newMovies.results,
-          total_pages: newMovies.total_pages,
-          total_results: newMovies.total_results,
-        });
-        window.scrollTo(0, 0);
-      } catch (error)
-      {
-        console.error('Api error', error);
-      }
+      setIsLoading(true);
+      
+      const [movieResults, tvResults] = await Promise.all([
+        fetchAPISearch('movie', query, newPage),
+        fetchAPISearch('tv', query, newPage)
+      ]);
+      
+      const combinedResults =
+      [
+        ...movieResults.results.map(movie => ({ ...movie, contentType: 'movie' })),
+        ...tvResults.results.map(tvShow => ({ ...tvShow, contentType: 'tv' }))
+      ];
+      
+      setSearchedMovies({
+        page: newPage,
+        results: combinedResults,
+        total_pages: Math.max(movieResults.total_pages, tvResults.total_pages),
+        total_results: movieResults.total_results + tvResults.total_results,
+      });
+      
+      setIsLoading(false);
+      window.scrollTo(0, 0);
+    } catch (error)
+    {
+      console.error('API error', error);
+      setIsLoading(false);
     }
   };
 
@@ -86,10 +114,18 @@ const Search = () =>
       >
         <Searchbar placeholder = {query}/>
       </div>
-      <h3 className = "query">
-        <span style = {{textTransform: "capitalize"}}>Search results for: </span>
-        {query}
-      </h3>
+        {
+          searchedMovies.results.length > 0 ?
+          <h3 className = "query">
+            <span style = {{textTransform: "capitalize"}}>Search results for: </span>
+            {query}
+          </h3>
+          :
+          <h3 className = "query">
+            <span style = {{textTransform: "capitalize"}}>No results found for: </span>
+            {query}
+          </h3>
+        }
       <div
         style =
         {{
@@ -103,7 +139,7 @@ const Search = () =>
       >
         {searchedMovies.results.map((movie) => (
           <div key ={ movie.id}>
-            <MovieCard movies = {movie} query = {query} isLoading = {isLoading} />
+            <MovieCard movies = {movie} query = {query} isLoading = {isLoading}/>
           </div>
         ))}
       </div>

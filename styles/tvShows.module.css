@@ -1,0 +1,38 @@
+.tvShowsContainer
+{
+    margin-top: 6rem;
+    padding: 0rem 2rem;
+    width: 100%;
+}
+
+.sidebarContainer
+{
+    margin-top: 4rem;
+}
+
+.flexContainer
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin-top: 5rem;
+}
+
+.banner
+{
+    margin-top: 0rem;
+}
+
+@media screen and (max-width: 900px)
+{
+    .flexContainer
+    {
+        flex-wrap: wrap;
+    }
+
+    .banner
+    {
+        margin-top: 0rem;
+    }
+}

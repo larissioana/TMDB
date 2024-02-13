@@ -2,6 +2,8 @@ import '@/styles/globals.css'
 import { MovieProvider } from '@/context/moviesContext';
 import { useEffect } from 'react';
 import ReactModal from 'react-modal';
+import { TvShowsProvider } from '@/context/tvSeriesContext';
+import { UserProvider } from '@/context/userContext';
 
 export default function App({ Component, pageProps }) {
   useEffect(() => 
@@ -10,9 +12,13 @@ export default function App({ Component, pageProps }) {
   },[]);
   
   return (
-    <MovieProvider>
-      <Component {...pageProps} />
-    </MovieProvider>
+    <UserProvider>
+      <MovieProvider>
+        <TvShowsProvider>
+          <Component {...pageProps} />
+        </TvShowsProvider>
+      </MovieProvider>
+    </UserProvider>
    
   )   
 }

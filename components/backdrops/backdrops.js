@@ -5,7 +5,8 @@ import { IMAGE_URL } from '@/utils/fetchFromAPI';
 
 const Backdrops = ({backdrops}) =>
 {
-    const { file_path } = backdrops;
+  const { file_path } = backdrops;
+  
   return (
     <div className = {styles.backdrops}>
       <Image

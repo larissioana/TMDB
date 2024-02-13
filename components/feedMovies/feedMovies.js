@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from '../moviesCategories/moviesCategories.module.css';
 
-const FeedMovies = ({isButtonActive, handleButtonChange}) => 
+const FeedMovies = ({ isButtonActive, handleButtonChange }) => 
 {
   return (
     <div>
@@ -17,7 +17,7 @@ const FeedMovies = ({isButtonActive, handleButtonChange}) =>
             marginTop: "1rem",
         }}
         >
-            <h2 style ={{color: "white", fontSize: "clamp(1.1rem, 2vw, 2rem)"}}>What's new</h2>
+            <h2 style = {{color: "white", fontSize: "clamp(1.1rem, 2vw, 2rem)"}}>What's new</h2>
             <div
                 className = {styles.moviesCategoriesContainer}
             >

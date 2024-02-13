@@ -18,15 +18,17 @@ const Searchbar = ({placeholder}) =>
     }
   };
 
+  useEffect(() =>
+  {
+    if (placeholder !== "Search for a movie, tv show...") {
+      setSearchTerm(placeholder); 
+      inputRef.current.focus(); 
+    }
+  }, [placeholder]);
+
   const handleInputChange = (e) =>
   {
     setSearchTerm(e.target.value);
-    const cursorPosition = e.target.selectionEnd;
-
-      if (inputRef.current)
-      {
-        inputRef.current.setSelectionRange(cursorPosition, cursorPosition);
-      }
   };
 
   return (

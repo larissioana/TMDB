@@ -24,7 +24,6 @@
   padding: 7rem 2rem;
   border-radius: 1rem;
   border: 1px solid var(--shadow20);
-  min-height: 80vh;
 }
 
 .col1, .col2
@@ -80,9 +79,10 @@
 
 .posterPath
 {
- width: 20rem;
- height: 25rem;
+ width: 25rem;
+ height: 35rem;
  object-fit: cover;
+ object-position: top;
  animation: anim .6s ease-in;
 }
 
@@ -171,6 +171,12 @@
       align-items: start;
       gap: 0;
     }
+
+    .posterPath
+    {
+      width: 20rem;
+      height: 25rem;
+    }
 }
 
 @media (max-width: 480px)
@@ -179,6 +185,7 @@
   {
     margin-top: 1rem;
     width: 18rem;
+    height: 20rem;
   }
 
   .flexContainer

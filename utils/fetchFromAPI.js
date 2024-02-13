@@ -20,9 +20,9 @@ export const fetchAPI = async (url, page) =>
     return data;
 }
 
- export const fetchAPISearch = async (query, page) =>
+ export const fetchAPISearch = async (url, query, page) =>
 {
-  const {data} = await axios.get(`https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=${page}`, options)
+  const {data} = await axios.get(`https://api.themoviedb.org/3/search/${url}?query=${query}&include_adult=false&language=en-US&page=${page}`, options)
   return data;
 };
 
@@ -62,9 +62,9 @@ export const fetchAPIExternalLinks = async (movieId) =>
   return data;
 };
 
-export const fetchAPIFilteredMovies = async (page, genre) =>
+export const fetchAPIFilteredMovies = async (url, page, genre) =>
 {
-  const {data} = await axios.get(`https://api.themoviedb.org/3/discover/movie?with_genres=${genre}&page=${page}`, options);
+  const {data} = await axios.get(`https://api.themoviedb.org/3/discover/${url}?with_genres=${genre}&page=${page}`, options);
   return data;
 };
 
@@ -74,9 +74,9 @@ export const fetchAPIPerson = async (id) =>
   return data;
 };
 
-export const fetchAPITvSeries = async (page) =>
+export const fetchAPITvSeries = async (url, page) =>
 {
-  const {data} = await axios.get(`https://api.themoviedb.org/3/tv/top_rated?language=en-US&page=${page}`, options);
+  const {data} = await axios.get(`https://api.themoviedb.org/3/tv/${url}?language=en-US&page=${page}`, options);
   return data;
 };
 

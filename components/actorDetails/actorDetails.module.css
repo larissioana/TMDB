@@ -1,33 +1,44 @@
 .actorWrapper
 {
-    margin-top: 6rem;
-    margin-bottom: 2rem;
+    margin: 10rem 2rem 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 .name
 {
-    text-align: center;
+    text-align: start;
     font-size: clamp(1.5rem, 2vw, 2rem);
+    padding: 0rem 1rem;
+    margin-bottom: 1rem;
+}
+
+.subtitle
+{
+    margin-bottom: 2rem;
+    font-size: clamp(1.2rem, 2vw, 1.7rem);
 }
 
 .actorImages
 {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    padding: 2rem 2rem;
+    justify-content: flex-start;
+    align-items: flex-start;
     gap: .5rem;
 }
 
 @keyframes personAnimation
 {
     0%{
-        opacity: 0.8;
+        filter: grayscale(100%);
     }
 
     100%
     {
-        opacity: 1;
+        filter: none;
     }
 }
 
@@ -52,9 +63,10 @@
 {
     margin-top: 4rem;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
     gap: 2rem; 
+    margin-bottom: 2rem;
 }
 
 .profilePath
@@ -112,8 +124,8 @@
 {
     background: none;
     cursor: pointer;
-    border-bottom: 2px solid rgb(145, 67, 122);
-    border-right: 2px solid rgb(153, 23, 110);
+    border-bottom: 2px solid rgb(98, 33, 78);
+    border-right: 2px solid rgb(75, 15, 55);
     border-top: 0;
     border-left: 0;
     color: var(--white10);
@@ -129,16 +141,37 @@
     text-align: center;
 }
 
+.homepage
+{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0rem 1rem;
+}
+
+.homepageHref
+{
+    font-size: clamp(.9rem, 2vw, 1.033rem);
+    font-weight: bolder;
+    padding-right: .6rem;
+    color: white;
+}
+
+.hrefIcon
+{
+    font-size: clamp(1.4rem, 2vw, 1.5rem);
+    vertical-align: middle;
+    margin-left: .6rem;
+    cursor: pointer;
+}
+
 .modal
 {
     position: absolute;
     top: 55%;
     left: 50%;
-    transform: translate(-55%, -50%);
-    max-width: 80%;
-    max-height: 80%;
-    overflow: auto;
-    box-shadow: 3px 3px 5px rgb(11, 11, 11);
+    transform: translate(-50%, -55%);
+    width: 400px;
     overflow: hidden;
     color: white;
 }
@@ -162,28 +195,28 @@
     animation: personAnimation 1s ease-in-out;
 }
 
-.modalImage:hover
+@media (max-width: 580px)
 {
-    filter: grayscale(100%);
-}
+    .profilePath
+    {
+        width: 20rem;
+        height: 30rem;
+    }
 
-@media (max-width: 1160px)
-{
-.container
-{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-}
-@media (max-width: 505px)
-{
-  .profilePath
-  {
-    width: 20rem;
-    height: 30rem;
-  }
+
+    .actorImages
+    {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 @media (max-width: 340px)

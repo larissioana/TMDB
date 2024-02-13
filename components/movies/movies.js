@@ -5,6 +5,7 @@ import styles from './movies.module.css';
 import NoImage from '../../assets/no-image.jpg';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { Tooltip } from 'react-tooltip';
 
 const Movies = ({movies}) =>
 {
@@ -32,7 +33,12 @@ const Movies = ({movies}) =>
                   animate ={ { opacity: 1, y: 0}}
                   exit = {{ opacity: 0, y: -20 }}
                   >
-                    <Link href = {`/movie/${id}`}>
+                    <Tooltip
+                      id = "tooltip"
+                      place = "top"
+                    />
+                    <Link href = {`/movie/${id}`} data-tooltip-id = "tooltip"
+                        data-tooltip-content = {title}>
                       <Image
                         className = {styles.img}
                         src = {`${IMAGE_URL_SMALL}${poster_path}`}
@@ -54,7 +60,6 @@ const Movies = ({movies}) =>
                     />
                   </motion.div>
                 }
-            <h2 className = {styles.title}>{title}</h2>
         </motion.div>
       }
       )}

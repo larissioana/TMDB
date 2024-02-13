@@ -10,7 +10,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: .5rem;
     padding: 0rem 0rem;
     margin-left: 2.6rem;

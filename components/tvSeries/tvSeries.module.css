@@ -5,10 +5,10 @@
 
 .title
 {
-    font-size: clamp(1.1rem, 2vw, 2rem);
-    text-align: center;
+    font-size: clamp(1.4rem, 2vw, 1.7rem);
     margin-top: 3rem;
     margin-bottom: 1rem;
+    margin-left: 1rem;
 }
 
 .tvSeriesContainer

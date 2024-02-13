@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Head from 'next/head';
 import NavigationBar from '../navigationBar/navigationBar';
 import Modal from 'react-modal';
-import CloseIcon from '@mui/icons-material/Close';
+import LanguageIcon from '@mui/icons-material/Language';
 
 const ActorDetails = ({ actorDetails, person }) =>
 {
@@ -18,9 +18,10 @@ const ActorDetails = ({ actorDetails, person }) =>
         biography,
         place_of_birth,
         profile_path,
-        known_for_department
+        known_for_department,
+        homepage
     } = actorDetails;
-
+ 
     const handleOnClickReadMore = () =>
     {
         setReadMore(!readMore);
@@ -46,7 +47,6 @@ const ActorDetails = ({ actorDetails, person }) =>
             {
                 profile_path ? (
                 <div>
-                    <h2 className={styles.name}>{name}</h2>
                     <div className={styles.container}>
                         <div className={styles.leftContainer}>
                             <Image 
@@ -60,6 +60,7 @@ const ActorDetails = ({ actorDetails, person }) =>
                            
                         </div>
                         <div className={styles.right}>
+                            <h2 className={styles.name}>{name}</h2>
                             {
                                 birthday &&
                                 <h5 className={styles.birthday}>Birthday: <span className={styles.text}>{birthday}</span></h5>
@@ -84,6 +85,15 @@ const ActorDetails = ({ actorDetails, person }) =>
                             <p className={styles.knownFor}>Known for: 
                                 <span className={styles.text}> {known_for_department}</span>
                             </p>
+                            {
+                                homepage &&
+                                <div className = {styles.homepage}>
+                                    <a href = {homepage} target="_blank" rel="noopener noreferrer" className = {styles.homepageHref}>
+                                        Homepage: 
+                                        <LanguageIcon className = {styles.hrefIcon}/>
+                                    </a>
+                                </div>
+                            }
                         </div>
                     </div>
                     <div className={styles.actorImages}>

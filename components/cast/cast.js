@@ -73,7 +73,10 @@ const Cast = ({
         </Link>
         )}
         </div>
-        <h3 className = {styles.title}>Top cast</h3>
+        {
+          credits.cast.length > 0 &&
+          <h3 className = {styles.title}>Top cast</h3>
+        }
         <div className = {styles.cast}>
         {credits.cast.map((item) =>
         {

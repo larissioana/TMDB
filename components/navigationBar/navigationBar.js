@@ -1,18 +1,17 @@
 import { Stack } from "@mui/material";
 import Link from "next/link";
 import { signOutUser } from '@/utils/firebase';
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { UserContext } from "@/context/userContext";
 import { useRouter } from "next/router";
 
 const NavigationBar = () =>
 {
     const router = useRouter();
-    const {currentUser, setCurrentUser} = useContext(UserContext);
-
-    const handleOnClickHome = () =>
+    const { currentUser, setCurrentUser } = useContext(UserContext);
+    const handleOnClickHome = (path) =>
     {
-        router.push('/');
+        router.push(path);
     };
 
     const handleSignOut = async () => 
@@ -27,6 +26,7 @@ const NavigationBar = () =>
         <Stack
             direction = "row"
             alignItems = "center"
+            justifyContent = "center"
             px = { 4 }
             sx =
             {{
@@ -34,6 +34,7 @@ const NavigationBar = () =>
                 backgroundColor: "rgba(0, 0, 0, 0.7)",
                 top: 0,
                 justifyContent: "center",
+                alignItems: "center",
                 minHeight: "5rem",
                 padding: "1rem",
                 left: 0,
@@ -44,17 +45,34 @@ const NavigationBar = () =>
         >
             <Link 
                 href = "/"
-                onClick = {handleOnClickHome}
+                onClick = {() => handleOnClickHome('/')}
                 style =
                 {{
                     display: "flex",
                     alignItems: "center",
+                    justifyContent: "center",
                     gap: "1rem",
                     fontSize: "clamp(.9rem, 2vw, 1.2rem)",
                     color: "white"
                 }}
             >
-                Home
+                Movies
+            </Link>
+            <Link 
+                href = "/tvShows"
+                onClick = {() => handleOnClickHome('/tvShows')}
+                style =
+                {{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "1rem",
+                    fontSize: "clamp(.9rem, 2vw, 1.2rem)",
+                    color: "white",
+                    marginLeft: "1rem"
+                }}
+            >
+                TV Shows
             </Link>
             {
             !currentUser ?
@@ -62,6 +80,7 @@ const NavigationBar = () =>
                 {{
                     display: "flex",
                     alignItems: "center",
+                    justifyContent: "center",
                     fontSize: "clamp(.9rem, 2vw, 1.2rem)",
                     marginLeft: "1rem",
                     color: "white"
@@ -74,6 +93,7 @@ const NavigationBar = () =>
                 {{
                     display: "flex",
                     alignItems: "center",
+                    justifyContent: "center",
                     fontSize: "clamp(.9rem, 2vw, 1.2rem)",
                     marginLeft: "1rem",
                     color: "white"
