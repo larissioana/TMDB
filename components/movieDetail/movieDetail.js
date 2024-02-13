@@ -91,12 +91,12 @@ const MovieDetail = ({
                         </div>
                         <p className = {styles.description}>Overview: {overview}</p>
                         <Cast
-                        credits = {credits} 
-                        externalIds = {externalIds} 
-                        status = {status} 
-                        revenue = {revenue}  
-                        budget = {budget} 
-                        genreNames = {genreNames}
+                            credits = {credits} 
+                            externalIds = {externalIds} 
+                            status = {status} 
+                            revenue = {revenue}  
+                            budget = {budget} 
+                            genreNames = {genreNames}
                         />
                     </div>
                     <div className={styles.col2}>

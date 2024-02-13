@@ -96,8 +96,8 @@ const Cast = ({
                 :
                     <Image
                         className = {styles.img}
-                        width = '200'
-                        height = '200'
+                        width = '112'
+                        height = '112'
                         alt = {name}
                         src = {NoImage}
                         style = {{
