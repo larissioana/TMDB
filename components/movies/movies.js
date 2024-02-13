@@ -42,8 +42,8 @@ const Movies = ({movies}) =>
                       <Image
                         className = {styles.img}
                         src = {`${IMAGE_URL_SMALL}${poster_path}`}
-                        width = '200'
-                        height = '200'
+                        width = '160'
+                        height = '320'
                         alt = {title}
                         loading = "eager"
                       />
