@@ -4,11 +4,19 @@ import { signOutUser } from '@/utils/firebase';
 import { useContext } from "react";
 import { UserContext } from "@/context/userContext";
 import { useRouter } from "next/router";
+import { useMovieContext } from "@/context/moviesContext";
 
 const NavigationBar = () =>
 {
     const router = useRouter();
     const { currentUser, setCurrentUser } = useContext(UserContext);
+    const { setActiveContentType } = useMovieContext();
+
+    const handleTvShows = (type) =>
+    {
+        setActiveContentType(type);
+    };
+
     const handleOnClickHome = (path) =>
     {
         router.push(path);
@@ -45,7 +53,11 @@ const NavigationBar = () =>
         >
             <Link 
                 href = "/"
-                onClick = {() => handleOnClickHome('/')}
+                onClick = {() =>
+                    {
+                        handleTvShows("movie");
+                        handleOnClickHome("/")
+                    }}
                 style =
                 {{
                     display: "flex",
@@ -60,7 +72,10 @@ const NavigationBar = () =>
             </Link>
             <Link 
                 href = "/tvShows"
-                onClick = {() => handleOnClickHome('/tvShows')}
+                onClick = {() => {
+                    handleTvShows("tv");
+                    handleOnClickHome('/tvShows')
+                }}
                 style =
                 {{
                     display: "flex",

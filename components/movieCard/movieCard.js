@@ -111,7 +111,7 @@ const MovieCard = ({movies = [], isLoading}) =>
             </Typography>
             }
             {
-              contentType === "movie" ?
+              contentType === "movie"?
               <Typography
               variant="subtitle2"
               fontWeight="bold"

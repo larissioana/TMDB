@@ -24,6 +24,7 @@ const Searchbar = ({placeholder}) =>
       setSearchTerm(placeholder); 
       inputRef.current.focus(); 
     }
+    setSearchTerm("");
   }, [placeholder]);
 
   const handleInputChange = (e) =>

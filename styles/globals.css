@@ -107,7 +107,7 @@ li
   align-items: flex-start;
   gap: 1.8rem;
   padding: 1rem;
-  width: 10rem;
+  width: 12rem;
 }
 
 .search-bar
@@ -130,7 +130,7 @@ li
 
 .search-bar::placeholder
 {
-  color: rgb(244, 244, 244);
+  color: rgb(255, 255, 255);
   font-size: clamp(.9rem, 2vw, 1rem);
   white-space: nowrap;
   text-overflow: ellipsis;

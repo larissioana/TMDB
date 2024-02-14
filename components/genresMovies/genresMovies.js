@@ -21,8 +21,8 @@ const GenresMovies = () =>
 {
     const [filteredMovies, setFilteredMovies] = useState(initialState);
     const [isLoading, setIsLoading] = useState(false);
-
-    const { activeGenre } = useMovieContext();
+ 
+    const { activeGenre, activeContentType } = useMovieContext();
 
     const fetchFilteredMovies = async (page, activeGenre) =>
     {
@@ -105,13 +105,16 @@ const GenresMovies = () =>
           setIsLoading(false);
         }
     };
-      
-  return (
+     
+    const movies = filteredMovies.results.filter(movie => movie.contentType === 'movie');
+    const tvShows = filteredMovies.results.filter(movie => movie.contentType === 'tv');
+
+   return (
     <div>
         <NavigationBar/>
         <div className = {styles.wrapper} 
             >
-                <Sidebar isMovies = {true} />
+                <Sidebar isMovies = {true} contentType = "movie" />
                 <AnimatePresence>
                 <motion.div style =
                 {{
@@ -122,24 +125,42 @@ const GenresMovies = () =>
                 exit = {{ opacity: 0, y: -200 }}
                 
                 >
+                  {
+                    activeContentType === "movie" ?
+                    movies.map((movie, index) => 
                     {
-                      filteredMovies.results.map((movie, index) =>
+                      const {backdrop_path} = movie;
+                          return index === 1 ? <Banner key={index} isLoading = {isLoading} imageUrl={backdrop_path} /> : null;
+                    })
+                    :
+                      tvShows.map((show, index) =>
                       {
-                          const {backdrop_path} = movie;
-                          return index === 2 ? <Banner key={index} isLoading = {isLoading} imageUrl={backdrop_path} /> : null;
+                          const {backdrop_path} = show;
+                          return index === 1 ? <Banner key={index} isLoading = {isLoading} imageUrl={backdrop_path} /> : null;
                       })
-                    }
+                  }
+                    
                 </motion.div>
                 </AnimatePresence>
             </div>
             <div className = {styles.moviesContainer}>
-                {filteredMovies.results.map((result) => 
+              {
+                activeContentType === "movie" ?
+                movies.map((movie) => {
+                  return <div key = {movie.id}>
+                  <MovieCard movies = {movie}/>
+                  </div>
+                })
+                : 
+                tvShows.map((show) =>
                 {
-                    return <div key = {result.id}>
-                        <MovieCard movies = {result}/>
-                    </div>
-                })}
-        </div>
+                  return <div key = {show.id}>
+                  <MovieCard movies = {show}/>
+                  </div>
+                })
+              }
+                
+            </div>
         {
         filteredMovies.total_pages > 1 && (
         <div

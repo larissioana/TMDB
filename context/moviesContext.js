@@ -16,6 +16,8 @@ export const MovieProvider = ({children}) =>
 {
     const [movies, setMovies] = useState([]);
     const [activeGenre, setActiveGenre] = useState(null);
+    const [activeContentType, setActiveContentType] = useState('movie'); 
+
   
     const value =
     {
@@ -23,6 +25,8 @@ export const MovieProvider = ({children}) =>
         setMovies,
         activeGenre,
         setActiveGenre,
+        activeContentType,
+        setActiveContentType
     };
 
     return (
