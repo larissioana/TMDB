@@ -49,7 +49,7 @@ export const movieGenres =
     {
         id: 18,
         name: "Drama",
-        icon: <Image src = {DramaIcon} alt = "drama" width = "20" height = "20"/>
+        icon: <Image src = {DramaIcon} alt = "drama" width = "24" height = "24"/>
     },
     {
         id: 10751,
@@ -108,12 +108,12 @@ export const tvGenres =
     {
         id: 99,
         name: "Documentary",
-        icon: <Image src = {DocumentaryIcon} alt = "documentary" width = "20" height = "20"/>
+        icon: <Image src = {DocumentaryIcon} alt = "documentary" width = "18" height = "20"/>
     },
     {
         id: 18,
         name: "Drama",
-        icon: <Image src = {DramaIcon} alt = "drama" width = "20" height = "20"/>
+        icon: <Image src = {DramaIcon} alt = "drama" width = "24" height = "24"/>
     },
     {
         id: 10751,
@@ -138,7 +138,7 @@ export const tvGenres =
     {
         id: 10766,
         name: "Soap",
-        icon: <Image src = {DramaIcon} alt = "soap" width = "20" height = "20"/>
+        icon: <Image src = {DramaIcon} alt = "soap" width = "24" height = "24"/>
     },
     {
         id: 10767,
