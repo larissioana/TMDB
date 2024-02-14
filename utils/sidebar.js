@@ -16,6 +16,7 @@ import FantasyIcon from '../assets/fantasy.png';
 import WesternIcon from '../assets/western.png';
 import TalkIcon from '../assets/talk.png';
 import PoliticsIcon from '../assets/politics.png';
+import SoapIcon from '../assets/soap.png';
 import Image from 'next/image';
 
 export const movieGenres = 
@@ -138,7 +139,7 @@ export const tvGenres =
     {
         id: 10766,
         name: "Soap",
-        icon: <Image src = {DramaIcon} alt = "soap" width = "24" height = "24"/>
+        icon: <Image src = {SoapIcon} alt = "soap" width = "20" height = "20"/>
     },
     {
         id: 10767,
