@@ -5,6 +5,7 @@
     gap: .2rem;
     margin-top: 2rem;
     margin-bottom: 1.7rem;
+    overflow-y: hidden;
 }
 
 .img
@@ -15,6 +16,7 @@
     border-radius: .4rem;
     animation: imageAnimation 1.2s ease-in;
     cursor: pointer;
+    margin-bottom: 1rem;
 }
 
 @keyframes imageAnimation
@@ -37,3 +39,4 @@
   margin-top: .5rem;
   width: 8rem;
 }
+

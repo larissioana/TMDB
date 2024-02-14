@@ -41,7 +41,7 @@ const MoviesCategories = ({ popular, topRated, upcoming }) =>
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
-                marginBottom: "1rem"
+                marginBottom: "1rem",
             }}
         >
             <FeedMovies isButtonActive = {isButtonActive} handleButtonChange = {handleButtonChange}/>
