@@ -129,7 +129,6 @@ console.log({popularPeople})
               {pageNumber}
             </Button>
         ))}
-        <Typography variant = "body1" sx = {{ marginX: '1rem' }}></Typography>
         <Button
           className = "pagination-btn"
           disabled = {popularPeople.page === popularPeople.total_pages}
