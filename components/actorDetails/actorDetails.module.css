@@ -198,7 +198,12 @@
     transform: translate(-50%, -55%);
     width: 400px;
     overflow: hidden;
-    color: white;
+    border: none;
+}
+
+.modal:focus
+{
+    outline: none;
 }
   
 .overlay 
@@ -227,7 +232,6 @@
         width: 20rem;
         height: 30rem;
     }
-
 
     .actorImages
     {
