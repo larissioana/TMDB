@@ -12,7 +12,7 @@ const Sidebar = () =>
         setActiveGenre(genre);
         router.push({
             pathname: '/genres',
-            query: { activeGenre: genre },
+            query: { genre: genre },
         });
     };
 

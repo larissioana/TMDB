@@ -84,7 +84,7 @@ const Cast = ({
             return <div key = {id}>
                 {
                     profile_path ?
-                    <Link href = {`/actor/${id}`}>
+                    <Link href = {`/actor/${encodeURI(id)}/${name.replace(/\s+/g, '-').toLowerCase()}`}>
                     <Image
                         className = {styles.img}
                         width = '112'

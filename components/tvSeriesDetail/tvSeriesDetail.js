@@ -148,7 +148,7 @@ const TvSeriesDetail = ({tvSeries, credits, videos, images}) =>
                     {
                     profile_path &&
                     <>
-                    <Link href = {`/actor/${id}`}>
+                    <Link href = {`/actor/${encodeURI(id)}/${name.replace(/\s+/g, '-').toLowerCase()}`}>
                         <Image
                             src = {`${IMAGE_URL_SMALL}${profile_path}`}
                             width = "200"
