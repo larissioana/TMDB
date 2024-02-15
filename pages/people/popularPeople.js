@@ -78,9 +78,6 @@ console.log({popularPeople})
   return (
     <div className = {styles.popularPeopleWrapper}>
       <NavigationBar/>
-      <div className = {styles.searchbarContainer}>
-      <Searchbar placeholder = "Search person..."/>
-      </div>
       {
         !isLoading ?
         <div className = {styles.wrapper}>
