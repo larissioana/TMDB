@@ -55,7 +55,7 @@ const ActorKnownFor = ({actorKnownFor}) =>
               </div>
           }
               </>
-          })
+          }).slice(0, 20)
         }
       </div>
     </div>

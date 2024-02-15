@@ -114,4 +114,10 @@ export const fetchAPIPopularPeople = async (page) =>
 {
   const {data} = await axios.get(`https://api.themoviedb.org/3/person/popular?language=en-US&page=${page}`, options);
   return data;
-}
+};
+
+export const fetchAPIPopularPerson = async () =>
+{
+  const {data} = await axios.get(`https://api.themoviedb.org/3/search/person`, options);
+  return data;
+};

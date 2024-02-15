@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { fetchAPIPopularPeople } from '@/utils/fetchFromAPI';
+import { fetchAPIPopularPeople, fetchAPIPopularPerson } from '@/utils/fetchFromAPI';
 import NavigationBar from '@/components/navigationBar/navigationBar';
-import { Button, Typography } from '@mui/material';
+import { Button } from '@mui/material';
 import styles from '../../styles/people.module.css';
 import Loading from '@/components/loading/loading';
 import { IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
@@ -9,6 +9,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
+import Searchbar from '@/components/searchbar/searchbar';
 
 const initialState = 
 {
@@ -75,8 +76,11 @@ console.log({popularPeople})
     };
      
   return (
-    <div>
+    <div className = {styles.popularPeopleWrapper}>
       <NavigationBar/>
+      <div className = {styles.searchbarContainer}>
+      <Searchbar placeholder = "Search person..."/>
+      </div>
       {
         !isLoading ?
         <div className = {styles.wrapper}>
