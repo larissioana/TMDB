@@ -5,7 +5,8 @@ import Image from 'next/image';
 import { Tooltip } from 'react-tooltip';
 import Link from 'next/link';
 
-const ActorKnownFor = ({actorKnownFor}) => {
+const ActorKnownFor = ({actorKnownFor}) =>
+{
   return (
     <div className = {styles.wrapper}>
       <h2 className = {styles.title}>Known For</h2>

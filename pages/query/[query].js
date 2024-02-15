@@ -27,16 +27,17 @@ const Search = () =>
     try
     {
       setIsLoading(true);
-      const [movieContent, tvContent] = await Promise.all([
+      const [movieContent, tvContent, personContent] = await Promise.all([
         fetchAPISearch('movie', query, page),
-        fetchAPISearch('tv', query, page)
+        fetchAPISearch('tv', query, page),
       ]);
-  
+
       const combinedResults =
       [
         ...movieContent.results.map((movie) => ({ ...movie, contentType: 'movie' })),
         ...tvContent.results.map((tvShow) => ({ ...tvShow, contentType: 'tv' })),
       ];
+
   
       const combinedContent =
       {
@@ -76,15 +77,15 @@ const Search = () =>
     {
       setIsLoading(true);
       
-      const [movieResults, tvResults] = await Promise.all([
+      const [movieResults, tvResults, personResults] = await Promise.all([
         fetchAPISearch('movie', query, newPage),
-        fetchAPISearch('tv', query, newPage)
+        fetchAPISearch('tv', query, newPage),
       ]);
       
       const combinedResults =
       [
         ...movieResults.results.map(movie => ({ ...movie, contentType: 'movie' })),
-        ...tvResults.results.map(tvShow => ({ ...tvShow, contentType: 'tv' }))
+        ...tvResults.results.map(tvShow => ({ ...tvShow, contentType: 'tv' })),
       ];
       
       setSearchedMovies({

@@ -89,6 +89,21 @@ const NavigationBar = () =>
             >
                 TV Shows
             </Link>
+            <Link 
+                href = "/people/popularPeople"
+                style =
+                {{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "1rem",
+                    fontSize: "clamp(.9rem, 2vw, 1.2rem)",
+                    color: "white",
+                    marginLeft: "1rem"
+                }}
+            >
+                People
+            </Link>
             {
             !currentUser ?
                 <Link style =

@@ -109,3 +109,9 @@ export const fetchAPIActorKnownFor = async (id) =>
   const {data} = await axios.get(`https://api.themoviedb.org/3/person/${id}/combined_credits?language=en-US`, options);
   return data;
 };
+
+export const fetchAPIPopularPeople = async (page) =>
+{
+  const {data} = await axios.get(`https://api.themoviedb.org/3/person/popular?language=en-US&page=${page}`, options);
+  return data;
+}

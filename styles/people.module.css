@@ -1,0 +1,53 @@
+.wrapper
+{
+    margin-top: 7rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.title
+{
+    font-size: clamp(1.3rem, 2vw, 1.7rem);
+    padding-bottom: 2rem;
+    text-align: center;
+}
+
+.container
+{
+    display: flex;
+    padding: 2rem 2rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: 7rem;
+    column-gap: 0rem;
+    overflow: hidden;
+    margin-bottom: 4rem;
+}
+
+.people
+{
+    object-fit: cover;
+    transition: transform .5s ease-in-out;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: .3rem;
+    border-top-right-radius: .3rem;
+}
+
+.name
+{
+    width: 15rem;
+    text-overflow: ellipsis;
+    font-size: clamp(.9rem, 2vw, 1rem);
+    padding-top: .4rem;
+}
+
+.paginationBtn
+{
+    color: rgb(148, 74, 146);
+}
+
+.people:hover
+{
+    transform: scale(1.1);
+}
