@@ -1,0 +1,32 @@
+.wrapper
+{
+    margin: 2rem;
+}
+
+.title
+{
+    color: white;
+    font-size: clamp(1.3rem, 2vw, 1.6rem);
+    padding-bottom: 2rem;
+}
+
+.container
+{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: auto;
+    gap: .5rem;
+}
+
+.image
+{
+    object-fit: cover;
+    border-radius: .4rem;
+    padding-bottom: 1rem;
+}
+
+.image:hover
+{
+    cursor: pointer;
+}

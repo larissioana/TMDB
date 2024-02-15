@@ -6,12 +6,13 @@ import Head from 'next/head';
 import NavigationBar from '../navigationBar/navigationBar';
 import Modal from 'react-modal';
 import LanguageIcon from '@mui/icons-material/Language';
+import ActorKnownFor from '../actorKnownFor/actorKnownFor';
 
-const ActorDetails = ({ actorDetails, person }) =>
+const ActorDetails = ({ actorDetails, person, actorKnownFor }) =>
 {
     const [readMore, setReadMore] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
-
+   
     const {
         name,
         birthday,
@@ -36,7 +37,9 @@ const ActorDetails = ({ actorDetails, person }) =>
     {
         setSelectedImage(null);
     };
-    
+
+    const profilePathLength = person.profiles.map((profile) => profile.file_path);
+
     return (
     <div>
       <Head>
@@ -96,6 +99,10 @@ const ActorDetails = ({ actorDetails, person }) =>
                             }
                         </div>
                     </div>
+                    {
+                        profilePathLength.length > 1 &&
+                        <h2 className = {styles.moreImages}>More images</h2>
+                    }
                     <div className={styles.actorImages}>
                         {
                         person.profiles.map((profile, index) => {
@@ -144,6 +151,7 @@ const ActorDetails = ({ actorDetails, person }) =>
                 ) :
                 ( <div className={styles.info}>No information available about this actor 	&#128542;</div>)}
         </div>
+        <ActorKnownFor actorKnownFor = {actorKnownFor}/>
     </div>
   )
 };

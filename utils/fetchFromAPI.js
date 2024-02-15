@@ -103,3 +103,9 @@ export const fetchAPITvSeriesImages = async (id) =>
   const {data} = await axios.get(`https://api.themoviedb.org/3/tv/${id}/images`, options);
   return data;
 };
+
+export const fetchAPIActorKnownFor = async (id) =>
+{
+  const {data} = await axios.get(`https://api.themoviedb.org/3/person/${id}/combined_credits?language=en-US`, options);
+  return data;
+};

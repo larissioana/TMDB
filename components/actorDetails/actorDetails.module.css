@@ -225,6 +225,13 @@
     animation: personAnimation 1s ease-in-out;
 }
 
+.moreImages
+{
+    margin-bottom: 2rem;
+    color: white;
+    font-size: clamp(1.3rem, 2vw, 1.6rem);
+}
+
 @media (max-width: 580px)
 {
     .profilePath
@@ -235,7 +242,7 @@
 
     .actorImages
     {
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
     }
 
