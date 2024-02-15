@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect } from 'react'
 import { fetchAPIFilteredMovies } from '@/utils/fetchFromAPI';
 import { useMovieContext } from '@/context/moviesContext';
 import NavigationBar from '../navigationBar/navigationBar';
@@ -65,11 +65,11 @@ const GenresMovies = () =>
     {
       if (activeGenre) 
       {
-        setFilteredMovies(initialState);
+        setFilteredMovies(initialState)
         fetchFilteredMovies(1, activeGenre);
       }
     }, [activeGenre]);
-      
+    
     const nextPage = filteredMovies.page + 1;
     const previousPage = filteredMovies.page - 1;
       

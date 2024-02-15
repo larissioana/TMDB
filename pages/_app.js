@@ -12,13 +12,12 @@ export default function App({ Component, pageProps }) {
   },[]);
   
   return (
-    <UserProvider>
-      <MovieProvider>
-        <TvShowsProvider>
-          <Component {...pageProps} />
-        </TvShowsProvider>
-      </MovieProvider>
-    </UserProvider>
-   
+      <UserProvider>
+        <MovieProvider>
+          <TvShowsProvider>
+            <Component {...pageProps} />
+          </TvShowsProvider>
+        </MovieProvider>
+      </UserProvider>
   )   
 }
