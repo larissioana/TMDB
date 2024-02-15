@@ -7,6 +7,8 @@ import Loading from '@/components/loading/loading';
 import { IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
 import Link from 'next/link';
 import Image from 'next/image';
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 
 const initialState = 
 {
@@ -113,7 +115,7 @@ console.log({popularPeople})
           disabled = {popularPeople.page === 1}
           onClick={() => handlePageChange(popularPeople.page - 1, previousPage)}
         >
-          Previous Page
+          <NavigateBeforeIcon/>
         </Button>
         {
           Array.from({ length: popularPeople.total_pages }, (_, index) => index + 1)
@@ -133,7 +135,7 @@ console.log({popularPeople})
           disabled = {popularPeople.page === popularPeople.total_pages}
           onClick = {() => handlePageChange(popularPeople.page + 1, nextPage)}
         >
-          Next Page
+          <NavigateNextIcon/>
         </Button>
       </div>
       </div>
