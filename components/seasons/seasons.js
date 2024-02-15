@@ -39,7 +39,7 @@ const Seasons = ({season}) =>
                 width = "240"
                 alt = {name}
                 height = "240"
-                loading = "eager"
+                loading = "lazy"
                 className = {styles.img}
                 />
             }

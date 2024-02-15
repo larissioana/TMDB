@@ -14,7 +14,7 @@ const Backdrops = ({backdrops}) =>
         width = "640"
         height = "320"
         alt = 'backdrops'
-        loading = "eager"
+        loading = "lazy"
         className = {styles.img}
       />
     </div>

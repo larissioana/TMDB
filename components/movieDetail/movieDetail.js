@@ -114,8 +114,8 @@ const MovieDetail = ({
                             <Image 
                                 src = {NoImage}
                                 alt = {title}  
-                                width = '300' 
-                                height = '400' 
+                                width = '400' 
+                                height = '560' 
                                 className = {styles.cardImg}
                             />
                         }

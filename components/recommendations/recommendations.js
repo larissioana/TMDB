@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image';
-import { IMAGE_URL } from '@/utils/fetchFromAPI';
+import { IMAGE_URL, IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
 import styles from './recommendations.module.css';
 import { Typography, CardContent } from '@mui/material';
 import Link from 'next/link';
@@ -48,11 +48,11 @@ const Recommendations = ({recommendations}) =>
               >
                 <Image 
                   className = {styles.img}
-                  src = {`${IMAGE_URL}${poster_path}`}
+                  src = {`${IMAGE_URL_SMALL}${poster_path}`}
                   width = '288'
                   height = '368'
                   alt = {title}
-                  loading = "eager"
+                  loading = "lazy"
                 />
                 </div>
             }

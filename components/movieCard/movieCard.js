@@ -1,6 +1,6 @@
 import { CardContent, Typography } from '@mui/material';
 import Link from 'next/link';
-import { IMAGE_URL_SMALL, IMAGE_URL } from '@/utils/fetchFromAPI';
+import { IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
 import { motion, AnimatePresence } from 'framer-motion';
 import { formatDate } from '@/utils/helpers';
 
