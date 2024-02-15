@@ -115,6 +115,9 @@ const ActorDetails = ({ actorDetails, person }) =>
                                 alt = "actor"
                                 loading = "eager"
                                 />
+                                <div className = {styles.expand}>
+                                    <p className = {styles.expandText}>Expand</p>
+                                </div>
                             </div>
                             );
                         }
