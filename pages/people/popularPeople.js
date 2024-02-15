@@ -109,7 +109,7 @@ console.log({popularPeople})
       </div>
       <div className = "pagination">
         <Button
-          className = {styles.paginationBtn}
+          className = "pagination-btn"
           disabled = {popularPeople.page === 1}
           onClick={() => handlePageChange(popularPeople.page - 1, previousPage)}
         >
@@ -121,7 +121,7 @@ console.log({popularPeople})
           .map(pageNumber => (
             <Button
               key = {pageNumber}
-              className = {styles.paginationBtn}
+              className = "pagination-btn"
               onClick={() => handlePageChange(pageNumber)}
             >
               {pageNumber}
@@ -129,7 +129,7 @@ console.log({popularPeople})
         ))}
         <Typography variant = "body1" sx = {{ marginX: '1rem' }}></Typography>
         <Button
-          className = {styles.paginationBtn}
+          className = "pagination-btn"
           disabled = {popularPeople.page === popularPeople.total_pages}
           onClick = {() => handlePageChange(popularPeople.page + 1, nextPage)}
         >
