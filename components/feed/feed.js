@@ -69,7 +69,7 @@ const Feed = () =>
                         {
                             upcomingMovies.map((movie, index) => {
                                 const {backdrop_path} = movie;
-                                return index === 1 ? <Banner key={index} imageUrl={backdrop_path} isLoading = {isLoading} /> : null;
+                                return index === 0 ? <Banner key={index} imageUrl={backdrop_path} isLoading = {isLoading} /> : null;
                             })
                         }
                     </div>
