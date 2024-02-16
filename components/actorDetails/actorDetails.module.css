@@ -110,39 +110,28 @@
     text-align: justify;
     line-height: 1.4rem;
     padding: 0rem 1rem;
+    font-weight: bolder;
+}
+
+.generalText
+{
+    margin-bottom: .5rem;
+    font-size: clamp(1.1rem, 2vw, 1.2rem);
+    padding: 0.1rem 1rem;
+    color: rgb(240, 234, 234);
 }
 
 .text
 {
-    -webkit-text-stroke: .2px rgb(194, 190, 196);
-}
-
-.birthday
-{
-    margin-bottom: .5rem;
-    font-size: clamp(.9rem, 2vw, 1rem);
-    padding: 0rem 1rem;
-}
-
-.birth
-{
-    margin-bottom: .5rem;
-    font-size: clamp(.9rem, 2vw, 1rem);
-    padding: 0rem 1rem;
+    font-weight: lighter;
+    color: rgb(216, 213, 213);
 }
 
 .biography
 {
     margin-bottom: .5rem;
-    font-size: clamp(.9rem, 2vw, 1rem);
+    font-size: clamp(1.1rem, 2vw, 1.2rem);
     padding: 0rem 1rem;
-}
-
-.knownFor
-{
-    margin-bottom: .5rem;
-    font-size: clamp(.9rem, 2vw, 1rem);
-    padding: .3rem 1rem;
 }
 
 .readMore
@@ -171,23 +160,38 @@
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 0rem 1rem;
 }
 
 .homepageHref
 {
-    font-size: clamp(.9rem, 2vw, 1.033rem);
+    font-size: clamp(1.1rem, 2vw, 1.2rem);
+    color: rgb(220, 216, 216);
     font-weight: bolder;
-    padding-right: .6rem;
-    color: white;
 }
 
 .hrefIcon
 {
-    font-size: clamp(1.4rem, 2vw, 1.5rem);
+    font-size: clamp(1.6rem, 2vw, 1.8rem);
     vertical-align: middle;
-    margin-left: .6rem;
     cursor: pointer;
+    color: rgb(213, 207, 207);
+    transition: all .5s ease-in-out;
+}
+
+.externalIds
+{
+    display: flex;
+    margin-top: .4rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: .5rem;
+    margin-left: .9rem;
+}
+
+.hrefIcon:hover
+{
+    transform: scale(1.1);
+    color: rgb(109, 104, 109);
 }
 
 .modal
@@ -244,6 +248,12 @@
     {
         justify-content: flex-start;
         align-items: center;
+        padding: 1rem 1rem;
+    }
+
+    .moreImages
+    {
+        padding: 3rem 1rem 0rem 1rem;
     }
 
     .container

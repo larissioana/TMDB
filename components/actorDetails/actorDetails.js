@@ -7,8 +7,11 @@ import NavigationBar from '../navigationBar/navigationBar';
 import Modal from 'react-modal';
 import LanguageIcon from '@mui/icons-material/Language';
 import ActorKnownFor from '../actorKnownFor/actorKnownFor';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import TwitterIcon from '@mui/icons-material/Twitter';
 
-const ActorDetails = ({ actorDetails, person, actorKnownFor }) =>
+const ActorDetails = ({ actorDetails, person, actorKnownFor, externalIds }) =>
 {
     const [readMore, setReadMore] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
@@ -20,9 +23,19 @@ const ActorDetails = ({ actorDetails, person, actorKnownFor }) =>
         place_of_birth,
         profile_path,
         known_for_department,
-        homepage
+        homepage,
     } = actorDetails;
-    console.log({actorDetails})
+
+    const {
+        facebook_id,
+        twitter_id,
+        instagram_id
+    } = externalIds;
+
+    const facebookLink = `https://www.facebook.com/${facebook_id}`;
+    const instagramLink = `https://www.instagram.com/${instagram_id}`;
+    const twitterLink = `https://www.twitter.com/${twitter_id}`;
+    
     const handleOnClickReadMore = () =>
     {
         setReadMore(!readMore);
@@ -39,7 +52,7 @@ const ActorDetails = ({ actorDetails, person, actorKnownFor }) =>
     };
 
     const profilePathLength = person.profiles.map((profile) => profile.file_path);
-
+    
     return (
     <div>
       <Head>
@@ -66,11 +79,11 @@ const ActorDetails = ({ actorDetails, person, actorKnownFor }) =>
                             <h2 className={styles.name}>{name}</h2>
                             {
                                 birthday &&
-                                <h5 className={styles.birthday}>Birthday: <span className={styles.text}>{birthday}</span></h5>
+                                <h5 className={styles.generalText}>Birthday: <span className={styles.text}>{birthday}</span></h5>
                             }
                             {
                                 place_of_birth &&
-                                <h5 className={styles.birth}> Place of birth:    
+                                <h5 className={styles.generalText}> Place of birth:    
                                   <span className={styles.text}> {place_of_birth}</span></h5>
                             }
                             {
@@ -83,20 +96,38 @@ const ActorDetails = ({ actorDetails, person, actorKnownFor }) =>
                                     <button className={styles.readMore} onClick={handleOnClickReadMore}>{readMore ? 'Show less' : 'Read more' }</button>
                                 </div> 
                                 :
-                                    <p className={styles.biography}>Biography: <span className={styles.text}>{biography}</span></p>
+                                <p className={styles.generalText}>Biography: <span className={styles.text}>{biography}</span></p>
                             }
-                            <p className={styles.knownFor}>Known for: 
+                           
+                            <p className={styles.biography}>Known for: 
                                 <span className={styles.text}> {known_for_department}</span>
                             </p>
-                            {
-                                homepage &&
-                                <div className = {styles.homepage}>
+                            <div className = {styles.externalIds}>
+                                {
+                                    facebook_id &&
+                                    <a href = {facebookLink} target="_blank" rel="noopener noreferrer" className = {styles.homepageHref}>
+                                      <FacebookIcon className = {styles.hrefIcon}/>
+                                    </a>
+                                }
+                                {
+                                    instagram_id &&
+                                    <a href = {instagramLink} target="_blank" rel="noopener noreferrer" className = {styles.homepageHref}>
+                                      <InstagramIcon className = {styles.hrefIcon}/>
+                                    </a>
+                                }
+                                {
+                                    twitter_id &&
+                                    <a href = {twitterLink} target="_blank" rel="noopener noreferrer" className = {styles.homepageHref}>
+                                      <TwitterIcon className = {styles.hrefIcon}/>
+                                    </a>
+                                }
+                                {
+                                    homepage &&
                                     <a href = {homepage} target="_blank" rel="noopener noreferrer" className = {styles.homepageHref}>
-                                        Homepage: 
                                         <LanguageIcon className = {styles.hrefIcon}/>
                                     </a>
-                                </div>
-                            }
+                                }
+                            </div>
                         </div>
                     </div>
                     {

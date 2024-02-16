@@ -121,3 +121,9 @@ export const fetchAPIPopularPerson = async () =>
   const {data} = await axios.get(`https://api.themoviedb.org/3/search/person`, options);
   return data;
 };
+
+export const fetchAPIPopularPersonExternalids = async (id) =>
+{
+  const {data} = await axios.get(`https://api.themoviedb.org/3/person/${id}/external_ids`, options);
+  return data;
+};
