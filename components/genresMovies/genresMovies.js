@@ -194,7 +194,7 @@ const GenresMovies = () =>
             .map(pageNumber => (
               <Button
                 key = {pageNumber}
-                className = {`pagination-btn ${pageNumber === filteredMovies.page ? 'selected-btn' : ''}`}
+                className = {`${pageNumber === filteredMovies.page ? 'selected-btn' : 'pagination-btn'}`}
                 onClick={() => handlePageChange(pageNumber)}
               >
                 {pageNumber}
