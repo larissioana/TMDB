@@ -124,9 +124,6 @@ const GenresMovies = () =>
                 <motion.div style =
                 {{
                     width: "100%",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center"
                 }}
                 initial = {{ opacity: 0, y: 50 }}
                 animate = {{ opacity: 1, y: 0 }}
@@ -150,7 +147,9 @@ const GenresMovies = () =>
                 </motion.div>
                 </AnimatePresence>
                 :
-                <Loading/>
+                <div className = {styles.flexContainer}>
+                  <Loading/>
+                </div>
                 }
             </div>
             <div className = {styles.moviesContainer}>
