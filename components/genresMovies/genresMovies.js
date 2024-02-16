@@ -186,7 +186,7 @@ const GenresMovies = () =>
             disabled = {filteredMovies.page === 1}
             onClick={() => handlePageChange(filteredMovies.page - 1, previousPage)}
           >
-            <NavigateBeforeIcon/>
+            <NavigateBeforeIcon className = "pagination-btn"/>
           </Button>
           {
             Array.from({ length: filteredMovies.total_pages }, (_, index) => index + 1)
@@ -205,7 +205,7 @@ const GenresMovies = () =>
               disabled = {filteredMovies.page === filteredMovies.total_pages}
               onClick = {() => handlePageChange(filteredMovies.page + 1, nextPage)}
             >
-              <NavigateNextIcon/>
+              <NavigateNextIcon className = "pagination-btn"/>
             </Button>
         </div>
         </div>
