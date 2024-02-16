@@ -22,7 +22,7 @@ const ActorDetails = ({ actorDetails, person, actorKnownFor }) =>
         known_for_department,
         homepage
     } = actorDetails;
- 
+    console.log({actorDetails})
     const handleOnClickReadMore = () =>
     {
         setReadMore(!readMore);
