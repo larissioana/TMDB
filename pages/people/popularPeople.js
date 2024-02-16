@@ -10,6 +10,7 @@ import Image from 'next/image';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import Searchbar from '@/components/searchbar/searchbar';
+import { Tooltip } from 'react-tooltip';
 
 const initialState = 
 {
@@ -91,19 +92,21 @@ console.log({popularPeople})
               {
                 profile_path !== null &&
                 <>
-                  <Link href = {`/actor/${encodeURI(id)}/${name.replace(/\s+/g, '-').toLowerCase()}`}>
+                  <Tooltip id = "tooltip" place = "top"/>
+                  <Link 
+                    data-tooltip-id = "tooltip" 
+                    data-tooltip-content = {name}
+                    href = {`/actor/${encodeURI(id)}/${name.replace(/\s+/g, '-').toLowerCase()}`}
+                  >
                     <Image
                       src = {`${IMAGE_URL_SMALL}${profile_path}`}
                       width = "200"
-                      height = "320"
+                      height = "280"
                       alt = {name}
                       loading = "eager"
-                      className = {styles.people}
-                      layout = "fixed"
+                      className = {styles.people}                      
                     />
-                    
                   </Link>
-                  <h3 className = {styles.name}>{name}</h3>
               </>
               }
             </div>
@@ -124,7 +127,7 @@ console.log({popularPeople})
           .map(pageNumber => (
             <Button
               key = {pageNumber}
-              className = "pagination-btn"
+              className = {`pagination-btn ${pageNumber === popularPeople.page ? 'selected-btn' : ''}`}
               onClick={() => handlePageChange(pageNumber)}
             >
               {pageNumber}

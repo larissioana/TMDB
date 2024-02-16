@@ -15,31 +15,24 @@
 .container
 {
     display: flex;
-    padding: 2rem 2rem;
+    padding: 2rem 1rem;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     row-gap: 7rem;
-    column-gap: 0rem;
     overflow: hidden;
     margin-bottom: 4rem;
+    column-gap: .6rem;
 }
 
 .people
 {
     object-fit: cover;
+    object-position: top;
     transition: transform .5s ease-in-out;
     border-bottom: 1px solid transparent;
     border-top-left-radius: .3rem;
     border-top-right-radius: .3rem;
-}
-
-.name
-{
-    width: 15rem;
-    text-overflow: ellipsis;
-    font-size: clamp(.9rem, 2vw, 1rem);
-    padding-top: .4rem;
 }
 
 .paginationBtn
@@ -66,4 +59,25 @@
     display: grid;
     place-content: center;
     place-items: center;
+}
+
+@media screen and (max-width: 500px)
+{
+    .people
+    {
+        width: 10rem;
+        height: 15rem;
+    }
+
+    .container
+    {
+        column-gap: .6rem;
+        align-items: center;
+        justify-content: center;
+    }
+    .name
+    {
+        width: 4rem;
+        text-overflow: ellipsis;
+    }
 }

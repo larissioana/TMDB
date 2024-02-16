@@ -3,11 +3,14 @@ import { fetchAPIFilteredMovies } from '@/utils/fetchFromAPI';
 import { useMovieContext } from '@/context/moviesContext';
 import NavigationBar from '../navigationBar/navigationBar';
 import Sidebar from '../sidebar/sidebar';
-import { Button,  Typography } from '@mui/material';
+import { Button } from '@mui/material';
 import { AnimatePresence, motion } from 'framer-motion';
 import MovieCard from '../movieCard/movieCard';
 import Banner from '../banner/banner';
 import styles from './genresMovies.module.css';
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
+import Loading from '../loading/loading';
 
 const initialState =
 {
@@ -115,15 +118,19 @@ const GenresMovies = () =>
         <div className = {styles.wrapper} 
             >
                 <Sidebar isMovies = {true} contentType = "movie" />
+                {
+                  !isLoading ?
                 <AnimatePresence>
                 <motion.div style =
                 {{
-                    width: "100%"
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center"
                 }}
                 initial = {{ opacity: 0, y: 50 }}
                 animate = {{ opacity: 1, y: 0 }}
                 exit = {{ opacity: 0, y: -200 }}
-                
                 >
                   {
                     activeContentType === "movie" ?
@@ -142,6 +149,9 @@ const GenresMovies = () =>
                     
                 </motion.div>
                 </AnimatePresence>
+                :
+                <Loading/>
+                }
             </div>
             <div className = {styles.moviesContainer}>
               {
@@ -171,25 +181,34 @@ const GenresMovies = () =>
             marginTop: '2rem',
           }}
         >
-          <div className = "pagination">
+        <div className = "pagination">
           <Button
             className = "pagination-btn"
-            disabled = { filteredMovies.page === 1 }
-            onClick = {() => handlePageChange(filteredMovies.page -1, previousPage)}
+            disabled = {filteredMovies.page === 1}
+            onClick={() => handlePageChange(filteredMovies.page - 1, previousPage)}
           >
-            Previous Page
+            <NavigateBeforeIcon/>
           </Button>
-          <Typography variant="body1" sx={{ marginX: '1rem' }}>
-            Page {filteredMovies.page} of { Math.min(filteredMovies.total_pages, 300) }
-          </Typography>
-          <Button
-            className = "pagination-btn"
-            disabled = { filteredMovies.page === filteredMovies.total_pages }
-            onClick = {() => handlePageChange(filteredMovies.page + 1, nextPage)}
-          >
-            Next Page
-          </Button>
-          </div>
+          {
+            Array.from({ length: filteredMovies.total_pages }, (_, index) => index + 1)
+            .slice(filteredMovies.page - 1, filteredMovies.page + 4)
+            .map(pageNumber => (
+              <Button
+                key = {pageNumber}
+                className = {`pagination-btn ${pageNumber === filteredMovies.page ? 'selected-btn' : ''}`}
+                onClick={() => handlePageChange(pageNumber)}
+              >
+                {pageNumber}
+              </Button>
+          ))}
+            <Button
+              className = "pagination-btn"
+              disabled = {filteredMovies.page === filteredMovies.total_pages}
+              onClick = {() => handlePageChange(filteredMovies.page + 1, nextPage)}
+            >
+              <NavigateNextIcon/>
+            </Button>
+        </div>
         </div>
       )}
     </div>
