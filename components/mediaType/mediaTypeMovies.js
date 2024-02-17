@@ -4,11 +4,12 @@ import { IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
 import Link from 'next/link';
 import { CardContent, Typography } from '@mui/material';
 import { formatDate } from '@/utils/helpers';
+import Image from 'next/image';
+import styles from './mediaType.module.css';
 
 const MediaTypeMovies = ({movies}) =>
 {
-  const { id, original_name, release_date, poster_path } = movies;
-  const imageUrl = `${IMAGE_URL_SMALL}` + poster_path;
+  const { id, original_title, release_date, poster_path } = movies;
   const formattedDate = formatDate(release_date);
 
   return (
@@ -32,16 +33,16 @@ const MediaTypeMovies = ({movies}) =>
                     gap: "1rem",
                 }}
                 >
-                <div
-                    style = {{
-                    backgroundImage: `url(${imageUrl})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    width: "100%",
-                    height: "100%",
-                    borderRadius: ".1rem",
-                    }}
-                /></div>
+                    <Image
+                        src = {`${IMAGE_URL_SMALL}${poster_path}`}
+                        width = "250"
+                        height = "320"
+                        alt = {original_title}
+                        loading = "eager"
+                        className = {styles.img}
+                    />
+                </div>
+                
             </Link>
             <CardContent
                 sx = {{
@@ -56,7 +57,7 @@ const MediaTypeMovies = ({movies}) =>
                         width: "12rem"
                     }}
                 >
-                    {original_name }
+                    {original_title}
                 </Typography>
                 {
                     release_date &&

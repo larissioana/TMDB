@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
 import { motion, AnimatePresence } from 'framer-motion';
 import { formatDate } from '@/utils/helpers';
+import styles from '../mediaType/mediaType.module.css';
+import Image from 'next/image';
 
 const MovieCard = ({movies = []}) =>
 {
@@ -24,7 +26,7 @@ const MovieCard = ({movies = []}) =>
   return (
     <AnimatePresence>
       {
-        poster_path !== null &&(
+        poster_path !== null && (
       
         <motion.div
           initial = {{ opacity: 0.7, y: 0 }}
@@ -37,48 +39,44 @@ const MovieCard = ({movies = []}) =>
             {
               contentType === "movie" ?
               <Link href = {`/movie/${id}`}>
-              <div
-                className = "card-media"
-                style = {{
-                  height: "20rem",
-                  borderTop: "1px solid #2e2c2c",
-                  gap: "1rem",
-                }}
-              >
                 <div
+                  className = "card-media"
                   style = {{
-                    backgroundImage: `url(${imageUrl})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    width: "100%",
-                    height: "100%",
-                    borderRadius: ".1rem",
+                    height: "20rem",
+                    borderTop: "1px solid #2e2c2c",
+                    gap: "1rem",
                   }}
-                />
-              </div>
+                >
+                  <Image
+                      src = {`${IMAGE_URL_SMALL}${poster_path}`}
+                      width = "250"
+                      height = "320"
+                      alt = {original_title}
+                      loading = "eager"
+                      className = {styles.img}
+                  />
+                </div>
+              </Link>
+              :
+              <Link href = {`/TvSeries/${id}`}>
+                <div
+                  className = "card-media"
+                  style = {{
+                    height: "20rem",
+                    borderTop: "1px solid #2e2c2c",
+                    gap: "1rem",
+                  }}
+                >
+                  <Image
+                        src = {`${IMAGE_URL_SMALL}${poster_path}`}
+                        width = "250"
+                        height = "320"
+                        alt = {original_name}
+                        loading = "eager"
+                        className = {styles.img}
+                    />
+                </div>
             </Link>
-            :
-            <Link href = {`/TvSeries/${id}`}>
-            <div
-              className = "card-media"
-              style = {{
-                height: "20rem",
-                borderTop: "1px solid #2e2c2c",
-                gap: "1rem",
-              }}
-            >
-              <div
-                style = {{
-                  backgroundImage: `url(${imageUrl})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  width: "100%",
-                  height: "100%",
-                  borderRadius: ".1rem",
-                }}
-              />
-            </div>
-          </Link>
             }
             <CardContent
               sx={{

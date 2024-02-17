@@ -4,13 +4,14 @@ import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
 import { CardContent, Typography } from '@mui/material';
 import { formatDate } from '@/utils/helpers';
+import Image from 'next/image';
+import styles from './mediaType.module.css';
 
 const MediaTypeTv = ({tvShows}) =>
 {
-  const { id, name, poster_path, first_air_date, original_name} = tvShows;
-  const imageUrl = `${IMAGE_URL_SMALL}` + poster_path;
+  const { id,  poster_path, first_air_date, original_name} = tvShows;
   const formattedDate = formatDate(first_air_date);
- 
+
   return (
     <AnimatePresence>
     {
@@ -32,16 +33,15 @@ const MediaTypeTv = ({tvShows}) =>
                     gap: "1rem",
                 }}
                 >
-                <div
-                    style = {{
-                    backgroundImage: `url(${imageUrl})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    width: "100%",
-                    height: "100%",
-                    borderRadius: ".1rem",
-                    }}
-                /></div>
+                    <Image
+                        src = {`${IMAGE_URL_SMALL}${poster_path}`}
+                        width = "250"
+                        height = "320"
+                        alt = {original_name}
+                        loading = "eager"
+                        className = {styles.img}
+                    />
+                </div>
             </Link>
             <CardContent
                 sx = {{

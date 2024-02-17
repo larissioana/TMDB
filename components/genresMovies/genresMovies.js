@@ -117,7 +117,7 @@ const GenresMovies = () =>
         <NavigationBar/>
         <div className = {styles.wrapper} 
             >
-                <Sidebar isMovies = {true} contentType = "movie" />
+                <Sidebar contentType = "movie" />
                 {
                   !isLoading ?
                 <AnimatePresence>

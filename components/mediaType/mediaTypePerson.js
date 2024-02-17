@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
 import { CardContent, Typography } from '@mui/material';
+import Image from 'next/image';
+import styles from './mediaType.module.css';
 
 const MediaTypePerson = ({person}) =>
 {
@@ -33,16 +35,15 @@ const MediaTypePerson = ({person}) =>
                             gap: "1rem",
                         }}
                         >
-                        <div
-                            style = {{
-                            backgroundImage: `url(${IMAGE_URL_SMALL}${profile_path})`,
-                            backgroundSize: "cover",
-                            backgroundPosition: "center",
-                            width: "100%",
-                            height: "100%",
-                            borderRadius: ".1rem",
-                            }}
-                        /></div>
+                             <Image
+                                src = {`${IMAGE_URL_SMALL}${profile_path}`}
+                                width = "250"
+                                height = "320"
+                                alt = {name}
+                                loading = "eager"
+                                className = {styles.img}
+                            />
+                        </div>
                         </Link>
                         <CardContent
                         sx = {{

@@ -12,3 +12,10 @@
 {
     margin-right: auto;  
 }
+
+.img
+{
+    object-fit: cover;
+    object-position: top;
+    border-radius: .1rem;
+}

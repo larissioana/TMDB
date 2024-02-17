@@ -14,7 +14,7 @@
     align-items: flex-start;
     gap: .5rem;
     padding: 0rem 0rem;
-    margin-left: 7rem;
+    margin-left: 0rem;
 }
 
 .flexContainer
@@ -35,5 +35,14 @@
     .moviesContainer
     {
         margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 900px)
+{
+    .wrapper
+    {
+        flex-direction: column;
+        overflow: hidden;
     }
 }
