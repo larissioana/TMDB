@@ -15,24 +15,37 @@
 .container
 {
     display: flex;
-    padding: 2rem 1rem;
+    padding: 2rem 2rem;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
     row-gap: 7rem;
-    overflow: hidden;
     margin-bottom: 4rem;
     column-gap: .6rem;
+    flex-wrap: wrap;
+    overflow: hidden;
 }
 
 .people
 {
     object-fit: cover;
     object-position: top;
-    transition: transform .5s ease-in-out;
     border-bottom: 1px solid transparent;
     border-top-left-radius: .3rem;
     border-top-right-radius: .3rem;
+    animation: animation 1.5s ease-in-out;
+    transition: transform .7s ease-out;
+}
+
+@keyframes animation
+{
+    0%{
+        opacity: 0;
+        filter: grayscale(100%);
+    }
+    100%{
+        opacity: 1;
+        filter: none;
+    }
 }
 
 .paginationBtn
@@ -74,6 +87,11 @@
         column-gap: .6rem;
         align-items: center;
         justify-content: center;
+    }
+
+    .container:last-child
+    {
+        margin-right: auto;
     }
     .name
     {

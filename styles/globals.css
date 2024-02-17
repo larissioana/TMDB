@@ -108,6 +108,11 @@ li
   gap: 1.8rem;
   padding: 1rem;
   width: 12rem;
+  position: fixed;
+  top: 5rem;
+  left: 0;
+  z-index: 10;
+  background: rgb(0, 0, 0);
 }
 
 .search-bar
@@ -117,6 +122,7 @@ li
   width: 350px;
   font-size: 18px;
   background: none;
+  padding: 1rem;
   color: var(-white20);
   overflow: hidden;
   white-space: nowrap;
@@ -131,7 +137,7 @@ li
 .search-bar::placeholder
 {
   color: rgb(255, 255, 255);
-  font-size: clamp(.9rem, 2vw, 1rem);
+  font-size: clamp(.9rem, 2vw, 1.1rem);
   white-space: nowrap;
   text-overflow: ellipsis;
 }
@@ -189,6 +195,7 @@ li
 .selected-btn
 {
   background: rgb(125, 9, 132)!important;
+  color: white!important;
 }
 
 

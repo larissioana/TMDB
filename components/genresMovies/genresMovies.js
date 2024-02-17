@@ -125,9 +125,9 @@ const GenresMovies = () =>
                 {{
                     width: "100%",
                 }}
-                initial = {{ opacity: 0, y: 50 }}
-                animate = {{ opacity: 1, y: 0 }}
-                exit = {{ opacity: 0, y: -200 }}
+                initial = {{ opacity: 0 }}
+                animate = {{ opacity: 1 }}
+                exit = {{ opacity: 0 }}
                 >
                   {
                     activeContentType === "movie" ?
@@ -152,24 +152,27 @@ const GenresMovies = () =>
                 </div>
                 }
             </div>
-            <div className = {styles.moviesContainer}>
-              {
-                activeContentType === "movie" ?
-                movies.map((movie) => {
-                  return <div key = {movie.id}>
-                  <MovieCard movies = {movie}/>
-                  </div>
-                })
-                : 
-                tvShows.map((show) =>
+         
+              <div className = {styles.moviesContainer}>
                 {
-                  return <div key = {show.id}>
-                  <MovieCard movies = {show}/>
-                  </div>
-                })
-              }
-                
-            </div>
+                  activeContentType === "movie" ?
+                  movies.map((movie) => {
+                    return <div key = {movie.id}>
+                    <MovieCard movies = {movie}/>
+                    </div>
+                  })
+                  : 
+                  tvShows.map((show) =>
+                  {
+                    return <div key = {show.id}>
+                    <MovieCard movies = {show}/>
+                    </div>
+                  })
+                }
+              </div>
+             
+            
+             
         {
         filteredMovies.total_pages > 1 && (
         <div

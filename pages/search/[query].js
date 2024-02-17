@@ -1,10 +1,12 @@
-import MovieCard from '@/components/movieCard/movieCard';
 import NavigationBar from '@/components/navigationBar/navigationBar';
 import { fetchAPISearch } from '@/utils/fetchFromAPI';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
-import { Typography, Button } from '@mui/material';
+import { Button } from '@mui/material';
 import Searchbar from '@/components/searchbar/searchbar';
+import MediaType from '@/components/mediaType/mediaType';
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 
 const initialState =
 {
@@ -22,34 +24,16 @@ const Search = () =>
   const router = useRouter();
   const { query } = router.query;
 
-  const getMovies = async (page, query) =>
+  const getMovies = async (query, page) =>
   {
     try
     {
       setIsLoading(true);
-      const [movieContent, tvContent, personContent] = await Promise.all([
-        fetchAPISearch('movie', query, page),
-        fetchAPISearch('tv', query, page),
-      ]);
-
-      const combinedResults =
-      [
-        ...movieContent.results.map((movie) => ({ ...movie, contentType: 'movie' })),
-        ...tvContent.results.map((tvShow) => ({ ...tvShow, contentType: 'tv' })),
-      ];
-
-  
-      const combinedContent =
-      {
-        page: movieContent.page,
-        total_pages: Math.max(movieContent.total_pages, tvContent.total_pages),
-        total_results: movieContent.total_results + tvContent.total_results,
-        results: combinedResults,
-      };
+      const data = await fetchAPISearch(query, page);
   
       setSearchedMovies((prev) => ({
-        ...combinedContent,
-        results: page > 1 ? [...prev.results, ...combinedContent.results] : [...combinedContent.results],
+        ...data,
+        results: page > 1 ? [...prev.results, ...data.results] : [...data.results],
       }));
       setIsLoading(false);
     } catch (error)
@@ -64,7 +48,7 @@ const Search = () =>
     if (query)
     {
       setSearchedMovies(initialState);
-      getMovies(1, query);
+      getMovies(query, 1);
     }
   }, [query]);
 
@@ -77,23 +61,15 @@ const Search = () =>
     {
       setIsLoading(true);
       
-      const [movieResults, tvResults, personResults] = await Promise.all([
-        fetchAPISearch('movie', query, newPage),
-        fetchAPISearch('tv', query, newPage),
-      ]);
-      
-      const combinedResults =
-      [
-        ...movieResults.results.map(movie => ({ ...movie, contentType: 'movie' })),
-        ...tvResults.results.map(tvShow => ({ ...tvShow, contentType: 'tv' })),
-      ];
-      
-      setSearchedMovies({
-        page: newPage,
-        results: combinedResults,
-        total_pages: Math.max(movieResults.total_pages, tvResults.total_pages),
-        total_results: movieResults.total_results + tvResults.total_results,
-      });
+      const newData = await fetchAPISearch(query, newPage); 
+
+      setSearchedMovies((prev) => ({
+        ...prev,
+        page: newPage, 
+        results: newPage > 1 ? newData.results : [...prev.results, ...newData.results], 
+        total_pages: newData.total_pages, 
+        total_results: newData.total_results 
+      }));
       
       setIsLoading(false);
       window.scrollTo(0, 0);
@@ -103,6 +79,10 @@ const Search = () =>
       setIsLoading(false);
     }
   };
+
+  const mediaTypeMovie = searchedMovies.results.filter(result => result.media_type === "movie");
+  const mediaTypeTv = searchedMovies.results.filter(result => result.media_type === "tv");
+  const mediaTypePerson = searchedMovies.results.filter(result => result.media_type === "person");
 
   return (
     <div>
@@ -138,11 +118,12 @@ const Search = () =>
           padding: '0rem 2rem',
         }}
       >
-        {searchedMovies.results.map((movie) => (
-          <div key ={ movie.id}>
-            <MovieCard movies = {movie} query = {query} isLoading = {isLoading}/>
-          </div>
-        ))}
+        <MediaType 
+          mediaTypeMovie = {mediaTypeMovie}
+          mediaTypePerson = {mediaTypePerson}
+          mediaTypeTv = {mediaTypeTv}
+          isLoading = {isLoading}
+        /> 
       </div>
       {
         searchedMovies.total_pages > 1 && (
@@ -158,21 +139,30 @@ const Search = () =>
           <Button
             className = "pagination-btn"
             disabled = {searchedMovies.page === 1}
-            onClick = {() => handlePageChange(searchedMovies.page -1, previousPage)}
+            onClick={() => handlePageChange(searchedMovies.page - 1, previousPage)}
           >
-            Previous Page
+            <NavigateBeforeIcon className = "pagination-btn"/>
           </Button>
-          <Typography variant="body1" sx={{ marginX: '1rem' }}>
-            Page {searchedMovies.page} of {searchedMovies.total_pages}
-          </Typography>
-          <Button
-            className = "pagination-btn"
-            disabled = {searchedMovies.page === searchedMovies.total_pages}
-            onClick = {() => handlePageChange(searchedMovies.page + 1, nextPage)}
-          >
-            Next Page
-          </Button>
-          </div>
+          {
+            Array.from({ length: searchedMovies.total_pages }, (_, index) => index + 1)
+            .slice(searchedMovies.page - 1, searchedMovies.page + 4)
+            .map(pageNumber => (
+              <Button
+                key = {pageNumber}
+                className = {`${pageNumber === searchedMovies.page ? 'selected-btn' : 'pagination-btn'}`}
+                onClick={() => handlePageChange(pageNumber)}
+              >
+                {pageNumber}
+              </Button>
+          ))}
+            <Button
+              className = "pagination-btn"
+              disabled = {searchedMovies.page === searchedMovies.total_pages}
+              onClick = {() => handlePageChange(searchedMovies.page + 1, nextPage)}
+            >
+              <NavigateNextIcon className = "pagination-btn"/>
+            </Button>
+        </div>
         </div>
       )}
     </div>

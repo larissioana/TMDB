@@ -61,7 +61,7 @@ const Feed = () =>
             <div className = "feedContainer">
                 <div className = {styles.wrapper}
                 >
-                    <Sidebar isMovies = {true}/>
+                    <Sidebar/>
                     <div style =
                     {{
                         width: "100%"

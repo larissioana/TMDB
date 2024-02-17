@@ -89,7 +89,10 @@ const MovieDetail = ({
                                 ))}
                             </ul>
                         </div>
-                        <p className = {styles.description}>Overview: {overview}</p>
+                        {
+                            overview &&
+                            <p className = {styles.description}>Overview: {overview}</p>
+                        }
                         <Cast
                             credits = {credits} 
                             externalIds = {externalIds} 

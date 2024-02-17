@@ -20,9 +20,15 @@ export const fetchAPI = async (url, page) =>
     return data;
 }
 
- export const fetchAPISearch = async (url, query, page) =>
+ export const fetchAPISearch = async (query, page) =>
 {
-  const {data} = await axios.get(`https://api.themoviedb.org/3/search/${url}?query=${query}&include_adult=false&language=en-US&page=${page}`, options)
+  const {data} = await axios.get(`https://api.themoviedb.org/3/search/multi?query=${query}&include_adult=false&language=en-US&page=${page}`, options)
+  return data;
+};
+
+export const fetchAPIKeyWords = async (query) =>
+{
+  const {data} = await axios.get(`https://api.themoviedb.org/3/search/keyword?query=${query}&page=1`, options);
   return data;
 };
 

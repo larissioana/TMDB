@@ -149,9 +149,9 @@ flex-wrap: wrap;
 
 .cast
 {
-    height: 23rem;
+    height: 22rem;
     border-radius: .2rem;;
-    background: rgb(16, 15, 15);
+    background: rgb(1, 1, 1);
     position: relative;
 }
 

@@ -49,7 +49,7 @@ const Recommendations = ({recommendations}) =>
                 <Image 
                   className = {styles.img}
                   src = {`${IMAGE_URL_SMALL}${poster_path}`}
-                  width = '288'
+                  width = '268'
                   height = '368'
                   alt = {title}
                   loading = "lazy"

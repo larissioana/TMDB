@@ -1,0 +1,14 @@
+.container
+{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2rem;
+    flex-wrap: wrap;
+    gap: .7rem;
+}
+
+.container:last-child
+{
+    margin-right: auto;  
+}

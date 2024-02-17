@@ -4,7 +4,7 @@ import { IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
 import { motion, AnimatePresence } from 'framer-motion';
 import { formatDate } from '@/utils/helpers';
 
-const MovieCard = ({movies = [], isLoading}) =>
+const MovieCard = ({movies = []}) =>
 {
   const
   {
@@ -14,9 +14,9 @@ const MovieCard = ({movies = [], isLoading}) =>
     id,
     contentType,
     original_name,
-    first_air_date
+    first_air_date,
   } = movies;
-
+  
   const imageUrl = `${IMAGE_URL_SMALL}` + poster_path;
   const formattedDate = formatDate(release_date);
   const formattedDateTvShows = formatDate(first_air_date);
@@ -85,7 +85,7 @@ const MovieCard = ({movies = [], isLoading}) =>
                 backgroundColor: "#000000",
               }}
             >
-              { contentType === "movie" ?
+              { contentType === "tv" ?
               <Typography
                 variant="subtitle1"
                 fontWeight="bold"
@@ -94,7 +94,7 @@ const MovieCard = ({movies = [], isLoading}) =>
                   width: "13rem",
                 }}
               >
-                {original_title}
+                {original_name}
               
               </Typography>
               :
@@ -106,12 +106,12 @@ const MovieCard = ({movies = [], isLoading}) =>
                 width: "13rem",
               }}
             >
-              {original_name}
+              {original_title}
             
             </Typography>
             }
             {
-              contentType === "movie"?
+              contentType === "movie" ?
               <Typography
               variant="subtitle2"
               fontWeight="bold"
