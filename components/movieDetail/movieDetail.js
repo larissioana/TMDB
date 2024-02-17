@@ -112,6 +112,8 @@ const MovieDetail = ({
                                 alt = {title} 
                                 className = {styles.posterPath}
                                 loading = "eager"
+                                placeholder = "blur" 
+                                blurDataURL = {`${IMAGE_URL_SMALL}${poster_path}`}
                             />
                             :
                             <Image 

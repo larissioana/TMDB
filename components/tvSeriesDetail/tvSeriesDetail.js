@@ -80,6 +80,8 @@ const TvSeriesDetail = ({tvSeries, credits, videos, images}) =>
                             alt = {name}
                             loading = "eager"
                             className = {styles.img}
+                            placeholder = "blur" 
+                            blurDataURL = {`${IMAGE_URL_SMALL}${poster_path}`}
                         />
                     </div>
                     :
@@ -91,6 +93,8 @@ const TvSeriesDetail = ({tvSeries, credits, videos, images}) =>
                             alt = {name}
                             loading = "eager"
                             className = {styles.img}
+                            placeholder = "blur" 
+                            blurDataURL = {`${IMAGE_URL_SMALL}${NoImage}`}
                         />
                     </div>
                   }
@@ -156,6 +160,8 @@ const TvSeriesDetail = ({tvSeries, credits, videos, images}) =>
                             alt = {name}
                             loading = "eager"
                             className = {styles.castImg}
+                            placeholder = "blur" 
+                            blurDataURL = {`${IMAGE_URL_SMALL}${profile_path}`}
                         />
                       </Link>  
                         <h3 className = {styles.castName}>{name}</h3>

@@ -40,6 +40,8 @@ const MediaTypeTv = ({tvShows}) =>
                         alt = {original_name}
                         loading = "eager"
                         className = {styles.img}
+                        placeholder = "blur"
+                        blurDataURL = {`${IMAGE_URL_SMALL}${poster_path}`} 
                     />
                 </div>
             </Link>

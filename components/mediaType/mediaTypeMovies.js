@@ -40,6 +40,8 @@ const MediaTypeMovies = ({movies}) =>
                         alt = {original_title}
                         loading = "eager"
                         className = {styles.img}
+                        placeholder = "blur"
+                        blurDataURL = {`${IMAGE_URL_SMALL}${poster_path}`} 
                     />
                 </div>
                 

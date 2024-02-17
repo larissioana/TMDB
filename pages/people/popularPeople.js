@@ -9,7 +9,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
-import Searchbar from '@/components/searchbar/searchbar';
 import { Tooltip } from 'react-tooltip';
 
 const initialState = 
@@ -47,8 +46,6 @@ const PopularPeople = () =>
     setPopularPeople(initialState);
     fetchPopularPeople(1);
   },[]);
-
-console.log({popularPeople})
 
   const nextPage = popularPeople.page + 1;
   const previousPage = popularPeople.page - 1;
@@ -104,7 +101,9 @@ console.log({popularPeople})
                       height = "280"
                       alt = {name}
                       loading = "eager"
-                      className = {styles.people}                      
+                      className = {styles.people}    
+                      placeholder = "blur" 
+                      blurDataURL = {`${IMAGE_URL_SMALL}${profile_path}`}             
                     />
                   </Link>
               </>

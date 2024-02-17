@@ -42,6 +42,8 @@ const MediaTypePerson = ({person}) =>
                                 alt = {name}
                                 loading = "eager"
                                 className = {styles.img}
+                                placeholder = "blur"
+                                blurDataURL = {`${IMAGE_URL_SMALL}${profile_path}`}
                             />
                         </div>
                         </Link>

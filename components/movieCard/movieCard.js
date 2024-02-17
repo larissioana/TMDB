@@ -19,7 +19,6 @@ const MovieCard = ({movies = []}) =>
     first_air_date,
   } = movies;
   
-  const imageUrl = `${IMAGE_URL_SMALL}` + poster_path;
   const formattedDate = formatDate(release_date);
   const formattedDateTvShows = formatDate(first_air_date);
 
@@ -54,6 +53,8 @@ const MovieCard = ({movies = []}) =>
                       alt = {original_title}
                       loading = "eager"
                       className = {styles.img}
+                      placeholder = "blur"
+                      blurDataURL = {`${IMAGE_URL_SMALL}${poster_path}`} 
                   />
                 </div>
               </Link>
@@ -74,6 +75,8 @@ const MovieCard = ({movies = []}) =>
                         alt = {original_name}
                         loading = "eager"
                         className = {styles.img}
+                        placeholder = "blur"
+                        blurDataURL = {`${IMAGE_URL_SMALL}${poster_path}`} 
                     />
                 </div>
             </Link>

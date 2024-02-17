@@ -154,7 +154,7 @@ li
 .pagination
 {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   gap: 0!important;
   padding: 1rem 0rem 1rem;

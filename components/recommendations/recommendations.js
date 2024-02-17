@@ -17,7 +17,7 @@ const Recommendations = ({recommendations}) =>
         <div style = {{
           display: "flex",
           flexWrap: "wrap",
-          gap: "1rem",
+          gap: ".4rem",
           justifyContent: "center",
           alignItems: "flex-start"
         }}>
@@ -37,7 +37,6 @@ const Recommendations = ({recommendations}) =>
           className = "card-media"
           style = 
           {{
-            height: "20rem",
             borderTop: "1px solid #2e2c2c",
           }}
         >
@@ -49,10 +48,12 @@ const Recommendations = ({recommendations}) =>
                 <Image 
                   className = {styles.img}
                   src = {`${IMAGE_URL_SMALL}${poster_path}`}
-                  width = '268'
-                  height = '368'
+                  width = "250"
+                  height = "320"
                   alt = {title}
                   loading = "lazy"
+                  placeholder = "blur" 
+                  blurDataURL = {`${IMAGE_URL_SMALL}${poster_path}`}
                 />
                 </div>
             }
@@ -74,7 +75,7 @@ const Recommendations = ({recommendations}) =>
             sx = 
             {{
                 width: "15rem",
-                marginTop: "2.4rem",
+                marginTop: ".6rem",
             }}
           >
             {title}

@@ -91,6 +91,9 @@ const Cast = ({
                         height = '112'
                         alt = {name}
                         src = {`${IMAGE_URL_SMALL}${profile_path}`}
+                        loading = 'eager'
+                        placeholder = "blur" 
+                        blurDataURL = {`${IMAGE_URL_SMALL}${profile_path}`}
                     />
                     </Link>
                 :

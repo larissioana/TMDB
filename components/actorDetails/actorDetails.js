@@ -152,6 +152,8 @@ const ActorDetails = ({ actorDetails, person, actorKnownFor, externalIds }) =>
                                 height = "240"
                                 alt = "actor"
                                 loading = "eager"
+                                placeholder = "blur" 
+                                 blurDataURL = {`${IMAGE_URL_SMALL}${file_path}`}
                                 />
                                 <div className = {styles.expand}>
                                     <p className = {styles.expandText}>Expand</p>
@@ -176,6 +178,8 @@ const ActorDetails = ({ actorDetails, person, actorKnownFor, externalIds }) =>
                         height = "600"
                         alt = "actor"
                         loading = "eager"
+                        placeholder = "blur" 
+                        blurDataURL = {`${IMAGE_URL_SMALL}${selectedImage}`}
                         />
                     </Modal>
                 </div>

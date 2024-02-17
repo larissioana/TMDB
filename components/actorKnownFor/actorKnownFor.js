@@ -38,6 +38,8 @@ const ActorKnownFor = ({actorKnownFor}) =>
                     alt = {original_title}
                     loading = "lazy"
                     className = {styles.image}
+                    placeholder = "blur" 
+                    blurDataURL = {`${IMAGE_URL_SMALL}${poster_path}`}
                   />
               </Link>
               :
