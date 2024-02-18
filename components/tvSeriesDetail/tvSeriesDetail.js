@@ -83,8 +83,8 @@ const TvSeriesDetail = ({
                 <div className={styles.left}>
                   <Image
                     src={`${IMAGE_URL_SMALL}${poster_path}`}
-                    width="304"
-                    height="448"
+                    width={304}
+                    height={448}
                     alt={name}
                     loading="eager"
                     className={styles.img}
@@ -96,8 +96,8 @@ const TvSeriesDetail = ({
                 <div className={styles.left}>
                   <Image
                     src={NoImage}
-                    width="304"
-                    height="448"
+                    width={304}
+                    height={448}
                     alt={name}
                     loading="eager"
                     className={styles.img}
@@ -171,8 +171,8 @@ const TvSeriesDetail = ({
                         <Link href={`/actor/${encodeURI(id)}/${name.replace(/\s+/g, '-').toLowerCase()}`}>
                           <Image
                             src={`${IMAGE_URL_SMALL}${profile_path}`}
-                            width="200"
-                            height="272"
+                            width={200}
+                            height={272}
                             alt={name}
                             loading="eager"
                             className={styles.castImg}

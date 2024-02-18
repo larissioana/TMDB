@@ -72,8 +72,8 @@ const MovieDetail = ({
                             poster_path ?
                                 <Image
                                     src={IMAGE_URL_SMALL + poster_path}
-                                    width='400'
-                                    height='560'
+                                    width={400}
+                                    height={520}
                                     alt={title}
                                     className={styles.posterPath}
                                     loading="eager"
@@ -84,8 +84,8 @@ const MovieDetail = ({
                                 <Image
                                     src={NoImage}
                                     alt={title}
-                                    width='400'
-                                    height='560'
+                                    width={400}
+                                    height={560}
                                     className={styles.cardImg}
                                 />
                         }

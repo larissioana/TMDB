@@ -113,8 +113,8 @@ const PopularPeople = () => {
                         >
                           <Image
                             src={`${IMAGE_URL_SMALL}${people.profile_path}`}
-                            width="208"
-                            height="280"
+                            width={208}
+                            height={280}
                             alt={people.name}
                             loading="eager"
                             className={styles.people}

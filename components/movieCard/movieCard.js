@@ -47,8 +47,8 @@ const MovieCard = ({ movies = [] }) => {
                     >
                       <Image
                         src={`${IMAGE_URL_SMALL}${poster_path}`}
-                        width="250"
-                        height="320"
+                        width={250}
+                        height={320}
                         alt={original_title}
                         loading="eager"
                         className={styles.img}
@@ -67,8 +67,8 @@ const MovieCard = ({ movies = [] }) => {
                     >
                       <Image
                         src={`${IMAGE_URL_SMALL}${poster_path}`}
-                        width="250"
-                        height="320"
+                        width={250}
+                        height={320}
                         alt={original_name}
                         loading="eager"
                         className={styles.img}

@@ -1,11 +1,22 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const TerserPlugin = require('terser-webpack-plugin');
+
+module.exports = {
   reactStrictMode: true,
-  images:
-  {
+  images: {
     domains: ['image.tmdb.org'],
     unoptimized: true
-  }
-}
-
-module.exports = nextConfig
+  },
+  webpack: (config, { isServer }) => {
+    // Minify JavaScript for production builds only
+    if (!isServer && process.env.NODE_ENV === 'production') {
+      config.optimization.minimize = true;
+      config.optimization.minimizer.push(
+        new TerserPlugin({
+          terserOptions: {
+          },
+        })
+      );
+    }
+    return config;
+  },
+};
