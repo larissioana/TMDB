@@ -7,96 +7,88 @@ import TvSeriesCard from '../tvSeriesCard/tvSeriesCard';
 import Loading from '../loading/loading';
 import { useTvShowsContext } from '@/context/tvSeriesContext';
 
-const TvSeries = () =>
-{
+const TvSeries = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [hoveredId, setHoveredId] = useState(null);
 
-  const {topRatedTvShows, setTopRatedTvShows} = useTvShowsContext();
+  const { topRatedTvShows, setTopRatedTvShows } = useTvShowsContext();
 
-  const fetchTvSeries = async (page) =>
-  {
-    try
-    {
-        setIsLoading(true);
-        fetchAPITvSeries("top_rated", page)
-        .then((data) => 
-        {
-            setTopRatedTvShows(data);
-            setIsLoading(false);
+  const fetchTvSeries = async (page) => {
+    try {
+      setIsLoading(true);
+      fetchAPITvSeries("top_rated", page)
+        .then((data) => {
+          setTopRatedTvShows(data);
+          setIsLoading(false);
         })
-    } catch(error)
-    {
-        console.error("Error fetching data:", error)
+    } catch (error) {
+      console.error("Error fetching data:", error)
     }
   };
-  
-  useEffect(() =>
-  {
+
+  useEffect(() => {
     setIsLoading(true);
     fetchTvSeries(1);
-  }, []); 
+  }, []);
 
-  const handleMouseEnter = (id) =>
-  {
+  const handleMouseEnter = (id) => {
     setHoveredId(id);
   };
 
-  const handleMouseLeave = () =>
-  {
+  const handleMouseLeave = () => {
     setHoveredId(null);
   };
 
   return (
     <>
-        <h2 className = {styles.title}>Popular Tv series</h2>
-        <div className = {styles.tvSeriesContainer}>
-        <div className = {styles.tvSeriesContainer}>
-       
-            { !isLoading &&
+      <h2 className={styles.title}>Popular Tv series</h2>
+      <div className={styles.tvSeriesContainer}>
+        <div className={styles.tvSeriesContainer}>
+
+          {!isLoading &&
             <>
-            {
-                topRatedTvShows.results?.map((result) => 
-            {
-                const { id, poster_path, name, backdrop_path } = result;
-                return <div key = {id}>
-                    <div className = {styles.flexContainer}>
-                        <div 
-                            className = {styles.imgContainer}
-                            onMouseEnter = {() => handleMouseEnter(id)}
-                            onMouseLeave = {handleMouseLeave}
-                        >
+              {
+                topRatedTvShows.results?.map((result) => {
+                  const { id, poster_path, name, backdrop_path } = result;
+                  return <div key={id}>
+                    <div className={styles.flexContainer}>
+                      <div
+                        className={styles.imgContainer}
+                        onMouseEnter={() => handleMouseEnter(id)}
+                        onMouseLeave={handleMouseLeave}
+                      >
                         {
-                            poster_path ?
-                                <Image 
-                                src = {`${IMAGE_URL_SMALL}${poster_path}`}
-                                width = "192"
-                                height = "400"
-                                alt = {name}
-                                className = {styles.img}
-                                loading = "eager"
-                                />
+                          poster_path ?
+                            <Image
+                              src={`${IMAGE_URL_SMALL}${poster_path}`}
+                              width="192"
+                              height="400"
+                              alt={name}
+                              className={styles.img}
+                              loading="eager"
+                            />
                             :
-                                <Image 
-                                src = {NoImage}
-                                width = "192"
-                                height = "400"
-                                alt = {name}
-                                className = {styles.img}
-                                loading = "eager"
-                                />     
+                            <Image
+                              src={NoImage}
+                              width="192"
+                              height="400"
+                              alt={name}
+                              className={styles.img}
+                              loading="eager"
+                            />
                         }
-                           { hoveredId === id && <TvSeriesCard image = {backdrop_path} id = {id} name = {name}/> }
-                        </div>
-                     
+                        {hoveredId === id && <TvSeriesCard image={backdrop_path} id={id} />}
+                      </div>
+                      <h2 className={styles.name}>{name}</h2>
+
                     </div>
                     {isLoading && <Loading />}
-                </div>
-            })}
+                  </div>
+                })}
             </>
-            }
+          }
         </div>
-        </div>
+      </div>
     </>
   )
 };

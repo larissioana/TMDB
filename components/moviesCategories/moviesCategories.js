@@ -3,17 +3,14 @@ import styles from './moviesCategories.module.css';
 import Movies from '../movies/movies';
 import FeedMovies from '../feedMovies/feedMovies';
 
-const MoviesCategories = ({ popular, topRated, upcoming }) =>
-{
+const MoviesCategories = ({ popular, topRated, upcoming }) => {
     const [isButtonActive, setIsButtonActive] = useState('Popular');
     const [filteredMovies, setFilteredMovies] = useState(popular);
- 
-    const handleButtonChange = (category) =>
-    {
+
+    const handleButtonChange = (category) => {
         setIsButtonActive(category);
-       
-        switch (category)
-        {
+
+        switch (category) {
             case 'Popular':
                 setFilteredMovies(popular)
                 break;
@@ -28,14 +25,13 @@ const MoviesCategories = ({ popular, topRated, upcoming }) =>
         }
     };
 
-    useEffect(() =>
-    {
+    useEffect(() => {
         handleButtonChange(isButtonActive);
     }, [popular, topRated, upcoming]);
 
     return (
-        <div 
-            style = 
+        <div
+            style=
             {{
                 display: "flex",
                 flexDirection: "column",
@@ -44,10 +40,10 @@ const MoviesCategories = ({ popular, topRated, upcoming }) =>
                 marginBottom: "1rem",
             }}
         >
-            <FeedMovies isButtonActive = {isButtonActive} handleButtonChange = {handleButtonChange}/>
-            <div className = {styles.movies}
+            <FeedMovies isButtonActive={isButtonActive} handleButtonChange={handleButtonChange} />
+            <div className={styles.movies}
             >
-                <Movies movies = {filteredMovies}/>
+                <Movies movies={filteredMovies} />
             </div>
         </div>
     )

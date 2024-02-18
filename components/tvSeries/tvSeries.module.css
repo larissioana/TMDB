@@ -38,3 +38,11 @@
     border-radius: .2rem;
     cursor: pointer;
 }
+
+.name
+{
+  font-size: clamp(.9rem, 2vw, 1rem);
+  color: rgb(175, 167, 167);
+  margin-top: .5rem;
+  width: 10rem;
+}

@@ -20,6 +20,7 @@ const Search = () =>
 {
   const [searchedMovies, setSearchedMovies] = useState(initialState);
   const [isLoading, setIsLoading] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const router = useRouter();
   const { query } = router.query;
@@ -93,7 +94,7 @@ const Search = () =>
         display: "flex",
         }}
       >
-        <Searchbar placeholder = {query}/>
+        <Searchbar placeholder = {query} searchedMovies = {searchedMovies}/>
       </div>
         {
           searchedMovies.results.length > 0 ?

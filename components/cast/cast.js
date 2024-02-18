@@ -2,10 +2,10 @@ import React from 'react'
 import Image from 'next/image';
 import { IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
 import styles from './cast.module.css';
-import NoImage from '../../assets/no-image.jpg';
 import Link from 'next/link';
 import imdb from '../../assets/imdb.png';
 import facebook from '../../assets/facebook.png';
+import blankPhoto from '../../assets/blankphoto.webp';
 
 const Cast = ({
     credits, 
@@ -102,7 +102,7 @@ const Cast = ({
                         width = '112'
                         height = '112'
                         alt = {name}
-                        src = {NoImage}
+                        src = {blankPhoto}
                         style = {{
                           pointerEvents: "none"
                         }}

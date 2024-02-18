@@ -146,7 +146,7 @@
     padding: 1rem 1rem;
     margin-bottom: .5rem;
     font-size: 1rem;
-    margin: .5rem 1rem;
+    margin: 1rem 1rem;
     transition: all .3s ease;
 }
 
@@ -181,7 +181,7 @@
 .externalIds
 {
     display: flex;
-    margin-top: .4rem;
+    margin-top: 1rem;
     justify-content: flex-start;
     align-items: flex-start;
     gap: .5rem;

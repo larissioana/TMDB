@@ -1,3 +1,25 @@
+.recommendationsForTvSeries
+{
+    display: flex;
+    width: 100%;
+    margin-top: 2rem;
+    flex-direction: column;
+}
+
+.moviesWrapper
+{
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.tvWrapper
+{
+    display: flex;
+    overflow-x: auto;
+}
 
 .img
 {
@@ -14,6 +36,7 @@
     margin-bottom: 2rem;
     filter: hue-rotate(90deg);
     text-align: center;
+    width: 100%;
 }
 
 @media screen and (max-width: 600px)
@@ -26,5 +49,4 @@
     .container{
         padding: 0;
     }
-
 }

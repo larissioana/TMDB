@@ -5,7 +5,8 @@ import { useRouter } from 'next/router';
 import { fetchAPIKeyWords } from '@/utils/fetchFromAPI';
 import Link from 'next/link';
 
-const initialState = 
+
+const initialState =
 {
   page: 0,
   results: [],
@@ -13,70 +14,56 @@ const initialState =
   total_results: 0
 };
 
-const Searchbar = ({placeholder}) =>
-{
+const Searchbar = ({ placeholder }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const router = useRouter();
   const inputRef = useRef(null);
 
-
-  const handleInputChange =  async (e) =>
-  {
-    setSearchTerm(e.target.value);
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setSearchTerm(value);
   };
 
- 
-  const handleSubmit = (e) =>
-  {
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (searchTerm)
-    {
+    if (searchTerm) {
       router.push(`/search/${searchTerm}`);
     }
     setSearchTerm("");
   };
 
-  useEffect(() =>
-  {
-    if (placeholder !== "Search for a movie, tv shows...") {
-      setSearchTerm(placeholder); 
-      inputRef.current.focus(); 
-    }
-    setSearchTerm("");
-  }, [placeholder]);
-
-
   return (
     <Paper
-      component = "form"
-      onSubmit = {handleSubmit}
-      sx =
+      component="form"
+      onSubmit={handleSubmit}
+      sx=
       {{
         borderBottom: "1px solid var(--white10)",
         borderRadius: 0,
         background: "rgba(0, 0, 0, 0.3)",
         backdropFilter: "blur(10px)",
-        mr: { sm : 4 },
+        mr: { sm: 4 },
         marginTop: "1.5rem"
       }}
     >
-      <input 
-        ref = {inputRef}
-        className = "search-bar"
-        placeholder = {placeholder}
-        onChange = {handleInputChange}
-        value = {searchTerm}
+      <input
+        ref={inputRef}
+        className="search-bar"
+        placeholder={placeholder}
+        onChange={handleInputChange}
+        value={searchTerm}
       />
       <IconButton
-        type = "submit"
-        sx = 
+        type="submit"
+        sx=
         {{
           p: "10px",
           color: "#fff",
         }}
       >
-        <Search/>
+        <Search />
       </IconButton>
     </Paper>
   )

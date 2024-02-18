@@ -126,6 +126,11 @@ li
   text-overflow: ellipsis;
 }
 
+.suggestionList
+{
+  color: white;
+}
+
 .search-bar:focus
 {
   outline: none;
@@ -217,6 +222,7 @@ li
 .card-media
 {
   animation: animMediaCard 1s ease-in-out;
+  border-radius: .4rem;
 }
 
 @keyframes animMediaCard
@@ -259,5 +265,10 @@ li
     {
       display: flex;
       flex-direction: column;
+    }
+
+    .pagination
+    {
+      justify-content: flex-start;
     }
 }

@@ -13,6 +13,12 @@
     gap: 3rem;
 }
 
+.tvContainer
+{
+    display: flex;
+    flex-wrap: nowrap!important;
+}
+
 .container
 {
     display: flex;
@@ -48,8 +54,16 @@
 {
     margin-bottom: -.5rem;
     margin-top: .5rem;
-    font-size: clamp(.8rem, 2vw, .9rem);
+    font-size: 1rem;
     color:rgb(203, 208, 219);
+}
+
+.seeSeasons
+{
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
+    color:rgb(203, 208, 219);
+    font-weight: bolder;
+    cursor: pointer;
 }
 
 .genresList
@@ -73,6 +87,7 @@
 .overview
 {
     margin-top: 1rem;
+    margin-bottom: 1rem;
     font-size: clamp(1rem, 2vw, 1.2rem);
 }
 

@@ -26,9 +26,9 @@ export const fetchAPI = async (url, page) =>
   return data;
 };
 
-export const fetchAPIKeyWords = async (query) =>
+export const fetchAPIKeyWords = async (query, page) =>
 {
-  const {data} = await axios.get(`https://api.themoviedb.org/3/search/keyword?query=${query}&page=1`, options);
+  const {data} = await axios.get(`https://api.themoviedb.org/3/search/keyword?query=${query}&page=${page}`, options);
   return data;
 };
 
@@ -82,7 +82,7 @@ export const fetchAPIPerson = async (id) =>
 
 export const fetchAPITvSeries = async (url, page) =>
 {
-  const {data} = await axios.get(`https://api.themoviedb.org/3/tv/${url}?language=en-US&page=${page}`, options);
+  const {data} = await axios.get(`https://api.themoviedb.org/3/tv/${url}?&include_adult=false&language=en-US&page=${page}`, options);
   return data;
 };
 
@@ -118,18 +118,24 @@ export const fetchAPIActorKnownFor = async (id) =>
 
 export const fetchAPIPopularPeople = async (page) =>
 {
-  const {data} = await axios.get(`https://api.themoviedb.org/3/person/popular?language=en-US&page=${page}`, options);
+  const {data} = await axios.get(`https://api.themoviedb.org/3/person/popular?&language=en-US&page=${page}`, options);
   return data;
 };
 
-export const fetchAPIPopularPerson = async () =>
+export const fetchAPIPopularPersonSearch = async (query, page) =>
 {
-  const {data} = await axios.get(`https://api.themoviedb.org/3/search/person`, options);
+  const {data} = await axios.get(`https://api.themoviedb.org/3/search/person?query=${query}&language=en-US&page=${page}`, options);
   return data;
 };
 
 export const fetchAPIPopularPersonExternalids = async (id) =>
 {
   const {data} = await axios.get(`https://api.themoviedb.org/3/person/${id}/external_ids`, options);
+  return data;
+};
+
+export const fetchAPITvSeriesRecommendations = async (id) =>
+{
+  const {data} = await axios.get(`https://api.themoviedb.org/3/tv/${id}/recommendations?language=en-US&page=1`, options);
   return data;
 };

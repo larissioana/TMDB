@@ -33,12 +33,7 @@ const Movies = ({movies}) =>
                   animate ={ { opacity: 1, y: 0}}
                   exit = {{ opacity: 0, y: -20 }}
                   >
-                    <Tooltip
-                      id = "tooltip"
-                      place = "top"
-                    />
-                    <Link href = {`/movie/${id}`} data-tooltip-id = "tooltip"
-                        data-tooltip-content = {title}>
+                    <Link href = {`/movie/${id}`}>
                       <Image
                         className = {styles.img}
                         src = {`${IMAGE_URL_SMALL}${poster_path}`}
@@ -48,6 +43,7 @@ const Movies = ({movies}) =>
                         loading = "eager"
                       />
                     </Link>
+                    <h2 className = {styles.title}>{title}</h2>
                   </motion.div>
                   :
                   <motion.div>    

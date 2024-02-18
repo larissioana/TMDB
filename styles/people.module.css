@@ -1,8 +1,11 @@
 .wrapper
 {
-    margin-top: 7rem;
+    margin-top: 5rem;
     display: flex;
     flex-direction: column;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
 }
 
 .title
@@ -15,12 +18,11 @@
 .container
 {
     display: flex;
-    padding: 2rem 2rem;
     justify-content: center;
-    align-items: center;
-    row-gap: 7rem;
+    align-items: flex-start;
     margin-bottom: 4rem;
     column-gap: .6rem;
+    row-gap: 2rem;
     flex-wrap: wrap;
     overflow: hidden;
 }
@@ -36,11 +38,25 @@
 {
     object-fit: cover;
     object-position: top;
-    border-bottom: 1px solid transparent;
-    border-top-left-radius: .3rem;
-    border-top-right-radius: .3rem;
-    animation: animation 1.5s ease-in-out;
-    transition: transform .7s ease-out;
+    animation: animation 1s ease-in-out;
+    border-radius: .2rem;
+    transition: all .6s ease-in-out;
+}
+
+.people:hover
+{
+    filter: grayscale(90%);
+}
+
+.name
+{
+    font-size: clamp(.9rem, 2vw, 1rem);
+    animation: animation 1s ease-in-out;
+}
+
+.noResults
+{
+    font-size: clamp(1.5rem, 3vw, 2rem);
 }
 
 @keyframes animation
@@ -62,7 +78,7 @@
 
 .people:hover
 {
-    transform: scale(1.1);
+    transform: scale(1);
 }
 
 .searchbarContainer
@@ -83,12 +99,6 @@
 
 @media screen and (max-width: 500px)
 {
-    .people
-    {
-        width: 10rem;
-        height: 15rem;
-    }
-
     .container
     {
         column-gap: .6rem;
@@ -96,13 +106,12 @@
         justify-content: center;
     }
 
-    .container:last-child
+    .popularPeopleWrapper
     {
-        margin-right: auto;
-    }
-    .name
-    {
-        width: 4rem;
-        text-overflow: ellipsis;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
     }
 }

@@ -2,10 +2,9 @@
 {
     width: 100%;
     display: flex;
-    gap: .2rem;
+    gap: 1rem;
     margin-top: 2rem;
-    margin-bottom: 1.7rem;
-    overflow-y: hidden;
+    margin-bottom: 1rem;
 }
 
 .img
@@ -37,6 +36,6 @@
   font-size: clamp(.9rem, 2vw, 1rem);
   color: rgb(175, 167, 167);
   margin-top: .5rem;
-  width: 8rem;
+  width: 10rem;
 }
 
