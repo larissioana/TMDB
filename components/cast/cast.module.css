@@ -19,7 +19,7 @@
 .status, 
 .budget
 {
-    font-size: clamp(.9rem, 2vw, 1rem);
+    font-size: clamp(1rem, 2vw, 1.1rem);
     margin-top: 1rem;
 }
 
@@ -59,7 +59,7 @@
 
 .name
 {
-    font-size: clamp(.6rem, 2vw, .9rem);
+    font-size: clamp(.9rem, 2vw, .9rem);
     text-align: center;
 }
 
@@ -79,7 +79,7 @@
 
 .text{
     margin-top: 1rem;
-    font-size: clamp(1rem, 2vw, 1.1rem);
+    font-size: clamp(1.1rem, 2vw, 1.2rem);
 }
 
 @media screen and (max-width: 500px)

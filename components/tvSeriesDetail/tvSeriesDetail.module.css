@@ -81,7 +81,6 @@
 {
     display: flex;
     flex-wrap: wrap;
-    
 }
 
 .overview
@@ -200,7 +199,6 @@ flex-wrap: wrap;
     opacity: 1;
     cursor: pointer;
 }
-
 
 .castImg
 {

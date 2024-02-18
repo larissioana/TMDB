@@ -46,10 +46,16 @@
   margin-bottom: .8rem;
 }
 
+.textBold
+{
+  font-weight: bolder;
+  font-size: clamp(1.1rem, 2vw, 1.2rem);
+}
+
 .releaseDate
 {
   color: white;
-  font-size: clamp(.9rem, 2vw, 1.1rem);
+  font-size: clamp(1rem, 2vw, 1.1rem);
   margin-bottom: .5rem;
   font-weight: bolder;
 }
@@ -73,7 +79,7 @@
 .description
 {
   width: 400px;
-  font-size: clamp(1rem, 2vw, 1.1rem);
+  font-size: clamp(1.1rem, 2vw, 1.2rem);
   margin-top: .6rem;
 }
 
@@ -99,8 +105,8 @@
 .vote
 {
   margin-top: 1rem;
-  width: 2.8rem;
-  height: 2.8rem;
+  width: 3.5rem;
+  height: 3.5rem;
   border: 4.5px inset rgb(106, 132, 186) ;
   display: grid;
   place-content: center;
@@ -159,6 +165,21 @@
   align-items: center;
 }
 
+.voteFlexContainer
+{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+}
+
+.userScore
+{
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: bolder;
+  color: white;
+}
+
 @media screen and (max-width: 600px)
 {
     .movieDetailContainer
@@ -174,6 +195,14 @@
       width: 20rem;
       height: 25rem;
     }
+}
+
+@media screen and (max-width: 651px)
+{
+  .col1
+  {
+    margin-top: 2.5rem;
+  }
 }
 
 @media (max-width: 480px)

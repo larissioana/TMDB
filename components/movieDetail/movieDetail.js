@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Head from 'next/head';
 import Image from 'next/image';
 import { IMAGE_URL, IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
@@ -45,6 +45,7 @@ const MovieDetail = ({
     };
 
     const vote = Math.floor(vote_average);
+    const votePercentage = vote / 10 * 100;
     const hours = Math.floor(runtime / 60);
     const minutes = Math.floor(runtime % 60);
     const formattedTime = hours + "h " + minutes + "min";
@@ -110,31 +111,36 @@ const MovieDetail = ({
                                 />
                             </>
                         }
-
                     </div>
                     <div className={styles.col1}>
                         <h2 className={styles.title}>{title}</h2>
                         <h3 className={styles.tagline}>{tagline}</h3>
-                        <p className={styles.vote}>
-                            <span className={styles.text}>{vote}</span>
-                        </p>
-                        <span className={styles.releaseDate}>{release_date}
+                        <div className={styles.voteFlexContainer}>
+                            <p className={styles.vote}>
+                                <span className={styles.text}>{votePercentage}%</span>
+                            </p>
+                            <p className={styles.userScore}>User score</p>
+                        </div>
+                        <p className={styles.releaseDate}>
+                            <span className={styles.textBold}>Release date: </span>
+                            {release_date}
                             <span className={styles.language}>  ({original_language}). </span>
                             {formattedTime}
-                        </span>
+                        </p>
                         <div className={styles.genres}>
                             <ul className={styles.genresList}>
+                                <p className={styles.textBold}>Genres: </p>
                                 {genreNames.map((genreName, index) => (
                                     <>
                                         {index > 0 && ","}
-                                        <li key={index}>{genreName}</li>
+                                        <li key={index} className={styles.textBold}>{genreName}</li>
                                     </>
                                 ))}
                             </ul>
                         </div>
                         {
                             overview &&
-                            <p className={styles.description}>Overview: {overview}</p>
+                            <p className={styles.description}><span className={styles.textBold}>Overview: </span>{overview}</p>
                         }
                         <Cast
                             credits={credits}
