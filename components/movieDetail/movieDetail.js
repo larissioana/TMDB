@@ -86,7 +86,7 @@ const MovieDetail = ({
                                     src={NoImage}
                                     alt={title}
                                     width={400}
-                                    height={560}
+                                    height={520}
                                     className={styles.cardImg}
                                 />
                         }

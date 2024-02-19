@@ -2,7 +2,7 @@ import { CardContent, Typography } from '@mui/material';
 import Link from 'next/link';
 import { IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
 import { motion, AnimatePresence } from 'framer-motion';
-import { formatDate } from '@/utils/helpers';
+import { formatDate, shortenTitle } from '@/utils/helpers';
 import styles from '../mediaType/mediaType.module.css';
 import Image from 'next/image';
 
@@ -21,6 +21,9 @@ const MovieCard = ({ movies = [] }) => {
   const formattedDate = formatDate(release_date);
   const formattedDateTvShows = formatDate(first_air_date);
 
+  const shortenedTitleMovie = shortenTitle(original_title, 40);
+  const shortenedTitleTv = shortenTitle(original_name, 40);
+
   return (
     <AnimatePresence>
       {
@@ -37,20 +40,11 @@ const MovieCard = ({ movies = [] }) => {
               {
                 contentType === "movie" ?
                   <Link href={`/movie/${id}`}>
-                    <div
-                      className="card-media"
-                      style={{
-                        height: "20rem",
-                        borderTop: "1px solid #2e2c2c",
-                        gap: "1rem",
-                        width: "250px",
-                        height: "auto"
-                      }}
-                    >
+                    <div className="card-media">
                       <Image
                         src={`${IMAGE_URL_SMALL}${poster_path}`}
                         width={250}
-                        height={250}
+                        height={352}
                         alt={original_title}
                         loading="eager"
                         className={styles.img}
@@ -60,20 +54,11 @@ const MovieCard = ({ movies = [] }) => {
                   </Link>
                   :
                   <Link href={`/TvSeries/${id}`}>
-                    <div
-                      className="card-media"
-                      style={{
-                        height: "20rem",
-                        borderTop: "1px solid #2e2c2c",
-                        gap: "1rem",
-                        width: "250px",
-                        height: "auto"
-                      }}
-                    >
+                    <div className="card-media">
                       <Image
                         src={`${IMAGE_URL_SMALL}${poster_path}`}
                         width={250}
-                        height={250}
+                        height={352}
                         alt={original_name}
                         loading="eager"
                         className={styles.img}
@@ -92,11 +77,9 @@ const MovieCard = ({ movies = [] }) => {
                     variant="subtitle1"
                     fontWeight="bold"
                     color="#fff"
-                    sx={{
-                      width: "13rem",
-                    }}
+                    className="typography"
                   >
-                    {original_name}
+                    {shortenedTitleTv}
 
                   </Typography>
                   :
@@ -104,11 +87,9 @@ const MovieCard = ({ movies = [] }) => {
                     variant="subtitle1"
                     fontWeight="bold"
                     color="#fff"
-                    sx={{
-                      width: "13rem",
-                    }}
+                    className="typography"
                   >
-                    {original_title}
+                    {shortenedTitleMovie}
 
                   </Typography>
                 }
@@ -133,8 +114,9 @@ const MovieCard = ({ movies = [] }) => {
               </CardContent>
             </div>
           </motion.div>
-        )}
-    </AnimatePresence>
+        )
+      }
+    </AnimatePresence >
   )
 };
 

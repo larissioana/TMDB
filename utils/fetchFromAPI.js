@@ -19,7 +19,7 @@ const options =
 };
 
 export const fetchAPI = async (url, page) => {
-  const { data } = await axios.get(`${BASE_URL}/${url}?language=en-US&page=${page}`, options)
+  const { data } = await axios.get(`${BASE_URL}/${url}?&include_adult=false&language=en-US&page=${page}`, options)
   return data;
 }
 
@@ -49,7 +49,7 @@ export const fetchAPIActors = async (id) => {
 };
 
 export const fetchAPIRecommandation = async (movieId) => {
-  const { data } = await axios.get(`${BASE_URL}/${movieId}/recommendations?language=en-US'`, options);
+  const { data } = await axios.get(`${BASE_URL}/${movieId}/recommendations?&include_adult=false&language=en-US'`, options);
   return data;
 };
 
@@ -59,7 +59,7 @@ export const fetchAPIExternalLinks = async (movieId) => {
 };
 
 export const fetchAPIFilteredMovies = async (url, page, genre) => {
-  const { data } = await axios.get(`https://api.themoviedb.org/3/discover/${url}?with_genres=${genre}&page=${page}`, options);
+  const { data } = await axios.get(`https://api.themoviedb.org/3/discover/${url}?with_genres=${genre}&include_adult=false&page=${page}`, options);
   return data;
 };
 
@@ -114,6 +114,6 @@ export const fetchAPIPopularPersonExternalids = async (id) => {
 };
 
 export const fetchAPITvSeriesRecommendations = async (id) => {
-  const { data } = await axios.get(`https://api.themoviedb.org/3/tv/${id}/recommendations?language=en-US&page=1`, options);
+  const { data } = await axios.get(`https://api.themoviedb.org/3/tv/${id}/recommendations?&include_adult=false&language=en-US&page=1`, options);
   return data;
 };

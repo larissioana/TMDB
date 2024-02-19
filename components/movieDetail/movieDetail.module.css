@@ -56,7 +56,7 @@
 .releaseDate
 {
   color: white;
-  font-size: clamp(1rem, 2vw, 1.1rem);
+  font-size: clamp(.9rem, 2vw, 1.1rem);
   margin-bottom: .5rem;
   font-weight: bolder;
 }
@@ -206,29 +206,39 @@
   }
 }
 
-@media (max-width: 480px)
+@media (max-width: 500px)
 {
   .posterPath
   {
     margin-top: 1rem;
-    width: 18rem;
-    height: 20rem;
+    width: 100vw;
   }
 
   .flexContainer
   {
     padding: 2rem;
-    display: grid;
-    place-items: center;
-  }
-
-  .col2
-  {
-    padding-left: 0rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
   }
 
   .description
   {
     width: 100%;
+  }
+
+  .genres
+  {
+    width: 10rem;
+  }
+
+  .genresList
+  {
+    flex-wrap: wrap;
+  }
+
+  .movieContent
+  {
+    margin: 0rem 1rem;
   }
 }

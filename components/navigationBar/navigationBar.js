@@ -85,7 +85,7 @@ const NavigationBar = () => {
                     TV Shows
                 </Link>
                 <Link
-                    href="/people/popularPeople"
+                    href="/people/popular"
                     style=
                     {{
                         display: "flex",

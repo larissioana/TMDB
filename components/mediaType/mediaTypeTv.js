@@ -3,13 +3,14 @@ import { IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
 import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
 import { CardContent, Typography } from '@mui/material';
-import { formatDate } from '@/utils/helpers';
+import { formatDate, shortenTitle } from '@/utils/helpers';
 import Image from 'next/image';
 import styles from './mediaType.module.css';
 
 const MediaTypeTv = ({ tvShows }) => {
     const { id, poster_path, first_air_date, original_name } = tvShows;
     const formattedDate = formatDate(first_air_date);
+    const shortenedTitleTv = shortenTitle(original_title, 40);
 
     return (
         <AnimatePresence>
@@ -24,14 +25,7 @@ const MediaTypeTv = ({ tvShows }) => {
                 >
                     <div>
                         <Link href={`/TvSeries/${id}`}>
-                            <div
-                                className="card-media"
-                                style={{
-                                    borderTop: "1px solid #2e2c2c",
-                                    gap: "1rem",
-                                    width: "250px"
-                                }}
-                            >
+                            <div className="card-media">
                                 <Image
                                     src={`${IMAGE_URL_SMALL}${poster_path}`}
                                     width={250}
@@ -56,11 +50,9 @@ const MediaTypeTv = ({ tvShows }) => {
                                     variant="subtitle2"
                                     fontWeight="bold"
                                     color="#fff"
-                                    sx={{
-                                        width: "12rem"
-                                    }}
+                                    className="typography"
                                 >
-                                    {original_name}
+                                    {shortenedTitleTv}
                                 </Typography>
                             }
                             {

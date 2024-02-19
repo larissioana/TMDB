@@ -4,7 +4,6 @@ import NavigationBar from '@/components/navigationBar/navigationBar';
 import { Button } from '@mui/material';
 import styles from '../../styles/people.module.css';
 import Loading from '@/components/loading/loading';
-import { IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
 import Link from 'next/link';
 import Image from 'next/image';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
@@ -19,7 +18,7 @@ const initialState =
   total_results: 0
 };
 
-const PopularPeople = () => {
+const Popular = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [popularPeople, setPopularPeople] = useState(initialState);
   const [searchTerm, setSearchTerm] = useState("");
@@ -183,4 +182,4 @@ const PopularPeople = () => {
   )
 };
 
-export default PopularPeople;
+export default Popular;

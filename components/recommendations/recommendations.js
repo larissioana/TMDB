@@ -28,14 +28,7 @@ const Recommendations = ({ recommendations, hasMovies }) => {
                     media_type === 'movie' ?
                       <>
                         <Link href={`/movie/${id}`}>
-                          <div
-                            className="card-media"
-                            style=
-                            {{
-                              borderTop: "1px solid #2e2c2c",
-                              width: "260px"
-                            }}
-                          >
+                          <div className="card-media">
                             {
                               poster_path &&
                               <div
@@ -68,10 +61,7 @@ const Recommendations = ({ recommendations, hasMovies }) => {
                               variant="subtitle1"
                               fontWeight="bold"
                               color="#fff"
-                              sx=
-                              {{
-                                width: "12rem",
-                              }}
+                              className="typography"
                             >
                               {title}
                             </Typography>
@@ -88,14 +78,7 @@ const Recommendations = ({ recommendations, hasMovies }) => {
                       :
                       <main className={styles.tv}>
                         <Link href={`/TvSeries/${id}`}>
-                          <div
-                            className="card-media"
-                            style=
-                            {{
-                              borderTop: "1px solid #2e2c2c",
-                              width: "260px"
-                            }}
-                          >
+                          <div className="card-media">
                             {
                               poster_path &&
                               <div
@@ -128,11 +111,7 @@ const Recommendations = ({ recommendations, hasMovies }) => {
                               variant="subtitle1"
                               fontWeight="bold"
                               color="#fff"
-                              sx=
-                              {{
-                                width: "15rem",
-                                marginTop: ".6rem",
-                              }}
+                              className="typography"
                             >
                               {name}
                             </Typography>

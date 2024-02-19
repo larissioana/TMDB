@@ -26,14 +26,7 @@ const MediaTypePerson = ({ person }) => {
                                 const { id, profile_path, name } = item;
                                 return <div key={id}>
                                     <Link href={`/actor/${id}`}>
-                                        <div
-                                            className="card-media"
-                                            style={{
-                                                borderTop: "1px solid #2e2c2c",
-                                                gap: "1rem",
-                                                width: "250px"
-                                            }}
-                                        >
+                                        <div className="card-media">
                                             <Image
                                                 src={`${IMAGE_URL_SMALL}${profile_path}`}
                                                 width={250}
@@ -58,6 +51,7 @@ const MediaTypePerson = ({ person }) => {
                                                 variant="subtitle2"
                                                 fontWeight="bold"
                                                 color="#fff"
+                                                className="typography"
                                             >
                                                 {name}
                                             </Typography>

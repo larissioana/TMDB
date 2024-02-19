@@ -4,7 +4,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     gap: .5rem;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
 }
 
 .castContainer

@@ -3,13 +3,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
 import Link from 'next/link';
 import { CardContent, Typography } from '@mui/material';
-import { formatDate } from '@/utils/helpers';
+import { formatDate, shortenTitle } from '@/utils/helpers';
 import Image from 'next/image';
 import styles from './mediaType.module.css';
 
 const MediaTypeMovies = ({ movies }) => {
     const { id, original_title, release_date, poster_path } = movies;
     const formattedDate = formatDate(release_date);
+    const shortenedTitleMovie = shortenTitle(original_title, 40);
 
     return (
         <AnimatePresence>
@@ -24,14 +25,7 @@ const MediaTypeMovies = ({ movies }) => {
                 >
                     <div>
                         <Link href={`/movie/${id}`}>
-                            <div
-                                className="card-media"
-                                style={{
-                                    borderTop: "1px solid #2e2c2c",
-                                    gap: "1rem",
-                                    width: "250px"
-                                }}
-                            >
+                            <div className="card-media">
                                 <Image
                                     src={`${IMAGE_URL_SMALL}${poster_path}`}
                                     width={250}
@@ -44,7 +38,6 @@ const MediaTypeMovies = ({ movies }) => {
                                     blurDataURL={`${IMAGE_URL_SMALL}${poster_path}`}
                                 />
                             </div>
-
                         </Link>
                         <CardContent
                             sx={{
@@ -55,11 +48,9 @@ const MediaTypeMovies = ({ movies }) => {
                                 variant="subtitle2"
                                 fontWeight="bold"
                                 color="#fff"
-                                sx={{
-                                    width: "12rem"
-                                }}
+                                className="typography"
                             >
-                                {original_title}
+                                {shortenedTitleMovie}
                             </Typography>
                             {
                                 release_date &&
