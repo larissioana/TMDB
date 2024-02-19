@@ -19,7 +19,10 @@
 {
     display: flex;
     overflow-x: auto;
-    gap: 0rem;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0rem 1rem;
 }
 
 .img
@@ -28,6 +31,12 @@
     border-radius: .3rem;
     object-position: center;
     box-shadow: 2px 2px 7px 0px rgb(18, 18, 18);
+    transition: all .5s ease-in-out;
+}
+
+.img:hover
+{
+    filter: hue-rotate(160deg);
 }
 
 .recommendationsTitle
@@ -38,6 +47,17 @@
     filter: hue-rotate(90deg);
     text-align: center;
     width: 100%;
+}
+
+.containerImg
+{
+    width: 100%;
+}
+
+.tvMedia,
+.movieMedia
+{
+    width: 230px;
 }
 
 @media screen and (max-width: 600px)

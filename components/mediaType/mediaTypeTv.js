@@ -1,4 +1,3 @@
-import React from 'react'
 import { IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
 import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';

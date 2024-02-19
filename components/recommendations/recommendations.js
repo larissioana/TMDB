@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image';
-import { IMAGE_URL_342, IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
+import { IMAGE_URL_342 } from '@/utils/fetchFromAPI';
 import styles from './recommendations.module.css';
 import { Typography, CardContent } from '@mui/material';
 import Link from 'next/link';
@@ -28,7 +28,7 @@ const Recommendations = ({ recommendations, hasMovies }) => {
                     media_type === 'movie' ?
                       <>
                         <Link href={`/movie/${id}`}>
-                          <div className="card-media">
+                          <div className={styles.movieMedia}>
                             {
                               poster_path &&
                               <div
@@ -36,14 +36,14 @@ const Recommendations = ({ recommendations, hasMovies }) => {
                               >
                                 <Image
                                   className={styles.img}
-                                  src={`${IMAGE_URL_SMALL}${poster_path}`}
+                                  src={`${IMAGE_URL_342}${poster_path}`}
                                   width={270}
                                   height={320}
                                   layout="responsive"
                                   alt={title}
                                   loading="lazy"
                                   placeholder="blur"
-                                  blurDataURL={`${IMAGE_URL_SMALL}${poster_path}`}
+                                  blurDataURL={`${IMAGE_URL_342}${poster_path}`}
                                 />
                               </div>
                             }
@@ -78,7 +78,7 @@ const Recommendations = ({ recommendations, hasMovies }) => {
                       :
                       <main className={styles.tv}>
                         <Link href={`/TvSeries/${id}`}>
-                          <div className="card-media">
+                          <div className={styles.tvMedia}>
                             {
                               poster_path &&
                               <div
@@ -86,14 +86,14 @@ const Recommendations = ({ recommendations, hasMovies }) => {
                               >
                                 <Image
                                   className={styles.img}
-                                  src={`${IMAGE_URL_SMALL}${poster_path}`}
+                                  src={`${IMAGE_URL_342}${poster_path}`}
                                   width={270}
                                   height={320}
-                                  alt={title}
+                                  alt={name}
                                   layout="responsive"
                                   loading="lazy"
                                   placeholder="blur"
-                                  blurDataURL={`${IMAGE_URL_SMALL}${poster_path}`}
+                                  blurDataURL={`${IMAGE_URL_342}${poster_path}`}
                                 />
                               </div>
                             }
@@ -104,7 +104,7 @@ const Recommendations = ({ recommendations, hasMovies }) => {
                           <CardContent
                             sx={{
                               backgroundColor: "#000000",
-                              overflow: "hidden"
+                              overflow: "hidden",
                             }}
                           >
                             <Typography
@@ -129,7 +129,7 @@ const Recommendations = ({ recommendations, hasMovies }) => {
                   }
                 </div>
               </>
-            }).slice(0, 19)}
+            }).slice(0, 30)}
           </div>
         </>
       }

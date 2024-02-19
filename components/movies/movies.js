@@ -1,4 +1,3 @@
-import React from 'react'
 import { IMAGE_URL_342 } from '@/utils/fetchFromAPI';
 import Image from 'next/image';
 import styles from './movies.module.css';

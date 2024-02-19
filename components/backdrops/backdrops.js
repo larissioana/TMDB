@@ -1,9 +1,8 @@
-import React from 'react'
 import styles from './backdrops.module.css';
 import Image from 'next/image';
-import { IMAGE_BACKDROP, IMAGE_URL, IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
+import { IMAGE_BACKDROP } from '@/utils/fetchFromAPI';
 
-const Backdrops = ({ backdrops }) => {
+const Backdrops = ({ backdrops, name }) => {
   const { file_path } = backdrops;
 
   return (
@@ -12,7 +11,7 @@ const Backdrops = ({ backdrops }) => {
         src={`${IMAGE_BACKDROP}/${file_path}`}
         width={600}
         height={320}
-        alt='backdrops'
+        alt={name}
         loading="lazy"
         className={styles.img}
         placeholder="blur"

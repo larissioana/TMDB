@@ -1,60 +1,58 @@
-import React from 'react'
 import styles from '../moviesCategories/moviesCategories.module.css';
 
-const FeedMovies = ({ isButtonActive, handleButtonChange }) => 
-{
-  return (
-    <div>
-        <div
-        style = 
-        {{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "center",
-            gap: "1rem",
-            alignItems: "center",
-            width: "100%",
-            marginTop: "1rem",
-        }}
-        >
-            <h2 style = {{color: "white", fontSize: "clamp(1.1rem, 2vw, 2rem)"}}>What's new</h2>
+const FeedMovies = ({ isButtonActive, handleButtonChange }) => {
+    return (
+        <div>
             <div
-                className = {styles.moviesCategoriesContainer}
+                style=
+                {{
+                    display: "flex",
+                    flexDirection: "row",
+                    justifyContent: "center",
+                    gap: "1rem",
+                    alignItems: "center",
+                    width: "100%",
+                    marginTop: "1rem",
+                }}
             >
-                <button
-                    onClick = {() => handleButtonChange("Popular")}
-                    className = {styles.moviesCategoriesBtn}
-                    style =
-                    {{
-                        color: isButtonActive === "Popular" ? "#BE6E9A" : "white"
-                    }}
+                <h2 style={{ color: "white", fontSize: "clamp(1.1rem, 2vw, 2rem)" }}>What's new</h2>
+                <div
+                    className={styles.moviesCategoriesContainer}
                 >
-                    Popular
-                </button>
-                <button
-                    onClick = {() => handleButtonChange("Top Rated")}
-                    className = {styles.moviesCategoriesBtn}
-                    style =
-                    {{
-                        color: isButtonActive === "Top Rated" ? "#BE6E9A" : "white"
-                    }}
-                >
-                    Top Rated
-                </button>
-                <button
-                    onClick = {() => handleButtonChange("Upcoming")}
-                    className = {styles.moviesCategoriesBtn}
-                    style =
-                    {{
-                        color: isButtonActive === "Upcoming" ? "#BE6E9A" : "white"
-                    }}
-                >
-                    Upcoming
-                </button>
+                    <button
+                        onClick={() => handleButtonChange("Popular")}
+                        className={styles.moviesCategoriesBtn}
+                        style=
+                        {{
+                            color: isButtonActive === "Popular" ? "#BE6E9A" : "white"
+                        }}
+                    >
+                        Popular
+                    </button>
+                    <button
+                        onClick={() => handleButtonChange("Top Rated")}
+                        className={styles.moviesCategoriesBtn}
+                        style=
+                        {{
+                            color: isButtonActive === "Top Rated" ? "#BE6E9A" : "white"
+                        }}
+                    >
+                        Top Rated
+                    </button>
+                    <button
+                        onClick={() => handleButtonChange("Upcoming")}
+                        className={styles.moviesCategoriesBtn}
+                        style=
+                        {{
+                            color: isButtonActive === "Upcoming" ? "#BE6E9A" : "white"
+                        }}
+                    >
+                        Upcoming
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
-  )
+    )
 };
 
 export default FeedMovies;

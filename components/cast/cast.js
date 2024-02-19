@@ -1,6 +1,5 @@
-import React from 'react'
 import Image from 'next/image';
-import { IMAGE_URL_185, IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
+import { IMAGE_URL_185 } from '@/utils/fetchFromAPI';
 import styles from './cast.module.css';
 import Link from 'next/link';
 import imdb from '../../assets/imdb.png';

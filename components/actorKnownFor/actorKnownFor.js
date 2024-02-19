@@ -1,4 +1,3 @@
-import React from 'react'
 import styles from './actorKnownFor.module.css';
 import { IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
 import Image from 'next/image';
