@@ -10,7 +10,7 @@ import styles from './mediaType.module.css';
 const MediaTypeTv = ({ tvShows }) => {
     const { id, poster_path, first_air_date, original_name } = tvShows;
     const formattedDate = formatDate(first_air_date);
-    const shortenedTitleTv = shortenTitle(original_title, 40);
+    const shortenedTitleTv = shortenTitle(original_name, 40);
 
     return (
         <AnimatePresence>
