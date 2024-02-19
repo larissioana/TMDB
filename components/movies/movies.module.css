@@ -2,7 +2,7 @@
 {
     width: 100%;
     display: flex;
-    gap: 1rem;
+    gap: .5rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
 }

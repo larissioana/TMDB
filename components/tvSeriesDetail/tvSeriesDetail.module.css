@@ -154,10 +154,7 @@ flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
     gap: 1rem;
-    flex-wrap: nowrap;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    width: 100%;
+    flex-wrap: wrap;
     padding: 1rem 0rem;
 }
 
@@ -167,6 +164,7 @@ flex-wrap: wrap;
     border-radius: .2rem;;
     background: rgb(1, 1, 1);
     position: relative;
+    width: 190px;
 }
 
 .expand
@@ -225,12 +223,19 @@ flex-wrap: wrap;
 {
     font-size: clamp(.8rem, 2vw, .9rem);
     padding-bottom: .6rem;
+    color: rgb(164, 161, 161);
 }
 
 .castName
 {
     font-weight: bolder;
     padding: .4rem 0rem;
+    font-size: clamp(.9rem, 2vw, 1.1rem);
+}
+
+.character
+{
+    font-size: clamp(.8rem, 2vw, 1rem);
 }
 
 .character,

@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { IMAGE_URL_342 } from '@/utils/fetchFromAPI';
+import { IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
 import { CardContent, Typography } from '@mui/material';
 import Image from 'next/image';
 import styles from './mediaType.module.css';
@@ -29,20 +29,21 @@ const MediaTypePerson = ({ person }) => {
                                         <div
                                             className="card-media"
                                             style={{
-                                                height: "20rem",
                                                 borderTop: "1px solid #2e2c2c",
                                                 gap: "1rem",
+                                                width: "250px"
                                             }}
                                         >
                                             <Image
-                                                src={`${IMAGE_URL_342}${profile_path}`}
+                                                src={`${IMAGE_URL_SMALL}${profile_path}`}
                                                 width={250}
                                                 height={320}
                                                 alt={name}
                                                 loading="eager"
                                                 className={styles.img}
                                                 placeholder="blur"
-                                                blurDataURL={`${IMAGE_URL_342}${profile_path}`}
+                                                layout="responsive"
+                                                blurDataURL={`${IMAGE_URL_SMALL}${profile_path}`}
                                             />
                                         </div>
                                     </Link>

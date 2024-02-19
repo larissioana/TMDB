@@ -1,6 +1,6 @@
 import { CardContent, Typography } from '@mui/material';
 import Link from 'next/link';
-import { IMAGE_URL_342 } from '@/utils/fetchFromAPI';
+import { IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
 import { motion, AnimatePresence } from 'framer-motion';
 import { formatDate } from '@/utils/helpers';
 import styles from '../mediaType/mediaType.module.css';
@@ -43,15 +43,18 @@ const MovieCard = ({ movies = [] }) => {
                         height: "20rem",
                         borderTop: "1px solid #2e2c2c",
                         gap: "1rem",
+                        width: "250px",
+                        height: "auto"
                       }}
                     >
                       <Image
-                        src={`${IMAGE_URL_342}${poster_path}`}
+                        src={`${IMAGE_URL_SMALL}${poster_path}`}
                         width={250}
-                        height={320}
+                        height={250}
                         alt={original_title}
                         loading="eager"
                         className={styles.img}
+                        layout="responsive"
                       />
                     </div>
                   </Link>
@@ -63,15 +66,18 @@ const MovieCard = ({ movies = [] }) => {
                         height: "20rem",
                         borderTop: "1px solid #2e2c2c",
                         gap: "1rem",
+                        width: "250px",
+                        height: "auto"
                       }}
                     >
                       <Image
-                        src={`${IMAGE_URL_342}${poster_path}`}
+                        src={`${IMAGE_URL_SMALL}${poster_path}`}
                         width={250}
-                        height={320}
+                        height={250}
                         alt={original_name}
                         loading="eager"
                         className={styles.img}
+                        layout="responsive"
                       />
                     </div>
                   </Link>

@@ -174,6 +174,7 @@ const TvSeriesDetail = ({
                             width={200}
                             height={272}
                             alt={name}
+                            layout="responsive"
                             loading="eager"
                             className={styles.castImg}
                             placeholder="blur"
@@ -185,7 +186,7 @@ const TvSeriesDetail = ({
                       </>
                     }
                   </div>
-                })
+                }).slice(0, 5)
               }
             </div>
           </>

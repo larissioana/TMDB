@@ -53,6 +53,7 @@
 .person
 {
     position: relative;
+    width: 160px;
 }
 
 .expand
@@ -73,6 +74,11 @@
     opacity: 0;
     backdrop-filter: blur(8px);
     transition: opacity .4s ease-in-out;
+}
+
+.leftContainer
+{
+    width: 270px;
 }
 
 .expandText
@@ -238,12 +244,6 @@
 
 @media (max-width: 580px)
 {
-    .profilePath
-    {
-        width: 20rem;
-        height: 30rem;
-    }
-
     .actorImages
     {
         justify-content: flex-start;
@@ -265,13 +265,4 @@
     }
 }
 
-@media (max-width: 340px)
-{
-    .profilePath
-    {
-      width: 17rem;
-      height: 27rem;
-    }
-}
-  
   

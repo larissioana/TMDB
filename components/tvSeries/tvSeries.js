@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import styles from './tvSeries.module.css';
-import { fetchAPITvSeries, IMAGE_URL, IMAGE_URL_342 } from '@/utils/fetchFromAPI';
+import { fetchAPITvSeries, IMAGE_URL } from '@/utils/fetchFromAPI';
 import NoImage from '../../assets/no-image.jpg';
 import Image from 'next/image';
 import TvSeriesCard from '../tvSeriesCard/tvSeriesCard';
@@ -66,6 +66,7 @@ const TvSeries = () => {
                               alt={name}
                               className={styles.img}
                               loading="eager"
+                              layout="responsive"
                             />
                             :
                             <Image
@@ -75,6 +76,7 @@ const TvSeries = () => {
                               alt={name}
                               className={styles.img}
                               loading="eager"
+                              layout="responsive"
                             />
                         }
                         {hoveredId === id && <TvSeriesCard image={backdrop_path} id={id} />}

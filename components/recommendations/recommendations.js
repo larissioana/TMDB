@@ -33,6 +33,7 @@ const Recommendations = ({ recommendations, hasMovies }) => {
                             style=
                             {{
                               borderTop: "1px solid #2e2c2c",
+                              width: "260px"
                             }}
                           >
                             {
@@ -42,13 +43,14 @@ const Recommendations = ({ recommendations, hasMovies }) => {
                               >
                                 <Image
                                   className={styles.img}
-                                  src={`${IMAGE_URL_342}${poster_path}`}
+                                  src={`${IMAGE_URL_SMALL}${poster_path}`}
                                   width={270}
                                   height={320}
+                                  layout="responsive"
                                   alt={title}
                                   loading="lazy"
                                   placeholder="blur"
-                                  blurDataURL={`${IMAGE_URL_342}${poster_path}`}
+                                  blurDataURL={`${IMAGE_URL_SMALL}${poster_path}`}
                                 />
                               </div>
                             }
@@ -91,6 +93,7 @@ const Recommendations = ({ recommendations, hasMovies }) => {
                             style=
                             {{
                               borderTop: "1px solid #2e2c2c",
+                              width: "260px"
                             }}
                           >
                             {
@@ -100,13 +103,14 @@ const Recommendations = ({ recommendations, hasMovies }) => {
                               >
                                 <Image
                                   className={styles.img}
-                                  src={`${IMAGE_URL_342}${poster_path}`}
+                                  src={`${IMAGE_URL_SMALL}${poster_path}`}
                                   width={270}
                                   height={320}
                                   alt={title}
+                                  layout="responsive"
                                   loading="lazy"
                                   placeholder="blur"
-                                  blurDataURL={`${IMAGE_URL_342}${poster_path}`}
+                                  blurDataURL={`${IMAGE_URL_SMALL}${poster_path}`}
                                 />
                               </div>
                             }

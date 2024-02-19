@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion, AnimatePresence } from 'framer-motion';
-import { IMAGE_URL_342 } from '@/utils/fetchFromAPI';
+import { IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
 import Link from 'next/link';
 import { CardContent, Typography } from '@mui/material';
 import { formatDate } from '@/utils/helpers';
@@ -27,20 +27,21 @@ const MediaTypeMovies = ({ movies }) => {
                             <div
                                 className="card-media"
                                 style={{
-                                    height: "20rem",
                                     borderTop: "1px solid #2e2c2c",
                                     gap: "1rem",
+                                    width: "250px"
                                 }}
                             >
                                 <Image
-                                    src={`${IMAGE_URL_342}${poster_path}`}
+                                    src={`${IMAGE_URL_SMALL}${poster_path}`}
                                     width={250}
                                     height={320}
                                     alt={original_title}
                                     loading="eager"
                                     className={styles.img}
                                     placeholder="blur"
-                                    blurDataURL={`${IMAGE_URL_342}${poster_path}`}
+                                    layout="responsive"
+                                    blurDataURL={`${IMAGE_URL_SMALL}${poster_path}`}
                                 />
                             </div>
 
