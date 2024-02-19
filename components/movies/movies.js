@@ -37,7 +37,6 @@ const Movies = ({ movies }) => {
                     height={320}
                     alt={title}
                     loading="eager"
-                    layout="responsive"
                   />
                 </Link>
                 <h2 className={styles.title}>{title}</h2>
@@ -50,7 +49,6 @@ const Movies = ({ movies }) => {
                   width={200}
                   height={200}
                   alt={title}
-                  layout="responsive"
                 />
               </motion.div>
           }

@@ -48,7 +48,6 @@ const MovieCard = ({ movies = [] }) => {
                         alt={original_title}
                         loading="eager"
                         className={styles.img}
-                        layout="responsive"
                       />
                     </div>
                   </Link>
@@ -62,7 +61,6 @@ const MovieCard = ({ movies = [] }) => {
                         alt={original_name}
                         loading="eager"
                         className={styles.img}
-                        layout="responsive"
                       />
                     </div>
                   </Link>

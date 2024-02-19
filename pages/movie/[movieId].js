@@ -1,5 +1,5 @@
 import MovieDetail from "@/components/movieDetail/movieDetail";
-import { fetchAPICast, fetchAPIExternalLinks, fetchAPIMovieDetail, fetchAPIRecommandation, fetchAPITrailer } from "@/utils/fetchFromAPI";
+import { fetchAPICast, fetchAPIExternalLinks, fetchAPIMovieDetail, fetchAPIMovieImages, fetchAPIRecommandation, fetchAPITrailer } from "@/utils/fetchFromAPI";
 
 export async function getServerSideProps(context) {
     const movieId = context.params.movieId;
@@ -8,6 +8,7 @@ export async function getServerSideProps(context) {
     const credits = await fetchAPICast(movieId);
     const recommendations = await fetchAPIRecommandation(movieId);
     const externalIds = await fetchAPIExternalLinks(movieId);
+    const movieImages = await fetchAPIMovieImages(movieId);
 
     return {
         props:
@@ -16,7 +17,8 @@ export async function getServerSideProps(context) {
             videoTrailer,
             credits,
             recommendations,
-            externalIds
+            externalIds,
+            movieImages
         }
     }
 }
@@ -26,7 +28,8 @@ const Movie = ({
     videoTrailer,
     credits,
     recommendations,
-    externalIds
+    externalIds,
+    movieImages
 }) => {
     return (
         <>
@@ -36,6 +39,7 @@ const Movie = ({
                 credits={credits}
                 recommendations={recommendations}
                 externalIds={externalIds}
+                movieImages={movieImages}
             />
         </>
     )

@@ -68,7 +68,6 @@ const ActorDetails = ({ actorDetails, person, actorKnownFor, externalIds }) => {
                                         height={320}
                                         alt={name}
                                         loading="eager"
-                                        layout="responsive"
                                     />
 
                                 </div>
@@ -148,7 +147,6 @@ const ActorDetails = ({ actorDetails, person, actorKnownFor, externalIds }) => {
                                                         width={160}
                                                         height={240}
                                                         alt="actor"
-                                                        layout="responsive"
                                                         loading="eager"
                                                         placeholder="blur"
                                                         blurDataURL={`${IMAGE_URL_342}${file_path}`}

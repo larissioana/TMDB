@@ -30,7 +30,6 @@ const Seasons = ({ season }) => {
                                 height="240"
                                 loading="eager"
                                 className={styles.img}
-                                layout="responsive"
                             />
                             :
                             <Image
@@ -40,7 +39,6 @@ const Seasons = ({ season }) => {
                                 height="240"
                                 loading="lazy"
                                 className={styles.img}
-                                layout="responsive"
                             />
                     }
                 </div>

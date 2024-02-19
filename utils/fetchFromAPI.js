@@ -117,3 +117,8 @@ export const fetchAPITvSeriesRecommendations = async (id) => {
   const { data } = await axios.get(`https://api.themoviedb.org/3/tv/${id}/recommendations?&include_adult=false&language=en-US&page=1`, options);
   return data;
 };
+
+export const fetchAPIMovieImages = async (id) => {
+  const { data } = await axios.get(`https://api.themoviedb.org/3/movie/${id}/images`, options);
+  return data;
+}

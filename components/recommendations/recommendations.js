@@ -4,7 +4,7 @@ import { IMAGE_URL_342 } from '@/utils/fetchFromAPI';
 import styles from './recommendations.module.css';
 import { Typography, CardContent } from '@mui/material';
 import Link from 'next/link';
-import { formatDate } from '@/utils/helpers';
+import { formatDate, shortenTitle } from '@/utils/helpers';
 
 const Recommendations = ({ recommendations, hasMovies }) => {
 
@@ -21,6 +21,8 @@ const Recommendations = ({ recommendations, hasMovies }) => {
               const { id, poster_path, title, release_date, media_type, name, first_air_date } = result;
               const formattedDate = formatDate(release_date);
               const formattedSeries = formatDate(first_air_date);
+              const shortenedTitleMovie = shortenTitle(title, 25);
+              const shortenedTitleTv = shortenTitle(name, 25);
 
               return <>
                 <div key={id} className={styles.container}>
@@ -37,9 +39,8 @@ const Recommendations = ({ recommendations, hasMovies }) => {
                                 <Image
                                   className={styles.img}
                                   src={`${IMAGE_URL_342}${poster_path}`}
-                                  width={270}
+                                  width={230}
                                   height={320}
-                                  layout="responsive"
                                   alt={title}
                                   loading="lazy"
                                   placeholder="blur"
@@ -63,7 +64,7 @@ const Recommendations = ({ recommendations, hasMovies }) => {
                               color="#fff"
                               className="typography"
                             >
-                              {title}
+                              {shortenedTitleMovie}
                             </Typography>
                             <Typography
                               variant="subtitle2"
@@ -87,10 +88,9 @@ const Recommendations = ({ recommendations, hasMovies }) => {
                                 <Image
                                   className={styles.img}
                                   src={`${IMAGE_URL_342}${poster_path}`}
-                                  width={270}
+                                  width={230}
                                   height={320}
                                   alt={name}
-                                  layout="responsive"
                                   loading="lazy"
                                   placeholder="blur"
                                   blurDataURL={`${IMAGE_URL_342}${poster_path}`}
@@ -113,7 +113,7 @@ const Recommendations = ({ recommendations, hasMovies }) => {
                               color="#fff"
                               className="typography"
                             >
-                              {name}
+                              {shortenedTitleTv}
                             </Typography>
                             <Typography
                               variant="subtitle2"
@@ -123,13 +123,12 @@ const Recommendations = ({ recommendations, hasMovies }) => {
                               {formattedSeries}
                             </Typography>
                           </CardContent>
-
                         }
                       </main>
                   }
                 </div>
               </>
-            }).slice(0, 30)}
+            }).slice(0, 20)}
           </div>
         </>
       }

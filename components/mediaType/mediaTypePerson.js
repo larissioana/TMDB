@@ -28,13 +28,12 @@ const MediaTypePerson = ({ person }) => {
                                         <div className="card-media">
                                             <Image
                                                 src={`${IMAGE_URL_SMALL}${profile_path}`}
-                                                width={250}
+                                                width={230}
                                                 height={320}
                                                 alt={name}
                                                 loading="eager"
                                                 className={styles.img}
                                                 placeholder="blur"
-                                                layout="responsive"
                                                 blurDataURL={`${IMAGE_URL_SMALL}${profile_path}`}
                                             />
                                         </div>

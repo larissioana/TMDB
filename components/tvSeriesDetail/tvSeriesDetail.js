@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { IMAGE_URL, IMAGE_URL_185, IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
+import { IMAGE_URL, IMAGE_URL_342, IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
 import styles from './tvSeriesDetail.module.css';
 import Image from 'next/image';
 import { PlayArrow } from '@mui/icons-material';
@@ -167,42 +167,38 @@ const TvSeriesDetail = ({
                   const { id, character, name, profile_path } = cast;
                   const shortenedTitleName = shortenTitle(name, 20);
                   const shortenedTitleCharacter = shortenTitle(character, 15);
-                  return <div key={id} className={styles.cast}>
+                  return <>
                     {
-                      profile_path !== null ? (
-                        <>
-                          <Link href={`/actor/${encodeURI(id)}/${name.replace(/\s+/g, '-').toLowerCase()}`}>
-                            <Image
-                              src={`${IMAGE_URL_185}${profile_path}`}
-                              width={200}
-                              height={272}
-                              alt={name}
-                              layout="responsive"
-                              loading="eager"
-                              className={styles.castImg}
-                              placeholder="blur"
-                              blurDataURL={`${IMAGE_URL_185}${profile_path}`}
-                            />
-                          </Link>
-                          <h3 className={styles.castName}>{shortenedTitleName}</h3>
-                          <h4 className={styles.character}>{shortenedTitleCharacter}</h4>
-                        </>
-                      )
-                        : <></>
+                      profile_path !== null &&
+                      <div key={id} className={styles.cast}>
+                        <Link href={`/actor/${encodeURI(id)}/${name.replace(/\s+/g, '-').toLowerCase()}`}>
+                          <Image
+                            src={`${IMAGE_URL_342}${profile_path}`}
+                            width={200}
+                            height={272}
+                            alt={name}
+                            loading="eager"
+                            className={styles.castImg}
+                            placeholder="blur"
+                            blurDataURL={`${IMAGE_URL_342}${profile_path}`}
+                          />
+                        </Link>
+                        <h3 className={styles.castName}>{shortenedTitleName}</h3>
+                        <h4 className={styles.character}>{shortenedTitleCharacter}</h4>
+                      </div>
                     }
-                  </div>
-                }).slice(0, 3)
+                  </>
+                }).slice(0, 5)
               }
             </div>
           </>
         }
-
       </div>
       <div className={styles.images}>
         {
           images.backdrops.length !== 0 && (
             <>
-              <h2 className={styles.backdropsTitle}>Backdrops ({images.backdrops.length})</h2>
+              <h2 className={styles.backdropsTitle}>Images ({images.backdrops.length})</h2>
               <div className={styles.backdrops}>
                 {images.backdrops.map((backdrop, index) => (
                   index === currentBackdropIndex &&

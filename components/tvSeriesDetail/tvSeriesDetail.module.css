@@ -153,7 +153,7 @@ flex-wrap: wrap;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 1rem;
+    column-gap: 4rem;
     padding: 1rem 0rem;
     overflow-x: auto;
 }

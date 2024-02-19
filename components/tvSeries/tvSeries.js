@@ -66,7 +66,6 @@ const TvSeries = () => {
                               alt={name}
                               className={styles.img}
                               loading="eager"
-                              layout="responsive"
                             />
                             :
                             <Image
@@ -76,7 +75,6 @@ const TvSeries = () => {
                               alt={name}
                               className={styles.img}
                               loading="eager"
-                              layout="responsive"
                             />
                         }
                         {hoveredId === id && <TvSeriesCard image={backdrop_path} id={id} />}

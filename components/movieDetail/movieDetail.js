@@ -1,21 +1,21 @@
 import { useState } from 'react'
 import Head from 'next/head';
-import Image from 'next/image';
-import { IMAGE_URL, IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
+import { IMAGE_URL } from '@/utils/fetchFromAPI';
 import NavigationBar from '../navigationBar/navigationBar';
 import styles from './movieDetail.module.css';
-import NoImage from '../../assets/no-image.jpg';
 import Modal from '../modal/modal';
 import Cast from '../cast/cast';
 import Recommendations from '../recommendations/recommendations';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
+import MovieImages from '../movieImages/movieImages';
 
 const MovieDetail = ({
     movie,
     videoTrailer,
     credits,
     recommendations,
-    externalIds
+    externalIds,
+    movieImages
 }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -23,7 +23,6 @@ const MovieDetail = ({
         {
             overview,
             backdrop_path,
-            poster_path,
             release_date,
             tagline,
             vote_average,
@@ -68,41 +67,12 @@ const MovieDetail = ({
                 }}
             >
                 <div className={styles.flexContainer}>
-                    <div className={styles.col2}>
-                        {
-                            poster_path ?
-                                <Image
-                                    src={IMAGE_URL_SMALL + poster_path}
-                                    width={400}
-                                    height={520}
-                                    alt={title}
-                                    priority
-                                    className={styles.posterPath}
-                                    placeholder="blur"
-                                    blurDataURL={`${IMAGE_URL_SMALL}${poster_path}`}
-                                />
-                                :
-                                <Image
-                                    src={NoImage}
-                                    alt={title}
-                                    width={400}
-                                    priority
-                                    height={520}
-                                    className={styles.cardImg}
-                                />
-                        }
+                    <div className={styles.titleAndPlayBtn}>
+                        <h2 className={styles.title}>{title}</h2>
                         {
                             videoTrailer.results.length > 0 &&
                             <>
-                                <div style=
-                                    {{
-                                        display: "flex",
-                                        justifyContent: 'center',
-                                        alignItems: 'center',
-                                        gap: ".5rem",
-                                        marginTop: "1rem"
-                                    }}
-                                >
+                                <div className={styles.btnContainer}>
                                     <button className={styles.viewTrailer}>Play trailer</button>
                                     <PlayCircleIcon className={styles.playIcon} onClick={openModal} />
                                 </div>
@@ -114,47 +84,58 @@ const MovieDetail = ({
                             </>
                         }
                     </div>
-                    <div className={styles.col1}>
-                        <h2 className={styles.title}>{title}</h2>
-                        <h3 className={styles.tagline}>{tagline}</h3>
-                        <div className={styles.voteFlexContainer}>
-                            <p className={styles.vote}>
-                                <span className={styles.text}>{votePercentage}%</span>
-                            </p>
-                            <p className={styles.userScore}>User score</p>
-                        </div>
-                        <p className={styles.releaseDate}>
-                            <span className={styles.textBold}>Release date: </span>
-                            {release_date}
-                            <span className={styles.language}>  ({original_language}). </span>
-                            {formattedTime}
+                    <h3 className={styles.tagline}>{tagline}</h3>
+                    <div className={styles.voteFlexContainer}>
+                        <p className={styles.vote}>
+                            <span className={styles.text}>{votePercentage}%</span>
                         </p>
-                        <div className={styles.genres}>
-                            <ul className={styles.genresList}>
-                                <p className={styles.textBold}>Genres: </p>
-                                {genreNames.map((genreName, index) => (
-                                    <>
-                                        {index > 0 && ","}
-                                        <li key={index} className={styles.textBold}>{genreName}</li>
-                                    </>
-                                ))}
-                            </ul>
-                        </div>
-                        {
-                            overview &&
-                            <p className={styles.description}><span className={styles.textBold}>Overview: </span>{overview}</p>
-                        }
-                        <Cast
-                            credits={credits}
-                            externalIds={externalIds}
-                            status={status}
-                            revenue={revenue}
-                            budget={budget}
-                            genreNames={genreNames}
-                        />
+                        <p className={styles.userScore}>User score</p>
                     </div>
-
+                    <p className={styles.releaseDate}>
+                        <span className={styles.textBold}>Release date: </span>
+                        {release_date}
+                        <span className={styles.language}>  ({original_language}). </span>
+                        {formattedTime}
+                    </p>
+                    <div className={styles.genres}>
+                        <ul className={styles.genresList}>
+                            <p className={styles.textBold}>Genres: </p>
+                            {genreNames.map((genreName, index) => (
+                                <>
+                                    {index > 0 && ","}
+                                    <li key={index} className={styles.textBold}>{genreName}</li>
+                                </>
+                            ))}
+                        </ul>
+                    </div>
+                    {
+                        overview &&
+                        <p className={styles.description}><span className={styles.textBold}>Overview: </span>{overview}</p>
+                    }
+                    <Cast
+                        credits={credits}
+                        externalIds={externalIds}
+                        status={status}
+                        revenue={revenue}
+                        budget={budget}
+                        genreNames={genreNames}
+                    />
                 </div>
+            </div>
+            <div>
+                <h2 className={styles.moreImages}>More images</h2>
+                {
+                    movieImages.posters.length > 0 &&
+                    <div className={styles.imagesFlexContainer}>
+                        {
+                            movieImages.backdrops.map((poster, index) => {
+                                const { file_path } = poster;
+                                return <MovieImages title={title} key={index} image={file_path} />
+
+                            }).slice(2, 8)
+                        }
+                    </div>
+                }
             </div>
             <div className={styles.movieDetailContainer}>
                 <div className={styles.recommendationsContainer}>

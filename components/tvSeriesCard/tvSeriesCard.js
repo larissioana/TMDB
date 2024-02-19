@@ -10,7 +10,6 @@ const TvSeriesCard = ({ image, id }) => {
   };
 
   return (
-
     <div className={styles.card} onClick={handleCardClick}>
       <div
         style={{

@@ -11,8 +11,6 @@
   --black10: #181818;
   --gray10: rgb(119, 119, 119);
   --gray40: rgba(42, 42, 42, 0.6);
-  --white10: rgba(255, 255, 255, 1);
-  --white20: rgba(243, 244, 246, 1);
   --white30: rgb(209, 213, 219);
 }
 
@@ -20,24 +18,15 @@ html,
 body
 {
   overflow-x: hidden;
-  font-family: "Roboto Slab",serif;
-  background-color: var(--black);
-  color: var(--white20);
+  background-color: rgb(0, 0, 0);
+  color: white;
 }
 
 a
 {
   text-decoration: none;
   font-size: 1.3rem;
-  color: var(--white20);
-}
-
-@media (prefers-color-scheme: dark)
-{
-  html
-  {
-    color-scheme: dark;
-  }
+  color: white;
 }
 
 ::-webkit-scrollbar
@@ -72,7 +61,7 @@ li
   text-transform: capitalize;
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
   cursor: pointer;
   background: transparent;
   outline: none;
@@ -109,15 +98,10 @@ li
   font-size: 18px;
   background: none;
   padding: 1rem;
-  color: var(-white20);
+  color: white;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-}
-
-.suggestionList
-{
-  color: white;
 }
 
 .search-bar::placeholder
@@ -185,7 +169,6 @@ li
   color: white!important;
 }
 
-
 .pagination-btn
 {
   color: rgb(255, 255, 255)!important;
@@ -218,6 +201,7 @@ li
   height: auto;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-size: .9rem;
 }
 
 @keyframes animMediaCard

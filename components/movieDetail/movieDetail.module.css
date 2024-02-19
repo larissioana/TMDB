@@ -3,7 +3,7 @@
 {
   object-position: top;
   border-radius: 1rem;
-  animation: anim .6s ease-in;
+  animation: anim 1s ease-in;
   margin-top: 5rem;
   width: 100%;
 }
@@ -18,33 +18,19 @@
 .flexContainer
 {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
   background: rgba(8, 8, 8, 0.7);
-  padding: 7rem 2rem;
+  padding: 2rem 2rem;
   border-radius: 1rem;
   border: 1px solid var(--shadow20);
 }
 
-.col1, .col2
-{
-  flex: 1;
-}
-
-.col2
-{
-  padding-top: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
 .title
 {
-  font-size: clamp(1.4rem, 2vw, 2rem);
-  margin-bottom: .8rem;
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
 }
 
 .textBold
@@ -79,16 +65,9 @@
 
 .description
 {
-  width: 400px;
+  width: 70%;
   font-size: clamp(1.1rem, 2vw, 1.2rem);
   margin-top: .6rem;
-}
-
-.posterPath
-{
- object-fit: cover;
- object-position: top;
- animation: anim .6s ease-in;
 }
 
 @keyframes anim
@@ -124,36 +103,41 @@
 .tagline
 {
   font-size: clamp(1rem, 2vw, 1.1rem);
-  margin-bottom: 1rem;
   max-width: 400px;
-}
-
-.btn
-{
-  padding: 1rem 2rem;
-  font-size: .9rem;
-  font-weight: bolder;
-  background-color: var(--red10);
-  border :none;
-  border-radius: 10px 10px 10px 10px;
-  cursor: pointer;
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .viewTrailer
 {
-  margin-top: 0rem;
   font-size: 1.2rem;
   background: none;
   border: none;
   font-weight: bolder;
-  color:rgb(251, 249, 250);
-  padding-left: 1rem;
+  color: var(--white20);
+}
+
+.titleAndPlayBtn
+{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.btnContainer
+{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1rem;
+  box-shadow: 3px 4px 8px 0px rgb(85, 66, 88);
 }
 
 .playIcon
 {
-  color: rgb(246, 246, 246);
+  color: var(--white20);
   font-size: 1.7rem;
   cursor: pointer;
 }
@@ -181,45 +165,30 @@
   color: white;
 }
 
-@media screen and (max-width: 600px)
+.moreImages
 {
-    .movieDetailContainer
-    {
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: start;
-      gap: 0;
-    }
-
-    .posterPath
-    {
-      width: 20rem;
-      height: 25rem;
-    }
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
 }
 
-@media screen and (max-width: 651px)
+.imagesFlexContainer
 {
-  .col1
-  {
-    margin-top: 2.5rem;
-  }
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: .5rem;
+  padding: 1rem 2rem;
+  overflow-x: auto;
 }
 
 @media (max-width: 500px)
 {
-  .posterPath
-  {
-    margin-top: 1rem;
-    width: 100vw;
-  }
 
   .flexContainer
   {
-    padding: 2rem;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
+    margin-top: 4rem;
+   
   }
 
   .description
@@ -235,10 +204,5 @@
   .genresList
   {
     flex-wrap: wrap;
-  }
-
-  .movieContent
-  {
-    margin: 0rem 1rem;
   }
 }

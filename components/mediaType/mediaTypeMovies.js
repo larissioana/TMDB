@@ -28,13 +28,12 @@ const MediaTypeMovies = ({ movies }) => {
                             <div className="card-media">
                                 <Image
                                     src={`${IMAGE_URL_SMALL}${poster_path}`}
-                                    width={250}
+                                    width={230}
                                     height={320}
                                     alt={original_title}
                                     loading="eager"
                                     className={styles.img}
                                     placeholder="blur"
-                                    layout="responsive"
                                     blurDataURL={`${IMAGE_URL_SMALL}${poster_path}`}
                                 />
                             </div>
