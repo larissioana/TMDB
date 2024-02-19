@@ -76,8 +76,8 @@ const MovieDetail = ({
                                     width={400}
                                     height={520}
                                     alt={title}
+                                    priority
                                     className={styles.posterPath}
-                                    loading="eager"
                                     placeholder="blur"
                                     blurDataURL={`${IMAGE_URL_SMALL}${poster_path}`}
                                 />
@@ -86,6 +86,7 @@ const MovieDetail = ({
                                     src={NoImage}
                                     alt={title}
                                     width={400}
+                                    priority
                                     height={520}
                                     className={styles.cardImg}
                                 />
