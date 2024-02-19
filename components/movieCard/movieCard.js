@@ -1,6 +1,6 @@
 import { CardContent, Typography } from '@mui/material';
 import Link from 'next/link';
-import { IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
+import { IMAGE_URL_342 } from '@/utils/fetchFromAPI';
 import { motion, AnimatePresence } from 'framer-motion';
 import { formatDate } from '@/utils/helpers';
 import styles from '../mediaType/mediaType.module.css';
@@ -46,7 +46,7 @@ const MovieCard = ({ movies = [] }) => {
                       }}
                     >
                       <Image
-                        src={`${IMAGE_URL_SMALL}${poster_path}`}
+                        src={`${IMAGE_URL_342}${poster_path}`}
                         width={250}
                         height={320}
                         alt={original_title}
@@ -66,7 +66,7 @@ const MovieCard = ({ movies = [] }) => {
                       }}
                     >
                       <Image
-                        src={`${IMAGE_URL_SMALL}${poster_path}`}
+                        src={`${IMAGE_URL_342}${poster_path}`}
                         width={250}
                         height={320}
                         alt={original_name}

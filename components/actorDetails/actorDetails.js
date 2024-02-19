@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import styles from './actorDetails.module.css';
-import { IMAGE_URL_SMALL, IMAGE_URL } from '@/utils/fetchFromAPI';
+import { IMAGE_BACKDROP, IMAGE_URL_342 } from '@/utils/fetchFromAPI';
 import Image from 'next/image';
 import Head from 'next/head';
 import NavigationBar from '../navigationBar/navigationBar';
@@ -63,7 +63,7 @@ const ActorDetails = ({ actorDetails, person, actorKnownFor, externalIds }) => {
                                 <div className={styles.leftContainer}>
                                     <Image
                                         className={styles.profilePath}
-                                        src={IMAGE_URL_SMALL + profile_path}
+                                        src={IMAGE_URL_342 + profile_path}
                                         width={240}
                                         height={320}
                                         alt={name}
@@ -143,13 +143,13 @@ const ActorDetails = ({ actorDetails, person, actorKnownFor, externalIds }) => {
                                                 >
                                                     <Image
                                                         className={styles.personImg}
-                                                        src={`${IMAGE_URL}${file_path}`}
+                                                        src={`${IMAGE_URL_342}${file_path}`}
                                                         width={160}
                                                         height={240}
                                                         alt="actor"
                                                         loading="eager"
                                                         placeholder="blur"
-                                                        blurDataURL={`${IMAGE_URL_SMALL}${file_path}`}
+                                                        blurDataURL={`${IMAGE_URL_342}${file_path}`}
                                                     />
                                                     <div className={styles.expand}>
                                                         <p className={styles.expandText}>Expand</p>
@@ -169,13 +169,13 @@ const ActorDetails = ({ actorDetails, person, actorKnownFor, externalIds }) => {
                             >
                                 <Image
                                     className={styles.modalImage}
-                                    src={`${IMAGE_URL}${selectedImage}`}
+                                    src={`${IMAGE_BACKDROP}${selectedImage}`}
                                     width={600}
                                     height={600}
                                     alt="actor"
                                     loading="eager"
                                     placeholder="blur"
-                                    blurDataURL={`${IMAGE_URL_SMALL}${selectedImage}`}
+                                    blurDataURL={`${IMAGE_BACKDROP}${selectedImage}`}
                                 />
                             </Modal>
                         </div>

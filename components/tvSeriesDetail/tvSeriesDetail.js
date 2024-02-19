@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { IMAGE_URL, IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
+import { IMAGE_URL, IMAGE_URL_342, IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
 import styles from './tvSeriesDetail.module.css';
 import Image from 'next/image';
 import { PlayArrow } from '@mui/icons-material';
@@ -170,14 +170,14 @@ const TvSeriesDetail = ({
                       <>
                         <Link href={`/actor/${encodeURI(id)}/${name.replace(/\s+/g, '-').toLowerCase()}`}>
                           <Image
-                            src={`${IMAGE_URL_SMALL}${profile_path}`}
+                            src={`${IMAGE_URL_342}${profile_path}`}
                             width={200}
                             height={272}
                             alt={name}
                             loading="eager"
                             className={styles.castImg}
                             placeholder="blur"
-                            blurDataURL={`${IMAGE_URL_SMALL}${profile_path}`}
+                            blurDataURL={`${IMAGE_URL_342}${profile_path}`}
                           />
                         </Link>
                         <h3 className={styles.castName}>{name}</h3>

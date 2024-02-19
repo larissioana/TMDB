@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
+import { IMAGE_URL_342 } from '@/utils/fetchFromAPI';
 import { CardContent, Typography } from '@mui/material';
 import Image from 'next/image';
 import styles from './mediaType.module.css';
@@ -35,14 +35,14 @@ const MediaTypePerson = ({ person }) => {
                                             }}
                                         >
                                             <Image
-                                                src={`${IMAGE_URL_SMALL}${profile_path}`}
+                                                src={`${IMAGE_URL_342}${profile_path}`}
                                                 width={250}
                                                 height={320}
                                                 alt={name}
                                                 loading="eager"
                                                 className={styles.img}
                                                 placeholder="blur"
-                                                blurDataURL={`${IMAGE_URL_SMALL}${profile_path}`}
+                                                blurDataURL={`${IMAGE_URL_342}${profile_path}`}
                                             />
                                         </div>
                                     </Link>

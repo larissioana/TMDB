@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image';
-import { IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
+import { IMAGE_URL_185, IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
 import styles from './cast.module.css';
 import Link from 'next/link';
 import imdb from '../../assets/imdb.png';
@@ -88,10 +88,10 @@ const Cast = ({
                     width={112}
                     height={112}
                     alt={name}
-                    src={`${IMAGE_URL_SMALL}${profile_path}`}
+                    src={`${IMAGE_URL_185}${profile_path}`}
                     loading='eager'
                     placeholder="blur"
-                    blurDataURL={`${IMAGE_URL_SMALL}${profile_path}`}
+                    blurDataURL={`${IMAGE_URL_185}${profile_path}`}
                   />
                 </Link>
                 :

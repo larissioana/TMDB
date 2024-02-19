@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import styles from './tvSeries.module.css';
-import { fetchAPITvSeries, IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
+import { fetchAPITvSeries, IMAGE_URL, IMAGE_URL_342 } from '@/utils/fetchFromAPI';
 import NoImage from '../../assets/no-image.jpg';
 import Image from 'next/image';
 import TvSeriesCard from '../tvSeriesCard/tvSeriesCard';
@@ -60,7 +60,7 @@ const TvSeries = () => {
                         {
                           poster_path ?
                             <Image
-                              src={`${IMAGE_URL_SMALL}${poster_path}`}
+                              src={`${IMAGE_URL}${poster_path}`}
                               width={192}
                               height={400}
                               alt={name}

@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './seasons.module.css';
-import { IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
+import { IMAGE_URL_342 } from '@/utils/fetchFromAPI';
 import Image from 'next/image';
 import { formatDate } from '@/utils/helpers';
 import NoImage from '../../assets/no-image.jpg';
@@ -24,7 +24,7 @@ const Seasons = ({ season }) => {
                     {
                         poster_path ?
                             <Image
-                                src={`${IMAGE_URL_SMALL}${poster_path}`}
+                                src={`${IMAGE_URL_342}${poster_path}`}
                                 width="240"
                                 alt={name}
                                 height="240"

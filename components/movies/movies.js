@@ -1,11 +1,10 @@
 import React from 'react'
-import { IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
+import { IMAGE_URL_342 } from '@/utils/fetchFromAPI';
 import Image from 'next/image';
 import styles from './movies.module.css';
 import NoImage from '../../assets/no-image.jpg';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { Tooltip } from 'react-tooltip';
 
 const Movies = ({ movies }) => {
   return (
@@ -34,7 +33,7 @@ const Movies = ({ movies }) => {
                 <Link href={`/movie/${id}`}>
                   <Image
                     className={styles.img}
-                    src={`${IMAGE_URL_SMALL}${poster_path}`}
+                    src={`${IMAGE_URL_342}${poster_path}`}
                     width={160}
                     height={320}
                     alt={title}

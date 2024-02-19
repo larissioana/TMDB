@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { fetchAPIPopularPeople, fetchAPIPopularPersonSearch } from '@/utils/fetchFromAPI';
+import { IMAGE_URL_342, fetchAPIPopularPeople, fetchAPIPopularPersonSearch } from '@/utils/fetchFromAPI';
 import NavigationBar from '@/components/navigationBar/navigationBar';
 import { Button } from '@mui/material';
 import styles from '../../styles/people.module.css';
@@ -112,14 +112,14 @@ const PopularPeople = () => {
                           href={`/actor/${encodeURI(people.id)}/${people.name.replace(/\s+/g, '-').toLowerCase()}`}
                         >
                           <Image
-                            src={`${IMAGE_URL_SMALL}${people.profile_path}`}
+                            src={`${IMAGE_URL_342}${people.profile_path}`}
                             width={208}
                             height={280}
                             alt={people.name}
                             loading="eager"
                             className={styles.people}
                             placeholder="blur"
-                            blurDataURL={`${IMAGE_URL_SMALL}${people.profile_path}`}
+                            blurDataURL={`${IMAGE_URL_342}${people.profile_path}`}
                           />
                         </Link>
                         <CardContent
