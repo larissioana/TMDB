@@ -6,14 +6,16 @@ import { PlayArrow } from '@mui/icons-material';
 import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
 import NavigationBar from '../navigationBar/navigationBar';
-import Modal from '../modal/modal';
-import Backdrops from '../backdrops/backdrops';
-import Seasons from '../seasons/seasons';
 import Link from 'next/link';
 import Head from 'next/head';
 import NoImage from '../../assets/no-image.jpg';
-import Recommendations from '../recommendations/recommendations';
 import { shortenTitle } from '@/utils/helpers';
+import dynamic from 'next/dynamic';
+
+const Backdrops = dynamic(() => import('@/components/backdrops/backdrops'));
+const Modal = dynamic(() => import('@/components/modal/modal'));
+const Seasons = dynamic(() => import('@/components/seasons/seasons'));
+const Recommendations = dynamic(() => import('@/components/recommendations/recommendations'));
 
 const TvSeriesDetail = ({
   tvSeries,

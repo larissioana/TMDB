@@ -4,9 +4,10 @@ import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import { Button } from '@mui/material';
 import Searchbar from '@/components/searchbar/searchbar';
-import MediaType from '@/components/mediaType/mediaType';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
+import dynamic from 'next/dynamic';
+const MediaType = dynamic(() => import('@/components/mediaType/mediaType'));
 
 const initialState =
 {

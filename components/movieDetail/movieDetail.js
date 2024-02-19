@@ -3,12 +3,13 @@ import Head from 'next/head';
 import { IMAGE_URL } from '@/utils/fetchFromAPI';
 import NavigationBar from '../navigationBar/navigationBar';
 import styles from './movieDetail.module.css';
-import Modal from '../modal/modal';
-import Cast from '../cast/cast';
-import Recommendations from '../recommendations/recommendations';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
-import MovieImages from '../movieImages/movieImages';
+import dynamic from 'next/dynamic';
 
+const Modal = dynamic(() => import('@/components/modal/modal'));
+const Cast = dynamic(() => import('@/components/cast/cast'));
+const MovieImages = dynamic(() => import('@/components/movieImages/movieImages'));
+const Recommendations = dynamic(() => import('@/components/recommendations/recommendations'));
 const MovieDetail = ({
     movie,
     videoTrailer,

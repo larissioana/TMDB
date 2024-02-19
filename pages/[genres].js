@@ -1,9 +1,9 @@
-import GenresMovies from '@/components/genresMovies/genresMovies.js';
+import dynamic from 'next/dynamic';
+const GenresMovies = dynamic(() => import('@/components/genresMovies/genresMovies'));
 
-const Genres = () => 
-{
+const Genres = () => {
   return (
-    <GenresMovies/>
+    <GenresMovies />
   )
 };
 

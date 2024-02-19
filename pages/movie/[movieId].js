@@ -1,5 +1,7 @@
-import MovieDetail from "@/components/movieDetail/movieDetail";
+import dynamic from "next/dynamic";
 import { fetchAPICast, fetchAPIExternalLinks, fetchAPIMovieDetail, fetchAPIMovieImages, fetchAPIRecommandation, fetchAPITrailer } from "@/utils/fetchFromAPI";
+
+const MovieDetail = dynamic(() => import('@/components/movieDetail/movieDetail'));
 
 export async function getServerSideProps(context) {
     const movieId = context.params.movieId;

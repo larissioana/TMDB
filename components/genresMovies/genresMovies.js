@@ -5,12 +5,14 @@ import NavigationBar from '../navigationBar/navigationBar';
 import Sidebar from '../sidebar/sidebar';
 import { Button } from '@mui/material';
 import { AnimatePresence, motion } from 'framer-motion';
-import MovieCard from '../movieCard/movieCard';
 import Banner from '../banner/banner';
 import styles from './genresMovies.module.css';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import Loading from '../loading/loading';
+import dynamic from 'next/dynamic';
+
+const MovieCard = dynamic(() => import('@/components/movieCard/movieCard'))
 
 const initialState =
 {
