@@ -43,7 +43,7 @@ const Recommendations = ({ recommendations, hasMovies }) => {
                                 <Image
                                   className={styles.img}
                                   src={`${IMAGE_URL_SMALL}${poster_path}`}
-                                  width={250}
+                                  width={270}
                                   height={320}
                                   alt={title}
                                   loading="lazy"
@@ -68,8 +68,7 @@ const Recommendations = ({ recommendations, hasMovies }) => {
                               color="#fff"
                               sx=
                               {{
-                                width: "15rem",
-                                marginTop: ".6rem",
+                                width: "12rem",
                               }}
                             >
                               {title}
@@ -102,7 +101,7 @@ const Recommendations = ({ recommendations, hasMovies }) => {
                                 <Image
                                   className={styles.img}
                                   src={`${IMAGE_URL_SMALL}${poster_path}`}
-                                  width={250}
+                                  width={270}
                                   height={320}
                                   alt={title}
                                   loading="lazy"

@@ -59,6 +59,7 @@ const MovieDetail = ({
             <NavigationBar />
             <div
                 className={styles.movieContent}
+                priority
                 style=
                 {{
                     backgroundImage: backdrop_path ? `url('${IMAGE_URL}${backdrop_path}')` : null,

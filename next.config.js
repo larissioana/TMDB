@@ -2,6 +2,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   reactStrictMode: true,
+  compress: true,
   images: {
     domains: ['image.tmdb.org'],
     unoptimized: true
