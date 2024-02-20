@@ -23,8 +23,8 @@ const TvShows = () => {
                 >
                     {
                         topRatedTvShows.results?.map((movie, index) => {
-                            const { backdrop_path } = movie;
-                            return index === 1 ? <Banner key={index} imageUrl={backdrop_path} /> : null;
+                            const { backdrop_path, id } = movie;
+                            return index === 1 ? <Banner id={id} key={index} imageUrl={backdrop_path} /> : null;
                         })
                     }
                 </div>

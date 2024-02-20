@@ -11,23 +11,12 @@ const Movies = ({ movies }) => {
       {movies.map((movie) => {
         const { poster_path, title, id } = movie;
         const scale = id === 0 ? { scaleY: 1.1 } : { scale: 1.1 };
-
-        return <motion.div
-          key={id}
-          className={styles.movies}
-          initial=" hidden"
-          animate="visible"
-          variants=
-          {{
-            visible: { opacity: 1, y: 0 },
-            hidden: { opacity: 0, y: 200, },
-          }}
-        >
+        return <div key={id}>
           {
             poster_path &&
-            <motion.div whileHover={...scale} initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
+            <motion.div whileHover={...scale} initial={{ opacity: 0 }}
+              animate={{ opacity: 1, transition: { duration: 0.8 } }}
+              exit={{ opacity: 0 }}
             >
               <Link href={`/movie/${id}`}>
                 <Image
@@ -42,7 +31,7 @@ const Movies = ({ movies }) => {
               <h2 className={styles.title}>{title}</h2>
             </motion.div>
           }
-        </motion.div>
+        </div>
       }
       )}
     </div>

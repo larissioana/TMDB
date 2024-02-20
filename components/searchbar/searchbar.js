@@ -33,7 +33,7 @@ const Searchbar = ({ placeholder }) => {
         background: "rgba(0, 0, 0, 0.3)",
         backdropFilter: "blur(10px)",
         mr: { sm: 4 },
-        marginTop: "1.5rem"
+        marginTop: "1.5rem",
       }}
     >
       <input
@@ -41,6 +41,8 @@ const Searchbar = ({ placeholder }) => {
         placeholder={placeholder}
         onChange={handleInputChange}
         value={searchTerm}
+        name="search-input"
+        id="search-input"
       />
       <IconButton
         type="submit"

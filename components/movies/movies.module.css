@@ -2,9 +2,9 @@
 {
     width: 100%;
     display: flex;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    padding: 0rem 1rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 2rem 1rem 1rem 1rem;
 }
 
 .img
@@ -13,21 +13,10 @@
     border-top: 1px solid transparent;
     border-left: 1px solid transparent;
     border-radius: .4rem;
-    animation: imageAnimation .7s ease-in;
     cursor: pointer;
     margin-bottom: 1rem;
 }
 
-@keyframes imageAnimation
-{
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-}
-  
 .title
 {
   font-size: clamp(.9rem, 2vw, 1rem);

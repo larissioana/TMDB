@@ -112,13 +112,13 @@ const GenresMovies = () => {
                 {
                   activeContentType === "movie" ?
                     movies.map((movie, index) => {
-                      const { backdrop_path } = movie;
-                      return index === 0 ? <Banner key={index} isLoading={isLoading} imageUrl={backdrop_path} /> : null;
+                      const { backdrop_path, id } = movie;
+                      return index === 0 ? <Banner id={id} key={id} isLoading={isLoading} imageUrl={backdrop_path} /> : null;
                     })
                     :
                     tvShows.map((show, index) => {
-                      const { backdrop_path } = show;
-                      return index === 1 ? <Banner key={index} isLoading={isLoading} imageUrl={backdrop_path} /> : null;
+                      const { backdrop_path, id } = show;
+                      return index === 0 ? <Banner id={id} key={id} isLoading={isLoading} imageUrl={backdrop_path} /> : null;
                     })
                 }
 
