@@ -24,21 +24,9 @@ const MoviesCategories = ({ popular, topRated, upcoming }) => {
     }, [popular, isButtonActive]);
 
     return (
-        <div
-            style=
-            {{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                marginBottom: "1rem",
-            }}
-        >
+        <div className={styles.categoriesContainer}>
             <FeedMovies isButtonActive={isButtonActive} handleButtonChange={handleButtonChange} />
-            <div className={styles.movies}
-            >
-                <Movies movies={filteredMovies} />
-            </div>
+            <Movies movies={filteredMovies} />
         </div>
     )
 };

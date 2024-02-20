@@ -112,6 +112,17 @@ li
   text-overflow: ellipsis;
 }
 
+.feedMovies
+{
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+  width: 100%;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
 .card-media:hover
 {
   filter: hue-rotate(100deg);
@@ -225,7 +236,7 @@ li
     {
       flex-direction: row;
       flex-wrap: nowrap;
-      overflow: scroll;
+      overflow-x: scroll;
       padding: 1.5rem;
       margin-bottom: 2rem;
       width: 100vw;

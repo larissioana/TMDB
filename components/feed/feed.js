@@ -47,28 +47,20 @@ const Feed = () => {
 
     return (
         <div>
-            <div className="feedContainer">
-                <div className={styles.wrapper}
-                >
-                    <Sidebar />
-                    <div style=
-                        {{
-                            width: "100%"
-                        }}>
-                        {
-                            upcomingMovies.map((movie, index) => {
-                                const { backdrop_path, id } = movie;
-                                return index === 0 ? <Banner id={id} key={index} imageUrl={backdrop_path} isLoading={isLoading} /> : null;
-                            })
-                        }
-                    </div>
+            <div className={styles.wrapper}
+            >
+                <Sidebar />
+                <div style=
+                    {{
+                        width: "100%"
+                    }}>
+                    {
+                        upcomingMovies.map((movie, index) => {
+                            const { backdrop_path, id } = movie;
+                            return index === 0 ? <Banner id={id} key={index} imageUrl={backdrop_path} isLoading={isLoading} /> : null;
+                        })
+                    }
                 </div>
-            </div>
-            <div style={{
-                marginTop: "2rem",
-                justifyContent: "center",
-                flexDirection: "column",
-            }}>
             </div>
             {memoizedMoviesCategories}
         </div>

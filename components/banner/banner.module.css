@@ -1,17 +1,17 @@
 .bannerContainer
 {
-    height: 82vh;
-    width: 100%;
+    height: 42rem;
     background-size: cover;
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    object-position: right;
 }
 
 @media screen and (max-width: 900px)
 {
     .bannerContainer
     {
-        height: 40vh;
+       min-height: auto;
     }
 }

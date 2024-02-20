@@ -3,6 +3,7 @@ import Image from 'next/image';
 import styles from './movies.module.css';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { shortenTitle } from '@/utils/helpers';
 
 const Movies = ({ movies }) => {
 
@@ -10,6 +11,7 @@ const Movies = ({ movies }) => {
     <div className={styles.moviesContainer}>
       {movies.map((movie) => {
         const { poster_path, title, id } = movie;
+        const shortenedTitleMovie = shortenTitle(title, 25);
         const scale = id === 0 ? { scaleY: 1.1 } : { scale: 1.1 };
         return <div key={id}>
           {
@@ -28,7 +30,7 @@ const Movies = ({ movies }) => {
                   loading="eager"
                 />
               </Link>
-              <h2 className={styles.title}>{title}</h2>
+              <h2 className={styles.title}>{shortenedTitleMovie}</h2>
             </motion.div>
           }
         </div>

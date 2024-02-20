@@ -3,18 +3,7 @@ import styles from '../moviesCategories/moviesCategories.module.css';
 const FeedMovies = ({ isButtonActive, handleButtonChange }) => {
     return (
         <div>
-            <div
-                style=
-                {{
-                    display: "flex",
-                    flexDirection: "row",
-                    justifyContent: "center",
-                    gap: "1rem",
-                    alignItems: "center",
-                    width: "100%",
-                    marginTop: "1rem",
-                }}
-            >
+            <div className="feedMovies">
                 <h2 style={{ color: "white", fontSize: "clamp(1.1rem, 2vw, 2rem)" }}>What's new</h2>
                 <div
                     className={styles.moviesCategoriesContainer}
