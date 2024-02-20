@@ -59,7 +59,6 @@ const MovieDetail = ({
             <NavigationBar />
             <div
                 className={styles.movieContent}
-                priority
                 style=
                 {{
                     backgroundImage: backdrop_path ? `url('${IMAGE_URL}${backdrop_path}')` : null,
@@ -124,18 +123,21 @@ const MovieDetail = ({
                 </div>
             </div>
             <div>
-                <h2 className={styles.moreImages}>More images</h2>
                 {
-                    movieImages.posters.length > 0 &&
-                    <div className={styles.imagesFlexContainer}>
-                        {
-                            movieImages.backdrops.map((poster, index) => {
-                                const { file_path } = poster;
-                                return <MovieImages title={title} key={index} image={file_path} />
+                    movieImages.backdrops.length > 0 &&
+                    <>
+                        <h2 className={styles.moreImages}>More images</h2>
 
-                            }).slice(2, 8)
-                        }
-                    </div>
+                        <div className={styles.imagesFlexContainer}>
+                            {
+                                movieImages.backdrops.map((poster, index) => {
+                                    const { file_path } = poster;
+                                    return <MovieImages title={title} key={index} image={file_path} />
+
+                                }).slice(2, 8)
+                            }
+                        </div>
+                    </>
                 }
             </div>
             <div className={styles.movieDetailContainer}>

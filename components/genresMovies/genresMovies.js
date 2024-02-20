@@ -3,24 +3,14 @@ import { fetchAPIFilteredMovies } from '@/utils/fetchFromAPI';
 import { useMovieContext } from '@/context/moviesContext';
 import NavigationBar from '../navigationBar/navigationBar';
 import Sidebar from '../sidebar/sidebar';
-import { Button } from '@mui/material';
 import { AnimatePresence, motion } from 'framer-motion';
 import Banner from '../banner/banner';
 import styles from './genresMovies.module.css';
-import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import Loading from '../loading/loading';
 import dynamic from 'next/dynamic';
-
+import { initialState } from '@/utils/helpers';
+import PaginationButton from '../paginationBtn/paginationButton';
 const MovieCard = dynamic(() => import('@/components/movieCard/movieCard'))
-
-const initialState =
-{
-  page: 0,
-  results: [],
-  total_pages: 0,
-  total_results: 0,
-};
 
 const GenresMovies = () => {
   const [filteredMovies, setFilteredMovies] = useState(initialState);
@@ -32,8 +22,8 @@ const GenresMovies = () => {
     try {
       setIsLoading(true);
       const [movieContent, tvContent] = await Promise.all([
-        fetchAPIFilteredMovies('movie', page, activeGenre),
-        fetchAPIFilteredMovies('tv', page, activeGenre)
+        fetchAPIFilteredMovies('discover', 'movie', page, activeGenre),
+        fetchAPIFilteredMovies('discover', 'tv', page, activeGenre)
       ]);
 
       const combinedResults =
@@ -69,16 +59,13 @@ const GenresMovies = () => {
     }
   }, [activeGenre]);
 
-  const nextPage = filteredMovies.page + 1;
-  const previousPage = filteredMovies.page - 1;
-
   const handlePageChange = async (newPage) => {
     try {
       setIsLoading(true);
 
       const [movieResults, tvResults] = await Promise.all([
-        fetchAPIFilteredMovies('movie', newPage, activeGenre),
-        fetchAPIFilteredMovies('tv', newPage, activeGenre)
+        fetchAPIFilteredMovies('discover', 'movie', newPage, activeGenre),
+        fetchAPIFilteredMovies('discover', 'tv', newPage, activeGenre)
       ]);
 
       const combinedResults =
@@ -170,34 +157,7 @@ const GenresMovies = () => {
               marginTop: '2rem',
             }}
           >
-            <div className="pagination">
-              <Button
-                className="pagination-btn"
-                disabled={filteredMovies.page === 1}
-                onClick={() => handlePageChange(filteredMovies.page - 1, previousPage)}
-              >
-                <NavigateBeforeIcon className="pagination-btn" />
-              </Button>
-              {
-                Array.from({ length: filteredMovies.total_pages }, (_, index) => index + 1)
-                  .slice(filteredMovies.page - 1, filteredMovies.page + 4)
-                  .map(pageNumber => (
-                    <Button
-                      key={pageNumber}
-                      className={`${pageNumber === filteredMovies.page ? 'selected-btn' : 'pagination-btn'}`}
-                      onClick={() => handlePageChange(pageNumber)}
-                    >
-                      {pageNumber}
-                    </Button>
-                  ))}
-              <Button
-                className="pagination-btn"
-                disabled={filteredMovies.page === filteredMovies.total_pages}
-                onClick={() => handlePageChange(filteredMovies.page + 1, nextPage)}
-              >
-                <NavigateNextIcon className="pagination-btn" />
-              </Button>
-            </div>
+            <PaginationButton filteredMovies={filteredMovies} handlePageChange={handlePageChange} />
           </div>
         )}
     </div>

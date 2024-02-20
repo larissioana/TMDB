@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import styles from './tvSeries.module.css';
-import { fetchAPITvSeries, IMAGE_URL } from '@/utils/fetchFromAPI';
+import { fetchAPI, IMAGE_URL } from '@/utils/fetchFromAPI';
 import NoImage from '../../assets/no-image.jpg';
 import Image from 'next/image';
 import TvSeriesCard from '../tvSeriesCard/tvSeriesCard';
@@ -16,7 +16,7 @@ const TvSeries = () => {
   const fetchTvSeries = async (page) => {
     try {
       setIsLoading(true);
-      fetchAPITvSeries("top_rated", page)
+      fetchAPI("tv", "top_rated", page)
         .then((data) => {
           setTopRatedTvShows(data);
           setIsLoading(false);

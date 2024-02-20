@@ -2,6 +2,7 @@ import { Stack } from '@mui/material';
 import { useMovieContext } from '@/context/moviesContext';
 import { useRouter } from 'next/router';
 import { movieGenres, tvGenres } from '@/utils/sidebar';
+import Image from 'next/image';
 
 const Sidebar = () => {
     const { setActiveGenre, activeContentType } = useMovieContext();
@@ -28,7 +29,7 @@ const Sidebar = () => {
                             className="navBtn"
                             onClick={() => handleGenres(genre.id)}
                         >
-                            {genre.icon}
+                            <Image alt={genre.alt} loading="eager" src={genre.icon} width={24} height={24} />
                             {genre.name}
                         </button>
                     ))}

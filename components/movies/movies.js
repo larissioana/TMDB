@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 const Movies = ({ movies }) => {
+
   return (
     <div className={styles.moviesContainer}>
       {movies.map((movie) => {

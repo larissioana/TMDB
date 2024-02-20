@@ -1,21 +1,12 @@
 import NavigationBar from '@/components/navigationBar/navigationBar';
-import { fetchAPISearch } from '@/utils/fetchFromAPI';
+import { fetchAPIQuery } from '@/utils/fetchFromAPI';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
-import { Button } from '@mui/material';
 import Searchbar from '@/components/searchbar/searchbar';
-import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import dynamic from 'next/dynamic';
+import { initialState } from '@/utils/helpers';
+import PaginationButton from '@/components/paginationBtn/paginationButton';
 const MediaType = dynamic(() => import('@/components/mediaType/mediaType'));
-
-const initialState =
-{
-  page: 0,
-  results: [],
-  total_pages: 0,
-  total_results: 0
-};
 
 const Search = () => {
   const [searchedMovies, setSearchedMovies] = useState(initialState);
@@ -27,7 +18,7 @@ const Search = () => {
   const getMovies = async (query, page) => {
     try {
       setIsLoading(true);
-      const data = await fetchAPISearch(query, page);
+      const data = await fetchAPIQuery("search", "multi", query, page);
 
       setSearchedMovies((prev) => ({
         ...data,
@@ -47,14 +38,11 @@ const Search = () => {
     }
   }, [query]);
 
-  const nextPage = searchedMovies.page + 1;
-  const previousPage = searchedMovies.page - 1;
-
   const handlePageChange = async (newPage) => {
     try {
       setIsLoading(true);
 
-      const newData = await fetchAPISearch(query, newPage);
+      const newData = await fetchAPIQuery("search", "multi", query, newPage);
 
       setSearchedMovies((prev) => ({
         ...prev,
@@ -134,35 +122,7 @@ const Search = () => {
                 marginTop: '2rem',
               }}
             >
-              <div className="pagination">
-                <Button
-                  className="pagination-btn"
-                  disabled={searchedMovies.page === 1}
-                  onClick={() => handlePageChange(searchedMovies.page - 1, previousPage)}
-                >
-                  <NavigateBeforeIcon className="pagination-btn" />
-                </Button>
-                {
-                  Array.from({ length: searchedMovies.total_pages }, (_, index) => index + 1)
-                    .slice(searchedMovies.page - 1, searchedMovies.page + 4)
-                    .map(pageNumber => (
-                      <Button
-                        key={pageNumber}
-                        className={`${pageNumber === searchedMovies.page ? 'selected-btn' : 'pagination-btn'}`}
-                        onClick={() => handlePageChange(pageNumber)}
-                      >
-                        {pageNumber}
-                      </Button>
-                    ))
-                }
-                <Button
-                  className="pagination-btn"
-                  disabled={searchedMovies.page === searchedMovies.total_pages}
-                  onClick={() => handlePageChange(searchedMovies.page + 1, nextPage)}
-                >
-                  <NavigateNextIcon className="pagination-btn" />
-                </Button>
-              </div>
+              <PaginationButton filteredMovies={searchedMovies} handlePageChange={handlePageChange} />
             </div>
           </div>
         )}

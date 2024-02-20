@@ -1,16 +1,16 @@
 import dynamic from "next/dynamic";
-import { fetchAPICast, fetchAPIExternalLinks, fetchAPIMovieDetail, fetchAPIMovieImages, fetchAPIRecommandation, fetchAPITrailer } from "@/utils/fetchFromAPI";
+import { fetchAPIData, fetchAPIDetails, fetchAPIMedia } from "@/utils/fetchFromAPI";
 
 const MovieDetail = dynamic(() => import('@/components/movieDetail/movieDetail'));
 
 export async function getServerSideProps(context) {
     const movieId = context.params.movieId;
-    const movieDetail = await fetchAPIMovieDetail(movieId);
-    const videoTrailer = await fetchAPITrailer(movieId);
-    const credits = await fetchAPICast(movieId);
-    const recommendations = await fetchAPIRecommandation(movieId);
-    const externalIds = await fetchAPIExternalLinks(movieId);
-    const movieImages = await fetchAPIMovieImages(movieId);
+    const movieDetail = await fetchAPIDetails("movie", movieId);
+    const videoTrailer = await fetchAPIData("movie", movieId, "videos");
+    const credits = await fetchAPIData("movie", movieId, "credits");
+    const recommendations = await fetchAPIData("movie", movieId, "recommendations");
+    const externalIds = await fetchAPIData("movie", movieId, "external_ids");
+    const movieImages = await fetchAPIMedia("movie", movieId, "images");
 
     return {
         props:

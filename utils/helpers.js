@@ -16,3 +16,11 @@ export const shortenTitle = (title, maxLength) => {
     }
     return title;
 };
+
+export const initialState =
+{
+    page: 0,
+    results: [],
+    total_pages: 0,
+    total_results: 0,
+};

@@ -1,22 +1,13 @@
 import { useEffect, useState } from 'react';
-import { IMAGE_URL_342, fetchAPIPopularPeople, fetchAPIPopularPersonSearch } from '@/utils/fetchFromAPI';
+import { IMAGE_URL_342, fetchAPI } from '@/utils/fetchFromAPI';
 import NavigationBar from '@/components/navigationBar/navigationBar';
-import { Button } from '@mui/material';
 import styles from '../../styles/people.module.css';
 import Loading from '@/components/loading/loading';
 import Link from 'next/link';
 import Image from 'next/image';
-import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import { CardContent, Typography, Paper } from '@mui/material';
-
-const initialState =
-{
-  page: 0,
-  results: [],
-  total_pages: 0,
-  total_results: 0
-};
+import { initialState } from '@/utils/helpers';
+import PaginationButton from '@/components/paginationBtn/paginationButton';
 
 const Popular = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -26,7 +17,7 @@ const Popular = () => {
   const fetchPopularPeople = async (page) => {
     try {
       setIsLoading(true);
-      const fetchPeople = await (!searchTerm ? fetchAPIPopularPeople(page) : fetchAPIPopularPersonSearch(searchTerm, page))
+      const fetchPeople = await (!searchTerm ? fetchAPI("person", "popular", page) : fetchAPIQueryAndFilteredData("search", "person", searchTerm, page))
       setPopularPeople(prev => ({
         ...fetchPeople,
         results: page > 1 ? [...prev.results, ...fetchPeople.results] : [...fetchPeople.results]
@@ -48,13 +39,10 @@ const Popular = () => {
     }
   }, [searchTerm]);
 
-  const nextPage = popularPeople.page + 1;
-  const previousPage = popularPeople.page - 1;
-
   const handlePageChange = async (newPage) => {
     try {
       setIsLoading(true);
-      const fetchNewPeople = await (!searchTerm ? fetchAPIPopularPeople(newPage) : fetchAPIPopularPersonSearch(searchTerm, newPage));
+      const fetchNewPeople = await (!searchTerm ? fetchAPI("person", "popular", newPage) : fetchAPIQueryAndFilteredData("search", "person", searchTerm, newPage));
 
       setPopularPeople({
         page: newPage,
@@ -146,33 +134,7 @@ const Popular = () => {
             </div>
             {
               !searchTerm &&
-              <div className="pagination">
-                <Button
-                  className="pagination-btn"
-                  disabled={popularPeople.page === 1}
-                  onClick={() => handlePageChange(popularPeople.page - 1, previousPage)}
-                >
-                  <NavigateBeforeIcon />
-                </Button>
-                {Array.from({ length: popularPeople.total_pages }, (_, index) => index + 1)
-                  .slice(popularPeople.page - 1, popularPeople.page + 4)
-                  .map(pageNumber => (
-                    <Button
-                      key={pageNumber}
-                      className={`pagination-btn ${pageNumber === popularPeople.page ? 'selected-btn' : ''}`}
-                      onClick={() => handlePageChange(pageNumber)}
-                    >
-                      {pageNumber}
-                    </Button>
-                  ))}
-                <Button
-                  className="pagination-btn"
-                  disabled={popularPeople.page === popularPeople.total_pages}
-                  onClick={() => handlePageChange(popularPeople.page + 1, nextPage)}
-                >
-                  <NavigateNextIcon />
-                </Button>
-              </div>
+              <PaginationButton filteredMovies={popularPeople} handlePageChange={handlePageChange} />
             }
           </div>
           :

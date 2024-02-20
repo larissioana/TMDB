@@ -89,7 +89,7 @@ const TvSeriesDetail = ({
                     width={304}
                     height={448}
                     alt={name}
-                    priority
+                    loading="eager"
                     className={styles.img}
                     placeholder="blur"
                     blurDataURL={`${IMAGE_URL_SMALL}${poster_path}`}

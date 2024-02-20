@@ -12,43 +12,28 @@ const Feed = () => {
     const [upcomingMovies, setUpcomingMovies] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
-    useEffect(() => {
-        setIsLoading(true);
-        fetchAPI("popular", 1)
-            .then((data) => {
-                setMovies(data.results);
-                setIsLoading(false);
-            })
-            .catch((error) => {
-                console.error('Error fetching data:', error);
-                setIsLoading(false);
-            });
-    }, []);
 
     useEffect(() => {
-        setIsLoading(true);
-        fetchAPI("top_rated", 1)
-            .then((data) => {
-                setTopRatedMovies(data.results);
-                setIsLoading(false);
-            })
-            .catch((error) => {
-                console.error('Error fetching data:', error);
-                setIsLoading(false);
-            })
-    }, []);
+        const fetchData = async () => {
+            try {
+                setIsLoading(true);
+                const popularData = await fetchAPI("movie", "popular", 1);
+                setMovies(popularData.results);
 
-    useEffect(() => {
-        setIsLoading(true);
-        fetchAPI("upcoming", 1)
-            .then((data) => {
-                setUpcomingMovies(data.results);
+                const topRatedData = await fetchAPI("movie", "top_rated", 1);
+                setTopRatedMovies(topRatedData.results);
+
+                const upcomingData = await fetchAPI("movie", "upcoming", 1);
+                setUpcomingMovies(upcomingData.results);
+
                 setIsLoading(false);
-            })
-            .catch((error) => {
+            } catch (error) {
                 console.error('Error fetching data:', error);
                 setIsLoading(false);
-            })
+            }
+        };
+
+        fetchData();
     }, []);
 
     const memoizedMoviesCategories = useMemo(() => (

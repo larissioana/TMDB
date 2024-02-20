@@ -10,11 +10,11 @@ export default function Home() {
     <>
       <Head>
         <title>TMDB</title>
-        <meta name="description" content="TMDB" />
+        <meta name="description" content="Next js web application with movies and tv series." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <NavigationBar/>
-      <Feed/>
+      <NavigationBar />
+      <Feed />
     </>
   )
 }
