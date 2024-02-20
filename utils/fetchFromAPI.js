@@ -4,7 +4,6 @@ export const IMAGE_URL = 'https://image.tmdb.org/t/p/original';
 export const IMAGE_URL_SMALL = 'https://image.tmdb.org/t/p/w500';
 export const IMAGE_URL_342 = 'https://image.tmdb.org/t/p/w342';
 export const IMAGE_URL_185 = 'https://image.tmdb.org/t/p/w185';
-export const IMAGE_PROFILE_SIZE = 'https://image.tmdb.org/t/p/w45';
 export const IMAGE_BACKDROP = 'https://image.tmdb.org/t/p/w780';
 
 const options =

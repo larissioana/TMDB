@@ -1,13 +1,13 @@
 import styles from './movieImages.module.css';
 import Image from 'next/image';
-import { IMAGE_URL } from '@/utils/fetchFromAPI';
+import { IMAGE_BACKDROP } from '@/utils/fetchFromAPI';
 
 const MovieImages = ({ image, title }) => {
     return (
         <>
             <Image
-                src={`${IMAGE_URL}${image}`}
-                width={230}
+                src={`${IMAGE_BACKDROP}${image}`}
+                width={430}
                 height={320}
                 alt={title}
                 className={styles.posters}
