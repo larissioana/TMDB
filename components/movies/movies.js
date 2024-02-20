@@ -1,7 +1,6 @@
-import { IMAGE_URL_342 } from '@/utils/fetchFromAPI';
+import { IMAGE_URL_185 } from '@/utils/fetchFromAPI';
 import Image from 'next/image';
 import styles from './movies.module.css';
-import NoImage from '../../assets/no-image.jpg';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
@@ -25,33 +24,23 @@ const Movies = ({ movies }) => {
           }}
         >
           {
-            poster_path ?
-              <motion.div whileHover={...scale} initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-              >
-                <Link href={`/movie/${id}`}>
-                  <Image
-                    className={styles.img}
-                    src={`${IMAGE_URL_342}${poster_path}`}
-                    width={160}
-                    height={320}
-                    alt={title}
-                    loading="eager"
-                  />
-                </Link>
-                <h2 className={styles.title}>{title}</h2>
-              </motion.div>
-              :
-              <motion.div>
+            poster_path &&
+            <motion.div whileHover={...scale} initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+            >
+              <Link href={`/movie/${id}`}>
                 <Image
                   className={styles.img}
-                  src={NoImage}
-                  width={200}
-                  height={200}
+                  src={`${IMAGE_URL_185}${poster_path}`}
+                  width={145}
+                  height={228}
                   alt={title}
+                  loading="eager"
                 />
-              </motion.div>
+              </Link>
+              <h2 className={styles.title}>{title}</h2>
+            </motion.div>
           }
         </motion.div>
       }

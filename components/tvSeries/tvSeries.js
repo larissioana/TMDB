@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import styles from './tvSeries.module.css';
-import { fetchAPI, IMAGE_URL } from '@/utils/fetchFromAPI';
+import { fetchAPI, IMAGE_URL, IMAGE_URL_185 } from '@/utils/fetchFromAPI';
 import NoImage from '../../assets/no-image.jpg';
 import Image from 'next/image';
 import TvSeriesCard from '../tvSeriesCard/tvSeriesCard';
@@ -58,26 +58,17 @@ const TvSeries = () => {
                         onMouseLeave={handleMouseLeave}
                       >
                         {
-                          poster_path ?
-                            <Image
-                              src={`${IMAGE_URL}${poster_path}`}
-                              width={192}
-                              height={400}
-                              alt={name}
-                              className={styles.img}
-                              loading="eager"
-                            />
-                            :
-                            <Image
-                              src={NoImage}
-                              width={192}
-                              height={400}
-                              alt={name}
-                              className={styles.img}
-                              loading="eager"
-                            />
+                          poster_path &&
+                          <Image
+                            src={`${IMAGE_URL_185}${poster_path}`}
+                            width={145}
+                            height={228}
+                            alt={name}
+                            className={styles.img}
+                            loading="eager"
+                          />
                         }
-                        {hoveredId === id && <TvSeriesCard image={backdrop_path} id={id} />}
+                        {hoveredId === id && <TvSeriesCard name={name} image={backdrop_path} id={id} />}
                       </div>
                       <h2 className={styles.name}>{name}</h2>
 

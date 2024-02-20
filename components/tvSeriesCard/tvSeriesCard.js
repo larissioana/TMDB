@@ -1,8 +1,9 @@
 import styles from './tvSeriesCard.module.css';
-import { IMAGE_URL } from '@/utils/fetchFromAPI';
+import { IMAGE_BACKDROP } from '@/utils/fetchFromAPI';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
-const TvSeriesCard = ({ image, id }) => {
+const TvSeriesCard = ({ image, id, name }) => {
   const router = useRouter();
 
   const handleCardClick = () => {
@@ -11,17 +12,14 @@ const TvSeriesCard = ({ image, id }) => {
 
   return (
     <div className={styles.card} onClick={handleCardClick}>
-      <div
-        style={{
-          backgroundImage: `url('${IMAGE_URL}${image}')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          width: "100%",
-          height: "100%",
-          opacity: "1"
-        }}
-      >
-      </div>
+      <Image
+        src={`${IMAGE_BACKDROP}${image}`}
+        width={145}
+        height={228}
+        alt={name}
+        loading="eager"
+        className={styles.backdrop}
+      />
     </div>
   )
 };

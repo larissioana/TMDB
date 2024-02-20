@@ -33,7 +33,7 @@ const MovieCard = ({ movies = [] }) => {
             initial={{ opacity: 0.7, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0.8, y: -200 }}
-            key={id}
+            key={contentType === "movie" ? original_title : original_name}
             transition={{ staggerChildren: 1, delayChildren: 1 }}
           >
             <div>

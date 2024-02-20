@@ -18,14 +18,14 @@ const Recommendations = ({ recommendations, hasMovies }) => {
           <h3 className={styles.recommendationsTitle}>You might also like</h3>
           <div className={hasMovies ? styles.moviesWrapper : styles.tvWrapper}>
             {recommendations.results.map((result) => {
-              const { id, poster_path, title, release_date, media_type, name, first_air_date } = result;
+              const { id, poster_path, title, original_title, original_name, release_date, media_type, name, first_air_date } = result;
               const formattedDate = formatDate(release_date);
               const formattedSeries = formatDate(first_air_date);
               const shortenedTitleMovie = shortenTitle(title, 25);
               const shortenedTitleTv = shortenTitle(name, 25);
 
               return <>
-                <div key={id} className={styles.container}>
+                <div key={media_type === "movie" ? original_title : original_name} className={styles.container}>
                   {
                     media_type === 'movie' ?
                       <>
