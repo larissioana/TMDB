@@ -45,9 +45,13 @@ const TvShows = () => {
                         }
                     </div>
                 </div>
-                <div className={styles.tvShowsContainer}>
-                    <TvSeries />
-                </div>
+                {
+                    !isLoading &&
+                    <div className={styles.tvShowsContainer}>
+                        <TvSeries />
+                    </div>
+                }
+
             </div>
         </>
     )

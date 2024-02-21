@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 const Banner = ({ imageUrl, isLoading, name }) => {
     const imageURL = `${IMAGE_BACKDROP_LARGE}${imageUrl}`;
-
+    console.log({ isLoading })
     return (
         <>
             {
