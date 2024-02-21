@@ -103,6 +103,7 @@ const MovieDetail = ({
                             <p className={styles.textBold}>Genres: </p>
                             {genreNames.map((genreName, index) => (
                                 <ul style={{ display: "flex" }}>
+                                    {index > 0 && ','}
                                     <li key={index} className={styles.textBold}>{genreName}</li>
                                 </ul>
                             ))}

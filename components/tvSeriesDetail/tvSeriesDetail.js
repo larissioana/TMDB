@@ -117,7 +117,9 @@ const TvSeriesDetail = ({
                   {genresName.map((genreName, index) => (
                     <>
                       {index > 0 && ','}
-                      <li className={styles.genre} key={index}>{genreName}</li>
+                      <ul>
+                        <li className={styles.genre} key={index}>{genreName}</li>
+                      </ul>
                     </>
                   )).splice(0, 3)}
                 </ul>
