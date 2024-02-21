@@ -7,7 +7,6 @@ import styles from './mediaType.module.css';
 
 const MediaTypePerson = ({ person }) => {
     const { profile_path } = person;
-    console.log({ person })
     return (
         <AnimatePresence>
             {

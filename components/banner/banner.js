@@ -16,7 +16,7 @@ const Banner = ({ imageUrl, isLoading, name }) => {
                         <Image
                             src={`${imageURL}`}
                             fill
-                            priority
+                            loading="eager"
                             objectFit="cover"
                             alt={name}
                         />

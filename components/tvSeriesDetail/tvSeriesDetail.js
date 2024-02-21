@@ -149,6 +149,7 @@ const TvSeriesDetail = ({
               {seasons.length > 0 &&
                 <a
                   href="#seasons"
+                  aria-label="Read more about each season of the tv series"
                   onClick={scrollToTop}
                   className={styles.seeSeasons}
                 >

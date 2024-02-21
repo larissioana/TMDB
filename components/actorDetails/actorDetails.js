@@ -53,6 +53,7 @@ const ActorDetails = ({ actorDetails, person, actorKnownFor, externalIds }) => {
         <div>
             <Head>
                 <title>{name}</title>
+                <meta name="description" content="read more about a popular person. See biography, social media, images and movies."></meta>
             </Head>
             <NavigationBar />
             <div className={styles.actorWrapper}>

@@ -5,6 +5,7 @@ import { fetchAPI } from '@/utils/fetchFromAPI';
 import Banner from '../banner/banner';
 import MoviesCategories from '../moviesCategories/moviesCategories.js';
 import styles from './feed.module.css';
+import Loading from '../loading/loading';
 
 const Feed = () => {
     const { movies, setMovies } = useMovieContext();
@@ -55,9 +56,9 @@ const Feed = () => {
                         width: "100%"
                     }}>
                     {
-                        upcomingMovies.map((movie, index) => {
+                        movies.map((movie, index) => {
                             const { backdrop_path, title } = movie;
-                            return index === 0 ? <Banner name={title} key={index} imageUrl={backdrop_path} isLoading={isLoading} /> : null;
+                            return index === 1 && <Banner name={title} key={index} imageUrl={backdrop_path} isLoading={isLoading} />;
                         })
                     }
                 </div>
