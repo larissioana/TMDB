@@ -201,10 +201,11 @@ li
 {
   animation: animMediaCard 1s ease-in-out;
   border-radius: .4rem;
-  height: 22rem;
   border-top: 1px solid #2e2c2c;
   gap: 1rem;
-  width: 15rem;
+  position: relative;
+  width: 250px;
+  height: 352px;
 }
 
 .typography
@@ -264,10 +265,11 @@ li
     }
 }
 
-@media screen and (max-width: 450px)
+@media screen and (max-width: 350px)
 {
   .card-media
   {
-    width: 14rem!important;
+    width: 150px;
+    height: 200px;
   }
 }

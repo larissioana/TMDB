@@ -48,28 +48,25 @@ const TvSeries = () => {
               topRatedTvShows.results?.map((result) => {
                 const { id, poster_path, name, backdrop_path } = result;
                 return <div key={id}>
-                  <div className={styles.flexContainer}>
-                    <div
-                      className={styles.imgContainer}
-                      onMouseEnter={() => handleMouseEnter(id)}
-                      onMouseLeave={handleMouseLeave}
-                    >
-                      {
-                        poster_path &&
-                        <Image
-                          src={`${IMAGE_URL_185}${poster_path}`}
-                          width={145}
-                          height={228}
-                          alt={name}
-                          className={styles.img}
-                          loading="eager"
-                        />
-                      }
-                      {hoveredId === id && <TvSeriesCard name={name} image={backdrop_path} id={id} />}
-                    </div>
-                    <h2 className={styles.name}>{name}</h2>
-
+                  <div
+                    className={styles.imgContainer}
+                    onMouseEnter={() => handleMouseEnter(id)}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    {
+                      poster_path &&
+                      <Image
+                        src={`${IMAGE_URL_185}${poster_path}`}
+                        width={145}
+                        height={228}
+                        alt={name}
+                        className={styles.img}
+                        loading="eager"
+                      />
+                    }
+                    {hoveredId === id && <TvSeriesCard name={name} image={backdrop_path} id={id} />}
                   </div>
+                  <h2 className={styles.name}>{name}</h2>
                   {isLoading && <Loading />}
                 </div>
               })}

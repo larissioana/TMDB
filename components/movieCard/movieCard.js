@@ -1,6 +1,6 @@
 import { CardContent, Typography } from '@mui/material';
 import Link from 'next/link';
-import { IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
+import { IMAGE_URL_342 } from '@/utils/fetchFromAPI';
 import { motion, AnimatePresence } from 'framer-motion';
 import { formatDate, shortenTitle } from '@/utils/helpers';
 import styles from '../mediaType/mediaType.module.css';
@@ -28,7 +28,6 @@ const MovieCard = ({ movies = [] }) => {
     <AnimatePresence>
       {
         poster_path !== null && (
-
           <motion.div
             initial={{ opacity: 0.7, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
@@ -42,9 +41,8 @@ const MovieCard = ({ movies = [] }) => {
                   <Link href={`/movie/${id}`}>
                     <div className="card-media">
                       <Image
-                        src={`${IMAGE_URL_SMALL}${poster_path}`}
-                        width={250}
-                        height={352}
+                        src={`${IMAGE_URL_342}${poster_path}`}
+                        fill
                         alt={original_title}
                         loading="eager"
                         className={styles.img}
@@ -55,9 +53,8 @@ const MovieCard = ({ movies = [] }) => {
                   <Link href={`/TvSeries/${id}`}>
                     <div className="card-media">
                       <Image
-                        src={`${IMAGE_URL_SMALL}${poster_path}`}
-                        width={250}
-                        height={352}
+                        src={`${IMAGE_URL_342}${poster_path}`}
+                        fill
                         alt={original_name}
                         loading="eager"
                         className={styles.img}

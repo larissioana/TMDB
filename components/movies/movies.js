@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { shortenTitle } from '@/utils/helpers';
 
-
 const Movies = ({ movies }) => {
 
   return (
@@ -13,7 +12,7 @@ const Movies = ({ movies }) => {
       {movies.map((movie) => {
         const { poster_path, title, id } = movie;
         const shortenedTitleMovie = shortenTitle(title, 25);
-        const scale = id === 0 ? { scaleY: 1.1 } : { scale: 1.1 };
+        const scale = id === 0 ? { scaleY: 1.1 } : { scale: 1.2 };
         return <div key={id}>
           {
             poster_path &&

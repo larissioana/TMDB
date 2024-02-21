@@ -8,14 +8,20 @@
     gap: .7rem;
 }
 
-.container:last-child
-{
-    margin-right: auto;  
-}
-
 .img
 {
     object-fit: cover;
     object-position: top;
     border-radius: .4rem;
+}
+
+@media screen and (max-width: 508px)
+{
+    .container
+    {
+        padding: 0;
+        justify-content: center;
+        margin: 0;
+        gap: 0;
+    }
 }

@@ -7,10 +7,10 @@ const Genres = () => {
     <>
       <Head>
         <title>Genres</title>
+        <meta name="description" content="See different genres for tv shows and movies."></meta>
       </Head>
       <GenresMovies />
     </>
-
   )
 };
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion, AnimatePresence } from 'framer-motion';
-import { IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
+import { IMAGE_URL_342 } from '@/utils/fetchFromAPI';
 import Link from 'next/link';
 import { CardContent, Typography } from '@mui/material';
 import { formatDate, shortenTitle } from '@/utils/helpers';
@@ -10,31 +10,31 @@ import styles from './mediaType.module.css';
 const MediaTypeMovies = ({ movies }) => {
     const { id, original_title, release_date, poster_path } = movies;
     const formattedDate = formatDate(release_date);
-    const shortenedTitleMovie = shortenTitle(original_title, 40);
+    const shortenedTitleMovie = shortenTitle(original_title, 20);
 
     return (
         <AnimatePresence>
             {
                 poster_path !== null &&
                 <motion.div
+                    className={styles.wrapper}
                     initial={{ opacity: 0.7, y: 0 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0.8, y: -200 }}
                     key={id}
                     transition={{ staggerChildren: 1, delayChildren: 1 }}
                 >
-                    <div>
+                    <>
                         <Link href={`/movie/${id}`}>
                             <div className="card-media">
                                 <Image
-                                    src={`${IMAGE_URL_SMALL}${poster_path}`}
-                                    width={230}
-                                    height={320}
+                                    src={`${IMAGE_URL_342}${poster_path}`}
+                                    fill
                                     alt={original_title}
                                     loading="eager"
                                     className={styles.img}
                                     placeholder="blur"
-                                    blurDataURL={`${IMAGE_URL_SMALL}${poster_path}`}
+                                    blurDataURL={`${IMAGE_URL_342}${poster_path}`}
                                 />
                             </div>
                         </Link>
@@ -62,7 +62,7 @@ const MediaTypeMovies = ({ movies }) => {
                                 </Typography>
                             }
                         </CardContent>
-                    </div>
+                    </>
                 </motion.div>
             }
         </AnimatePresence>

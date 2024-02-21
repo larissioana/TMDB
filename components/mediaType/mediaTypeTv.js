@@ -1,10 +1,11 @@
-import { IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
+import { IMAGE_URL_342 } from '@/utils/fetchFromAPI';
 import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
 import { CardContent, Typography } from '@mui/material';
 import { formatDate, shortenTitle } from '@/utils/helpers';
 import Image from 'next/image';
 import styles from './mediaType.module.css';
+import Head from 'next/head';
 
 const MediaTypeTv = ({ tvShows }) => {
     const { id, poster_path, first_air_date, original_name } = tvShows;
@@ -13,6 +14,10 @@ const MediaTypeTv = ({ tvShows }) => {
 
     return (
         <AnimatePresence>
+            <Head>
+                <title>Search</title>
+                <meta name="description" content="search for a specific movie, tv show."></meta>
+            </Head>
             {
                 poster_path !== null &&
                 <motion.div
@@ -26,14 +31,13 @@ const MediaTypeTv = ({ tvShows }) => {
                         <Link href={`/TvSeries/${id}`}>
                             <div className="card-media">
                                 <Image
-                                    src={`${IMAGE_URL_SMALL}${poster_path}`}
-                                    width={230}
-                                    height={320}
+                                    src={`${IMAGE_URL_342}${poster_path}`}
+                                    fill
                                     alt={original_name}
                                     loading="eager"
                                     className={styles.img}
                                     placeholder="blur"
-                                    blurDataURL={`${IMAGE_URL_SMALL}${poster_path}`}
+                                    blurDataURL={`${IMAGE_URL_342}${poster_path}`}
                                 />
                             </div>
                         </Link>

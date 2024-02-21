@@ -1,13 +1,13 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
-import { IMAGE_URL_SMALL } from '@/utils/fetchFromAPI';
+import { IMAGE_URL_342 } from '@/utils/fetchFromAPI';
 import { CardContent, Typography } from '@mui/material';
 import Image from 'next/image';
 import styles from './mediaType.module.css';
 
 const MediaTypePerson = ({ person }) => {
     const { profile_path } = person;
-
+    console.log({ person })
     return (
         <AnimatePresence>
             {
@@ -27,14 +27,13 @@ const MediaTypePerson = ({ person }) => {
                                     <Link href={`/actor/${id}`}>
                                         <div className="card-media">
                                             <Image
-                                                src={`${IMAGE_URL_SMALL}${profile_path}`}
-                                                width={230}
-                                                height={320}
+                                                src={`${IMAGE_URL_342}${profile_path}`}
+                                                fill
                                                 alt={name}
                                                 loading="eager"
                                                 className={styles.img}
                                                 placeholder="blur"
-                                                blurDataURL={`${IMAGE_URL_SMALL}${profile_path}`}
+                                                blurDataURL={`${IMAGE_URL_342}${profile_path}`}
                                             />
                                         </div>
                                     </Link>

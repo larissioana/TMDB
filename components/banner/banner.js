@@ -1,12 +1,12 @@
 import React from 'react';
-import { IMAGE_URL } from '@/utils/fetchFromAPI';
+import { IMAGE_BACKDROP_LARGE, IMAGE_URL } from '@/utils/fetchFromAPI';
 import styles from './banner.module.css';
 import Searchbar from '../searchbar/searchbar';
 import Loading from '../loading/loading';
 import Image from 'next/image';
 
 const Banner = ({ imageUrl, isLoading, name }) => {
-    const imageURL = `${IMAGE_URL}${imageUrl}`;
+    const imageURL = `${IMAGE_BACKDROP_LARGE}${imageUrl}`;
 
     return (
         <>

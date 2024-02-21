@@ -29,7 +29,7 @@ const Sidebar = () => {
                             className="navBtn"
                             onClick={() => handleGenres(genre.id)}
                         >
-                            <Image alt={genre.alt} loading="eager" src={genre.icon} width={24} height={24} />
+                            <Image alt={genre.alt} loading="eager" src={genre.icon} width={26} height={26} />
                             {genre.name}
                         </button>
                     ))}

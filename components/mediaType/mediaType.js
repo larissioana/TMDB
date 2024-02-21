@@ -25,7 +25,6 @@ const MediaType = ({ mediaTypeMovie, mediaTypeTv, mediaTypePerson, isLoading }) 
                                 return <MediaTypePerson key={result.id} person={mediaTypePerson} />
                             })
                         }
-
                     </div>
                     :
                     <Loading />

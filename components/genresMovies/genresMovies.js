@@ -93,10 +93,9 @@ const GenresMovies = () => {
   const tvShows = filteredMovies.results.filter(movie => movie.contentType === 'tv');
 
   return (
-    <div>
+    <>
       <NavigationBar />
-      <div className={styles.wrapper}
-      >
+      <div className={styles.wrapper}>
         <Sidebar contentType="movie" />
         {
           !isLoading ?
@@ -117,8 +116,8 @@ const GenresMovies = () => {
                     })
                     :
                     tvShows.map((show, index) => {
-                      const { backdrop_path, title } = show;
-                      return index === 0 ? <Banner name={title} key={index} isLoading={isLoading} imageUrl={backdrop_path} /> : null;
+                      const { backdrop_path, name } = show;
+                      return index === 0 ? <Banner name={name} key={index} isLoading={isLoading} imageUrl={backdrop_path} /> : null;
                     })
                 }
 
@@ -135,15 +134,11 @@ const GenresMovies = () => {
         {
           activeContentType === "movie" ?
             movies.map((movie) => {
-              return <div key={movie.id}>
-                <MovieCard movies={movie} />
-              </div>
+              return <MovieCard movies={movie} key={movie.id} />
             })
             :
             tvShows.map((show) => {
-              return <div key={show.id}>
-                <MovieCard movies={show} />
-              </div>
+              return <MovieCard movies={show} key={show.id} />
             })
         }
       </div>
@@ -160,7 +155,7 @@ const GenresMovies = () => {
             <PaginationButton filteredMovies={filteredMovies} handlePageChange={handlePageChange} />
           </div>
         )}
-    </div>
+    </>
   )
 };
 
