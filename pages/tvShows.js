@@ -6,9 +6,19 @@ import Banner from '@/components/banner/banner';
 import dynamic from 'next/dynamic';
 const TvSeries = dynamic(() => import('@/components/tvSeries/tvSeries'));
 import Head from 'next/head';
+import { useState, useEffect } from 'react';
 
 const TvShows = () => {
+    const [isLoading, setIsLoading] = useState(false);
     const { topRatedTvShows } = useTvShowsContext();
+
+    useEffect(() => {
+        if (!topRatedTvShows) {
+            setIsLoading(true)
+        } else {
+            setIsLoading(false);
+        }
+    }, []);
 
     return (
         <>
@@ -30,7 +40,7 @@ const TvShows = () => {
                         {
                             topRatedTvShows.results?.map((movie, index) => {
                                 const { backdrop_path, name } = movie;
-                                return index === 1 ? <Banner name={name} key={index} imageUrl={backdrop_path} /> : null;
+                                return index === 1 && <Banner isLoading={isLoading} name={name} key={index} imageUrl={backdrop_path} />;
                             })
                         }
                     </div>

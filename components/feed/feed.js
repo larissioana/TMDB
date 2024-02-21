@@ -5,7 +5,6 @@ import { fetchAPI } from '@/utils/fetchFromAPI';
 import Banner from '../banner/banner';
 import MoviesCategories from '../moviesCategories/moviesCategories.js';
 import styles from './feed.module.css';
-import Loading from '../loading/loading';
 
 const Feed = () => {
     const { movies, setMovies } = useMovieContext();
