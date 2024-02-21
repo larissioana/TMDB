@@ -1,7 +1,8 @@
 import React, { useState, useMemo } from 'react';
 import styles from './moviesCategories.module.css';
-import Movies from '../movies/movies';
-import FeedMovies from '../feedMovies/feedMovies';
+import dynamic from 'next/dynamic';
+const FeedMovies = dynamic(() => import('@/components/feedMovies/feedMovies'));
+const Movies = dynamic(() => import('@/components/movies/movies'));
 
 const MoviesCategories = ({ popular, topRated, upcoming }) => {
     const [isButtonActive, setIsButtonActive] = useState('Popular');

@@ -3,8 +3,11 @@ import styles from '../../styles/login.module.css';
 import { useRouter } from "next/router";
 import { useState, useContext } from "react";
 import { UserContext } from "@/context/userContext";
-import { signinUser } from "@/utils/firebase";
+import dynamic from "next/dynamic";
 import FormInput from "@/components/formInput/formInput";
+const DynamicFirebaseFunctions = dynamic(() => import('@/utils/firebase'), {
+  ssr: false, // Ensure this component is not server-side rendered
+});
 
 const initialFormFields =
 {
@@ -22,7 +25,7 @@ const Login = () => {
   const handleOnSubmit = async (event) => {
     event.preventDefault();
     try {
-      const { user } = await signinUser(email, password);
+      const { user } = await DynamicFirebaseFunctions?.signinUser(email, password);
       setCurrentUser(user);
       resetFormFields();
       router.push('/');
@@ -54,6 +57,7 @@ const Login = () => {
     <>
       <Head>
         <title>SignIn</title>
+        <meta name="description" content="Sign in"></meta>
       </Head>
       <div className={styles.container}>
         <div className={styles.img}></div>

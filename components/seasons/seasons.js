@@ -3,7 +3,7 @@ import styles from './seasons.module.css';
 import { IMAGE_URL_342 } from '@/utils/fetchFromAPI';
 import Image from 'next/image';
 import { formatDate } from '@/utils/helpers';
-import NoImage from '../../assets/no-image.jpg';
+import NoImage from '../../assets/no-image.webp';
 
 const Seasons = ({ season }) => {
     const

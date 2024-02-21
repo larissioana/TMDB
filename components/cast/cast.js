@@ -2,8 +2,8 @@ import Image from 'next/image';
 import { IMAGE_URL_185 } from '@/utils/fetchFromAPI';
 import styles from './cast.module.css';
 import Link from 'next/link';
-import imdb from '../../assets/imdb.png';
-import facebook from '../../assets/facebook.png';
+import imdb from '../../assets/imdb.webp';
+import facebook from '../../assets/facebook.webp';
 import blankPhoto from '../../assets/blankphoto.webp';
 
 const Cast = ({

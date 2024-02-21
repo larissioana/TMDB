@@ -8,7 +8,7 @@ import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRound
 import NavigationBar from '../navigationBar/navigationBar';
 import Link from 'next/link';
 import Head from 'next/head';
-import NoImage from '../../assets/no-image.jpg';
+import NoImage from '../../assets/no-image.webp';
 import { shortenTitle } from '@/utils/helpers';
 import dynamic from 'next/dynamic';
 
@@ -68,6 +68,7 @@ const TvSeriesDetail = ({
     <>
       <Head>
         <title>{name}</title>
+        <meta name="description" content="See more details about a specific tv series, like description, see more images, watch youtube video trailer, recommendations, details about the seasons, cast."></meta>
       </Head>
       <NavigationBar />
       <div className={styles.wrapper}>

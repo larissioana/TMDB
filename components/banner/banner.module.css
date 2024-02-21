@@ -1,11 +1,13 @@
 .bannerContainer
 {
-    height: 42rem;
+    height: 43rem;
     background-size: cover;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     object-position: right;
+    width: 100%;
+    position: relative;
 }
 
 @media screen and (max-width: 900px)

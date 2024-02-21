@@ -46,6 +46,7 @@ const Searchbar = ({ placeholder }) => {
       />
       <IconButton
         type="submit"
+        role="none"
         sx=
         {{
           p: "10px",

@@ -5,6 +5,16 @@
     justify-content: flex-start;
     align-items: flex-start;
     padding: 2rem 1rem 0rem 1rem;
+    gap: 1rem;
+    overflow-x: auto;
+}
+
+.cardContainer
+{
+  width: 145px;
+  position: relative;
+  height: 228px;
+  margin-top: 2rem;
 }
 
 .img
@@ -14,14 +24,14 @@
     border-left: 1px solid transparent;
     border-radius: .4rem;
     cursor: pointer;
-    margin-bottom: 1rem;
 }
 
 .title
 {
   font-size: clamp(.9rem, 2vw, 1rem);
   color: rgb(175, 167, 167);
-  margin-top: .5rem;
+  margin-top: 1rem;
   width: 10rem;
+  padding-bottom: 2rem;
 }
 

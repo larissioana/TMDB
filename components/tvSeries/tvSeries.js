@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import styles from './tvSeries.module.css';
-import { fetchAPI, IMAGE_URL, IMAGE_URL_185 } from '@/utils/fetchFromAPI';
-import NoImage from '../../assets/no-image.jpg';
+import { fetchAPI, IMAGE_URL_185 } from '@/utils/fetchFromAPI';
 import Image from 'next/image';
 import TvSeriesCard from '../tvSeriesCard/tvSeriesCard';
 import Loading from '../loading/loading';

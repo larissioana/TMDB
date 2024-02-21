@@ -56,8 +56,8 @@ const Feed = () => {
                     }}>
                     {
                         upcomingMovies.map((movie, index) => {
-                            const { backdrop_path, id } = movie;
-                            return index === 0 ? <Banner id={id} key={index} imageUrl={backdrop_path} isLoading={isLoading} /> : null;
+                            const { backdrop_path, title } = movie;
+                            return index === 0 ? <Banner name={title} key={index} imageUrl={backdrop_path} isLoading={isLoading} /> : null;
                         })
                     }
                 </div>

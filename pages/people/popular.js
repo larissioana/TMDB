@@ -8,6 +8,7 @@ import Image from 'next/image';
 import { CardContent, Typography, Paper } from '@mui/material';
 import { initialState } from '@/utils/helpers';
 import PaginationButton from '@/components/paginationBtn/paginationButton';
+import Head from 'next/head';
 
 const Popular = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -64,83 +65,89 @@ const Popular = () => {
   };
 
   return (
-    <div className={styles.popularPeopleWrapper}>
-      <NavigationBar />
-      <div className={styles.searchbarContainer}>
-        <Paper
-          sx=
-          {{
-            borderBottom: "1px solid var(--white10)",
-            borderRadius: 0,
-            background: "rgba(0, 0, 0, 0.3)",
-            backdropFilter: "blur(10px)",
-            mr: { sm: 4 },
-            marginTop: "1.5rem"
-          }}
-        >
-          <input
-            className="search-bar"
-            placeholder={"Search for a person..."}
-            onChange={handleInputChange}
-            value={searchTerm}
-          />
-        </Paper>
-      </div>
-      {
-        !isLoading ?
-          <div className={styles.wrapper}>
-            <div className={styles.container}>
-              {popularPeople.results.length > 0 ? (
-                popularPeople.results.map((people) => (
-                  <div key={people.id} className={styles.peopleContainer}>
-                    {people.profile_path !== null && (
-                      <>
-                        <Link
-                          href={`/actor/${encodeURI(people.id)}/${people.name.replace(/\s+/g, '-').toLowerCase()}`}
-                        >
-                          <Image
-                            src={`${IMAGE_URL_342}${people.profile_path}`}
-                            width={208}
-                            height={280}
-                            alt={people.name}
-                            loading="eager"
-                            className={styles.people}
-                            placeholder="blur"
-                            blurDataURL={`${IMAGE_URL_342}${people.profile_path}`}
-                          />
-                        </Link>
-                        <CardContent
-                          sx={{
-                            backgroundColor: "#000",
-                            width: "13rem",
-                            borderRadius: ".2rem"
-                          }}
-                        >
-                          <Typography
-                            variant="subtitle2"
-                            className={styles.name}
-                            color="#fff"
+    <>
+      <Head>
+        <title>Popular People</title>
+        <meta name="description" content="Search for a popular person and see biography"></meta>
+      </Head>
+      <div className={styles.popularPeopleWrapper}>
+        <NavigationBar />
+        <div className={styles.searchbarContainer}>
+          <Paper
+            sx=
+            {{
+              borderBottom: "1px solid var(--white10)",
+              borderRadius: 0,
+              background: "rgba(0, 0, 0, 0.3)",
+              backdropFilter: "blur(10px)",
+              mr: { sm: 4 },
+              marginTop: "1.5rem"
+            }}
+          >
+            <input
+              className="search-bar"
+              placeholder={"Search for a person..."}
+              onChange={handleInputChange}
+              value={searchTerm}
+            />
+          </Paper>
+        </div>
+        {
+          !isLoading ?
+            <div className={styles.wrapper}>
+              <div className={styles.container}>
+                {popularPeople.results.length > 0 ? (
+                  popularPeople.results.map((people) => (
+                    <div key={people.id} className={styles.peopleContainer}>
+                      {people.profile_path !== null && (
+                        <>
+                          <Link
+                            href={`/actor/${encodeURI(people.id)}/${people.name.replace(/\s+/g, '-').toLowerCase()}`}
                           >
-                            {people.name}
-                          </Typography>
-                        </CardContent>
-                      </>
-                    )}
-                  </div>
-                ))
-              ) : (
-                <p className={styles.noResults}>No results found &#128542;</p>
-              )}
+                            <Image
+                              src={`${IMAGE_URL_342}${people.profile_path}`}
+                              width={208}
+                              height={280}
+                              alt={people.name}
+                              loading="eager"
+                              className={styles.people}
+                              placeholder="blur"
+                              blurDataURL={`${IMAGE_URL_342}${people.profile_path}`}
+                            />
+                          </Link>
+                          <CardContent
+                            sx={{
+                              backgroundColor: "#000",
+                              width: "13rem",
+                              borderRadius: ".2rem"
+                            }}
+                          >
+                            <Typography
+                              variant="subtitle2"
+                              className={styles.name}
+                              color="#fff"
+                            >
+                              {people.name}
+                            </Typography>
+                          </CardContent>
+                        </>
+                      )}
+                    </div>
+                  ))
+                ) : (
+                  <p className={styles.noResults}>No results found &#128542;</p>
+                )}
+              </div>
+              {
+                !searchTerm &&
+                <PaginationButton filteredMovies={popularPeople} handlePageChange={handlePageChange} />
+              }
             </div>
-            {
-              !searchTerm &&
-              <PaginationButton filteredMovies={popularPeople} handlePageChange={handlePageChange} />
-            }
-          </div>
-          :
-          <Loading />
-      }
-    </div>
+            :
+            <Loading />
+        }
+      </div>
+    </>
   )
 };
 

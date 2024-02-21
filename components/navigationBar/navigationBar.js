@@ -82,7 +82,7 @@ const NavigationBar = () => {
                         marginLeft: "1rem"
                     }}
                 >
-                    TV Shows
+                    Series
                 </Link>
                 <Link
                     href="/people/popular"
@@ -97,7 +97,7 @@ const NavigationBar = () => {
                         marginLeft: "1rem"
                     }}
                 >
-                    Popular People
+                    People
                 </Link>
                 {
                     !currentUser ?
@@ -111,7 +111,7 @@ const NavigationBar = () => {
                                 color: "white"
                             }}
                             href='/auth/login'>
-                            Sign in
+                            Login
                         </Link>
                         :
                         <Link style=

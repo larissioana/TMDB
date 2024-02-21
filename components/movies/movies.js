@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { shortenTitle } from '@/utils/helpers';
 
+
 const Movies = ({ movies }) => {
 
   return (
@@ -16,22 +17,25 @@ const Movies = ({ movies }) => {
         return <div key={id}>
           {
             poster_path &&
-            <motion.div whileHover={...scale} initial={{ opacity: 0 }}
-              animate={{ opacity: 1, transition: { duration: 0.8 } }}
-              exit={{ opacity: 0 }}
-            >
-              <Link href={`/movie/${id}`}>
-                <Image
-                  className={styles.img}
-                  src={`${IMAGE_URL_185}${poster_path}`}
-                  width={145}
-                  height={228}
-                  alt={title}
-                  loading="eager"
-                />
-              </Link>
+            <>
+              <motion.div whileHover={...scale} initial={{ opacity: 0 }}
+                animate={{ opacity: 1, transition: { duration: 0.8 } }}
+                exit={{ opacity: 0 }}
+                className={styles.cardContainer}
+              >
+                <Link href={`/movie/${id}`}>
+                  <Image
+                    className={styles.img}
+                    src={`${IMAGE_URL_185}${poster_path}`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    alt={title}
+                    loading="eager"
+                  />
+                </Link>
+              </motion.div>
               <h2 className={styles.title}>{shortenedTitleMovie}</h2>
-            </motion.div>
+            </>
           }
         </div>
       }

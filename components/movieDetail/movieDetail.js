@@ -55,6 +55,7 @@ const MovieDetail = ({
         <>
             <Head>
                 <title>{title}</title>
+                <meta name="description" content="See more details about a specific movie, like description, status, genre, top cast, more images, watch trailer, recommendations."></meta>
             </Head>
             <NavigationBar />
             <div
@@ -101,10 +102,9 @@ const MovieDetail = ({
                         <ul className={styles.genresList}>
                             <p className={styles.textBold}>Genres: </p>
                             {genreNames.map((genreName, index) => (
-                                <>
-                                    {index > 0 && ","}
+                                <ul style={{ display: "flex" }}>
                                     <li key={index} className={styles.textBold}>{genreName}</li>
-                                </>
+                                </ul>
                             ))}
                         </ul>
                     </div>

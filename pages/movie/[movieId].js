@@ -4,6 +4,8 @@ import { fetchAPIData, fetchAPIDetails, fetchAPIMedia } from "@/utils/fetchFromA
 const MovieDetail = dynamic(() => import('@/components/movieDetail/movieDetail'));
 
 export async function getServerSideProps(context) {
+    context.res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate');
+
     const movieId = context.params.movieId;
     const movieDetail = await fetchAPIDetails("movie", movieId);
     const videoTrailer = await fetchAPIData("movie", movieId, "videos");
