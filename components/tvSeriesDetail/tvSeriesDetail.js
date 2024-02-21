@@ -115,12 +115,10 @@ const TvSeriesDetail = ({
               <div className={styles.genres}>
                 <ul className={styles.genresList}>
                   {genresName.map((genreName, index) => (
-                    <>
+                    <ul style={{ display: "flex" }}>
                       {index > 0 && ','}
-                      <ul>
-                        <li className={styles.genre} key={index}>{genreName}</li>
-                      </ul>
-                    </>
+                      <li className={styles.genre} key={index}>{genreName}</li>
+                    </ul>
                   )).splice(0, 3)}
                 </ul>
               </div>
