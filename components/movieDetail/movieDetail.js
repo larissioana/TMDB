@@ -5,11 +5,12 @@ import NavigationBar from '../navigationBar/navigationBar';
 import styles from './movieDetail.module.css';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 import dynamic from 'next/dynamic';
-
 const Modal = dynamic(() => import('@/components/modal/modal'));
 const Cast = dynamic(() => import('@/components/cast/cast'));
 const MovieImages = dynamic(() => import('@/components/movieImages/movieImages'));
 const Recommendations = dynamic(() => import('@/components/recommendations/recommendations'));
+import GenresList from '../genresList/genresList';
+
 const MovieDetail = ({
     movie,
     videoTrailer,
@@ -35,6 +36,7 @@ const MovieDetail = ({
             budget,
             genres
         } = movie;
+
 
     const closeModal = () => {
         setIsModalOpen(false);
@@ -98,17 +100,7 @@ const MovieDetail = ({
                         <span className={styles.language}>  ({original_language}). </span>
                         {formattedTime}
                     </p>
-                    <div className={styles.genres}>
-                        <ul className={styles.genresList}>
-                            <p className={styles.textBold}>Genres: </p>
-                            {genreNames.map((genreName, index) => (
-                                <ul style={{ display: "flex" }}>
-                                    {index > 0 && ','}
-                                    <li key={index} className={styles.textBold}>{genreName}</li>
-                                </ul>
-                            ))}
-                        </ul>
-                    </div>
+                    <GenresList genreNames={genreNames} />
                     {
                         overview &&
                         <p className={styles.description}><span className={styles.textBold}>Overview: </span>{overview}</p>
@@ -128,7 +120,6 @@ const MovieDetail = ({
                     movieImages.backdrops.length > 0 &&
                     <>
                         <h2 className={styles.moreImages}>More images</h2>
-
                         <div className={styles.imagesFlexContainer}>
                             {
                                 movieImages.backdrops.map((poster, index) => {

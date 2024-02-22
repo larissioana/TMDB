@@ -11,6 +11,12 @@
     animation: anim .5s ease-in-out;
 }
 
+.bannerImg
+{
+    object-fit: cover;
+    object-position: right;
+}
+
 @keyframes anim
 {
     from{

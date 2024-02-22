@@ -22,6 +22,7 @@ const TvSeries = () => {
         })
     } catch (error) {
       console.error("Error fetching data:", error)
+      setIsLoading(false);
     }
   };
 
@@ -40,10 +41,10 @@ const TvSeries = () => {
 
   return (
     <>
-      <h2 className={styles.title}>Popular Tv series</h2>
-      <div className={styles.tvSeriesContainer}>
-        {!isLoading &&
-          <>
+      {!isLoading ?
+        <>
+          <h2 className={styles.title}>Popular Tv series</h2>
+          <div className={styles.tvSeriesContainer}>
             {
               topRatedTvShows.results?.map((result) => {
                 const { id, poster_path, name, backdrop_path } = result;
@@ -70,9 +71,12 @@ const TvSeries = () => {
                   {isLoading && <Loading />}
                 </div>
               })}
-          </>
-        }
-      </div>
+          </div>
+        </>
+        :
+        <Loading />
+      }
+
     </>
   )
 };

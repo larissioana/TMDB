@@ -1,4 +1,4 @@
-import { CardContent, Typography } from '@mui/material';
+import Card from '../cardContent/cardContent';
 import Link from 'next/link';
 import { IMAGE_URL_342 } from '@/utils/fetchFromAPI';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -62,51 +62,12 @@ const MovieCard = ({ movies = [] }) => {
                     </div>
                   </Link>
               }
-              <CardContent
-                sx={{
-                  backgroundColor: "#000000",
-                }}
-              >
-                {contentType === "tv" ?
-                  <Typography
-                    variant="subtitle1"
-                    fontWeight="bold"
-                    color="#fff"
-                    className="typography"
-                  >
-                    {shortenedTitleTv}
-
-                  </Typography>
+              {
+                contentType === "tv" ?
+                  <Card name={shortenedTitleTv} date={formattedDateTvShows} />
                   :
-                  <Typography
-                    variant="subtitle1"
-                    fontWeight="bold"
-                    color="#fff"
-                    className="typography"
-                  >
-                    {shortenedTitleMovie}
-
-                  </Typography>
-                }
-                {
-                  contentType === "movie" ?
-                    <Typography
-                      variant="subtitle2"
-                      fontWeight="bold"
-                      color="#827e73"
-                    >
-                      {formattedDate}
-                    </Typography>
-                    :
-                    <Typography
-                      variant="subtitle2"
-                      fontWeight="bold"
-                      color="#827e73"
-                    >
-                      {formattedDateTvShows}
-                    </Typography>
-                }
-              </CardContent>
+                  <Card name={shortenedTitleMovie} date={formattedDate} />
+              }
             </div>
           </motion.div>
         )

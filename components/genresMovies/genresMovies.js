@@ -120,7 +120,6 @@ const GenresMovies = () => {
                       return index === 0 ? <Banner name={name} key={index} isLoading={isLoading} imageUrl={backdrop_path} /> : null;
                     })
                 }
-
               </motion.div>
             </AnimatePresence>
             :
@@ -129,7 +128,6 @@ const GenresMovies = () => {
             </div>
         }
       </div>
-
       <div className={styles.moviesContainer}>
         {
           activeContentType === "movie" ?

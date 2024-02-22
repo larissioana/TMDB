@@ -11,6 +11,7 @@ import Head from 'next/head';
 import NoImage from '../../assets/no-image.webp';
 import { shortenTitle } from '@/utils/helpers';
 import dynamic from 'next/dynamic';
+import GenresList from '../genresList/genresList';
 
 const Backdrops = dynamic(() => import('@/components/backdrops/backdrops'));
 const Modal = dynamic(() => import('@/components/modal/modal'));
@@ -112,16 +113,7 @@ const TvSeriesDetail = ({
             }
             <div className={styles.right}>
               <h2 className={styles.title}>{name}</h2>
-              <div className={styles.genres}>
-                <ul className={styles.genresList}>
-                  {genresName.map((genreName, index) => (
-                    <ul style={{ display: "flex" }}>
-                      {index > 0 && ','}
-                      <li className={styles.genre} key={index}>{genreName}</li>
-                    </ul>
-                  )).splice(0, 3)}
-                </ul>
-              </div>
+              <GenresList genreNames={genresName} />
               <div className={styles.voteContainer}>
                 <div className={styles.vote}>
                   <p className={styles.voteText}>{votePercentage}%</p>

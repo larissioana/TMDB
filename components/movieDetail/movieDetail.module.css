@@ -1,4 +1,3 @@
-
 .movieContent
 {
   object-position: top;
@@ -50,17 +49,6 @@
 .language
 {
   text-transform: uppercase;
-}
-
-.genresList
-{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: .255rem;
-    margin-top: .8rem;
-    color: rgb(244, 242, 243);
-    font-size: clamp(1rem, 2vw, 1.1rem);
 }
 
 .description
@@ -178,8 +166,15 @@
   justify-content: flex-start;
   align-items: flex-start;
   gap: .5rem;
-  padding: 1rem 2rem;
   overflow-x: auto;
+}
+
+@media screen and (max-width: 414px)
+{
+  .btnContainer
+  {
+    margin-top: 1rem;
+  }
 }
 
 @media (max-width: 500px)

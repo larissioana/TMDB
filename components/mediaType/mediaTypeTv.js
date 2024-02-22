@@ -1,7 +1,7 @@
 import { IMAGE_URL_342 } from '@/utils/fetchFromAPI';
 import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
-import { CardContent, Typography } from '@mui/material';
+import Card from '../cardContent/cardContent';
 import { formatDate, shortenTitle } from '@/utils/helpers';
 import Image from 'next/image';
 import styles from './mediaType.module.css';
@@ -41,33 +41,7 @@ const MediaTypeTv = ({ tvShows }) => {
                                 />
                             </div>
                         </Link>
-                        <CardContent
-                            sx={{
-                                backgroundColor: "#000000",
-                            }}
-                        >
-                            {
-                                original_name &&
-                                <Typography
-                                    variant="subtitle2"
-                                    fontWeight="bold"
-                                    color="#fff"
-                                    className="typography"
-                                >
-                                    {shortenedTitleTv}
-                                </Typography>
-                            }
-                            {
-                                first_air_date &&
-                                <Typography
-                                    variant="subtitle2"
-                                    fontWeight="bold"
-                                    color="#827e73"
-                                >
-                                    {formattedDate}
-                                </Typography>
-                            }
-                        </CardContent>
+                        <Card name={shortenedTitleTv} date={formattedDate} />
                     </div>
                 </motion.div>
             }

@@ -40,7 +40,7 @@ const TvShows = () => {
                         {
                             topRatedTvShows.results?.map((movie, index) => {
                                 const { backdrop_path, name } = movie;
-                                return index === 1 && <Banner isLoading={isLoading} name={name} key={index} imageUrl={backdrop_path} />;
+                                return index === 0 && <Banner isLoading={isLoading} name={name} key={index} imageUrl={backdrop_path} />;
                             })
                         }
                     </div>

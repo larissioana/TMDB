@@ -2,10 +2,10 @@ import React from 'react'
 import { motion, AnimatePresence } from 'framer-motion';
 import { IMAGE_URL_342 } from '@/utils/fetchFromAPI';
 import Link from 'next/link';
-import { CardContent, Typography } from '@mui/material';
 import { formatDate, shortenTitle } from '@/utils/helpers';
 import Image from 'next/image';
 import styles from './mediaType.module.css';
+import Card from '../cardContent/cardContent';
 
 const MediaTypeMovies = ({ movies }) => {
     const { id, original_title, release_date, poster_path } = movies;
@@ -38,30 +38,7 @@ const MediaTypeMovies = ({ movies }) => {
                                 />
                             </div>
                         </Link>
-                        <CardContent
-                            sx={{
-                                backgroundColor: "#000000",
-                            }}
-                        >
-                            <Typography
-                                variant="subtitle2"
-                                fontWeight="bold"
-                                color="#fff"
-                                className="typography"
-                            >
-                                {shortenedTitleMovie}
-                            </Typography>
-                            {
-                                release_date &&
-                                <Typography
-                                    variant="subtitle2"
-                                    fontWeight="bold"
-                                    color="#827e73"
-                                >
-                                    {formattedDate}
-                                </Typography>
-                            }
-                        </CardContent>
+                        <Card name={shortenedTitleMovie} date={formattedDate} />
                     </>
                 </motion.div>
             }

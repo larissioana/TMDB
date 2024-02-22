@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 const FeedMovies = dynamic(() => import('@/components/feedMovies/feedMovies'));
 const Movies = dynamic(() => import('@/components/movies/movies'));
 
-const MoviesCategories = ({ popular, topRated, upcoming }) => {
+const MoviesCategories = ({ popular, topRated, upcoming, isLoading }) => {
     const [isButtonActive, setIsButtonActive] = useState('Popular');
 
     const handleButtonChange = (category) => {
@@ -27,7 +27,7 @@ const MoviesCategories = ({ popular, topRated, upcoming }) => {
     return (
         <div className={styles.categoriesContainer}>
             <FeedMovies isButtonActive={isButtonActive} handleButtonChange={handleButtonChange} />
-            <Movies movies={filteredMovies} />
+            <Movies isLoading={isLoading} movies={filteredMovies} />
         </div>
     )
 };
