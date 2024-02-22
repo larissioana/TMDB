@@ -7,9 +7,19 @@ module.exports = {
     domains: ['image.tmdb.org'],
     unoptimized: true
   },
-  webpack: (config, { dev }) => {
-    if (!dev) {
-      config.devtool = 'source-map';
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.optimization.splitChunks = {
+        chunks: 'all',
+        minSize: 0,
+        cacheGroups: {
+          defaultVendors: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+            chunks: 'all',
+          },
+        },
+      };
     }
 
     return config;
