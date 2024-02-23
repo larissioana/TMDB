@@ -30,6 +30,7 @@ const MediaTypeMovies = ({ movies }) => {
                                 <Image
                                     src={`${IMAGE_URL_342}${poster_path}`}
                                     fill
+                                    priority="true"
                                     alt={original_title}
                                     loading="eager"
                                     className={styles.img}

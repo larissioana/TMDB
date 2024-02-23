@@ -28,6 +28,7 @@ const MediaTypePerson = ({ person }) => {
                                             <Image
                                                 src={`${IMAGE_URL_342}${profile_path}`}
                                                 fill
+                                                priority="true"
                                                 alt={name}
                                                 loading="eager"
                                                 className={styles.img}

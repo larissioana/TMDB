@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { IMAGE_URL_342, fetchAPI } from '@/utils/fetchFromAPI';
+import { IMAGE_URL_342, fetchAPI, fetchAPIQueryAndFilteredData } from '@/utils/fetchFromAPI';
 import NavigationBar from '@/components/navigationBar/navigationBar';
 import styles from '../../styles/people.module.css';
 import Loading from '@/components/loading/loading';
@@ -96,23 +96,25 @@ const Popular = () => {
           !isLoading ?
             <div className={styles.wrapper}>
               <div className={styles.container}>
-                {popularPeople.results.length > 0 ? (
-                  popularPeople.results.map((people) => (
-                    <div key={people.id} className={styles.peopleContainer}>
-                      {people.profile_path !== null && (
+                {
+                  popularPeople.results.map((result) => {
+                    const { name, id, profile_path } = result;
+                    return <div key={id}>
+                      {
+                        profile_path !== null &&
                         <>
                           <Link
-                            href={`/actor/${encodeURI(people.id)}/${people.name.replace(/\s+/g, '-').toLowerCase()}`}
+                            href={`/actor/${encodeURI(id)}/${name.replace(/\s+/g, '-').toLowerCase()}`}
                           >
                             <Image
-                              src={`${IMAGE_URL_342}${people.profile_path}`}
+                              src={`${IMAGE_URL_342}${profile_path}`}
                               width={208}
                               height={280}
-                              alt={people.name}
+                              alt={name}
                               loading="eager"
                               className={styles.people}
                               placeholder="blur"
-                              blurDataURL={`${IMAGE_URL_342}${people.profile_path}`}
+                              blurDataURL={`${IMAGE_URL_342}${profile_path}`}
                             />
                           </Link>
                           <CardContent
@@ -127,16 +129,16 @@ const Popular = () => {
                               className={styles.name}
                               color="#fff"
                             >
-                              {people.name}
+                              {name}
                             </Typography>
                           </CardContent>
                         </>
-                      )}
+                      }
                     </div>
-                  ))
-                ) : (
-                  <p className={styles.noResults}>No results found &#128542;</p>
-                )}
+                  })
+                }
+
+
               </div>
               {
                 !searchTerm &&
