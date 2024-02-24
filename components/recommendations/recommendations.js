@@ -39,12 +39,9 @@ const Recommendations = ({ recommendations, hasMovies }) => {
                                 <Image
                                   className={styles.img}
                                   src={`${IMAGE_URL_342}${poster_path}`}
-                                  width={230}
-                                  height={320}
+                                  fill
                                   alt={title}
                                   loading="lazy"
-                                  placeholder="blur"
-                                  blurDataURL={`${IMAGE_URL_342}${poster_path}`}
                                 />
                               </div>
                             }

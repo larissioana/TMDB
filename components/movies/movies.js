@@ -1,4 +1,4 @@
-import { IMAGE_URL_185 } from '@/utils/fetchFromAPI';
+import { IMAGE_URL_342 } from '@/utils/fetchFromAPI';
 import Image from 'next/image';
 import styles from './movies.module.css';
 import { motion } from 'framer-motion';
@@ -16,7 +16,7 @@ const Movies = ({ movies, isLoading }) => {
             {movies.map((movie) => {
               const { poster_path, title, id } = movie;
               const shortenedTitleMovie = shortenTitle(title, 25);
-              const scale = id === 0 ? { scaleY: 1.1 } : { scale: 1.2 };
+              const scale = { scale: 1.1 };
               return <div key={id}>
                 {
                   poster_path &&
@@ -29,11 +29,10 @@ const Movies = ({ movies, isLoading }) => {
                       <Link href={`/movie/${id}`}>
                         <Image
                           className={styles.img}
-                          src={`${IMAGE_URL_185}${poster_path}`}
+                          src={`${IMAGE_URL_342}${poster_path}`}
                           fill
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                           alt={title}
-                          loading="eager"
+                          loading="lazy"
                         />
                       </Link>
                     </motion.div>

@@ -1,3 +1,4 @@
+"use strict";
 import { Stack } from "@mui/material";
 import Link from "next/link";
 import { signOutUser } from '@/utils/firebase';
@@ -5,11 +6,13 @@ import { useContext } from "react";
 import { UserContext } from "@/context/userContext";
 import { useRouter } from "next/router";
 import { useMovieContext } from "@/context/moviesContext";
+import { usePathname } from "next/navigation";
 
 const NavigationBar = () => {
     const router = useRouter();
     const { currentUser, setCurrentUser } = useContext(UserContext);
     const { setActiveContentType } = useMovieContext();
+    const pathName = usePathname();
 
     const handleTvShows = (type) => {
         setActiveContentType(type);
@@ -60,7 +63,7 @@ const NavigationBar = () => {
                         justifyContent: "center",
                         gap: "1rem",
                         fontSize: "clamp(.9rem, 2vw, 1.2rem)",
-                        color: "white"
+                        color: pathName === '/' ? "rgb(202, 103, 222)" : "white"
                     }}
                 >
                     Movies
@@ -78,7 +81,7 @@ const NavigationBar = () => {
                         justifyContent: "center",
                         gap: "1rem",
                         fontSize: "clamp(.9rem, 2vw, 1.2rem)",
-                        color: "white",
+                        color: pathName === '/tvShows' ? "rgb(202, 103, 222)" : "white",
                         marginLeft: "1rem"
                     }}
                 >
@@ -93,7 +96,7 @@ const NavigationBar = () => {
                         justifyContent: "center",
                         gap: "1rem",
                         fontSize: "clamp(.9rem, 2vw, 1.2rem)",
-                        color: "white",
+                        color: pathName === '/people/popular' ? "rgb(202, 103, 222)" : "white",
                         marginLeft: "1rem"
                     }}
                 >

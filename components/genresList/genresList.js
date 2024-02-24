@@ -7,7 +7,6 @@ const GenresList = ({ genreNames }) => {
                 <p className={styles.textBold}>Genres: </p>
                 {genreNames.map((genreName, index) => (
                     <ul style={{ display: "flex" }} key={index}>
-                        {index > 0 && ','}
                         <li className={styles.textBold}>{genreName}</li>
                     </ul>
                 ))}

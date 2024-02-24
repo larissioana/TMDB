@@ -1,10 +1,9 @@
 import dynamic from "next/dynamic";
 import { fetchAPIData, fetchAPIDetails, fetchAPIMedia } from "@/utils/fetchFromAPI";
-
+import { useRouter } from "next/router";
 const MovieDetail = dynamic(() => import('@/components/movieDetail/movieDetail'));
 
 export async function getServerSideProps(context) {
-    context.res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate');
 
     const movieId = context.params.movieId;
     const movieDetail = await fetchAPIDetails("movie", movieId);

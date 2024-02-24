@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import styles from './tvSeries.module.css';
-import { fetchAPI, IMAGE_URL_185 } from '@/utils/fetchFromAPI';
+import { fetchAPI, IMAGE_URL_342 } from '@/utils/fetchFromAPI';
 import Image from 'next/image';
 import TvSeriesCard from '../tvSeriesCard/tvSeriesCard';
 import Loading from '../loading/loading';
@@ -57,12 +57,11 @@ const TvSeries = () => {
                     {
                       poster_path &&
                       <Image
-                        src={`${IMAGE_URL_185}${poster_path}`}
-                        width={145}
-                        height={228}
+                        src={`${IMAGE_URL_342}${poster_path}`}
+                        fill
                         alt={name}
                         className={styles.img}
-                        loading="eager"
+                        loading="lazy"
                       />
                     }
                     {hoveredId === id && <TvSeriesCard name={name} image={backdrop_path} id={id} />}

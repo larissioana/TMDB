@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { IMAGE_URL_342, fetchAPI, fetchAPIQueryAndFilteredData } from '@/utils/fetchFromAPI';
+import { IMAGE_URL_342, fetchAPI, fetchAPIQuery } from '@/utils/fetchFromAPI';
 import NavigationBar from '@/components/navigationBar/navigationBar';
 import styles from '../../styles/people.module.css';
 import Loading from '@/components/loading/loading';
@@ -18,7 +18,7 @@ const Popular = () => {
   const fetchPopularPeople = async (page) => {
     try {
       setIsLoading(true);
-      const fetchPeople = await (!searchTerm ? fetchAPI("person", "popular", page) : fetchAPIQueryAndFilteredData("search", "person", searchTerm, page))
+      const fetchPeople = await (!searchTerm ? fetchAPI("person", "popular", page) : fetchAPIQuery("search", "person", searchTerm, page))
       setPopularPeople(prev => ({
         ...fetchPeople,
         results: page > 1 ? [...prev.results, ...fetchPeople.results] : [...fetchPeople.results]
@@ -43,7 +43,7 @@ const Popular = () => {
   const handlePageChange = async (newPage) => {
     try {
       setIsLoading(true);
-      const fetchNewPeople = await (!searchTerm ? fetchAPI("person", "popular", newPage) : fetchAPIQueryAndFilteredData("search", "person", searchTerm, newPage));
+      const fetchNewPeople = await fetchAPI("person", "popular", newPage);
 
       setPopularPeople({
         page: newPage,
@@ -111,7 +111,7 @@ const Popular = () => {
                               width={208}
                               height={280}
                               alt={name}
-                              loading="eager"
+                              loading="lazy"
                               className={styles.people}
                               placeholder="blur"
                               blurDataURL={`${IMAGE_URL_342}${profile_path}`}

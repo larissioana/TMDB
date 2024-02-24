@@ -11,9 +11,9 @@
 
 .cardContainer
 {
-  width: 145px;
+  width: 10rem;
   position: relative;
-  height: 228px;
+  height: 20rem;
   margin-top: 2rem;
 }
 

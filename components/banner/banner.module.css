@@ -1,20 +1,21 @@
 .bannerContainer
 {
-    height: 43rem;
     background-size: cover;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     object-position: right;
+    height: 40rem;
     width: 100%;
     position: relative;
+    background: red;
     animation: anim .5s ease-in-out;
 }
 
 .bannerImg
 {
     object-fit: cover;
-    object-position: right;
+    object-position: center;
 }
 
 @keyframes anim
@@ -26,10 +27,11 @@
         opacity: 1;
     }
 }
-@media screen and (max-width: 900px)
+
+@media screen and (max-width: 600px)
 {
     .bannerContainer
     {
-       min-height: auto;
+        height: 15rem;
     }
 }

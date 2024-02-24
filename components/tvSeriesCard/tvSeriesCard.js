@@ -14,10 +14,9 @@ const TvSeriesCard = ({ image, id, name }) => {
     <div className={styles.card} onClick={handleCardClick}>
       <Image
         src={`${IMAGE_BACKDROP}${image}`}
-        width={145}
-        height={228}
+        fill
         alt={name}
-        loading="eager"
+        loading="lazy"
         className={styles.backdrop}
       />
     </div>

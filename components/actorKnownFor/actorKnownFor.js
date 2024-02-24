@@ -33,7 +33,7 @@ const ActorKnownFor = ({ actorKnownFor }) => {
                           width={200}
                           height={350}
                           alt={original_title}
-                          loading="eager"
+                          loading="lazy"
                           className={styles.image}
                           placeholder="blur"
                           blurDataURL={`${IMAGE_URL_SMALL}${poster_path}`}
@@ -46,7 +46,7 @@ const ActorKnownFor = ({ actorKnownFor }) => {
                           width={200}
                           height={350}
                           alt={original_title}
-                          loading="eager"
+                          loading="lazy"
                           className={styles.image}
                         />
                       </Link>

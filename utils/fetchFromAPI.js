@@ -1,4 +1,3 @@
-import axios from "axios";
 export const BASE_URL = "https://api.themoviedb.org/3/";
 export const IMAGE_URL = 'https://image.tmdb.org/t/p/original';
 export const IMAGE_URL_SMALL = 'https://image.tmdb.org/t/p/w500';
@@ -17,35 +16,39 @@ const options =
   }
 };
 
-export const fetchAPIQuery = async (category, url, query, page) => {
-  const { data } = await axios.get(`${BASE_URL}${category}/${url}?query=${query}&language=en-US&page=${page}`, options);
+export const fetchAPIQuery = async (mediaType, url, query, page) => {
+  const response = await fetch(`${BASE_URL}${mediaType}/${url}?query=${query}&language=en-US&page=${page}`, options);
+  const data = response.json();
   return data;
 };
 
-export const fetchAPIFilteredMovies = async (category, url, page, genre) => {
-  const { data } = await axios.get(`${BASE_URL}${category}/${url}?with_genres=${genre}&include_adult=false&page=${page}`, options);
+export const fetchAPIFilteredMovies = async (mediaType, url, page, genre) => {
+  const response = await fetch(`${BASE_URL}${mediaType}/${url}?with_genres=${genre}&include_adult=false&page=${page}`, options);
+  const data = await response.json();
   return data;
 };
 
-export const fetchAPI = async (category, url, page) => {
-  const { data } = await axios.get(`${BASE_URL}/${category}/${url}?&include_adult=false&language=en-US&page=${page}`, options)
+export const fetchAPI = async (mediaType, url, page) => {
+  const response = await fetch(`${BASE_URL}/${mediaType}/${url}?&include_adult=false&language=en-US&page=${page}`, options)
+  const data = await response.json();
   return data;
 }
 
-export const fetchAPIDetails = async (category, id, media = '') => {
-  const url = media ? `${BASE_URL}${category}/${id}/${media}?&language=en-US&page=1` : `${BASE_URL}${category}/${id}&language=en-US`;
-  const { data } = await axios.get(`${url}`, options);
+export const fetchAPIDetails = async (mediaType, id, category = "") => {
+  const url = category ? `${BASE_URL}${mediaType}/${id}/${category}?&language=en-US&page=1` : `${BASE_URL}${mediaType}/${id}&language=en-US`;
+  const response = await fetch(`${url}`, options);
+  const data = response.json();
   return data;
 };
 
-export const fetchAPIData = async (category, id, url) => {
-  const { data } = await axios.get(`${BASE_URL}${category}/${id}/${url}?&language=en-US`, options);
+export const fetchAPIData = async (mediaType, id, url) => {
+  const response = await fetch(`${BASE_URL}${mediaType}/${id}/${url}?&language=en-US`, options);
+  const data = await response.json();
   return data;
 };
 
-export const fetchAPIMedia = async (category, id, media) => {
-  const { data } = await axios.get(`${BASE_URL}${category}/${id}/${media}`, options);
+export const fetchAPIMedia = async (mediaType, id, category) => {
+  const response = await fetch(`${BASE_URL}${mediaType}/${id}/${category}`, options);
+  const data = await response.json();
   return data;
 };
-
-

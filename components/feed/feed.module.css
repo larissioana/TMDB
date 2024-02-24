@@ -2,7 +2,16 @@
 {
     display: flex;
     align-items: flex-start;
-    margin-top: 5rem;
+    margin-top: 4rem;
+    height: 40rem;
+}
+
+@media screen and (max-width: 600px)
+{
+    .wrapper
+    {
+        height: 23rem;
+    }
 }
 
 @media screen and (max-width: 900px)
