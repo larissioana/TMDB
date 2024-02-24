@@ -30,10 +30,10 @@ const Searchbar = ({ placeholder }) => {
       {{
         borderBottom: "1px solid var(--white10)",
         borderRadius: 0,
-        background: "rgba(0, 0, 0, 0.3)",
-        backdropFilter: "blur(10px)",
+        background: "rgba(0, 0, 0, 0.2)",
+        backdropFilter: "blur(5px)",
         mr: { sm: 4 },
-        marginTop: "1.5rem",
+        marginTop: "2.5rem",
       }}
     >
       <input

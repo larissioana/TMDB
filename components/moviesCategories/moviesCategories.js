@@ -27,7 +27,7 @@ const MoviesCategories = ({ popular, topRated, upcoming, isLoading }) => {
     return (
         <div className={styles.categoriesContainer}>
             <FeedMovies isButtonActive={isButtonActive} handleButtonChange={handleButtonChange} />
-            <Movies isLoading={isLoading} movies={filteredMovies} />
+            <Movies movies={filteredMovies} />
         </div>
     )
 };

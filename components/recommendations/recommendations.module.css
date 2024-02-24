@@ -39,6 +39,12 @@
     filter: hue-rotate(160deg);
 }
 
+.containerImg,
+.tvMedia
+{
+    cursor: pointer;
+}
+
 .recommendationsTitle
 {
     margin-top: 2rem;
@@ -57,11 +63,6 @@
     gap: 1rem;
 }
 
-.tvMedia,
-.movieMedia
-{
-    width: 230px;
-}
 
 @media screen and (max-width: 600px)
 {
@@ -72,5 +73,12 @@
 
     .container{
         padding: 0;
+    }
+
+    .containerImg,
+    .img
+    {
+        width: 200px;
+        height: 270px;
     }
 }

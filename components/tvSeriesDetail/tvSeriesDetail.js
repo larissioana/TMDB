@@ -8,7 +8,7 @@ import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRound
 import NavigationBar from '../navigationBar/navigationBar';
 import Link from 'next/link';
 import Head from 'next/head';
-import NoImage from '../../assets/no-image.webp';
+import NoImage from '../../assets/blankphoto.webp';
 import { shortenTitle } from '@/utils/helpers';
 import dynamic from 'next/dynamic';
 import GenresList from '../genresList/genresList';
@@ -135,23 +135,38 @@ const TvSeriesDetail = ({
                   const shortenedTitleCharacter = shortenTitle(character, 15);
                   return <>
                     {
-                      profile_path !== null &&
-                      <div key={id} className={styles.cast}>
-                        <Link href={`/actor/${encodeURI(id)}/${name.replace(/\s+/g, '-').toLowerCase()}`}>
-                          <Image
-                            src={`${IMAGE_URL_342}${profile_path}`}
-                            width={200}
-                            height={272}
-                            alt={name}
-                            loading="eager"
-                            className={styles.castImg}
-                            placeholder="blur"
-                            blurDataURL={`${IMAGE_URL_342}${profile_path}`}
-                          />
-                        </Link>
-                        <h3 className={styles.castName}>{shortenedTitleName}</h3>
-                        <h4 className={styles.character}>{shortenedTitleCharacter}</h4>
-                      </div>
+                      profile_path !== null ?
+                        <div key={id} className={styles.cast}>
+                          <Link href={`/actor/${encodeURI(id)}/${name.replace(/\s+/g, '-').toLowerCase()}`}>
+                            <Image
+                              src={`${IMAGE_URL_342}${profile_path}`}
+                              width={190}
+                              height={250}
+                              alt={name}
+                              loading="lazy"
+                              className={styles.castImg}
+                              placeholder="blur"
+                              blurDataURL={`${IMAGE_URL_342}${profile_path}`}
+                            />
+                          </Link>
+                          <h3 className={styles.castName}>{shortenedTitleName}</h3>
+                          <h4 className={styles.character}>{shortenedTitleCharacter}</h4>
+                        </div>
+                        :
+                        <div key={id} className={styles.cast}>
+                          <Link href={`/actor/${encodeURI(id)}/${name.replace(/\s+/g, '-').toLowerCase()}`}>
+                            <Image
+                              src={NoImage}
+                              width={190}
+                              height={250}
+                              alt={name}
+                              loading="lazy"
+                              className={styles.castImg}
+                            />
+                          </Link>
+                          <h3 className={styles.castName}>{shortenedTitleName}</h3>
+                          <h4 className={styles.character}>{shortenedTitleCharacter}</h4>
+                        </div>
                     }
                   </>
                 }).slice(0, 5)

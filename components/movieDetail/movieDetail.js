@@ -132,10 +132,8 @@ const MovieDetail = ({
                     </>
                 }
             </div>
-            <div className={styles.movieDetailContainer}>
-                <div className={styles.recommendationsContainer}>
-                    <Recommendations hasMovies={true} recommendations={recommendations} />
-                </div>
+            <div className={styles.recommendationsContainer}>
+                <Recommendations hasMovies={true} recommendations={recommendations} />
             </div>
         </>
     )

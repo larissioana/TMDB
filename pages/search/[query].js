@@ -1,3 +1,4 @@
+"use strict";
 import NavigationBar from '@/components/navigationBar/navigationBar';
 import { fetchAPIQuery } from '@/utils/fetchFromAPI';
 import { useRouter } from 'next/router';
@@ -122,7 +123,10 @@ const Search = () => {
                 marginTop: '2rem',
               }}
             >
-              <PaginationButton filteredMovies={searchedMovies} handlePageChange={handlePageChange} />
+              {
+                !isLoading &&
+                <PaginationButton filteredMovies={searchedMovies} handlePageChange={handlePageChange} />
+              }
             </div>
           </div>
         )}

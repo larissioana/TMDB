@@ -1,17 +1,20 @@
+"use strict";
 import { motion, AnimatePresence } from 'framer-motion';
-import Link from 'next/link';
 import { IMAGE_URL_342 } from '@/utils/fetchFromAPI';
 import Image from 'next/image';
 import styles from './mediaType.module.css';
+import { useRouter } from 'next/router';
 
 const MediaTypePerson = ({ person }) => {
 
     const { profile_path } = person;
+    const router = useRouter();
     return (
         <AnimatePresence>
             {
                 profile_path &&
                 <motion.div
+                    className={styles.wrapper}
                     initial={{ opacity: 0.7, y: 0 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0.8, y: -200 }}
@@ -23,20 +26,17 @@ const MediaTypePerson = ({ person }) => {
                             person.map((item) => {
                                 const { id, profile_path, name } = item;
                                 return <div key={id}>
-                                    <Link href={`/actor/${id}`}>
-                                        <div className="card-media">
-                                            <Image
-                                                src={`${IMAGE_URL_342}${profile_path}`}
-                                                fill
-                                                priority="true"
-                                                alt={name}
-                                                loading="eager"
-                                                className={styles.img}
-                                                placeholder="blur"
-                                                blurDataURL={`${IMAGE_URL_342}${profile_path}`}
-                                            />
-                                        </div>
-                                    </Link>
+                                    <div className="card-media" onClick={() => router.push(`/actor/${id}`)}>
+                                        <Image
+                                            src={`${IMAGE_URL_342}${profile_path}`}
+                                            fill
+                                            alt={name}
+                                            loading="lazy"
+                                            className={styles.img}
+                                            placeholder="blur"
+                                            blurDataURL={`${IMAGE_URL_342}${profile_path}`}
+                                        />
+                                    </div>
                                     <Card name={name} date={""} />
                                 </div>
                             })

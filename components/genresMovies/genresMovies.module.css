@@ -11,8 +11,8 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
-    gap: 1.5rem;
-    padding: 2rem;
+    gap: 1rem;
+    padding: 0rem;
 }
 
 .flexContainer

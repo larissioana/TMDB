@@ -4,49 +4,41 @@ import styles from './movies.module.css';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { shortenTitle } from '@/utils/helpers';
-import Loading from '../loading/loading';
 
-const Movies = ({ movies, isLoading }) => {
+const Movies = ({ movies }) => {
 
   return (
-    <>
-      {
-        !isLoading ?
-          <div className={styles.moviesContainer}>
-            {movies.map((movie) => {
-              const { poster_path, title, id } = movie;
-              const shortenedTitleMovie = shortenTitle(title, 25);
-              const scale = { scale: 1.1 };
-              return <div key={id}>
-                {
-                  poster_path &&
-                  <>
-                    <motion.div whileHover={...scale} initial={{ opacity: 0 }}
-                      animate={{ opacity: 1, transition: { duration: 1 } }}
-                      exit={{ opacity: 0 }}
-                      className={styles.cardContainer}
-                    >
-                      <Link href={`/movie/${id}`}>
-                        <Image
-                          className={styles.img}
-                          src={`${IMAGE_URL_342}${poster_path}`}
-                          fill
-                          alt={title}
-                          loading="lazy"
-                        />
-                      </Link>
-                    </motion.div>
-                    <h2 className={styles.title}>{shortenedTitleMovie}</h2>
-                  </>
-                }
-              </div>
-            }
-            )}
-          </div>
-          :
-          <Loading />
+    <div className={styles.moviesContainer}>
+      {movies.map((movie) => {
+        const { poster_path, title, id } = movie;
+        const shortenedTitleMovie = shortenTitle(title, 25);
+        const scale = { scale: 1.1 };
+        return <div key={id}>
+          {
+            poster_path &&
+            <>
+              <motion.div whileHover={...scale} initial={{ opacity: 0 }}
+                animate={{ opacity: 1, transition: { duration: 1 } }}
+                exit={{ opacity: 0 }}
+                className={styles.cardContainer}
+              >
+                <Link href={`/movie/${id}`}>
+                  <Image
+                    className={styles.img}
+                    src={`${IMAGE_URL_342}${poster_path}`}
+                    fill
+                    alt={title}
+                    loading="lazy"
+                  />
+                </Link>
+              </motion.div>
+              <h2 className={styles.title}>{shortenedTitleMovie}</h2>
+            </>
+          }
+        </div>
       }
-    </>
+      )}
+    </div>
   )
 };
 

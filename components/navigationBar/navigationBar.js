@@ -63,7 +63,7 @@ const NavigationBar = () => {
                         justifyContent: "center",
                         gap: "1rem",
                         fontSize: "clamp(.9rem, 2vw, 1.2rem)",
-                        color: pathName === '/' ? "rgb(202, 103, 222)" : "white"
+                        color: pathName === '/' ? "rgb(195, 189, 194)" : "white"
                     }}
                 >
                     Movies
@@ -81,7 +81,7 @@ const NavigationBar = () => {
                         justifyContent: "center",
                         gap: "1rem",
                         fontSize: "clamp(.9rem, 2vw, 1.2rem)",
-                        color: pathName === '/tvShows' ? "rgb(202, 103, 222)" : "white",
+                        color: pathName === '/tvShows' ? "rgb(195, 189, 194)" : "white",
                         marginLeft: "1rem"
                     }}
                 >
@@ -96,7 +96,7 @@ const NavigationBar = () => {
                         justifyContent: "center",
                         gap: "1rem",
                         fontSize: "clamp(.9rem, 2vw, 1.2rem)",
-                        color: pathName === '/people/popular' ? "rgb(202, 103, 222)" : "white",
+                        color: pathName === '/people/popular' ? "rgb(195, 189, 194)" : "white",
                         marginLeft: "1rem"
                     }}
                 >
