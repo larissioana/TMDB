@@ -6,18 +6,17 @@ import { TvShowsProvider } from '@/context/tvSeriesContext';
 import { UserProvider } from '@/context/userContext';
 
 export default function App({ Component, pageProps }) {
-  useEffect(() => 
-  {
+  useEffect(() => {
     ReactModal.setAppElement('#__next')
-  },[]);
-  
+  }, []);
+
   return (
-      <UserProvider>
-        <MovieProvider>
-          <TvShowsProvider>
-            <Component {...pageProps} />
-          </TvShowsProvider>
-        </MovieProvider>
-      </UserProvider>
-  )   
+    <UserProvider>
+      <MovieProvider>
+        <TvShowsProvider>
+          <Component {...pageProps} />
+        </TvShowsProvider>
+      </MovieProvider>
+    </UserProvider>
+  )
 }

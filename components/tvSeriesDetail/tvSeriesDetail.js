@@ -31,7 +31,6 @@ const TvSeriesDetail = ({
     backdrop_path,
     name,
     overview,
-    poster_path,
     seasons,
     vote_average,
     tagline,
@@ -81,36 +80,7 @@ const TvSeriesDetail = ({
             backgroundSize: "cover",
             borderRadius: "1rem"
           }}
-        >       <div className={styles.flexContainer}>
-            {
-              poster_path ?
-
-                <div className={styles.left}>
-                  <Image
-                    src={`${IMAGE_URL_SMALL}${poster_path}`}
-                    width={304}
-                    height={448}
-                    alt={name}
-                    loading="eager"
-                    className={styles.img}
-                    placeholder="blur"
-                    blurDataURL={`${IMAGE_URL_SMALL}${poster_path}`}
-                  />
-                </div>
-                :
-                <div className={styles.left}>
-                  <Image
-                    src={NoImage}
-                    width={304}
-                    height={448}
-                    alt={name}
-                    loading="eager"
-                    className={styles.img}
-                    placeholder="blur"
-                    blurDataURL={`${IMAGE_URL_SMALL}${NoImage}`}
-                  />
-                </div>
-            }
+        >     <div className={styles.flexContainer}>
             <div className={styles.right}>
               <h2 className={styles.title}>{name}</h2>
               <GenresList genreNames={genresName} />

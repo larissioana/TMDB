@@ -3,8 +3,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 10rem;
+    height: 20rem;
     opacity: 0; 
     transition: opacity .3s ease, transform .3s ease; 
     transform: scale(1); 
@@ -21,6 +21,7 @@
     cursor: pointer;
     width: 100%;
     height: 100%;
+    border-radius: .2rem;
 }
 
 .backdrop

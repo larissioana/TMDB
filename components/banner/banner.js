@@ -19,15 +19,17 @@ const Banner = ({ imageUrl, isLoading, name }) => {
                                     src={`${imageURL}`}
                                     fill
                                     className={styles.bannerImg}
-                                    loading="eager"
+                                    priority
                                     alt={name}
+                                    placeholder='blur'
+                                    blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABLAAAAAyCAQAAADmH+qEAAAAzElEQVR42u3WMQEAAAwCIE2+6pbYCSloLgAAPKpgAQAIFgCAYAEACBYAAIIFACBYAACCBQCAYAEACBYAgGABACBYAACCBQAgWAAAggUAgGABAAgWAIBgAQAgWAAAggUAIFgAAAgWAIBgAQAIFgAAggUAIFgAAIIFACBYAAAIFgCAYAEACBYAAIIFACBYAACCBQCAYAEACBYAgGABACBYAACCBQAgWAAAggUAgGABAAgWAIBgAQAgWAAAggUAIFgAAAgWAIBgAQAIFgAAAw9YGQHWmW/HAAAAAElFTkSuQmCC"'
                                 />
                                 :
                                 <Image
                                     src={NoImage}
                                     fill
                                     className={styles.bannerImg}
-                                    loading="eager"
+                                    priority
                                     alt={name}
                                 />
                         }

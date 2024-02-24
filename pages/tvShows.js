@@ -26,33 +26,30 @@ const TvShows = () => {
                 <title>Tv series</title>
                 <meta name="description" content="See the tv shows from TMDB"></meta>
             </Head>
-            <div className={styles.wrapper}>
-                <NavigationBar />
-                <div className={styles.flexContainer}>
-                    <Sidebar />
-                    <div
-                        className={styles.banner}
-                        style=
-                        {{
-                            width: "100%",
-                        }}
-                    >
-                        {
-                            topRatedTvShows.results?.map((movie, index) => {
-                                const { backdrop_path, name } = movie;
-                                return index === 0 && <Banner isLoading={isLoading} name={name} key={index} imageUrl={backdrop_path} />;
-                            })
-                        }
-                    </div>
+            <NavigationBar />
+            <div className={styles.flexContainer}>
+                <Sidebar />
+                <div
+                    className={styles.banner}
+                    style=
+                    {{
+                        width: "100%",
+                    }}
+                >
+                    {
+                        topRatedTvShows.results?.map((movie, index) => {
+                            const { backdrop_path, name } = movie;
+                            return index === 0 && <Banner isLoading={isLoading} name={name} key={index} imageUrl={backdrop_path} />;
+                        })
+                    }
                 </div>
-                {
-                    !isLoading &&
-                    <div className={styles.tvShowsContainer}>
-                        <TvSeries />
-                    </div>
-                }
-
             </div>
+            {
+                !isLoading &&
+                <div className={styles.tvShowsContainer}>
+                    <TvSeries />
+                </div>
+            }
         </>
     )
 }

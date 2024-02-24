@@ -88,6 +88,7 @@ li
   width: 12rem;
   z-index: 1;
   background: rgb(0, 0, 0);
+  color: rgb(247, 247, 247);
 }
 
 .search-bar
@@ -121,7 +122,7 @@ li
   width: 100%;
   margin-top: 1rem;
   flex-wrap: wrap;
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 .card-media:hover
