@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { IMAGE_URL_342 } from '@/utils/fetchFromAPI';
 import styles from './recommendations.module.css';
 import { Typography, CardContent } from '@mui/material';
-import Link from 'next/link';
 import { formatDate, shortenTitle } from '@/utils/helpers';
 import { useRouter } from 'next/router';
 
@@ -27,7 +26,7 @@ const Recommendations = ({ recommendations, hasMovies }) => {
               const shortenedTitleTv = shortenTitle(name, 20);
 
               return <>
-                <div key={media_type === "movie" ? original_title : original_name} className={styles.container}>
+                <div key={media_type === "movie" ? title : original_name} className={styles.container}>
                   {
                     media_type === 'movie' ?
                       <>
@@ -48,7 +47,8 @@ const Recommendations = ({ recommendations, hasMovies }) => {
                           <CardContent
                             sx={{
                               backgroundColor: "#000000",
-                              overflow: "hidden"
+                              overflow: "hidden",
+                              width: "12.5rem"
                             }}
                           >
                             <Typography
@@ -96,6 +96,7 @@ const Recommendations = ({ recommendations, hasMovies }) => {
                             sx={{
                               backgroundColor: "#000000",
                               overflow: "hidden",
+                              width: "12.5rem"
                             }}
                           >
                             <Typography

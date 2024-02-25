@@ -1,6 +1,5 @@
 import dynamic from "next/dynamic";
 import { fetchAPIData, fetchAPIDetails, fetchAPIMedia } from "@/utils/fetchFromAPI";
-import { useRouter } from "next/router";
 const MovieDetail = dynamic(() => import('@/components/movieDetail/movieDetail'));
 
 export async function getServerSideProps(context) {

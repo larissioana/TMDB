@@ -23,6 +23,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     padding: 0rem 1rem;
+    gap: 1rem;
 }
 
 .img
