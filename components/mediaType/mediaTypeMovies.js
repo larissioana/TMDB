@@ -1,7 +1,6 @@
 "use strict";
 import { motion, AnimatePresence } from 'framer-motion';
 import { IMAGE_URL_342 } from '@/utils/fetchFromAPI';
-import Link from 'next/link';
 import { formatDate, shortenTitle } from '@/utils/helpers';
 import Image from 'next/image';
 import styles from './mediaType.module.css';

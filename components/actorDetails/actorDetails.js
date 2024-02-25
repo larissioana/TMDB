@@ -147,10 +147,8 @@ const ActorDetails = ({ actorDetails, person, actorKnownFor, externalIds }) => {
                                                         src={`${IMAGE_URL_342}${file_path}`}
                                                         width={160}
                                                         height={240}
-                                                        alt="actor"
-                                                        loading="eager"
-                                                        placeholder="blur"
-                                                        blurDataURL={`${IMAGE_URL_342}${file_path}`}
+                                                        alt="actors profile pictures"
+                                                        priority
                                                     />
                                                     <div className={styles.expand}>
                                                         <p className={styles.expandText}>Expand</p>

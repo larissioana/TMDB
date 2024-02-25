@@ -150,11 +150,7 @@ const GenresMovies = () => {
               marginTop: '2rem',
             }}
           >
-            {
-              !isLoading &&
-              <PaginationButton filteredMovies={filteredMovies} handlePageChange={handlePageChange} />
-            }
-
+            <PaginationButton isLoading={isLoading} filteredMovies={filteredMovies} handlePageChange={handlePageChange} />
           </div>
         )}
     </>

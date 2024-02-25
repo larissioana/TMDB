@@ -6,24 +6,20 @@
     gap: .255rem;
     margin-top: .8rem;
     color: rgb(244, 242, 243);
-    font-size: clamp(1rem, 2vw, 1.1rem);
+    font-size: clamp(.9rem, 2vw, 1.1rem);
+}
+
+.genres
+{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+  
 }
 
 .textBold
 {
   font-weight: bolder;
-  font-size: clamp(1.1rem, 2vw, 1.2rem);
-}
-
-@media (max-width: 500px)
-{
-  .genres
-  {
-    width: 10rem;
-  }
-
-  .genresList
-  {
-    flex-wrap: wrap;
-  }
+  font-size: clamp(1rem, 2vw, 1.2rem);
 }

@@ -2,9 +2,10 @@
 import Image from 'next/image';
 import { IMAGE_URL_342 } from '@/utils/fetchFromAPI';
 import styles from './recommendations.module.css';
-import { Typography, CardContent } from '@mui/material';
+import dynamic from 'next/dynamic';
 import { formatDate, shortenTitle } from '@/utils/helpers';
 import { useRouter } from 'next/router';
+const Card = dynamic(() => import('@/components/cardContent/cardContent'));
 
 const Recommendations = ({ recommendations, hasMovies }) => {
 
@@ -19,14 +20,14 @@ const Recommendations = ({ recommendations, hasMovies }) => {
           <h3 className={styles.recommendationsTitle}>You might also like</h3>
           <div className={hasMovies ? styles.moviesWrapper : styles.tvWrapper}>
             {recommendations.results.map((result) => {
-              const { id, poster_path, title, original_title, original_name, release_date, media_type, name, first_air_date } = result;
+              const { id, poster_path, title, original_name, release_date, media_type, name, first_air_date } = result;
               const formattedDate = formatDate(release_date);
               const formattedSeries = formatDate(first_air_date);
               const shortenedTitleMovie = shortenTitle(title, 20);
               const shortenedTitleTv = shortenTitle(name, 20);
 
-              return <>
-                <div key={media_type === "movie" ? title : original_name} className={styles.container}>
+              return <div key={media_type === "movie" ? title : original_name}>
+                <div className={styles.container}>
                   {
                     media_type === 'movie' ?
                       <>
@@ -44,29 +45,7 @@ const Recommendations = ({ recommendations, hasMovies }) => {
                         }
                         {
                           poster_path !== null &&
-                          <CardContent
-                            sx={{
-                              backgroundColor: "#000000",
-                              overflow: "hidden",
-                              width: "12.5rem"
-                            }}
-                          >
-                            <Typography
-                              variant="subtitle1"
-                              fontWeight="bold"
-                              color="#fff"
-                              className="typography"
-                            >
-                              {shortenedTitleMovie}
-                            </Typography>
-                            <Typography
-                              variant="subtitle2"
-                              fontWeight="bold"
-                              color="#827e73"
-                            >
-                              {formattedDate}
-                            </Typography>
-                          </CardContent>
+                          <Card name={shortenedTitleMovie} date={formattedDate} />
                         }
                       </>
                       :
@@ -92,34 +71,12 @@ const Recommendations = ({ recommendations, hasMovies }) => {
                         </div>
                         {
                           poster_path !== null &&
-                          <CardContent
-                            sx={{
-                              backgroundColor: "#000000",
-                              overflow: "hidden",
-                              width: "12.5rem"
-                            }}
-                          >
-                            <Typography
-                              variant="subtitle1"
-                              fontWeight="bold"
-                              color="#fff"
-                              className="typography"
-                            >
-                              {shortenedTitleTv}
-                            </Typography>
-                            <Typography
-                              variant="subtitle2"
-                              fontWeight="bold"
-                              color="#827e73"
-                            >
-                              {formattedSeries}
-                            </Typography>
-                          </CardContent>
+                          <Card name={shortenedTitleTv} date={formattedSeries} />
                         }
                       </main>
                   }
                 </div>
-              </>
+              </div>
             }).slice(0, 20)}
           </div>
         </>

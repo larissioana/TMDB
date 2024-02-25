@@ -10,7 +10,6 @@
     padding: 3rem 2rem;
     flex-wrap: wrap;
     gap: 3rem;
-    height: 40rem;
 }
 
 .container
@@ -48,6 +47,7 @@
     font-size: clamp(1.8rem, 2vw, 2.3rem);
     letter-spacing: .1rem;
     color: var(--white20);
+    margin-bottom: 2rem;
 }
 
 .tagline
@@ -58,28 +58,58 @@
     color:rgb(236, 237, 239);
 }
 
-.seeSeasons
+.homepage
 {
-    font-size: clamp(1.1rem, 2vw, 1.3rem);
-    color:rgb(203, 208, 219);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.homepageText
+{
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color:rgb(236, 237, 239);
     font-weight: bolder;
+}
+
+.webIcon
+{
+    vertical-align: middle;
+    margin-left: .5rem;
     cursor: pointer;
 }
 
-.genresList
+.status
 {
-    display: flex;
-    align-items: center;
-    gap: .3rem;
-    margin-top: .5rem;
-    color: var(--white20);
-    font-size: clamp(.8rem, 2vw, 1.1rem);
+    margin-top: 1rem;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-weight: bolder;
+    margin-bottom: 1rem;
 }
 
-.genre
+.date
 {
-    display: flex;
-    flex-wrap: wrap;
+    font-size: clamp(1.2rem, 2vw, 1.3rem);
+    font-weight: bolder;
+    margin-top: .5rem;
+}
+
+.language
+{
+    text-transform: uppercase;
+}
+
+.seeSeasons
+{
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    background: linear-gradient(90deg, rgb(161, 154, 220), rgb(169, 163, 228), rgb(167, 154, 219)); 
+    -webkit-background-clip: text;
+    color: transparent; 
+    font-weight: bolder;
+    cursor: pointer;
+    
 }
 
 .overview
@@ -93,6 +123,7 @@
 {
     margin-top: .5rem;
     font-size: clamp(1rem, 2vw, 1rem);
+    line-height: 1.5rem;
 }
 
 .vote
@@ -100,7 +131,7 @@
   margin-top: 1rem;
   width: 3.8rem;
   height: 3.8rem;
-  border: 4.5px inset rgb(144, 157, 185) ;
+  border: 4.5px inset rgb(161, 154, 220) ;
   place-content: center;
   border-radius: 50%;
   margin-bottom: 1rem;
@@ -115,6 +146,38 @@ justify-content: flex-start;
 align-items: center;
 gap: 1rem;
 flex-wrap: wrap;
+}
+
+.createdBy
+{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 1rem;
+}
+
+.createdByName
+{
+    font-size: clamp(1rem, 2vw, 1.1rem);
+    line-height: 1.5rem;
+    margin-left: 1rem;
+    font-weight: bolder;
+}
+
+.createdByText
+{
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    line-height: 1.5rem;
+    font-weight: bolder;
+}
+
+.createdByProfile
+{
+    object-fit: cover;
+    margin-left: 1rem;
+    clip-path: circle();
+    object-position: center;
+    margin-top: 1rem;
 }
 
 .trailer
@@ -132,6 +195,14 @@ flex-wrap: wrap;
 .text
 {
     font-size: clamp(1rem, 2vw, 1.1rem);
+}
+
+.seasonsNr,
+.episodesNr
+{
+    margin-top: 1rem;
+    font-size: clamp(1rem, 2vw, 1.1rem);
+    font-weight: bolder;
 }
 
 .castContainer
