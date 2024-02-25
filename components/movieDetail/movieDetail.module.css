@@ -25,7 +25,6 @@
   padding: 2rem 2rem;
   border-radius: 1rem;
   border: 1px solid var(--shadow20);
-  overflow-x: auto;
 }
 
 .title
@@ -139,7 +138,6 @@
   align-items: center;
 }
 
-
 .voteFlexContainer
 {
   display: flex;
@@ -164,15 +162,18 @@
 
 .imagesFlexContainer
 {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: .5rem;
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
+  place-items: center;
+  row-gap: 1.5rem;
+  column-gap: 6rem;
+  padding: 1rem 1.5rem;
 }
 
 .right
 {
   width: 100%;
+  padding: 1rem 1rem;
 }
 
 @media screen and (max-width: 414px)

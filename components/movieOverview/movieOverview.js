@@ -32,6 +32,7 @@ const MovieOverview = ({
             title,
             original_language
         } = movie;
+
     return (
         <div className={styles.flexContainer}>
             <div className={styles.left}>
@@ -82,23 +83,7 @@ const MovieOverview = ({
                     />
                 }
             </div>
-            <div className={styles.right}>
-                {
-                    movieImages.backdrops.length > 0 &&
-                    <>
-                        <h2 className={styles.moreImages}>More images</h2>
-                        <div className={styles.imagesFlexContainer}>
-                            {
-                                movieImages.backdrops.map((poster, index) => {
-                                    const { file_path } = poster;
-                                    return <MovieImages title={title} key={index} image={file_path} />
 
-                                }).slice(2, 8)
-                            }
-                        </div>
-                    </>
-                }
-            </div>
         </div>
     )
 };

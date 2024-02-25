@@ -96,6 +96,7 @@ const GenresMovies = () => {
     <>
       <NavigationBar />
       <div className={styles.wrapper}>
+
         <Sidebar contentType="movie" />
         {
           !isLoading ?
