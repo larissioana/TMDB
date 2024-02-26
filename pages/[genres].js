@@ -1,5 +1,7 @@
 import dynamic from 'next/dynamic';
-const GenresMovies = dynamic(() => import('@/components/genresMovies/genresMovies'));
+const GenresMovies = dynamic(() => import('@/components/genresMovies/genresMovies'), {
+  ssr: false
+});
 
 const Genres = () => {
   return (

@@ -9,7 +9,9 @@ import styles from './genresMovies.module.css';
 import Loading from '../loading/loading';
 import dynamic from 'next/dynamic';
 import { initialState } from '@/utils/helpers';
-import PaginationButton from '../paginationBtn/paginationButton';
+const PaginationButton = dynamic(() => import('../paginationBtn/paginationButton'), {
+  ssr: false
+});
 const MovieCard = dynamic(() => import('@/components/movieCard/movieCard'))
 
 const GenresMovies = () => {

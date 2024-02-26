@@ -1,13 +1,12 @@
-.genresList
+.genres
 {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: .255rem;
     margin-top: .8rem;
     color: rgb(244, 242, 243);
     font-size: clamp(.9rem, 2vw, 1.1rem);
-    width: 60%;
+    width: 100%;
 }
 
 .textBold

@@ -3,7 +3,8 @@ import Sidebar from '../sidebar/sidebar';
 import { useMovieContext } from '@/context/moviesContext';
 import { fetchAPI } from '@/utils/fetchFromAPI';
 import Banner from '../banner/banner';
-import MoviesCategories from '../moviesCategories/moviesCategories.js';
+import dynamic from 'next/dynamic';
+const MoviesCategories = dynamic(() => import('../moviesCategories/moviesCategories'))
 import styles from './feed.module.css';
 
 const Feed = () => {

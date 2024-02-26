@@ -151,17 +151,19 @@ flex-wrap: wrap;
 .createdBy
 {
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     margin-top: 1rem;
+    flex-wrap: wrap;
 }
 
 .createdByName
 {
     font-size: clamp(1rem, 2vw, 1.1rem);
     line-height: 1.5rem;
-    margin-left: 1rem;
     font-weight: bolder;
+    margin-top: 1rem;
 }
 
 .createdByText
@@ -169,6 +171,8 @@ flex-wrap: wrap;
     font-size: clamp(1rem, 2vw, 1.2rem);
     line-height: 1.5rem;
     font-weight: bolder;
+    border-right: 2px solid rgb(161, 154, 220);
+    padding: .4rem .4rem 0rem 0rem;
 }
 
 .createdByProfile

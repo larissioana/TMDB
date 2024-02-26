@@ -4,8 +4,13 @@ import { IMAGE_URL } from '@/utils/fetchFromAPI';
 import NavigationBar from '../navigationBar/navigationBar';
 import styles from './movieDetail.module.css';
 import dynamic from 'next/dynamic';
-const MovieImages = dynamic(() => import('@/components/movieImages/movieImages'));
-const Recommendations = dynamic(() => import('@/components/recommendations/recommendations'));
+const MovieImages = dynamic(() => import('@/components/movieImages/movieImages'), {
+    ssr: false
+});
+const Recommendations = dynamic(() => import('@/components/recommendations/recommendations'),
+    {
+        ssr: false
+    });
 const MovieOverview = dynamic(() => import('@/components/movieOverview/movieOverview'));
 
 const MovieDetail = ({
@@ -96,7 +101,7 @@ const MovieDetail = ({
                                             const { file_path } = poster;
                                             return <MovieImages title={title} key={index} image={file_path} />
 
-                                        }).slice(0, 6)
+                                        }).slice(0, 8)
                                     }
                                 </div>
                             </>

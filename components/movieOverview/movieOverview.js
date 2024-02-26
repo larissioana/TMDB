@@ -1,7 +1,6 @@
 import dynamic from 'next/dynamic';
 const Modal = dynamic(() => import('@/components/modal/modal'));
 const Cast = dynamic(() => import('@/components/cast/cast'));
-const MovieImages = dynamic(() => import('@/components/movieImages/movieImages'));
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 import styles from '../movieDetail/movieDetail.module.css';
 import GenresList from '../genresList/genresList';
@@ -13,7 +12,6 @@ const MovieOverview = ({
     openModal,
     credits,
     videoTrailer,
-    movieImages,
     externalIds,
     formattedTime,
     votePercentage,

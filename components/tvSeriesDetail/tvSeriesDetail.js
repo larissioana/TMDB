@@ -185,7 +185,7 @@ const TvSeriesDetail = ({
                       }
 
                     </div>
-                  })}
+                  }).slice(0, 2)}
                 </div>
               }
             </div>
