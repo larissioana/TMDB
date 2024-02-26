@@ -33,8 +33,8 @@ const ActorKnownFor = ({ actorKnownFor }) => {
                           <Link href={`/movie/${id}`} data-tooltip-id="tooltip" data-tooltip-content={original_title}>
                             <Image
                               src={`${IMAGE_URL_SMALL}${poster_path}`}
-                              width={200}
-                              height={350}
+                              width={160}
+                              height={300}
                               alt={original_title}
                               loading="lazy"
                               className={styles.image}
@@ -46,8 +46,8 @@ const ActorKnownFor = ({ actorKnownFor }) => {
                           <Link href={`/TvSeries/${id}`} data-tooltip-id="tooltip" data-tooltip-content={original_title}>
                             <Image
                               src={`${IMAGE_URL_SMALL}${poster_path}`}
-                              width={200}
-                              height={350}
+                              width={160}
+                              height={300}
                               alt={original_title}
                               loading="lazy"
                               className={styles.image}

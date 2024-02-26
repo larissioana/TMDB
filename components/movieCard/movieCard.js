@@ -47,7 +47,7 @@ const MovieCard = ({ movies = [] }) => {
           >
             {
               contentType === "movie" ?
-                <div className="card-media" onClick={() => router.push(`/movie/${id}`)}>
+                <div className="card-media" onClick={() => router.push(`/movie/${id}`, undefined, { shallow: true })}>
                   <Image
                     src={`${IMAGE_URL_342}${poster_path}`}
                     fill
@@ -57,7 +57,7 @@ const MovieCard = ({ movies = [] }) => {
                   />
                 </div>
                 :
-                <div className="card-media" onClick={() => router.push(`/TvSeries/${id}`)}>
+                <div className="card-media" onClick={() => router.push(`/TvSeries/${id}`, undefined, { shallow: true })}>
                   <Image
                     src={`${IMAGE_URL_342}${poster_path}`}
                     fill

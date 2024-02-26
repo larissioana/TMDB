@@ -37,7 +37,8 @@ const Recommendations = ({ recommendations, hasMovies }) => {
                             <Image
                               className={styles.img}
                               src={`${IMAGE_URL_342}${poster_path}`}
-                              fill
+                              width={180}
+                              height={280}
                               alt={title}
                               loading="lazy"
                             />
@@ -59,12 +60,10 @@ const Recommendations = ({ recommendations, hasMovies }) => {
                               <Image
                                 className={styles.img}
                                 src={`${IMAGE_URL_342}${poster_path}`}
-                                width={230}
-                                height={320}
+                                width={180}
+                                height={280}
                                 alt={name}
                                 loading="lazy"
-                                placeholder="blur"
-                                blurDataURL={`${IMAGE_URL_342}${poster_path}`}
                               />
                             </div>
                           }
@@ -77,7 +76,7 @@ const Recommendations = ({ recommendations, hasMovies }) => {
                   }
                 </div>
               </div>
-            }).slice(0, 20)}
+            }).slice(0, 14)}
           </div>
         </>
       }

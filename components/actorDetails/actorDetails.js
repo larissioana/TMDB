@@ -1,19 +1,21 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import styles from './actorDetails.module.css';
-import { IMAGE_BACKDROP, IMAGE_URL_342 } from '@/utils/fetchFromAPI';
+import { IMAGE_URL_342 } from '@/utils/fetchFromAPI';
 import Image from 'next/image';
 import Head from 'next/head';
 import NavigationBar from '../navigationBar/navigationBar';
-import Modal from 'react-modal';
 import LanguageIcon from '@mui/icons-material/Language';
 import ActorKnownFor from '../actorKnownFor/actorKnownFor';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
+import dynamic from 'next/dynamic';
+const ActorImages = dynamic(() => import('./actorsImages'))
 
 const ActorDetails = ({ actorDetails, person, actorKnownFor, externalIds }) => {
     const [readMore, setReadMore] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
+    const [areMoreImages, setAreMoreImages] = useState(false);
 
     const {
         name,
@@ -23,6 +25,7 @@ const ActorDetails = ({ actorDetails, person, actorKnownFor, externalIds }) => {
         profile_path,
         known_for_department,
         homepage,
+        gender,
     } = actorDetails;
 
     const {
@@ -48,6 +51,7 @@ const ActorDetails = ({ actorDetails, person, actorKnownFor, externalIds }) => {
     };
 
     const profilePathLength = person.profiles.map((profile) => profile.file_path);
+    const socialMediaIds = facebook_id || instagram_id || twitter_id || homepage;
 
     return (
         <div>
@@ -74,6 +78,7 @@ const ActorDetails = ({ actorDetails, person, actorKnownFor, externalIds }) => {
                                 </div>
                                 <div className={styles.right}>
                                     <h2 className={styles.name}>{name}</h2>
+                                    <h3 className={styles.generalText}>Gender: {gender === 2 ? "Male" : "Female"}</h3>
                                     {
                                         birthday &&
                                         <h5 className={styles.generalText}>Birthday: <span className={styles.text}>{birthday}</span></h5>
@@ -84,22 +89,29 @@ const ActorDetails = ({ actorDetails, person, actorKnownFor, externalIds }) => {
                                             <span className={styles.text}> {place_of_birth}</span></h5>
                                     }
                                     {
-                                        biography.length > 300 ?
-                                            <div>
-                                                <p className={styles.biography}> Biography:
-                                                    <span className={styles.text}> {readMore ? biography : `${biography.substring(0, 250)}...`}
-                                                    </span>
-                                                </p>
-                                                <button className={styles.readMore} onClick={handleOnClickReadMore}>{readMore ? 'Show less' : 'Read more'}</button>
-                                            </div>
-                                            :
-                                            <p className={styles.generalText}>Biography: <span className={styles.text}>{biography}</span></p>
+                                        biography &&
+                                        <>
+                                            {
+                                                biography.length > 300 ?
+                                                    <div>
+                                                        <p className={styles.biography}> Biography:
+                                                            <span className={styles.text}> {readMore ? biography : `${biography.substring(0, 250)}...`}
+                                                            </span>
+                                                        </p>
+                                                        <button className={styles.readMore} onClick={handleOnClickReadMore}>{readMore ? 'Show less' : 'Read more'}</button>
+                                                    </div>
+                                                    :
+                                                    <p className={styles.generalText}>Biography: <span className={styles.text}>{biography}</span></p>
+                                            }
+                                        </>
                                     }
-
                                     <p className={styles.biography}>Known for:
                                         <span className={styles.text}> {known_for_department}</span>
                                     </p>
                                     <div className={styles.externalIds}>
+                                        {socialMediaIds &&
+                                            <p className={styles.socialMedia}><b>Social media:</b></p>
+                                        }
                                         {
                                             facebook_id &&
                                             <a href={facebookLink} target="_blank" rel="noopener noreferrer" className={styles.homepageHref}>
@@ -129,57 +141,19 @@ const ActorDetails = ({ actorDetails, person, actorKnownFor, externalIds }) => {
                             </div>
                             {
                                 profilePathLength.length > 1 &&
-                                <h2 className={styles.moreImages}>More images</h2>
+                                <h2 className={styles.moreImages} onClick={() => setAreMoreImages(!areMoreImages)}>See more images</h2>
                             }
-                            <div className={styles.actorImages}>
-                                {
-                                    person.profiles.map((profile, index) => {
-                                        const { file_path } = profile;
-                                        if (index !== 0) {
-                                            return (
-                                                <div
-                                                    key={index}
-                                                    className={styles.person}
-                                                    onClick={() => handleImageClick(file_path)}
-                                                >
-                                                    <Image
-                                                        className={styles.personImg}
-                                                        src={`${IMAGE_URL_342}${file_path}`}
-                                                        width={160}
-                                                        height={240}
-                                                        alt="actors profile pictures"
-                                                        priority
-                                                    />
-                                                    <div className={styles.expand}>
-                                                        <p className={styles.expandText}>Expand</p>
-                                                    </div>
-                                                </div>
-                                            );
-                                        }
-                                        return null;
-                                    }).slice(0, 8)}
-                            </div>
-                            <Modal
-                                isOpen={!!selectedImage}
-                                onRequestClose={handleCloseModal}
-                                contentLabel="Larger Image Modal"
-                                className={styles.modal}
-                                overlayClassName={styles.overlay}
-                            >
-                                <Image
-                                    className={styles.modalImage}
-                                    src={`${IMAGE_BACKDROP}${selectedImage}`}
-                                    width={600}
-                                    height={600}
-                                    alt="actor"
-                                    loading="eager"
-                                    placeholder="blur"
-                                    blurDataURL={`${IMAGE_BACKDROP}${selectedImage}`}
+                            {areMoreImages &&
+                                <ActorImages
+                                    person={person}
+                                    handleCloseModal={handleCloseModal}
+                                    handleImageClick={handleImageClick}
+                                    selectedImage={selectedImage}
                                 />
-                            </Modal>
+                            }
                         </div>
                     ) :
-                        (<div className={styles.info}>No information available about this actor 	&#128542;</div>)}
+                        (<div className={styles.info}>No biography available about this actor 	&#128542;</div>)}
             </div>
             <ActorKnownFor actorKnownFor={actorKnownFor} />
         </div>

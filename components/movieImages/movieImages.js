@@ -6,8 +6,8 @@ const MovieImages = ({ image, title }) => {
     return (
         <Image
             src={`${IMAGE_BACKDROP}${image}`}
-            width={500}
-            height={300}
+            width={400}
+            height={250}
             alt={title}
             className={styles.posters}
             loading="lazy"

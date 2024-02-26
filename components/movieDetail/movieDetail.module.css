@@ -158,16 +158,30 @@
   margin-top: 2rem;
   padding: 1rem 0rem;
   font-size: clamp(1.3rem, 2vw, 1.6rem);
+  cursor: pointer;
+  width: 12rem;
 }
 
 .imagesFlexContainer
 {
-  display:grid;
-  grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
-  place-items: center;
-  place-items: center;
-  column-gap: 10rem;
-  row-gap: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 2rem;
+  animation: moreImagesAnimation .7s ease-in;
+}
+
+@keyframes moreImagesAnimation
+{
+  from{
+    opacity: 0;
+  }
+  to
+  {
+    opacity: 1;
+  }
 }
 
 .right

@@ -109,7 +109,6 @@
     color: transparent; 
     font-weight: bolder;
     cursor: pointer;
-    
 }
 
 .overview
@@ -227,7 +226,7 @@ flex-wrap: wrap;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    column-gap: 4rem;
+    column-gap: 1.4rem;
     padding: 1rem 0rem;
     overflow-x: auto;
 }
@@ -277,19 +276,6 @@ flex-wrap: wrap;
     border-top: 1px solid transparent;
     border-radius: .2rem;
     object-position: top;
-    transition: transform .4s ease-in-out;
-}
-
-.castImg:hover
-{
-    cursor: pointer;
-    transform: scale(1.1);
-}
-
-.castImg:active
-{
-    cursor: pointer;
-    transform: scale(1.1);
 }
 
 .character

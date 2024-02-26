@@ -81,7 +81,6 @@ const MovieOverview = ({
                     />
                 }
             </div>
-
         </div>
     )
 };
