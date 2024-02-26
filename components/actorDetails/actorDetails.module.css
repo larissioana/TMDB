@@ -238,6 +238,7 @@
 .moreImages
 {
     margin-bottom: 2rem;
+    padding-top: 3rem;
     color: white;
     font-size: clamp(1.3rem, 2vw, 1.6rem);
 }
@@ -253,7 +254,7 @@
 
     .moreImages
     {
-        padding: 3rem 1rem 0rem 1rem;
+        padding: 1.5rem 1rem 0rem 1rem;
     }
 
     .container

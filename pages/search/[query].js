@@ -108,27 +108,12 @@ const Search = () => {
       </div>
       {
         searchedMovies.total_pages > 1 && (
-          <div
-            style=
-            {{
-              display: 'flex',
-              justifyContent: 'center',
-              marginTop: '2rem',
-            }}
-          >
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-                marginTop: '2rem',
-              }}
-            >
-              {
-                !isLoading &&
-                <PaginationButton filteredMovies={searchedMovies} handlePageChange={handlePageChange} />
-              }
-            </div>
-          </div>
+          <>
+            {!isLoading &&
+              <PaginationButton filteredMovies={searchedMovies} handlePageChange={handlePageChange} />
+            }
+          </>
+
         )}
     </div>
   );

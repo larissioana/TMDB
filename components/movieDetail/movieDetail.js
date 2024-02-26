@@ -96,7 +96,7 @@ const MovieDetail = ({
                                             const { file_path } = poster;
                                             return <MovieImages title={title} key={index} image={file_path} />
 
-                                        }).slice(2, 8)
+                                        }).slice(0, 6)
                                     }
                                 </div>
                             </>

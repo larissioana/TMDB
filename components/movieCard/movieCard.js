@@ -36,7 +36,8 @@ const MovieCard = ({ movies = [] }) => {
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
-              alignItems: "center"
+              alignItems: "center",
+              marginBottom: "2rem"
             }}
             initial={{ opacity: 0.7, y: 0 }}
             animate={{ opacity: 1, y: 0 }}

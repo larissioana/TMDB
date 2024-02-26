@@ -12,12 +12,11 @@ const Movies = ({ movies }) => {
       {movies.map((movie) => {
         const { poster_path, title, id } = movie;
         const shortenedTitleMovie = shortenTitle(title, 25);
-        const scale = { scale: 1.1 };
         return <div key={id}>
           {
             poster_path &&
             <>
-              <motion.div whileHover={...scale} initial={{ opacity: 0 }}
+              <motion.div whileHover={{ scale: 1.1 }} initial={{ opacity: 0 }}
                 animate={{ opacity: 1, transition: { duration: 1 } }}
                 exit={{ opacity: 0 }}
                 className={styles.cardContainer}
@@ -38,7 +37,7 @@ const Movies = ({ movies }) => {
         </div>
       }
       )}
-    </div>
+    </div >
   )
 };
 

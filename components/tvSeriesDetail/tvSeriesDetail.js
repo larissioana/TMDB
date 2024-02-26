@@ -45,7 +45,7 @@ const TvSeriesDetail = ({
     homepage
 
   } = tvSeries;
-  console.log({ created_by })
+
   const genresName = genres.map((genre) => genre.name);
   const vote = Math.floor(vote_average);
   const votePercentage = vote / 10 * 100;

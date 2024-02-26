@@ -81,8 +81,9 @@ const GenresMovies = () => {
         total_results: movieResults.total_results + tvResults.total_results,
       });
 
-      setIsLoading(false);
+
       window.scrollTo(0, 0);
+      setIsLoading(false);
     } catch (error) {
       console.error('API error', error);
       setIsLoading(false);
@@ -96,10 +97,10 @@ const GenresMovies = () => {
     <>
       <NavigationBar />
       <div className={styles.wrapper}>
-
         <Sidebar contentType="movie" />
         {
           !isLoading ?
+
             <AnimatePresence>
               <motion.div style=
                 {{
@@ -129,30 +130,29 @@ const GenresMovies = () => {
             </div>
         }
       </div>
-      <div className={styles.moviesContainer}>
-        {
-          activeContentType === "movie" ?
-            movies.map((movie) => {
-              return <MovieCard movies={movie} key={movie.id} />
-            })
-            :
-            tvShows.map((show) => {
-              return <MovieCard movies={show} key={show.id} />
-            })
-        }
-      </div>
+
       {
-        filteredMovies.total_pages > 1 && (
-          <div
-            style=
-            {{
-              display: 'flex',
-              justifyContent: 'center',
-              marginTop: '2rem',
-            }}
-          >
-            <PaginationButton isLoading={isLoading} filteredMovies={filteredMovies} handlePageChange={handlePageChange} />
-          </div>
+        !isLoading &&
+        < div className={styles.moviesContainer}>
+          {
+            activeContentType === "movie" ?
+              movies.map((movie) => {
+                return <MovieCard movies={movie} key={movie.id} />
+              })
+              :
+              tvShows.map((show) => {
+                return <MovieCard movies={show} key={show.id} />
+              })
+          }
+        </div >
+      }
+      {
+        filteredMovies.results.length > 0 && (
+          <>
+            {!isLoading &&
+              <PaginationButton filteredMovies={filteredMovies} handlePageChange={handlePageChange} />
+            }
+          </>
         )}
     </>
   )

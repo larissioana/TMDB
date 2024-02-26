@@ -7,15 +7,7 @@
     margin-top: .8rem;
     color: rgb(244, 242, 243);
     font-size: clamp(.9rem, 2vw, 1.1rem);
-}
-
-.genres
-{
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    width: 100%;
-  
+    width: 60%;
 }
 
 .textBold
