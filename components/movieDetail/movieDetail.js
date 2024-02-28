@@ -62,6 +62,7 @@ const MovieDetail = ({
             <Head>
                 <title>{title}</title>
                 <meta name="description" content="See more details about a specific movie, like description, status, genre, top cast, more images, watch trailer, recommendations."></meta>
+                <link rel="preload" href={`${IMAGE_URL}${backdrop_path}`} as="image" />
             </Head>
             <NavigationBar />
             {!isLoading &&
@@ -72,7 +73,8 @@ const MovieDetail = ({
                         {{
                             backgroundImage: backdrop_path ? `url('${IMAGE_URL}${backdrop_path}')` : null,
                             backgroundPosition: 'top',
-                            backgroundSize: 'cover'
+                            backgroundSize: 'cover',
+                            height: 'auto'
                         }}
                     >
                         <MovieOverview

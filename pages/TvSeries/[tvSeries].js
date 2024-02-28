@@ -34,6 +34,7 @@ const Series = (
         tvSeriesImages,
         tvSeriesRecommendations
     }) => {
+
     return (
         <TvSeriesDetail
             tvSeries={tvSeriesDetails}

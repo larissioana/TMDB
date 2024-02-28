@@ -6,6 +6,11 @@
     flex-direction: column;
 }
 
+.recommendationsForMovies
+{
+    width: 100%;
+}
+
 .moviesWrapper
 {
     display: flex;
@@ -23,6 +28,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     padding: 0rem 1rem;
+    gap: 1rem;
 }
 
 .img
@@ -45,6 +51,12 @@
     cursor: pointer;
 }
 
+.container
+{
+    width: 100%;
+   
+}
+
 .recommendationsTitle
 {
     margin-top: 2rem;
@@ -55,6 +67,12 @@
     width: 100%;
 }
 
+.containerImg
+{
+    position: relative;
+    width: 200px;
+    height: 280px;
+}
 @media screen and (max-width: 600px)
 {
     .recommendationsTitle
@@ -64,12 +82,5 @@
 
     .container{
         padding: 0;
-    }
-
-    .containerImg,
-    .img
-    {
-        width: 170px;
-        height: 250px;
     }
 }

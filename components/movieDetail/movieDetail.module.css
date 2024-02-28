@@ -156,10 +156,9 @@
 .moreImages
 {
   margin-top: 2rem;
-  padding: 1rem 0rem;
+  padding: 0rem 1rem;
   font-size: clamp(1.3rem, 2vw, 1.6rem);
   cursor: pointer;
-  width: 12rem;
 }
 
 .imagesFlexContainer
@@ -170,6 +169,7 @@
   flex-wrap: wrap;
   gap: 1rem;
   padding-top: 2rem;
+  width: 100%;
   animation: moreImagesAnimation .7s ease-in;
 }
 
@@ -186,8 +186,8 @@
 
 .right
 {
-  width: 100%;
   margin: 1rem;
+  width: 100%;
 }
 
 @media screen and (max-width: 414px)

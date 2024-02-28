@@ -1,11 +1,13 @@
-import React from 'react'
 import styles from './seasons.module.css';
 import { IMAGE_URL_342 } from '@/utils/fetchFromAPI';
 import Image from 'next/image';
 import { formatDate } from '@/utils/helpers';
 import NoImage from '../../assets/no-image.webp';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const Seasons = ({ season }) => {
+    const router = useRouter();
     const
         {
             air_date,
@@ -13,9 +15,11 @@ const Seasons = ({ season }) => {
             name,
             overview,
             poster_path,
+            season_number,
         } = season;
 
     const formattedDate = formatDate(air_date);
+    const tvSeriesId = router.query.tvSeries;
 
     return (
         <div className={styles.wrapper}>
@@ -23,23 +27,27 @@ const Seasons = ({ season }) => {
                 <div className={styles.left}>
                     {
                         poster_path ?
-                            <Image
-                                src={`${IMAGE_URL_342}${poster_path}`}
-                                width="240"
-                                alt={name}
-                                height="240"
-                                loading="eager"
-                                className={styles.img}
-                            />
+                            <Link href={`/TvSeries/${tvSeriesId}/${season_number}`}>
+                                <Image
+                                    src={`${IMAGE_URL_342}${poster_path}`}
+                                    width={185}
+                                    alt={name}
+                                    height={200}
+                                    loading="lazy"
+                                    className={styles.img}
+                                />
+                            </Link>
                             :
-                            <Image
-                                src={NoImage}
-                                width="240"
-                                alt={name}
-                                height="240"
-                                loading="lazy"
-                                className={styles.img}
-                            />
+                            <Link href={`/TvSeries/${tvSeriesId}/${season_number}`}>
+                                <Image
+                                    src={NoImage}
+                                    width={200}
+                                    alt={name}
+                                    height={200}
+                                    loading="lazy"
+                                    className={styles.img}
+                                />
+                            </Link>
                     }
                 </div>
                 <div className={styles.right}>

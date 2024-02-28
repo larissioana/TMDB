@@ -7,7 +7,7 @@ const TvSeriesCard = ({ image, id, name }) => {
   const router = useRouter();
 
   const handleCardClick = () => {
-    router.push(`/TvSeries/${id}`, undefined, { shallow: true })
+    router.push(`/TvSeries/${id}`)
   };
 
   return (

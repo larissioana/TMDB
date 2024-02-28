@@ -52,3 +52,9 @@ export const fetchAPIMedia = async (mediaType, id, category) => {
   const data = await response.json();
   return data;
 };
+
+export const fetchTvSeasons = async (id, number) => {
+  const response = await fetch(`https://api.themoviedb.org/3/tv/${id}/season/${number}?language=en-US'`, options);
+  const data = await response.json();
+  return data;
+}
