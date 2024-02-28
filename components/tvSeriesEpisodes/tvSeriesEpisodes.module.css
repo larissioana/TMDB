@@ -27,7 +27,7 @@
 
 .overview
 {
-    width: 100%;
+    width: 70%;
     color: rgb(176, 171, 171);
     padding-top: .5rem;
     padding-bottom: 1rem;
@@ -40,10 +40,17 @@
     border-radius: .5rem;
 }
 
-@media screen and (max-width: 510px)
+.goBack
+{
+    padding: 2rem;
+    margin-top: 2rem;
+    font-size: 1.4rem;
+}
+
+@media screen and (max-width: 400px)
 {
     .episodeImage
     {
-        width: 250px
+        width: 270px
     }
 } 

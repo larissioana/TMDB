@@ -1,7 +1,6 @@
 import Head from "next/head";
 import styles from '../../styles/login.module.css';
 import { useState, useContext } from "react";
-import { registerUserWithEmailAndPassword, createUser } from '../../utils/firebase';
 import FormInput from "@/components/formInput/formInput";
 import { useRouter } from "next/router";
 import { UserContext } from "@/context/userContext";
@@ -33,9 +32,7 @@ const SignUp = () => {
   const handleOnSubmit = async (event) => {
     event.preventDefault();
     try {
-      const { user } = await registerUserWithEmailAndPassword(email, password);
-      await createUser(user);
-      setCurrentUser(user);
+      setCurrentUser(formFields);
       resetFormFields();
       router.push('/');
     } catch (error) {

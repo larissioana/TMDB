@@ -159,6 +159,7 @@
   padding: 0rem 1rem;
   font-size: clamp(1.3rem, 2vw, 1.6rem);
   cursor: pointer;
+  width: 15rem;
 }
 
 .imagesFlexContainer

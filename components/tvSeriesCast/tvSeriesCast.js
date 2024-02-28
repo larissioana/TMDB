@@ -12,7 +12,7 @@ const TvSeriesCast = ({ credits }) => {
                 credits.cast.map((cast) => {
                     const { id, character, name, profile_path } = cast;
                     const shortenedTitleName = shortenTitle(name, 20);
-                    const shortenedTitleCharacter = shortenTitle(character, 25);
+                    const shortenedTitleCharacter = shortenTitle(character, 35);
                     return <>
                         {
                             profile_path !== null ?

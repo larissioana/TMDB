@@ -1,21 +1,26 @@
 import dynamic from 'next/dynamic';
 import { fetchTvSeasons } from '@/utils/fetchFromAPI';
 const TvSeriesEpisodes = dynamic(() => import('../../components/tvSeriesEpisodes/tvSeriesEpisodes'));
+import Link from 'next/link';
+import styles from '../../components/tvSeriesEpisodes/tvSeriesEpisodes.module.css';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
 export async function getServerSideProps(context) {
-    const { params } = context;
-    const { season } = params;
-    const [tvSeriesId, seasonNumber] = season;
+    const tvSeriesId = context.query.season?.[0] || null;
+    const seasonNumber = context.query.season?.[1] || null;
+
     const seasonDetails = await fetchTvSeasons(tvSeriesId, seasonNumber);
 
     return {
         props:
         {
-            seasonDetails
+            seasonDetails,
+            tvSeriesId
         }
     }
 }
-const Season = ({ seasonDetails }) => {
+const Season = ({ seasonDetails, tvSeriesId }) => {
+
     return (
         <>
             <div style={{
@@ -25,7 +30,10 @@ const Season = ({ seasonDetails }) => {
                 flexDirection: "column",
                 padding: "1rem 2rem"
             }}>
-                {seasonDetails.episodes.map((episode) => {
+                <Link href={`/TvSeries/${tvSeriesId}`} className={styles.goBack}>
+                    <ArrowBackIosNewIcon />
+                </Link>
+                {seasonDetails.episodes?.map((episode) => {
                     return <TvSeriesEpisodes episode={episode} key={episode.id} />
                 })}
             </div>

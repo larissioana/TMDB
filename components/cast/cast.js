@@ -47,8 +47,8 @@ const Cast = ({
             <Link href={imdbLink} legacyBehavior>
               <a target="_blank" rel="noopener noreferrer">
                 <Image
-                  width={44}
-                  height={44}
+                  width={40}
+                  height={30}
                   alt='imdb'
                   src={imdb}
                   className={styles.imdbIcon}
@@ -61,8 +61,8 @@ const Cast = ({
             <Link href={facebookLink} legacyBehavior>
               <a target="_blank" rel="noopener noreferrer">
                 <Image
-                  width={40}
-                  height={40}
+                  width={30}
+                  height={30}
                   alt='imdb'
                   src={facebook}
                   className={styles.facebookIcon}

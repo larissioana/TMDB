@@ -11,6 +11,7 @@ const TvSeriesEpisodes = ({ episode }) => {
         overview,
         still_path,
     } = episode;
+
     return (
         <div className={styles.wrapper}>
             <Head>
@@ -34,7 +35,7 @@ const TvSeriesEpisodes = ({ episode }) => {
                             <Image src={`${IMAGE_URL_342}${still_path}`}
                                 width={322}
                                 height={192}
-                                loading="lazy"
+                                priority
                                 alt={name}
                                 className={styles.episodeImage}
                             />
@@ -42,7 +43,7 @@ const TvSeriesEpisodes = ({ episode }) => {
                             <Image src={NoImage}
                                 width={342}
                                 height={192}
-                                loading="lazy"
+                                priority
                                 alt={name}
                                 className={styles.episodeImage}
                             />

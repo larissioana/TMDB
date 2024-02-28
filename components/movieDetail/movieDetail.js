@@ -88,7 +88,6 @@ const MovieDetail = ({
                             credits={credits}
                             videoTrailer={videoTrailer}
                             externalIds={externalIds}
-                            movieImages={movieImages}
                             isLoading={isLoading}
                         />
                     </div>
@@ -100,7 +99,7 @@ const MovieDetail = ({
                             <>
                                 <h2 className={styles.moreImages} onClick={() => setAreMoreImages(!areMoreImages)}>See more images</h2>
                                 {areMoreImages &&
-                                    <div className={styles.imagesFlexContainer}>
+                                    <div className={styles.imagesFlexContainer} onClick={() => setAreMoreImages(false)}>
                                         {
                                             movieImages.backdrops.map((poster, index) => {
                                                 const { file_path } = poster;

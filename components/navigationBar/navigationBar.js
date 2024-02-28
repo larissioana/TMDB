@@ -1,7 +1,6 @@
 "use strict";
 import { Stack } from "@mui/material";
 import Link from "next/link";
-import { signOutUser } from '@/utils/firebase';
 import { useContext } from "react";
 import { UserContext } from "@/context/userContext";
 import { useRouter } from "next/router";
@@ -23,7 +22,6 @@ const NavigationBar = () => {
     };
 
     const handleSignOut = async () => {
-        await signOutUser();
         setCurrentUser(null);
         router.push('/auth/login');
     }
