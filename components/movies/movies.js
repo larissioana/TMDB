@@ -21,7 +21,7 @@ const Movies = ({ movies }) => {
                 exit={{ opacity: 0 }}
                 className={styles.cardContainer}
               >
-                <Link href={`/movie/${id}`} shallow>
+                <Link href={`/movie/${id}`}>
                   <Image
                     className={styles.img}
                     src={`${IMAGE_URL_342}${poster_path}`}

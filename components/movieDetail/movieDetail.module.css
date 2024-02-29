@@ -156,8 +156,8 @@
 .moreImages
 {
   margin-top: 2rem;
-  padding: 0rem 1rem;
-  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  text-align: center;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
   cursor: pointer;
   width: 15rem;
 }

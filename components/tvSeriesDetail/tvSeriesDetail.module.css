@@ -391,4 +391,15 @@ flex-wrap: wrap;
         width: 13rem;
         height: 20rem;
     }
+
+    .castImg
+    {
+        width: 8rem;
+        height: 10rem;
+    }
+
+    .castFlexContainer
+    {
+        column-gap:0;
+    }
 }

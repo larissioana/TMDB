@@ -143,8 +143,6 @@ li
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem 0rem 1rem;
-  overflow-x: scroll;
   margin-bottom: 1rem;
   width: 100%;
 }
@@ -180,16 +178,16 @@ li
 
 .selected-btn
 {
-  background: rgb(125, 9, 132)!important;
-  color: white!important;
-  margin-bottom: 1rem;
+  color: rgb(155, 63, 160)!important;
+  font-size: 1.6rem;
 }
 
 .pagination-btn, .pagination-btnIcon
 {
   color: rgb(255, 255, 255)!important;
   letter-spacing: .1rem;
-
+  font-size: 1.6rem;
+  cursor: pointer;
 }
 
 .pagination-btnIcon{
@@ -267,14 +265,6 @@ font-size: clamp(1rem, 2vw, 1.1rem);
     {
       display: flex;
       flex-direction: column;
-    }
-
-    .pagination
-    {
-      justify-content: flex-start;
-      width: 100%;
-      padding: 0;
-      gap:0;
     }
 
     .card-media

@@ -68,4 +68,10 @@
         align-items: center;
         flex-direction: column;
     }   
+
+    .img
+    {
+        width: 12rem;
+        height: 18rem;
+    }
 }
