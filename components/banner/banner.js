@@ -5,7 +5,7 @@ import Loading from '../loading/loading';
 import Image from 'next/image';
 import NoImage from '../../assets/no-image.webp';
 
-const Banner = ({ imageUrl, isLoading, name }) => {
+const Banner = ({ imageUrl, isLoading, name, showSearchBar }) => {
     const imageURL = `${IMAGE_BACKDROP_LARGE}${imageUrl}`;
 
     return (
@@ -33,7 +33,9 @@ const Banner = ({ imageUrl, isLoading, name }) => {
                                     alt={name}
                                 />
                         }
-                        <Searchbar placeholder="Search for a movie, tv show..." />
+                        {showSearchBar &&
+                            <Searchbar placeholder="Search for a movie, tv show..." />
+                        }
                     </div>
                     : <Loading />
             }

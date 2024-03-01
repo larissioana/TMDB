@@ -27,6 +27,11 @@
   border: 1px solid var(--shadow20);
 }
 
+.imgContainer
+{
+  background: rgba(8, 8, 8, 0.7);
+}
+
 .title
 {
   font-size: clamp(1.4rem, 3vw, 2.2rem);

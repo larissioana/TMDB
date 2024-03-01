@@ -116,12 +116,12 @@ const GenresMovies = () => {
                   activeContentType === "movie" ?
                     movies.map((movie, index) => {
                       const { backdrop_path, title } = movie;
-                      return index === 0 ? <Banner name={title} key={index} isLoading={isLoading} imageUrl={backdrop_path} /> : null;
+                      return index === 0 ? <Banner showSearchBar={false} name={title} key={index} isLoading={isLoading} imageUrl={backdrop_path} /> : null;
                     })
                     :
                     tvShows.map((show, index) => {
                       const { backdrop_path, name } = show;
-                      return index === 0 ? <Banner name={name} key={index} isLoading={isLoading} imageUrl={backdrop_path} /> : null;
+                      return index === 0 ? <Banner showSearchBar={false} name={name} key={index} isLoading={isLoading} imageUrl={backdrop_path} /> : null;
                     })
                 }
               </motion.div>

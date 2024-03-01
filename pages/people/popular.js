@@ -33,7 +33,7 @@ const Popular = () => {
     if (searchTerm) {
       const timer = setTimeout(() => {
         fetchPopularPeople(1);
-      }, 300);
+      }, 500);
       return () => clearTimeout(timer);
     } else {
       fetchPopularPeople(1);

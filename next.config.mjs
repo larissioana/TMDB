@@ -2,8 +2,14 @@
 const nextConfig = {
     images:
     {
-        domains: ['image.tmdb.org'],
-        unoptimized: true
+        remotePatterns:
+            [
+                {
+                    protocol: "https",
+                    hostname: "image.tmdb.org",
+                    port: ""
+                }
+            ]
     }
 };
 
