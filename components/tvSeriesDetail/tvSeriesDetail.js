@@ -121,14 +121,17 @@ const TvSeriesDetail = ({
                   <Backdrops key={index} backdrops={backdrop} name={name} />
                 ))}
               </div>
-              <div className={styles.arrowContainer}>
-                <button onClick={prevBackdrop} className={styles.iconBtn}>
-                  <ArrowBackIosNewRoundedIcon className={styles.prevIcon} />
-                </button>
-                <button onClick={nextBackdrop} className={styles.iconBtn}>
-                  <ArrowForwardIosRoundedIcon className={styles.nextIcon} />
-                </button>
-              </div>
+              {
+                images.backdrops.length > 1 &&
+                <div className={styles.arrowContainer}>
+                  <button onClick={prevBackdrop} className={styles.iconBtn}>
+                    <ArrowBackIosNewRoundedIcon className={styles.prevIcon} />
+                  </button>
+                  <button onClick={nextBackdrop} className={styles.iconBtn}>
+                    <ArrowForwardIosRoundedIcon className={styles.nextIcon} />
+                  </button>
+                </div>
+              }
             </>
           )}
       </div>

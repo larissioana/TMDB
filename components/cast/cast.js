@@ -88,7 +88,7 @@ const Cast = ({
                     height={112}
                     alt={name}
                     src={`${IMAGE_URL_185}${profile_path}`}
-                    loading='lazy'
+                    loading='eager'
                     placeholder="blur"
                     blurDataURL={`${IMAGE_URL_185}${profile_path}`}
                   />
@@ -99,7 +99,7 @@ const Cast = ({
                   width={112}
                   height={112}
                   alt={name}
-                  loading="lazy"
+                  loading="eager"
                   src={blankPhoto}
                   style={{
                     pointerEvents: "none"

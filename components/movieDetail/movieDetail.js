@@ -24,7 +24,6 @@ const MovieDetail = ({
 }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
-    const [areMoreImages, setAreMoreImages] = useState(false);
 
     const
         {
@@ -66,7 +65,7 @@ const MovieDetail = ({
                 <link rel="preload" href={`${IMAGE_URL}${backdrop_path}`} as="image" />
             </Head>
             <NavigationBar />
-            {backdrop_path ?
+            {!isLoading ?
                 <>
                     <div
                         className={styles.movieContent}
@@ -106,18 +105,16 @@ const MovieDetail = ({
                 {
                     movieImages.backdrops.length > 0 &&
                     <>
-                        <h2 className={styles.moreImages} onClick={() => setAreMoreImages(!areMoreImages)}>See more images</h2>
-                        {areMoreImages &&
-                            <div className={styles.imagesFlexContainer} onClick={() => setAreMoreImages(false)}>
-                                {
-                                    movieImages.backdrops.map((poster, index) => {
-                                        const { file_path } = poster;
-                                        return <MovieImages title={title} key={index} image={file_path} />
+                        <h2 className={styles.moreImages}>See more images</h2>
+                        <div className={styles.imagesFlexContainer}>
+                            {
+                                movieImages.backdrops.map((poster, index) => {
+                                    const { file_path } = poster;
+                                    return <MovieImages title={title} key={index} image={file_path} />
 
-                                    }).slice(0, 9)
-                                }
-                            </div>
-                        }
+                                }).slice(0, 6)
+                            }
+                        </div>
                     </>
                 }
             </div>

@@ -6,8 +6,6 @@ import {
     from '@/utils/fetchFromAPI';
 import TvSeriesDetail from '@/components/tvSeriesDetail/tvSeriesDetail';
 
-
-
 export async function getServerSideProps(context) {
     const tvSeriesId = context.params.tvSeries;
     const tvSeriesDetails = await fetchAPIDetails("tv", tvSeriesId);

@@ -27,7 +27,7 @@ const Movies = ({ movies }) => {
                     src={`${IMAGE_URL_342}${poster_path}`}
                     fill
                     alt={title}
-                    loading="lazy"
+                    loading="eager"
                   />
                 </Link>
               </motion.div>

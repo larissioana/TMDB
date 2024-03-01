@@ -10,7 +10,7 @@ const MovieImages = ({ image, title }) => {
             height={250}
             alt={title}
             className={styles.posters}
-            loading="lazy"
+            loading="eager"
         />
     )
 };
