@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import ReactModal from 'react-modal';
 import { TvShowsProvider } from '@/context/tvSeriesContext';
 import { UserProvider } from '@/context/userContext';
+import Head from 'next/head';
 
 export default function App({ Component, pageProps }) {
   useEffect(() => {
@@ -11,12 +12,22 @@ export default function App({ Component, pageProps }) {
   }, []);
 
   return (
-    <UserProvider>
-      <MovieProvider>
-        <TvShowsProvider>
-          <Component {...pageProps} />
-        </TvShowsProvider>
-      </MovieProvider>
-    </UserProvider>
+    <>
+      <Head>
+        <script
+          type="text/partytown"
+          dangerouslySetInnerHTML={{
+            __html: '/* Inlined Third-Party Script */',
+          }}
+        />
+      </Head>
+      <UserProvider>
+        <MovieProvider>
+          <TvShowsProvider>
+            <Component {...pageProps} />
+          </TvShowsProvider>
+        </MovieProvider>
+      </UserProvider>
+    </>
   )
 }
