@@ -2,6 +2,7 @@
 const nextConfig = {
     images:
     {
+        disableStaticImages: true,
         remotePatterns:
             [
                 {
