@@ -7,8 +7,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "npm run partytown && next build",
-    "partytown": "partytown copylib public/~partytown",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
