@@ -4,6 +4,7 @@ import { fetchAPI, IMAGE_URL_342 } from '@/utils/fetchFromAPI';
 import Image from 'next/image';
 import Loading from '../loading/loading';
 import { useTvShowsContext } from '@/context/tvSeriesContext';
+import Link from 'next/link';
 
 const TvSeries = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -44,13 +45,15 @@ const TvSeries = () => {
                   >
                     {
                       poster_path &&
-                      <Image
-                        src={`${IMAGE_URL_342}${poster_path}`}
-                        fill
-                        alt={name}
-                        className={styles.img}
-                        loading="eager"
-                      />
+                      <Link href={`/TvSeries/${id}`}>
+                        <Image
+                          src={`${IMAGE_URL_342}${poster_path}`}
+                          fill
+                          alt={name}
+                          className={styles.img}
+                          loading="eager"
+                        />
+                      </Link>
                     }
                   </div>
                   <h2 className={styles.name}>{name}</h2>
