@@ -16,7 +16,7 @@ const TvSeriesCard = ({ image, id, name }) => {
         src={`${IMAGE_BACKDROP}${image}`}
         fill
         alt={name}
-        loading="lazy"
+        loading="eager"
         className={styles.backdrop}
       />
     </div>

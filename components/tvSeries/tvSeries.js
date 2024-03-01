@@ -61,7 +61,7 @@ const TvSeries = () => {
                         fill
                         alt={name}
                         className={styles.img}
-                        loading="lazy"
+                        loading="eager"
                       />
                     }
                     {hoveredId === id && <TvSeriesCard name={name} image={backdrop_path} id={id} />}
