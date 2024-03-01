@@ -111,7 +111,7 @@ const Popular = () => {
                               width={208}
                               height={280}
                               alt={name}
-                              loading="lazy"
+                              loading="eager"
                               className={styles.people}
                               placeholder="blur"
                               blurDataURL={`${IMAGE_URL_342}${profile_path}`}
