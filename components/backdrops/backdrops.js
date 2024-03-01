@@ -12,7 +12,7 @@ const Backdrops = ({ backdrops, name }) => {
         width={600}
         height={320}
         alt={name}
-        loading="lazy"
+        loading="eager"
         className={styles.img}
         placeholder="blur"
         blurDataURL={`${IMAGE_BACKDROP}${file_path}`}
