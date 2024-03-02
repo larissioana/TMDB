@@ -5,7 +5,8 @@
     align-items: flex-start;
     gap: .5rem;
     flex-wrap: wrap;
-    width: 100%;
+    max-width: 100%;
+    height: auto;
 }
 
 .castContainer

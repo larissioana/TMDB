@@ -28,6 +28,7 @@ const Modal = ({ isOpen, onClose, videoTrailer }) => {
                                 <>
                                     <ReactPlayer
                                         controls
+                                        className={styles.reactPlayer}
                                         playing={true}
                                         url={`https://www.youtube.com/watch?v=${key}`}
                                     />

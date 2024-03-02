@@ -102,16 +102,18 @@ const MovieDetail = ({
             <div>
             </div>
             <div className={styles.right}>
+                <h2 className={styles.moreImages}>See more images</h2>
                 {
                     movieImages.backdrops.length > 0 &&
                     <>
-                        <h2 className={styles.moreImages}>See more images</h2>
                         <div className={styles.imagesFlexContainer}>
                             {
                                 movieImages.backdrops.map((poster, index) => {
                                     const { file_path } = poster;
-                                    return <MovieImages title={title} key={index} image={file_path} />
+                                    return <div className={styles.rightContainerImages}>
 
+                                        <MovieImages title={title} key={index} image={file_path} />
+                                    </div>
                                 }).slice(0, 6)
                             }
                         </div>

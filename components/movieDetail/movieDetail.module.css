@@ -194,6 +194,7 @@
 {
   margin: 1rem;
   width: 100%;
+  animation: anim 1s ease-in;
 }
 
 @media screen and (max-width: 414px)
@@ -227,13 +228,4 @@
     flex-wrap: wrap;
   }
 
-  .right
-  {
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-  }
 }

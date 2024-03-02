@@ -6,6 +6,7 @@ import { TvShowsProvider } from '@/context/tvSeriesContext';
 import { UserProvider } from '@/context/userContext';
 import Head from 'next/head';
 
+import Script from 'next/script';
 export default function App({ Component, pageProps }) {
   useEffect(() => {
     ReactModal.setAppElement('#__next')
@@ -14,7 +15,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <script
+        <Script
           type="text/partytown"
           dangerouslySetInnerHTML={{
             __html: '/* Inlined Third-Party Script */',

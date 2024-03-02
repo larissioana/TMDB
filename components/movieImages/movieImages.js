@@ -10,7 +10,9 @@ const MovieImages = ({ image, title }) => {
             height={250}
             alt={title}
             className={styles.posters}
-            loading="eager"
+            loading="lazy"
+            placeholder="blur"
+            blurDataURL={`${IMAGE_BACKDROP}${image}`}
         />
     )
 };
