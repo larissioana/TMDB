@@ -141,6 +141,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: anim 1s ease-in;
 }
 
 .voteFlexContainer
