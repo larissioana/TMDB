@@ -102,10 +102,11 @@ const MovieDetail = ({
             <div>
             </div>
             <div className={styles.right}>
-                <h2 className={styles.moreImages}>See more images</h2>
                 {
                     movieImages.backdrops.length > 0 &&
                     <>
+                        <h2 className={styles.moreImages}>See more images</h2>
+
                         <div className={styles.imagesFlexContainer}>
                             {
                                 movieImages.backdrops.map((poster, index) => {
