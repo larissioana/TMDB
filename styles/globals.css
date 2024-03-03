@@ -21,6 +21,11 @@ body
   color: white;
 }
 
+body
+{
+  overflow-x: hidden;
+}
+
 a
 {
   text-decoration: none;
@@ -33,7 +38,8 @@ a
   height: 8px;
   width: 8px;
 }
-  
+
+
 ::-webkit-scrollbar-thumb
 {
   background-color: rgb(61, 12, 48);
@@ -46,6 +52,11 @@ a
 }
 
 ::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb:horizontal
+{
   background-color: transparent;
 }
 
@@ -130,12 +141,6 @@ li
   border: none;
 }
 
-.card-media:active
-{
-  filter: hue-rotate(100deg);
-  border: none;
-}
-
 .pagination
 {
   display: flex;
@@ -143,6 +148,7 @@ li
   align-items: center;
   margin-bottom: 1rem;
   width: 100%;
+  animation: animMediaCard .4s ease-in-out;
 }
 
 .navBtn
@@ -204,9 +210,8 @@ font-size: clamp(1rem, 2vw, 1.1rem);
 
 .card-media
 {
-  animation: animMediaCard 1s ease-in-out;
+  animation: animMediaCard .4s ease-in-out;
   border-radius: .4rem;
-  border-top: 1px solid #2e2c2c;
   gap: 1rem;
   position: relative;
   width: 250px;
@@ -227,10 +232,6 @@ font-size: clamp(1rem, 2vw, 1.1rem);
 {
   0%{
     opacity: 0;
-  }
-
-  50%{
-    opacity: 0.5;
   }
 
   100%{

@@ -23,7 +23,7 @@
 .tvWrapper
 {
     display: flex;
-    overflow-x: auto;
+    overflow-x: scroll;
     width: 100%;
     justify-content: flex-start;
     align-items: flex-start;

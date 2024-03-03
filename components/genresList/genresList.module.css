@@ -7,10 +7,24 @@
     color: rgb(244, 242, 243);
     font-size: clamp(.9rem, 2vw, 1.1rem);
     width: 100%;
+    flex-wrap: wrap;
+}
+
+.genresList
+{
+  padding-left: .4rem;
 }
 
 .textBold
 {
   font-weight: bolder;
   font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+@media screen and (max-width: 450px)
+{
+  .genresList
+  {
+    padding-left: 0.1rem;
+  }
 }

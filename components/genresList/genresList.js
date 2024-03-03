@@ -6,7 +6,7 @@ const GenresList = ({ genreNames }) => {
             <p className={styles.textBold}>Genres: </p>
             {genreNames.map((genreName, index) => {
                 return (
-                    <ul style={{ display: "flex", paddingLeft: ".3rem" }} key={index}>
+                    <ul className={styles.genresList} key={index}>
                         <li className={styles.textBold}>{index === genreNames.length - 1 ? genreName : genreName + ", "} </li>
                     </ul>
                 );

@@ -114,7 +114,11 @@ const TvSeriesDetail = ({
         {
           images.backdrops.length !== 0 && (
             <>
-              <h2 className={styles.backdropsTitle}>Images ({images.backdrops.length})</h2>
+              <h2 className={styles.backdropsTitle}>
+                {
+                  images.backdrops.length > 1 ? "Images" : "Image"
+                } ({images.backdrops.length})
+              </h2>
               <div className={styles.backdrops}>
                 {images.backdrops.map((backdrop, index) => (
                   index === currentBackdropIndex &&

@@ -13,11 +13,11 @@ const Searchbar = ({ placeholder }) => {
     setSearchTerm(value);
   };
 
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (searchTerm) {
       router.push(`/search/${searchTerm}`);
+
     }
     setSearchTerm("");
   };
