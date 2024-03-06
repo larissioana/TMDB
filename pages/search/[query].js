@@ -76,17 +76,21 @@ const Search = () => {
       >
         <Searchbar placeholder={query} />
       </div>
-      {
-        searchedMovies.results.length > 0 ?
-          <h3 className="query">
-            <span style={{ textTransform: "capitalize" }}>Search results for: </span>
-            {query}
-          </h3>
-          :
-          <h3 className="query">
-            <span style={{ textTransform: "capitalize" }}>No results found for: </span>
-            {query}
-          </h3>
+      {!isLoading &&
+        <>
+          {
+            searchedMovies.results.length > 0 ?
+              <h3 className="query">
+                <span style={{ textTransform: "capitalize" }}>Search results for: </span>
+                {query}
+              </h3>
+              :
+              <h3 className="query">
+                <span style={{ textTransform: "capitalize" }}>No results found for: </span>
+                {query}
+              </h3>
+          }
+        </>
       }
       <div
         style=
