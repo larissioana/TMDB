@@ -3,15 +3,17 @@ import Image from 'next/image';
 import styles from './movies.module.css';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { shortenTitle } from '@/utils/helpers';
+import { shortenTitle, vote } from '@/utils/helpers';
+import StarIcon from '../../assets/star.png';
 
 const Movies = ({ movies }) => {
 
   return (
     <div className={styles.moviesContainer}>
       {movies.map((movie) => {
-        const { poster_path, title, id } = movie;
+        const { poster_path, title, id, vote_average } = movie;
         const shortenedTitleMovie = shortenTitle(title, 25);
+        const voteAverage = vote(vote_average);
         return <div key={id}>
           {
             poster_path &&
@@ -32,6 +34,10 @@ const Movies = ({ movies }) => {
                 </Link>
               </motion.div>
               <h2 className={styles.title}>{shortenedTitleMovie}</h2>
+              <div className="voteContainer">
+                <Image src={StarIcon} width={20} height={20} alt="star icon" />
+                <p>{voteAverage}</p>
+              </div>
             </>
           }
         </div>

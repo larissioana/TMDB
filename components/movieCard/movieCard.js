@@ -1,9 +1,8 @@
 "use strict"
 import Card from '../cardContent/cardContent';
-import Link from 'next/link';
 import { IMAGE_URL_342 } from '@/utils/fetchFromAPI';
 import { motion, AnimatePresence } from 'framer-motion';
-import { formatDate, shortenTitle } from '@/utils/helpers';
+import { formatDate, shortenTitle, vote } from '@/utils/helpers';
 import styles from '../mediaType/mediaType.module.css';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -19,7 +18,6 @@ const MovieCard = ({ movies = [] }) => {
       original_name,
       first_air_date,
     } = movies;
-
   const formattedDate = formatDate(release_date);
   const formattedDateTvShows = formatDate(first_air_date);
 

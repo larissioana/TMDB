@@ -37,7 +37,11 @@ const PaginationButton = ({ handlePageChange, filteredMovies }) => {
 
             </div>
             <div className="pages">
-                <p>Page {filteredMovies.page} of {filteredMovies.total_pages}</p>
+                <p>Page {filteredMovies.page} of{" "}
+                    {filteredMovies.total_pages.toLocaleString(undefined, {
+                        minimumFractionDigits: 0,
+                        maximumFractionDigits: filteredMovies.total_pages > 1000 ? 0 : 2,
+                    })}</p>
             </div>
         </>
     )

@@ -1,12 +1,13 @@
 import { CardContent, Typography } from "@mui/material";
+import { shortenTitle } from "@/utils/helpers";
 
 const Card = ({ name, date }) => {
+    const shortenedName = shortenTitle(name, 20);
     return (
         <div>
             <CardContent
                 sx={{
                     backgroundColor: "#000000",
-                    width: "12.6rem",
                     borderRadius: ".3rem"
                 }}
             >
@@ -16,7 +17,7 @@ const Card = ({ name, date }) => {
                     color="#fff"
                     className="typography"
                 >
-                    {name}
+                    {shortenedName}
                 </Typography>
                 <Typography
                     variant="subtitle2"

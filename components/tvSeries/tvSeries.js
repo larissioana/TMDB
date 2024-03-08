@@ -5,6 +5,8 @@ import Image from 'next/image';
 import Loading from '../loading/loading';
 import { useTvShowsContext } from '@/context/tvSeriesContext';
 import Link from 'next/link';
+import StarIcon from '../../assets/star.png';
+import { shortenTitle, vote } from '@/utils/helpers';
 
 const TvSeries = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -38,7 +40,9 @@ const TvSeries = () => {
           <div className={styles.tvSeriesContainer}>
             {
               topRatedTvShows.results?.map((result) => {
-                const { id, poster_path, name } = result;
+                const { id, poster_path, name, vote_average } = result;
+                const voteAverage = vote(vote_average);
+                const shortenedTitle = shortenTitle(name, 20);
                 return <div key={id}>
                   <div
                     className={styles.imgContainer}
@@ -56,7 +60,11 @@ const TvSeries = () => {
                       </Link>
                     }
                   </div>
-                  <h2 className={styles.name}>{name}</h2>
+                  <h2 className={styles.name}>{shortenedTitle}</h2>
+                  <div className="voteContainer">
+                    <Image src={StarIcon} width={20} height={20} alt="star icon" />
+                    <p>{voteAverage}</p>
+                  </div>
                   {isLoading && <Loading />}
                 </div>
               })}

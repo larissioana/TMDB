@@ -1,7 +1,7 @@
 "use strict";
 import { motion, AnimatePresence } from 'framer-motion';
 import { IMAGE_URL_342 } from '@/utils/fetchFromAPI';
-import { formatDate, shortenTitle } from '@/utils/helpers';
+import { formatDate, shortenTitle, vote } from '@/utils/helpers';
 import Image from 'next/image';
 import styles from './mediaType.module.css';
 import Card from '../cardContent/cardContent';

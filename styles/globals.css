@@ -228,6 +228,16 @@ font-size: clamp(1rem, 2vw, 1.1rem);
   font-size: .9rem;
 }
 
+.voteContainer
+{
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding-top: .2rem;
+  font-weight: bolder;
+  color: rgb(175, 167, 167);
+}
+
 @keyframes animMediaCard
 {
   0%{

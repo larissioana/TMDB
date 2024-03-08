@@ -24,3 +24,7 @@ export const initialState =
     total_pages: 0,
     total_results: 0,
 };
+
+export const vote = (vote_average) => {
+    return parseFloat(vote_average).toFixed(1);
+};

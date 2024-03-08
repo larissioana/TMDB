@@ -24,6 +24,7 @@
     "react-dom": "18.2.0",
     "react-modal": "^3.16.1",
     "react-player": "^2.14.1",
-    "react-tooltip": "^5.26.2"
+    "react-tooltip": "^5.26.2",
+    "sharp": "^0.33.2"
   }
 }
