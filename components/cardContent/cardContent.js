@@ -8,7 +8,8 @@ const Card = ({ name, date }) => {
             <CardContent
                 sx={{
                     backgroundColor: "#000000",
-                    borderRadius: ".3rem"
+                    borderRadius: ".3rem",
+                    width: "12.6rem"
                 }}
             >
                 <Typography
