@@ -36,7 +36,7 @@ const NavigationBar = () => {
                 sx=
                 {{
                     position: "fixed",
-                    backgroundColor: "rgba(0, 0, 0, 0.7)",
+                    backgroundColor: "rgba(0, 0, 0, 0.8)",
                     top: 0,
                     justifyContent: "center",
                     alignItems: "center",

@@ -19,9 +19,11 @@ const Popular = () => {
     try {
       setIsLoading(true);
       const fetchPeople = await (!searchTerm ? fetchAPI("person", "popular", page) : fetchAPIQuery("search", "person", searchTerm, page))
+      const sortedResults = fetchPeople.results.sort((a, b) =>
+        a.name.localeCompare(b.name))
       setPopularPeople(prev => ({
         ...fetchPeople,
-        results: page > 1 ? [...prev.results, ...fetchPeople.results] : [...fetchPeople.results]
+        results: page > 1 ? [...prev.results, ...sortedResults] : [...sortedResults]
       }))
       setIsLoading(false);
     } catch (error) {
@@ -72,16 +74,17 @@ const Popular = () => {
       </Head>
       <div className={styles.popularPeopleWrapper}>
         <NavigationBar />
-        <div className={styles.searchbarContainer}>
+        <div className={styles.searchbarContainer} style={{
+          marginBottom: "-2rem"
+        }}>
           <Paper
             sx=
             {{
-              borderBottom: "1px solid var(--white10)",
+              borderBottom: "1px solid white",
               borderRadius: 0,
               background: "rgba(0, 0, 0, 0.3)",
               backdropFilter: "blur(10px)",
               mr: { sm: 4 },
-              marginTop: "1.5rem"
             }}
           >
             <input
@@ -94,7 +97,7 @@ const Popular = () => {
         </div>
         {
           !isLoading ?
-            <div className={styles.wrapper}>
+            <div className={styles.wrapper} >
               <div className={styles.container}>
                 {
                   popularPeople.results.map((result) => {

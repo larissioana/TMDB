@@ -23,7 +23,6 @@ const Modal = ({ isOpen, onClose, videoTrailer }) => {
                     videoTrailer.results.map((video) => {
                         const { key, id, name } = video;
                         return <div key={id} className={styles.videoContainer}>
-                            <CloseIcon className={styles.closeIcon} onClick={onClose} />
                             {key && name ?
                                 <>
                                     <ReactPlayer
