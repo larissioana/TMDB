@@ -3,7 +3,7 @@
   object-position: top;
   border-radius: 1rem;
   animation: anim 1s ease-in;
-  margin-top: 5rem;
+  margin-top: 4rem;
   width: 100%;
 }
 
@@ -21,7 +21,7 @@
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
-  background: rgba(8, 8, 8, 0.7);
+  background: rgba(0, 0, 0, 0.7);
   padding: 2rem 2rem;
   border-radius: 1rem;
   border: 1px solid var(--shadow20);
@@ -58,7 +58,7 @@
 
 .description
 {
-  width: 70%;
+  max-width: 500px;
   font-size: clamp(1.1rem, 2vw, 1.2rem);
   margin-top: .6rem;
 }
@@ -80,7 +80,7 @@
   margin-top: 1rem;
   width: 3.5rem;
   height: 3.5rem;
-  border: 4.5px inset rgb(106, 132, 186) ;
+  border: 4.5px inset rgb(125, 127, 130) ;
   display: grid;
   place-content: center;
   border-radius: 50%;
@@ -124,8 +124,9 @@
   justify-content: flex-start;
   align-items: center;
   gap: 1rem;
+  width: 9rem;
   padding: 1rem 1rem;
-  box-shadow: 3px 4px 8px 0px rgb(85, 66, 88);
+  box-shadow: 3px 4px 8px 0px rgb(125, 124, 125);
 }
 
 .playIcon

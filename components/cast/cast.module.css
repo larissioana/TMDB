@@ -30,7 +30,7 @@
     margin-top: 1.5rem;
     font-size: clamp(1.2rem, 2vw, 1.6rem);
     margin-bottom: 1rem;
-    border-right: 2px solid rgb(106, 132, 186);
+    border-right: 2px solid rgb(117, 117, 118);
     filter: hue-rotate(90deg);
     height: 3rem;
     width: 7rem;

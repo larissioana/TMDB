@@ -44,3 +44,12 @@
 {
     opacity: .6;
 }
+
+@media screen and (max-width: 600px)
+{
+    .reactPlayer
+    {
+        width: 400px!important;
+        height: 200px!important;
+    }
+}

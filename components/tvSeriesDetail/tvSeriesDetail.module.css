@@ -2,7 +2,7 @@
 {
     width: 100%;
     display: flex;
-    background: rgba(2, 2, 2, 0.8);
+    background: rgba(2, 2, 2, 0.6);
     border: 1px solid var(--shadow20);
     border-radius: 1rem;
     align-items: center;
@@ -10,6 +10,7 @@
     padding: 3rem 2rem;
     flex-wrap: wrap;
     gap: 3rem;
+
 }
 
 .container
@@ -21,7 +22,7 @@
 
 .wrapper
 {
-    margin-top: 6rem;
+    margin-top: 5rem;
 }
 
 .right,
@@ -104,7 +105,7 @@
 .seeSeasons
 {
     font-size: clamp(1.4rem, 3vw, 1.8rem);
-    background: linear-gradient(90deg, rgb(161, 154, 220), rgb(169, 163, 228), rgb(167, 154, 219)); 
+    background: linear-gradient(90deg, rgb(207, 207, 210), rgb(224, 224, 226), rgb(190, 190, 193)); 
     -webkit-background-clip: text;
     color: transparent; 
     font-weight: bolder;
@@ -115,8 +116,8 @@
 {
     margin-top: 1rem;
     margin-bottom: 1rem;
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    width: 100%;
+    font-size: clamp(.9rem, 2vw, 1.2rem);
+    max-width: 500px;
     height: auto;
 }
 
@@ -132,7 +133,7 @@
   margin-top: 1rem;
   width: 3.8rem;
   height: 3.8rem;
-  border: 4.5px inset rgb(161, 154, 220) ;
+  border: 4.5px inset rgb(157, 157, 159) ;
   place-content: center;
   border-radius: 50%;
   margin-bottom: 1rem;
@@ -172,7 +173,7 @@ flex-wrap: wrap;
     font-size: clamp(1rem, 2vw, 1.2rem);
     line-height: 1.5rem;
     font-weight: bolder;
-    border-right: 2px solid rgb(161, 154, 220);
+    border-right: 2px solid rgb(173, 173, 176);
     padding: .4rem .4rem 0rem 0rem;
 }
 

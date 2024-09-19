@@ -74,6 +74,7 @@ const MovieDetail = ({
                             backgroundImage: backdrop_path ? `url('${IMAGE_URL}${backdrop_path}')` : null,
                             backgroundPosition: 'top',
                             backgroundSize: 'cover',
+                            backgroundRepeat: "no-repeat"
                         }}
                     >
                         <MovieOverview
